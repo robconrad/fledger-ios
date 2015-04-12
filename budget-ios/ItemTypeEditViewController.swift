@@ -46,8 +46,11 @@ class ItemTypeEditViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
-            if let dest = nav.viewControllers.last as? ItemViewController {
-                dest.item = dest.item?.copy(typeId: types.map { a in a[indexPath.row].id })
+            if let dest = nav.viewControllers.last as? ItemEditViewController {
+                dest.selectedTypeId = types![indexPath.row].id
+            }
+            else if let dest = nav.viewControllers.last as? ItemSearchViewController {
+                dest.itemFilters!.typeId = types![indexPath.row].id
             }
         }
     }

@@ -25,8 +25,11 @@ class ItemDateEditViewController: UIViewController {
     @IBAction func selectDate(sender: AnyObject) {
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
-            if let dest = nav.viewControllers.last as? ItemViewController {
-                dest.item = dest.item?.copy(date: datePicker.date)
+            if let dest = nav.viewControllers.last as? ItemEditViewController {
+                dest.selectedDate = datePicker.date
+            }
+            else if let dest = nav.viewControllers.last as? ItemSearchViewController {
+                dest.setDate(datePicker.date)
             }
         }
     }

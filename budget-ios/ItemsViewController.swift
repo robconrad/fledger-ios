@@ -16,45 +16,76 @@ class ItemsViewController: UITableViewController {
     var offset = 0
     let count = 30
     
-    var selectedRow: Int?
+    var itemFilters = ItemFiltersFromDefaults()
+    
+    let dateFormat = NSDateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         table.delegate = self
+        dateFormat.dateFormat = "MM/dd"
     }
     
     override func viewWillAppear(animated: Bool) {
-        items = model.getItems(count: count + offset, offset: 0)
+        items = getItems(0, count: count + offset)
         table.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.map { items in items.count } ?? 0
+        return itemFilters.count() + (items.map { items in items.count } ?? 0)
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-
-        let id = items.map { items in items[indexPath.row].id } ?? -1
-        let comments = items.map { items in items[indexPath.row].comments } ?? "failure"
-
-        cell.textLabel?.text = "\(id) - \(comments)"
+        let itemIndex = indexPath.row - itemFilters.count()
         
-        return cell
+        if itemIndex >= 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("default") as! UITableViewCell
+
+            let date = items.map { items in
+                let date = items[itemIndex].date
+                return self.dateFormat.stringFromDate(date)
+            } ?? "failure"
+            let type = items.map { items in items[itemIndex].type().name } ?? "failure"
+            let comments = items.map { items in items[itemIndex].comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) } ?? "failure"
+
+            cell.textLabel?.text = "\(date) \(type) - \(comments)"
+            
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("filter") as! UITableViewCell
+            
+            cell.textLabel?.text = itemFilters.strings()[indexPath.row]
+            
+            return cell
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedRow = indexPath.row
-        self.performSegueWithIdentifier("item", sender: table)
+        let itemIndex = indexPath.row - itemFilters.count()
+        if itemIndex >= 0 {
+            self.performSegueWithIdentifier("editItem", sender: table)
+        }
+        else {
+            self.performSegueWithIdentifier("searchItems", sender: table)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "item" {
-            if let destination = segue.destinationViewController as? ItemViewController {
+        if segue.identifier == "editItem" {
+            if let destination = segue.destinationViewController as? ItemEditViewController {
                 if let row = table.indexPathForSelectedRow()?.row {
-                    destination.item = items?[row]
+                    let itemIndex = row - itemFilters.count()
+                    if itemIndex >= 0 {
+                        destination.item = items?[itemIndex]
+                    }
                 }
+            }
+        }
+        else if segue.identifier == "searchItems" {
+            if let dest = segue.destinationViewController as? ItemSearchViewController {
+                dest.itemFilters = itemFilters
             }
         }
     }
@@ -62,16 +93,17 @@ class ItemsViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == count + offset - 1 {
             offset += count
-            items? += model.getItems(count: count, offset: offset)
+            items? += getItems(offset, count: count)
             table.reloadData()
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func getItems(offset: Int, count: Int) -> [Item] {
+        return model.getItems(
+            offset: offset,
+            count: count,
+            itemFilters: itemFilters)
     }
-
 
 }
 

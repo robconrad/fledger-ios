@@ -11,14 +11,14 @@ import SQLite
 
 class Item: Model {
     
-    let id: Int64
+    let id: Int64?
     let accountId: Int64
     let typeId: Int64
     let amount: Double
     let date: NSDate
     let comments: String
     
-    required init(id: Int64, accountId: Int64, typeId: Int64, amount: Double, date: NSDate, comments: String) {
+    required init(id: Int64?, accountId: Int64, typeId: Int64, amount: Double, date: NSDate, comments: String) {
         self.id = id
         self.accountId = accountId
         self.typeId = typeId

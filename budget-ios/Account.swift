@@ -11,7 +11,7 @@ import SQLite
 
 class Account: Model {
     
-    let id: Int64
+    let id: Int64?
     
     let name: String
     let priority: Int

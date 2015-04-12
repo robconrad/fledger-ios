@@ -27,7 +27,7 @@ class Manager<T: Model> {
             _allArray = __all()
             _allDict = Dictionary<Int64, T>()
             for e in _allArray! {
-                _allDict![e.id] = e
+                _allDict![e.id!] = e
             }
         }
         return _allArray!

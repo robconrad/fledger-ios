@@ -1,3 +1,6 @@
 [submodule "Dollar.swift"]
 	path = Dollar.swift
 	url = https://github.com/ankurp/Dollar.swift.git
+[submodule "MIBadgeButton-Swift"]
+	path = MIBadgeButton-Swift
+	url = https://github.com/mustafaibrahim989/MIBadgeButton-Swift.git

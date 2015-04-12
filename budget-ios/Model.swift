@@ -9,6 +9,6 @@
 
 protocol Model {
     
-    var id: Int64 { get }
+    var id: Int64? { get }
     
 }

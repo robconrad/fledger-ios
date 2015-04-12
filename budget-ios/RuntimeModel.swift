@@ -58,15 +58,27 @@ class RuntimeModel {
         return myTypes
     }
     
-    func getItems(offset: Int = 0, count: Int = 30) -> [Item] {
+    func getItems(
+        offset: Int = 0,
+        count: Int = 30,
+        itemFilters: ItemFilters? = nil
+    ) -> [Item] {
+        
         var myItems: [Item] = []
-        let query = items
+        
+        var query = items
             .filter(fields.amount > 0.0)
             .order(fields.date.desc, fields.id.desc)
             .limit(count, offset: offset)
+        
+        if let filters = itemFilters {
+            query = filters.toQuery(query)
+        }
+        
         for item in query {
             myItems.append(Item(row: item))
         }
+        
         return myItems
     }
     
@@ -75,7 +87,15 @@ class RuntimeModel {
     }
     
     func updateItem(item: Item) -> Bool {
-        return items.filter(fields.id == item.id).update(item.toSetters()) > 0
+        return items.filter(fields.id == item.id!).update(item.toSetters()) > 0
+    }
+    
+    func insertItem(item: Item) -> Int64? {
+        let (id, stmt) = items.insert(item.toSetters())
+        if id == nil {
+            println(stmt.reason)
+        }
+        return id
     }
     
 }

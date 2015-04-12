@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "SQLite.Database.(try (SQLite.Database) -&gt; (() -&gt; Swift.Int32) -&gt; ()).(closure #1):Database.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.lastError">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
