@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if !NSUserDefaults.standardUserDefaults().boolForKey("created") {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
+            model.createDatabaseDestructive()
+        }
+        
         return true
     }
 

@@ -8,12 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */; };
-		3E21B2721AD7229000E00AE1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2711AD7229000E00AE1 /* FirstViewController.swift */; };
-		3E21B2741AD7229000E00AE1 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2731AD7229000E00AE1 /* SecondViewController.swift */; };
+		3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */; };
+		3E21B2741AD7229000E00AE1 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2731AD7229000E00AE1 /* OverviewViewController.swift */; };
 		3E21B2771AD7229000E00AE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B2751AD7229000E00AE1 /* Main.storyboard */; };
 		3E21B2791AD7229000E00AE1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B2781AD7229000E00AE1 /* Images.xcassets */; };
 		3E21B27C1AD7229000E00AE1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B27A1AD7229000E00AE1 /* LaunchScreen.xib */; };
 		3E21B2881AD7229000E00AE1 /* budget_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2871AD7229000E00AE1 /* budget_iosTests.swift */; };
+		3E21B2A61AD7258B00E00AE1 /* sqlite3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E21B2A31AD7243600E00AE1 /* sqlite3.framework */; };
+		3E21B2A81AD7261400E00AE1 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B29B1AD7243600E00AE1 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3E21B2AB1AD72A8D00E00AE1 /* RuntimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2AA1AD72A8D00E00AE1 /* RuntimeModel.swift */; };
+		3E21B2B11AD739D500E00AE1 /* cakebudget2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B2B01AD739D500E00AE1 /* cakebudget2.sql */; };
+		3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B31AD7572800E00AE1 /* Item.swift */; };
+		3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B51AD757D200E00AE1 /* Fields.swift */; };
+		3E21B2B81AD7624200E00AE1 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B71AD7624200E00AE1 /* ItemViewController.swift */; };
+		3E21B2BC1AD773CC00E00AE1 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BB1AD773CC00E00AE1 /* Type.swift */; };
+		3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BD1AD7799C00E00AE1 /* Account.swift */; };
+		3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */; };
+		3E21B2E21AD9E6C100E00AE1 /* Managers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E11AD9E6C100E00AE1 /* Managers.swift */; };
+		3E21B2E41AD9E7B800E00AE1 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E31AD9E7B800E00AE1 /* Manager.swift */; };
+		3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
+		3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */; };
+		3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,20 +39,89 @@
 			remoteGlobalIDString = 3E21B2691AD7229000E00AE1;
 			remoteInfo = "budget-ios";
 		};
+		3E21B29A1AD7243600E00AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773F319C8CBB3004FCF85;
+			remoteInfo = SQLite;
+		};
+		3E21B29C1AD7243600E00AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DC3773FE19C8CBB3004FCF85;
+			remoteInfo = "SQLite Tests";
+		};
+		3E21B29E1AD7243600E00AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCC6B3801A9191C300734B78;
+			remoteInfo = SQLiteCipher;
+		};
+		3E21B2A01AD7243600E00AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCC6B3921A9191D100734B78;
+			remoteInfo = "SQLiteCipher Tests";
+		};
+		3E21B2A21AD7243600E00AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DCAE4D151ABE0B3300EFCE7A;
+			remoteInfo = sqlite3;
+		};
+		3E21B2A41AD7244A00E00AE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = DC3773F219C8CBB3004FCF85;
+			remoteInfo = SQLite;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3E21B2A71AD7260400E00AE1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3E21B2A81AD7261400E00AE1 /* SQLite.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3E21B26A1AD7229000E00AE1 /* budget-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "budget-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E21B26E1AD7229000E00AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3E21B2711AD7229000E00AE1 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		3E21B2731AD7229000E00AE1 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		3E21B2731AD7229000E00AE1 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		3E21B2761AD7229000E00AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E21B2781AD7229000E00AE1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E21B27B1AD7229000E00AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3E21B2811AD7229000E00AE1 /* budget-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "budget-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E21B2861AD7229000E00AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E21B2871AD7229000E00AE1 /* budget_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = budget_iosTests.swift; sourceTree = "<group>"; };
+		3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
+		3E21B2AA1AD72A8D00E00AE1 /* RuntimeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RuntimeModel.swift; sourceTree = "<group>"; };
+		3E21B2B01AD739D500E00AE1 /* cakebudget2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cakebudget2.sql; sourceTree = "<group>"; };
+		3E21B2B31AD7572800E00AE1 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		3E21B2B51AD757D200E00AE1 /* Fields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fields.swift; sourceTree = "<group>"; };
+		3E21B2B71AD7624200E00AE1 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		3E21B2BB1AD773CC00E00AE1 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		3E21B2BD1AD7799C00E00AE1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAccountEditViewController.swift; sourceTree = "<group>"; };
+		3E21B2E11AD9E6C100E00AE1 /* Managers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Managers.swift; sourceTree = "<group>"; };
+		3E21B2E31AD9E7B800E00AE1 /* Manager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
+		3E21B2E51AD9E8FC00E00AE1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTypeEditViewController.swift; sourceTree = "<group>"; };
+		3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDateEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E21B2A61AD7258B00E00AE1 /* sqlite3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +149,8 @@
 				3E21B26C1AD7229000E00AE1 /* budget-ios */,
 				3E21B2841AD7229000E00AE1 /* budget-iosTests */,
 				3E21B26B1AD7229000E00AE1 /* Products */,
+				3E21B2B01AD739D500E00AE1 /* cakebudget2.sql */,
+				3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,9 +166,16 @@
 		3E21B26C1AD7229000E00AE1 /* budget-ios */ = {
 			isa = PBXGroup;
 			children = (
+				3E21B2E01AD9E6B000E00AE1 /* managers */,
+				3E21B2B21AD7571900E00AE1 /* models */,
 				3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */,
-				3E21B2711AD7229000E00AE1 /* FirstViewController.swift */,
-				3E21B2731AD7229000E00AE1 /* SecondViewController.swift */,
+				3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */,
+				3E21B2B71AD7624200E00AE1 /* ItemViewController.swift */,
+				3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */,
+				3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */,
+				3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */,
+				3E21B2731AD7229000E00AE1 /* OverviewViewController.swift */,
+				3E21B2AA1AD72A8D00E00AE1 /* RuntimeModel.swift */,
 				3E21B2751AD7229000E00AE1 /* Main.storyboard */,
 				3E21B2781AD7229000E00AE1 /* Images.xcassets */,
 				3E21B27A1AD7229000E00AE1 /* LaunchScreen.xib */,
@@ -115,6 +209,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3E21B2921AD7243600E00AE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E21B29B1AD7243600E00AE1 /* SQLite.framework */,
+				3E21B29D1AD7243600E00AE1 /* SQLite Tests.xctest */,
+				3E21B29F1AD7243600E00AE1 /* SQLite.framework */,
+				3E21B2A11AD7243600E00AE1 /* SQLiteCipher Tests.xctest */,
+				3E21B2A31AD7243600E00AE1 /* sqlite3.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E21B2B21AD7571900E00AE1 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				3E21B2B31AD7572800E00AE1 /* Item.swift */,
+				3E21B2BB1AD773CC00E00AE1 /* Type.swift */,
+				3E21B2BD1AD7799C00E00AE1 /* Account.swift */,
+				3E21B2B51AD757D200E00AE1 /* Fields.swift */,
+				3E21B2E51AD9E8FC00E00AE1 /* Model.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		3E21B2E01AD9E6B000E00AE1 /* managers */ = {
+			isa = PBXGroup;
+			children = (
+				3E21B2E11AD9E6C100E00AE1 /* Managers.swift */,
+				3E21B2E31AD9E7B800E00AE1 /* Manager.swift */,
+			);
+			name = managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,10 +252,12 @@
 				3E21B2661AD7229000E00AE1 /* Sources */,
 				3E21B2671AD7229000E00AE1 /* Frameworks */,
 				3E21B2681AD7229000E00AE1 /* Resources */,
+				3E21B2A71AD7260400E00AE1 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3E21B2A51AD7244A00E00AE1 /* PBXTargetDependency */,
 			);
 			name = "budget-ios";
 			productName = "budget-ios";
@@ -182,6 +311,12 @@
 			mainGroup = 3E21B2611AD7229000E00AE1;
 			productRefGroup = 3E21B26B1AD7229000E00AE1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3E21B2921AD7243600E00AE1 /* Products */;
+					ProjectRef = 3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3E21B2691AD7229000E00AE1 /* budget-ios */,
@@ -190,6 +325,44 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		3E21B29B1AD7243600E00AE1 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 3E21B29A1AD7243600E00AE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E21B29D1AD7243600E00AE1 /* SQLite Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLite Tests.xctest";
+			remoteRef = 3E21B29C1AD7243600E00AE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E21B29F1AD7243600E00AE1 /* SQLite.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SQLite.framework;
+			remoteRef = 3E21B29E1AD7243600E00AE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E21B2A11AD7243600E00AE1 /* SQLiteCipher Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "SQLiteCipher Tests.xctest";
+			remoteRef = 3E21B2A01AD7243600E00AE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E21B2A31AD7243600E00AE1 /* sqlite3.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = sqlite3.framework;
+			remoteRef = 3E21B2A21AD7243600E00AE1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		3E21B2681AD7229000E00AE1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -197,6 +370,7 @@
 			files = (
 				3E21B2771AD7229000E00AE1 /* Main.storyboard in Resources */,
 				3E21B27C1AD7229000E00AE1 /* LaunchScreen.xib in Resources */,
+				3E21B2B11AD739D500E00AE1 /* cakebudget2.sql in Resources */,
 				3E21B2791AD7229000E00AE1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,9 +389,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E21B2741AD7229000E00AE1 /* SecondViewController.swift in Sources */,
+				3E21B2B81AD7624200E00AE1 /* ItemViewController.swift in Sources */,
+				3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */,
+				3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */,
+				3E21B2741AD7229000E00AE1 /* OverviewViewController.swift in Sources */,
+				3E21B2E21AD9E6C100E00AE1 /* Managers.swift in Sources */,
+				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,
+				3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */,
+				3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */,
+				3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */,
+				3E21B2E41AD9E7B800E00AE1 /* Manager.swift in Sources */,
+				3E21B2BC1AD773CC00E00AE1 /* Type.swift in Sources */,
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
-				3E21B2721AD7229000E00AE1 /* FirstViewController.swift in Sources */,
+				3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */,
+				3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */,
+				3E21B2AB1AD72A8D00E00AE1 /* RuntimeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +422,11 @@
 			isa = PBXTargetDependency;
 			target = 3E21B2691AD7229000E00AE1 /* budget-ios */;
 			targetProxy = 3E21B2821AD7229000E00AE1 /* PBXContainerItemProxy */;
+		};
+		3E21B2A51AD7244A00E00AE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SQLite;
+			targetProxy = 3E21B2A41AD7244A00E00AE1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -415,6 +606,7 @@
 				3E21B28D1AD7229000E00AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E21B28E1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "budget-iosTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +615,7 @@
 				3E21B2901AD7229000E00AE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
