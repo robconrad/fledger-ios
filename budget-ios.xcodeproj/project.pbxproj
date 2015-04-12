@@ -20,7 +20,7 @@
 		3E21B2B11AD739D500E00AE1 /* cakebudget2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B2B01AD739D500E00AE1 /* cakebudget2.sql */; };
 		3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B31AD7572800E00AE1 /* Item.swift */; };
 		3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B51AD757D200E00AE1 /* Fields.swift */; };
-		3E21B2B81AD7624200E00AE1 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B71AD7624200E00AE1 /* ItemViewController.swift */; };
+		3E21B2B81AD7624200E00AE1 /* ItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */; };
 		3E21B2BC1AD773CC00E00AE1 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BB1AD773CC00E00AE1 /* Type.swift */; };
 		3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BD1AD7799C00E00AE1 /* Account.swift */; };
 		3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */; };
@@ -29,6 +29,11 @@
 		3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
 		3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */; };
 		3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */; };
+		3E3B9EF11ADA3E9E006E9016 /* ItemSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */; };
+		3E3B9EF91ADA4702006E9016 /* ItemFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9EF81ADA4702006E9016 /* ItemFilters.swift */; };
+		3E3B9F0C1ADA4CF1006E9016 /* MIBadgeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9F0A1ADA4CF1006E9016 /* MIBadgeButton.swift */; };
+		3E3B9F0D1ADA4CF1006E9016 /* MIBadgeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9F0B1ADA4CF1006E9016 /* MIBadgeLabel.swift */; };
+		3E3B9F181ADADA4A006E9016 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +118,7 @@
 		3E21B2B01AD739D500E00AE1 /* cakebudget2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cakebudget2.sql; sourceTree = "<group>"; };
 		3E21B2B31AD7572800E00AE1 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		3E21B2B51AD757D200E00AE1 /* Fields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fields.swift; sourceTree = "<group>"; };
-		3E21B2B71AD7624200E00AE1 /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEditViewController.swift; sourceTree = "<group>"; };
 		3E21B2BB1AD773CC00E00AE1 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		3E21B2BD1AD7799C00E00AE1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAccountEditViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +127,11 @@
 		3E21B2E51AD9E8FC00E00AE1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTypeEditViewController.swift; sourceTree = "<group>"; };
 		3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDateEditViewController.swift; sourceTree = "<group>"; };
+		3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchViewController.swift; sourceTree = "<group>"; };
+		3E3B9EF81ADA4702006E9016 /* ItemFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFilters.swift; sourceTree = "<group>"; };
+		3E3B9F0A1ADA4CF1006E9016 /* MIBadgeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MIBadgeButton.swift; path = "../MIBadgeButton-Swift/Classes/MIBadgeButton.swift"; sourceTree = "<group>"; };
+		3E3B9F0B1ADA4CF1006E9016 /* MIBadgeLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MIBadgeLabel.swift; path = "../MIBadgeButton-Swift/Classes/MIBadgeLabel.swift"; sourceTree = "<group>"; };
+		3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,16 +176,21 @@
 		3E21B26C1AD7229000E00AE1 /* budget-ios */ = {
 			isa = PBXGroup;
 			children = (
+				3E3B9F101ADAD9BB006E9016 /* services */,
 				3E21B2E01AD9E6B000E00AE1 /* managers */,
 				3E21B2B21AD7571900E00AE1 /* models */,
 				3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */,
 				3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */,
-				3E21B2B71AD7624200E00AE1 /* ItemViewController.swift */,
+				3E3B9EF81ADA4702006E9016 /* ItemFilters.swift */,
+				3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */,
+				3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */,
 				3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */,
 				3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */,
 				3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */,
 				3E21B2731AD7229000E00AE1 /* OverviewViewController.swift */,
 				3E21B2AA1AD72A8D00E00AE1 /* RuntimeModel.swift */,
+				3E3B9F0A1ADA4CF1006E9016 /* MIBadgeButton.swift */,
+				3E3B9F0B1ADA4CF1006E9016 /* MIBadgeLabel.swift */,
 				3E21B2751AD7229000E00AE1 /* Main.storyboard */,
 				3E21B2781AD7229000E00AE1 /* Images.xcassets */,
 				3E21B27A1AD7229000E00AE1 /* LaunchScreen.xib */,
@@ -240,6 +255,14 @@
 				3E21B2E31AD9E7B800E00AE1 /* Manager.swift */,
 			);
 			name = managers;
+			sourceTree = "<group>";
+		};
+		3E3B9F101ADAD9BB006E9016 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */,
+			);
+			name = services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,19 +412,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E21B2B81AD7624200E00AE1 /* ItemViewController.swift in Sources */,
+				3E21B2B81AD7624200E00AE1 /* ItemEditViewController.swift in Sources */,
+				3E3B9F0D1ADA4CF1006E9016 /* MIBadgeLabel.swift in Sources */,
 				3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */,
 				3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */,
 				3E21B2741AD7229000E00AE1 /* OverviewViewController.swift in Sources */,
 				3E21B2E21AD9E6C100E00AE1 /* Managers.swift in Sources */,
+				3E3B9F181ADADA4A006E9016 /* DatabaseService.swift in Sources */,
 				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,
 				3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */,
+				3E3B9F0C1ADA4CF1006E9016 /* MIBadgeButton.swift in Sources */,
 				3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */,
 				3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */,
 				3E21B2E41AD9E7B800E00AE1 /* Manager.swift in Sources */,
+				3E3B9EF91ADA4702006E9016 /* ItemFilters.swift in Sources */,
 				3E21B2BC1AD773CC00E00AE1 /* Type.swift in Sources */,
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
 				3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */,
+				3E3B9EF11ADA3E9E006E9016 /* ItemSearchViewController.swift in Sources */,
 				3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */,
 				3E21B2AB1AD72A8D00E00AE1 /* RuntimeModel.swift in Sources */,
 			);
