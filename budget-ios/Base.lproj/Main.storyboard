@@ -79,15 +79,6 @@
                                     <segue destination="mR0-4M-EOF" kind="show" id="Z9w-ld-zSS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eRB-OH-bRD">
-                                <rect key="frame" x="137" y="371" width="37" height="30"/>
-                                <state key="normal" title="Clear">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clear:" destination="GUZ-Qa-CZq" eventType="touchUpInside" id="4iO-7E-r3B"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -98,13 +89,11 @@
                             <constraint firstItem="I2x-J4-8tm" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="15" id="Awd-yC-kU1"/>
                             <constraint firstItem="rnI-lA-qQd" firstAttribute="leading" secondItem="Cx3-NZ-ULB" secondAttribute="trailing" constant="23" id="E62-g3-Ju7"/>
                             <constraint firstItem="Cx3-NZ-ULB" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="8" id="IdN-uE-M4w"/>
-                            <constraint firstAttribute="centerX" secondItem="eRB-OH-bRD" secondAttribute="centerX" id="OQG-aF-lJS"/>
                             <constraint firstItem="zcK-7a-Wvg" firstAttribute="top" secondItem="Cx3-NZ-ULB" secondAttribute="bottom" constant="22" id="OWk-V7-FOu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rnI-lA-qQd" secondAttribute="trailing" constant="5" id="Oap-fV-ODw"/>
                             <constraint firstItem="5SX-Pw-lZn" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="1" id="Rvl-vH-Yd8"/>
                             <constraint firstItem="n7k-Hf-7QG" firstAttribute="top" secondItem="rnI-lA-qQd" secondAttribute="bottom" constant="13" id="blg-Qq-Gyk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eFU-xg-PHT" secondAttribute="trailing" constant="5" id="cOg-Y8-LZR"/>
-                            <constraint firstItem="eRB-OH-bRD" firstAttribute="top" secondItem="n7k-Hf-7QG" secondAttribute="bottom" constant="118" id="e4i-7f-LZU"/>
                             <constraint firstAttribute="trailingMargin" secondItem="isg-jD-ChN" secondAttribute="trailing" constant="5" id="gh6-80-RRX"/>
                             <constraint firstItem="isg-jD-ChN" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="22" id="gjm-vr-i93"/>
                             <constraint firstItem="rnI-lA-qQd" firstAttribute="top" secondItem="eFU-xg-PHT" secondAttribute="bottom" constant="17" id="hC5-GE-cZh"/>
@@ -117,9 +106,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Search Items" id="HJA-ZF-MQ3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ETE-ap-dob">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ETE-ap-dob">
                             <connections>
-                                <action selector="save:" destination="GUZ-Qa-CZq" id="9an-Lb-Gfc"/>
+                                <action selector="clear:" destination="GUZ-Qa-CZq" id="NS7-d0-CWG"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

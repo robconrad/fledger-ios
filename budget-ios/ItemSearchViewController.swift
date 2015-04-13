@@ -52,20 +52,13 @@ class ItemSearchViewController: UIViewController {
         
     }
     
-    @IBAction func save(sender: AnyObject) {
-        
+    override func viewWillDisappear(animated: Bool) {
         itemFilters!.save()
-        
-        if let nav = navigationController {
-            nav.popViewControllerAnimated(true)
-        }
-        
     }
     
     @IBAction func clear(sender: AnyObject) {
         
         itemFilters!.clear()
-        itemFilters!.save()
         
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
