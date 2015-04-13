@@ -8,17 +8,43 @@
 
 import UIKit
 
-class OverviewViewController: UIViewController {
 
-    @IBOutlet weak var itemCount: UILabel!
+class OverviewViewController: UITableViewController {
+    
+    var rows: [Aggregate] = []
+    var selectedIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        itemCount.text = "\(model.getItemCount()) items"
-        
     }
 
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return rows.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
+        (cell.contentView.viewWithTag(1) as! UILabel).text! = rows[indexPath.row].name
+        (cell.contentView.viewWithTag(2) as! UILabel).text! = String(format:"$%.2f", rows[indexPath.row].value)
+        return cell
+    }
+    
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        selectedIndex = indexPath.row
+        return indexPath
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "items" {
+            if let dest = segue.destinationViewController as? ItemsViewController {
+                let filters = ItemFilters()
+                // TODO need to have group and type supported
+                filters.accountId = rows[selectedIndex!].id
+                dest.itemFilters = filters
+                dest.isSearchable = false
+            }
+        }
+    }
 
 }
 

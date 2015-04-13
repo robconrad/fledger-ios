@@ -13,10 +13,10 @@ class ItemsViewController: UITableViewController {
     @IBOutlet var table: UITableView!
     
     var items: [Item]?
-    var offset = 0
-    let count = 30
     
     var itemFilters = ItemFiltersFromDefaults()
+    
+    var isSearchable = true
     
     let dateFormat = NSDateFormatter()
     
@@ -25,10 +25,14 @@ class ItemsViewController: UITableViewController {
     
         table.delegate = self
         dateFormat.dateFormat = "MM/dd"
+        
+        itemFilters.count = 30
+        itemFilters.offset = 0
     }
     
     override func viewWillAppear(animated: Bool) {
-        items = getItems(0, count: count + offset)
+        itemFilters.count = itemFilters.count! + itemFilters.offset!
+        items = ModelServices.item.select(itemFilters)
         table.reloadData()
     }
     
@@ -37,19 +41,19 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let itemIndex = indexPath.row - itemFilters.count()
+        let itemIndex = indexPath.row - itemFilters.count() 
         
         if itemIndex >= 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("default") as! UITableViewCell
-
-            let date = items.map { items in
-                let date = items[itemIndex].date
-                return self.dateFormat.stringFromDate(date)
-            } ?? "failure"
-            let type = items.map { items in items[itemIndex].type().name } ?? "failure"
-            let comments = items.map { items in items[itemIndex].comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) } ?? "failure"
-
-            cell.textLabel?.text = "\(date) \(type) - \(comments)"
+            
+            if let i = items {
+                let date = dateFormat.stringFromDate(i[itemIndex].date)
+                let type = i[itemIndex].type().name
+                let comments = i[itemIndex].comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                
+                (cell.contentView.viewWithTag(1) as! UILabel).text! = "\(date) \(type) - \(comments)"
+                (cell.contentView.viewWithTag(2) as! UILabel).text! = String(format:"$%.2f", i[itemIndex].amount * i[itemIndex].flow)
+            }
             
             return cell
         }
@@ -67,7 +71,7 @@ class ItemsViewController: UITableViewController {
         if itemIndex >= 0 {
             self.performSegueWithIdentifier("editItem", sender: table)
         }
-        else {
+        else if isSearchable {
             self.performSegueWithIdentifier("searchItems", sender: table)
         }
     }
@@ -91,19 +95,12 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == count + offset - 1 {
-            offset += count
-            items? += getItems(offset, count: count)
+        if indexPath.row == itemFilters.count! + itemFilters.offset! - 1 {
+            itemFilters.offset! += itemFilters.count!
+            items? += ModelServices.item.select(itemFilters)
             table.reloadData()
         }
     }
     
-    func getItems(offset: Int, count: Int) -> [Item] {
-        return model.getItems(
-            offset: offset,
-            count: count,
-            itemFilters: itemFilters)
-    }
-
 }
 

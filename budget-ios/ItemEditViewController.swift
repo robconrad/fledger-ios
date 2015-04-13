@@ -20,8 +20,9 @@ class ItemEditViewController: UIViewController {
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var type: UIButton!
     @IBOutlet weak var amount: UITextField!
+    @IBOutlet weak var flow: UISwitch!
     @IBOutlet weak var comments: UITextView!
-    
+        
     var item: Item?
     
     var selectedAccountId: Int64?
@@ -50,16 +51,16 @@ class ItemEditViewController: UIViewController {
             date.setTitle(i.date.datatypeValue, forState: .Normal)
             type.setTitle(i.type().name, forState: .Normal)
             amount.text = String(format: "%.2f", i.amount)
+            flow.setOn(i.flow > 0, animated: true)
             comments.text = i.comments
-            
         }
         else {
             self.title = "Add Item"
             if let accountId = selectedAccountId {
-                account.setTitle(accountManager.withId(accountId)!.name, forState: .Normal)
+                account.setTitle(ModelServices.account.withId(accountId)!.name, forState: .Normal)
             }
             if let typeId = selectedTypeId {
-                type.setTitle(typeManager.withId(typeId)!.name, forState: .Normal)
+                type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
             }
             if let myDate = selectedDate {
                 date.setTitle(myDate.datatypeValue, forState: .Normal)
@@ -83,30 +84,32 @@ class ItemEditViewController: UIViewController {
         }
         
         let amountValue = (amount.text as NSString).doubleValue
-        checkErrors(amountValue == 0, item: amountLabel)
+        checkErrors(amountValue <= 0, item: amountLabel)
         
         let commentsValue = comments.text
         checkErrors(count(commentsValue) == 0, item: commentsLabel)
             
         if !errors {
             if let i = item {
-                errors = !model.updateItem(i.copy(
+                errors = !ModelServices.item.update(i.copy(
                     amount: amountValue,
+                    flow: flow.on ? 1 : -1,
                     comments: commentsValue))
             }
             else {
-                errors = model.insertItem(Item(
+                errors = ModelServices.item.insert(Item(
                     id: nil,
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
                     amount: amountValue,
+                    flow: flow.on ? 1 : -1,
                     date: selectedDate!,
                     comments: commentsValue)) == nil
             }
             
             if !errors {
                 if let nav = navigationController {
-                    nav.popToRootViewControllerAnimated(true)
+                    nav.popViewControllerAnimated(true)
                 }
             }
         }

@@ -22,8 +22,12 @@ class Type: Model {
     
     convenience init(row: Row) {
         self.init(
-            id: row.get(fields.id),
-            name: row.get(fields.name))
+            id: row.get(Fields.id),
+            name: row.get(Fields.name))
+    }
+    
+    func toSetters() -> [Setter] {
+        return []
     }
     
 }

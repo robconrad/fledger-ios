@@ -19,7 +19,7 @@ class ItemTypeEditViewController: UITableViewController {
         super.viewDidLoad()
         
         table.delegate = self
-        types = typeManager.all()
+        types = ModelServices.type.all()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

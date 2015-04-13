@@ -9,26 +9,30 @@
 import Foundation
 import SQLite
 
-class ItemFilters {
+class ItemFilters: Filters {
     
     var accountId: Int64?
     var startDate: NSDate?
     var endDate: NSDate?
     var typeId: Int64?
     
-    func toQuery(var query: Query) -> Query {
+    override func toQuery(var query: Query) -> Query {
+        
+        query = super.toQuery(query)
+        
         if let id = accountId {
-            query = query.filter(fields.accountId == id)
+            query = query.filter(Fields.accountId == id)
         }
         if let id = typeId {
-            query = query.filter(fields.typeId == id)
+            query = query.filter(Fields.typeId == id)
         }
         if let date = startDate {
-            query = query.filter(fields.date >= date)
+            query = query.filter(Fields.date >= date)
         }
         if let date = endDate {
-            query = query.filter(fields.date <= date)
+            query = query.filter(Fields.date <= date)
         }
+        
         return query
     }
     
@@ -36,10 +40,10 @@ class ItemFilters {
         var s: [String] = []
         
         if let id = accountId {
-            s.append("Filtered by Account: " + accountManager.withId(id)!.name)
+            s.append("Filtered by Account: " + ModelServices.account.withId(id)!.name)
         }
         if let id = typeId {
-            s.append("Filtered by Type: " + typeManager.withId(id)!.name)
+            s.append("Filtered by Type: " + ModelServices.type.withId(id)!.name)
         }
         if let date = startDate {
             s.append("Filtered by Start Date: " + date.datatypeValue)

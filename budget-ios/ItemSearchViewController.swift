@@ -35,7 +35,7 @@ class ItemSearchViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         
         if let accountId = itemFilters!.accountId {
-            account.setTitle(accountManager.withId(accountId)!.name, forState: .Normal)
+            account.setTitle(ModelServices.account.withId(accountId)!.name, forState: .Normal)
         }
         if let date = itemFilters!.startDate {
             startDate.setTitle(date.datatypeValue, forState: .Normal)
@@ -44,7 +44,7 @@ class ItemSearchViewController: UIViewController {
             endDate.setTitle(date.datatypeValue, forState: .Normal)
         }
         if let typeId = itemFilters!.typeId {
-            type.setTitle(typeManager.withId(typeId)!.name, forState: .Normal)
+            type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
         }
         
         askingForStartDate = false

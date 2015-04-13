@@ -26,10 +26,14 @@ class Account: Model {
     
     convenience init(row: Row) {
         self.init(
-            id: row.get(fields.id),
-            name: row.get(fields.name),
-            priority: row.get(fields.priority),
-            inactive: row.get(fields.inactive))
+            id: row.get(Fields.id),
+            name: row.get(Fields.name),
+            priority: row.get(Fields.priority),
+            inactive: row.get(Fields.inactive))
+    }
+    
+    func toSetters() -> [Setter] {
+        return []
     }
     
 }

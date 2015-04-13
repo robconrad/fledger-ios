@@ -19,7 +19,7 @@ class ItemAccountEditViewController: UITableViewController {
         super.viewDidLoad()
         
         table.delegate = self
-        accounts = accountManager.all().filter({ !$0.inactive })
+        accounts = ModelServices.account.all().filter({ !$0.inactive })
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

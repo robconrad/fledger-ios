@@ -9,25 +9,32 @@
 import Foundation
 import SQLite
 
-let fields = Fields()
 
-struct Fields {
+class Fields {
     
     // PK
-    let id = Expression<Int64>("id")
+    static let id = Expression<Int64>("id")
     
     // FKs
-    let typeId = Expression<Int64>("type_id")
-    let accountId = Expression<Int64>("account_id")
+    static let typeId = Expression<Int64>("type_id")
+    static let groupId = Expression<Int64>("group_id")
+    static let accountId = Expression<Int64>("account_id")
     
     // items
-    let amount = Expression<Double>("amount")
-    let comments = Expression<String>("comments")
-    let date = Expression<NSDate>("date")
+    static let flow = Expression<Double>("flow")
+    static let amount = Expression<Double>("amount")
+    static let comments = Expression<String>("comments")
+    static let date = Expression<NSDate>("date")
     
     // accounts
-    let name = Expression<String>("name")
-    let priority = Expression<Int>("priority")
-    let inactive = Expression<Bool>("inactive")
+    static let name = Expression<String>("name")
+    static let priority = Expression<Int>("priority")
+    static let inactive = Expression<Bool>("inactive")
+    
+}
+
+class Expressions {
+    
+    static let sumAmount = sum(Fields.amount * Fields.flow)
     
 }

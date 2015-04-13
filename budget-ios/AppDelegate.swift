@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !NSUserDefaults.standardUserDefaults().boolForKey("created") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
-            model.createDatabaseDestructive()
+            DatabaseService.main.createDatabaseDestructive()
         }
         
         return true
