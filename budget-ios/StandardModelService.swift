@@ -62,6 +62,14 @@ class StandardModelService<M: Model>: ModelService {
         return table().filter(Fields.id == e.id!).update(e.toSetters()) == 1
     }
     
+    func delete(e: M) -> Bool {
+        return delete(e.id!)
+    }
+    
+    func delete(id: Int64) -> Bool {
+        return table().filter(Fields.id == id).delete() == 1
+    }
+    
     func invalidate() {
         // standard model always talks to db and thus doesn't require invalidation
     }

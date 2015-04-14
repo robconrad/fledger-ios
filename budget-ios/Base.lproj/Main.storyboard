@@ -314,12 +314,25 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zax-GV-4lB">
+                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                <items>
+                                    <navigationItem id="y8F-o2-IzK">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Azu-5k-YTo">
+                                            <connections>
+                                                <action selector="remove:" destination="9Zl-Cc-ojT" id="uKf-ad-lUO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WDh-ho-YYf" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="20" id="2XC-Vh-51x"/>
                             <constraint firstItem="WDh-ho-YYf" firstAttribute="leading" secondItem="fMj-Eq-ram" secondAttribute="trailing" constant="3" id="3Yz-Z5-u3d"/>
                             <constraint firstItem="LPA-ea-mbv" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="4gN-Bu-bq3"/>
+                            <constraint firstItem="QUU-Tf-yeO" firstAttribute="top" secondItem="zax-GV-4lB" secondAttribute="bottom" id="5Dt-ce-blv"/>
                             <constraint firstItem="Ofk-eX-9Xr" firstAttribute="top" secondItem="Yfg-nc-fh9" secondAttribute="bottom" constant="23" id="69U-KX-Sx7"/>
                             <constraint firstItem="SGs-z7-8gC" firstAttribute="top" secondItem="1kn-Wy-Ibx" secondAttribute="bottom" constant="27" id="F1K-cX-HtQ"/>
                             <constraint firstItem="fMj-Eq-ram" firstAttribute="leading" secondItem="Yfg-nc-fh9" secondAttribute="trailing" constant="41" id="G8p-gO-xb7"/>
@@ -331,9 +344,11 @@
                             <constraint firstItem="ZkN-fj-Hg3" firstAttribute="leading" secondItem="GIR-4W-hSJ" secondAttribute="trailing" constant="23" id="U9S-od-Jwq"/>
                             <constraint firstItem="9TL-gh-6We" firstAttribute="top" secondItem="ZkN-fj-Hg3" secondAttribute="bottom" constant="17" id="UrI-Sj-wl8"/>
                             <constraint firstItem="9pc-46-3SU" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="25" id="YLn-eh-9um"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zax-GV-4lB" secondAttribute="trailing" constant="-16" id="ZAc-Zg-bTk"/>
                             <constraint firstItem="9TL-gh-6We" firstAttribute="leading" secondItem="LPA-ea-mbv" secondAttribute="trailing" constant="23" id="ZCb-1N-dKk"/>
                             <constraint firstItem="ZkN-fj-Hg3" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="bx8-u3-cW0"/>
                             <constraint firstItem="9TL-gh-6We" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="fHH-KV-jeD"/>
+                            <constraint firstItem="zax-GV-4lB" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="-16" id="iqo-h1-Ece"/>
                             <constraint firstItem="SGs-z7-8gC" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="24" id="kLr-4Z-F5l"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ofk-eX-9Xr" secondAttribute="trailing" constant="199" id="lZX-jN-jAx"/>
                             <constraint firstItem="Yfg-nc-fh9" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="47" id="pAZ-B0-uL2"/>
@@ -675,9 +690,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vOd-DH-h6d"/>
-        <segue reference="RpM-ED-kwd"/>
+        <segue reference="4KF-ED-k3b"/>
         <segue reference="pfk-gM-CKb"/>
+        <segue reference="RpM-ED-kwd"/>
         <segue reference="V9X-57-fz6"/>
     </inferredMetricsTieBreakers>
 </document>

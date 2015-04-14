@@ -115,6 +115,20 @@ class ItemEditViewController: UIViewController {
         }
     }
     
+    @IBAction func remove(sender: AnyObject) {
+        errors = false
+        
+        if let i = item {
+            errors = !ModelServices.item.delete(i)
+        }
+        
+        if !errors {
+            if let nav = navigationController {
+                nav.popViewControllerAnimated(true)
+            }
+        }
+    }
+    
     func checkErrors(errorCondition: Bool, item: UIView) {
         if errorCondition {
             item.backgroundColor = errorColor

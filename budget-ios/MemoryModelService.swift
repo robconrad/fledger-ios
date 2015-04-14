@@ -57,6 +57,16 @@ class MemoryModelService<M: Model>: StandardModelService<M> {
         return result
     }
     
+    override func delete(id: Int64) -> Bool {
+        let result = super.delete(id)
+        
+        if result {
+            invalidate()
+        }
+        
+        return result
+    }
+    
     override func invalidate() {
         _allArray = nil
         _allDict = nil
