@@ -44,15 +44,15 @@ class ItemsViewController: UITableViewController {
         let itemIndex = indexPath.row - itemFilters.count() 
         
         if itemIndex >= 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("default") as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("default") as! DetailUITableViewCell
             
             if let i = items {
                 let date = dateFormat.stringFromDate(i[itemIndex].date)
                 let type = i[itemIndex].type().name
                 let comments = i[itemIndex].comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                 
-                (cell.contentView.viewWithTag(1) as! UILabel).text! = "\(date) \(type) - \(comments)"
-                (cell.contentView.viewWithTag(2) as! UILabel).text! = String(format:"$%.2f", i[itemIndex].amount * i[itemIndex].flow)
+                cell.title.text = "\(date) \(type) - \(comments)"
+                cell.detail.text = String(format:"$%.2f", i[itemIndex].amount * i[itemIndex].flow)
             }
             
             return cell

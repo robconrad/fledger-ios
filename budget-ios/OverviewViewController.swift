@@ -23,9 +23,11 @@ class OverviewViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UITableViewCell
-        (cell.contentView.viewWithTag(1) as! UILabel).text! = rows[indexPath.row].name
-        (cell.contentView.viewWithTag(2) as! UILabel).text! = String(format:"$%.2f", rows[indexPath.row].value)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DetailUITableViewCell
+        
+        cell.title.text = rows[indexPath.row].name
+        cell.detail.text = String(format:"$%.2f", rows[indexPath.row].value)
+        
         return cell
     }
     
