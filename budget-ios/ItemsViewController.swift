@@ -31,6 +31,7 @@ class ItemsViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // TODO fix this shitty logic
         itemFilters.count = itemFilters.count! + itemFilters.offset!
         items = ModelServices.item.select(itemFilters)
         table.reloadData()
@@ -97,7 +98,11 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        // TODO do the reload in a background thread so scrolling is still smooth
+        // TODO do the reload when we are halfway to needing it
+        // TODO do we need to reload all the data? can't we incrementally add data? should infinite scrolling be a sliding window that reloads in either direction??
         if indexPath.row == itemFilters.count! + itemFilters.offset! - 1 {
+            // TODO fix this shitty logic
             itemFilters.offset! += itemFilters.count!
             items? += ModelServices.item.select(itemFilters)
             table.reloadData()
