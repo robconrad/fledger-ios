@@ -31,8 +31,11 @@ class ItemsViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        // TODO fix this shitty logic
-        itemFilters.count = itemFilters.count! + itemFilters.offset!
+        // when the view is appearing we reload data because it could habe been changed
+        // we have to pull the entire amount of data that has been pulled through infinite scrolling so that the table can
+        //  be scrolled to the same point the user left (e.g. when leaving to edit item #100 and returning)
+        itemFilters.count = itemFilters.offset! + itemFilters.count!
+        itemFilters.offset = 0
         items = ModelServices.item.select(itemFilters)
         table.reloadData()
     }
@@ -102,7 +105,6 @@ class ItemsViewController: UITableViewController {
         // TODO do the reload when we are halfway to needing it
         // TODO do we need to reload all the data? can't we incrementally add data? should infinite scrolling be a sliding window that reloads in either direction??
         if indexPath.row == itemFilters.count! + itemFilters.offset! - 1 {
-            // TODO fix this shitty logic
             itemFilters.offset! += itemFilters.count!
             items? += ModelServices.item.select(itemFilters)
             table.reloadData()
