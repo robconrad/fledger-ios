@@ -79,6 +79,21 @@
                                     <segue destination="mR0-4M-EOF" kind="show" id="Z9w-ld-zSS"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-EN-bXt">
+                                <rect key="frame" x="47" y="271" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mId-Q9-9x3">
+                                <rect key="frame" x="123" y="268" width="176" height="30"/>
+                                <state key="normal" title="[select group]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Q5D-Ib-Bvm" kind="show" id="bnA-ML-59b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -86,17 +101,23 @@
                             <constraint firstItem="5SX-Pw-lZn" firstAttribute="top" secondItem="I2x-J4-8tm" secondAttribute="bottom" constant="26" id="1Wn-F9-fyO"/>
                             <constraint firstItem="eFU-xg-PHT" firstAttribute="top" secondItem="isg-jD-ChN" secondAttribute="bottom" constant="17" id="5XO-bj-qwU"/>
                             <constraint firstItem="eFU-xg-PHT" firstAttribute="leading" secondItem="5SX-Pw-lZn" secondAttribute="trailing" constant="23" id="5kq-r0-9eF"/>
+                            <constraint firstItem="mId-Q9-9x3" firstAttribute="leading" secondItem="MKa-EN-bXt" secondAttribute="trailing" constant="23" id="AdD-tR-PfU"/>
                             <constraint firstItem="I2x-J4-8tm" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="15" id="Awd-yC-kU1"/>
+                            <constraint firstItem="MKa-EN-bXt" firstAttribute="top" secondItem="zcK-7a-Wvg" secondAttribute="bottom" constant="23" id="BFn-kF-KWv"/>
                             <constraint firstItem="rnI-lA-qQd" firstAttribute="leading" secondItem="Cx3-NZ-ULB" secondAttribute="trailing" constant="23" id="E62-g3-Ju7"/>
+                            <constraint firstItem="MKa-EN-bXt" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="31" id="Gl3-mR-eWT"/>
                             <constraint firstItem="Cx3-NZ-ULB" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="8" id="IdN-uE-M4w"/>
                             <constraint firstItem="zcK-7a-Wvg" firstAttribute="top" secondItem="Cx3-NZ-ULB" secondAttribute="bottom" constant="22" id="OWk-V7-FOu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rnI-lA-qQd" secondAttribute="trailing" constant="5" id="Oap-fV-ODw"/>
                             <constraint firstItem="5SX-Pw-lZn" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="1" id="Rvl-vH-Yd8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mId-Q9-9x3" secondAttribute="trailing" constant="5" id="TfT-T5-LyR"/>
                             <constraint firstItem="n7k-Hf-7QG" firstAttribute="top" secondItem="rnI-lA-qQd" secondAttribute="bottom" constant="13" id="blg-Qq-Gyk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eFU-xg-PHT" secondAttribute="trailing" constant="5" id="cOg-Y8-LZR"/>
+                            <constraint firstItem="mId-Q9-9x3" firstAttribute="top" secondItem="n7k-Hf-7QG" secondAttribute="bottom" constant="14" id="dty-as-poG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="isg-jD-ChN" secondAttribute="trailing" constant="5" id="gh6-80-RRX"/>
                             <constraint firstItem="isg-jD-ChN" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="22" id="gjm-vr-i93"/>
                             <constraint firstItem="rnI-lA-qQd" firstAttribute="top" secondItem="eFU-xg-PHT" secondAttribute="bottom" constant="17" id="hC5-GE-cZh"/>
+                            <constraint firstItem="mId-Q9-9x3" firstAttribute="leading" secondItem="MKa-EN-bXt" secondAttribute="trailing" constant="23" id="odZ-pe-o25"/>
                             <constraint firstAttribute="trailingMargin" secondItem="n7k-Hf-7QG" secondAttribute="trailing" constant="5" id="oxn-bk-csw"/>
                             <constraint firstItem="I2x-J4-8tm" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="26" id="pfS-r8-W28"/>
                             <constraint firstItem="Cx3-NZ-ULB" firstAttribute="top" secondItem="5SX-Pw-lZn" secondAttribute="bottom" constant="26" id="rmx-GP-TpY"/>
@@ -117,6 +138,7 @@
                     <connections>
                         <outlet property="account" destination="isg-jD-ChN" id="jra-s3-7f6"/>
                         <outlet property="endDate" destination="rnI-lA-qQd" id="SGd-jE-v5L"/>
+                        <outlet property="group" destination="mId-Q9-9x3" id="uTp-1b-zwh"/>
                         <outlet property="startDate" destination="eFU-xg-PHT" id="3yE-kQ-cob"/>
                         <outlet property="type" destination="n7k-Hf-7QG" id="miH-NM-rtj"/>
                     </connections>
@@ -612,6 +634,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOi-ew-mck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2060" y="320"/>
+        </scene>
+        <!--Select Group-->
+        <scene sceneID="Q8p-ML-PCx">
+            <objects>
+                <tableViewController title="Select Group" id="Q5D-Ib-Bvm" customClass="ItemGroupEditViewController" customModule="budget_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eTy-N1-unz">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="RRJ-ca-Cqr">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RRJ-ca-Cqr" id="XP5-0W-UBp">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selected" id="I3A-37-gy2">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3A-37-gy2" id="LMa-mc-5rK">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Q5D-Ib-Bvm" id="N5i-Lh-OQV"/>
+                            <outlet property="delegate" destination="Q5D-Ib-Bvm" id="64U-b4-Mno"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Select Group" id="ofL-fk-AHn"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="table" destination="eTy-N1-unz" id="G8K-e0-Ct1"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uui-N2-faG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2143" y="-1709"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

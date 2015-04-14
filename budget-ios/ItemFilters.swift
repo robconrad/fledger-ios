@@ -15,6 +15,7 @@ class ItemFilters: Filters {
     var startDate: NSDate?
     var endDate: NSDate?
     var typeId: Int64?
+    var groupId: Int64?
     
     override func toQuery(var query: Query) -> Query {
         
@@ -25,6 +26,9 @@ class ItemFilters: Filters {
         }
         if let id = typeId {
             query = query.filter(Fields.typeId == id)
+        }
+        if let id = groupId {
+            query = query/*.join(DatabaseService.main.types, on: Fields.typeId == DatabaseService.main.types[Fields.id])*/.filter(Fields.groupId == id)
         }
         if let date = startDate {
             query = query.filter(Fields.date >= date)
@@ -44,6 +48,9 @@ class ItemFilters: Filters {
         }
         if let id = typeId {
             s.append("Filtered by Type: " + ModelServices.type.withId(id)!.name)
+        }
+        if let id = groupId {
+            s.append("Filtered by Group: " + ModelServices.group.withId(id)!.name)
         }
         if let date = startDate {
             s.append("Filtered by Start Date: " + date.datatypeValue)
@@ -84,6 +91,23 @@ class ItemFilters: Filters {
         else {
             NSUserDefaults.standardUserDefaults().removeObjectForKey("filters.typeId")
         }
+        if let id = groupId {
+            NSUserDefaults.standardUserDefaults().setObject(NSNumber(longLong: id), forKey: "filters.groupId")
+        }
+        else {
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("filters.groupId")
+        }
+    }
+    
+    func addAggregate(agg: Aggregate) {
+        if let model = agg.model {
+            switch model {
+            case .Account: accountId = agg.id
+            case .Group: groupId = agg.id
+            case .Typ: typeId = agg.id
+            case .Item: break
+            }
+        }
     }
     
     func clear() {
@@ -91,6 +115,7 @@ class ItemFilters: Filters {
         startDate = nil
         endDate = nil
         typeId = nil
+        groupId = nil
     }
     
 }
@@ -102,6 +127,7 @@ func ItemFiltersFromDefaults() -> ItemFilters {
     filters.startDate = NSUserDefaults.standardUserDefaults().valueForKey("filters.startDate") as? NSDate
     filters.endDate = NSUserDefaults.standardUserDefaults().valueForKey("filters.endDate") as? NSDate
     filters.typeId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.typeId") as? NSNumber)?.longLongValue
+    filters.groupId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.groupId") as? NSNumber)?.longLongValue
     
     return filters
 }

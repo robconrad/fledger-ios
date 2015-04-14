@@ -9,23 +9,20 @@
 import Foundation
 import SQLite
 
-class Type: Model {
+class Group: Model {
     
     let id: Int64?
-    let groupId: Int64
     
     let name: String
     
-    required init(id: Int64, groupId: Int64, name: String) {
+    required init(id: Int64, name: String) {
         self.id = id
-        self.groupId = groupId
         self.name = name
     }
     
     convenience init(row: Row) {
         self.init(
             id: row.get(Fields.id),
-            groupId: row.get(Fields.groupId),
             name: row.get(Fields.name))
     }
     

@@ -11,11 +11,13 @@ import Foundation
 
 class Aggregate {
     
-    let id: Int64
+    let model: ModelType?
+    let id: Int64?
     let name: String
     let value: Double
     
-    required init(id: Int64, name: String, value: Double) {
+    required init(model: ModelType?, id: Int64?, name: String, value: Double) {
+        self.model = model
         self.id = id
         self.name = name
         self.value = value

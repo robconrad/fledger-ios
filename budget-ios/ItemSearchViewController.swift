@@ -15,6 +15,7 @@ class ItemSearchViewController: UIViewController {
     @IBOutlet weak var startDate: UIButton!
     @IBOutlet weak var endDate: UIButton!
     @IBOutlet weak var type: UIButton!
+    @IBOutlet weak var group: UIButton!
     
     var itemFilters: ItemFilters?
     
@@ -45,6 +46,9 @@ class ItemSearchViewController: UIViewController {
         }
         if let typeId = itemFilters!.typeId {
             type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
+        }
+        if let groupId = itemFilters!.groupId {
+            group.setTitle(ModelServices.group.withId(groupId)!.name, forState: .Normal)
         }
         
         askingForStartDate = false

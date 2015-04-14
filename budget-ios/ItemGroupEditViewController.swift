@@ -8,33 +8,33 @@
 
 import UIKit
 
-class ItemTypeEditViewController: UITableViewController {
+class ItemGroupEditViewController: UITableViewController {
     
     @IBOutlet var table: UITableView!
     
-    var typeId: Int64?
-    var types: [Type]?
+    var groupId: Int64?
+    var groups: [Group]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         table.delegate = self
-        types = ModelServices.type.all()
+        groups = ModelServices.group.all()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return types?.count ?? 0
+        return groups?.count ?? 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var reuseIdentifier = "default"
         var label = "failure"
         
-        if let type = types?[indexPath.row] {
-            if type.id == typeId {
+        if let group = groups?[indexPath.row] {
+            if group.id == groupId {
                 reuseIdentifier = "selected"
             }
-            label = type.name
+            label = group.name
         }
         
         let cell = table.dequeueReusableCellWithIdentifier(reuseIdentifier) as! UITableViewCell
@@ -46,11 +46,8 @@ class ItemTypeEditViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
-            if let dest = nav.viewControllers.last as? ItemEditViewController {
-                dest.selectedTypeId = types![indexPath.row].id
-            }
-            else if let dest = nav.viewControllers.last as? ItemSearchViewController {
-                dest.itemFilters!.typeId = types![indexPath.row].id
+            if let dest = nav.viewControllers.last as? ItemSearchViewController {
+                dest.itemFilters!.groupId = groups![indexPath.row].id
             }
         }
     }

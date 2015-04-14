@@ -55,28 +55,28 @@ class Aggregates {
         .group(typeId)
         .order(groupName, typeName)
     
-    private static func aggregate(query: Query, id: Expression<Int64>, name: Expression<String>) -> [Aggregate] {
+    private static func aggregate(model: ModelType, query: Query, id: Expression<Int64>, name: Expression<String>) -> [Aggregate] {
         var result: [Aggregate] = []
         for row in query {
-            result.append(Aggregate(id: row.get(id), name: row.get(name), value: row.get(sumAmount)!))
+            result.append(Aggregate(model: model, id: row.get(id), name: row.get(name), value: row.get(sumAmount)!))
         }
         return result
     }
     
     static func getAll() -> [Aggregate] {
-        return [Aggregate(id: -1, name: "all", value: allQuery.first!.get(sumAmount)!)]
+        return [Aggregate(model: nil, id: nil, name: "all", value: allQuery.first!.get(sumAmount)!)]
     }
     
     static func getAccounts() -> [Aggregate] {
-        return aggregate(accountsQuery, id: accountId, name: name)
+        return aggregate(ModelType.Account, query: accountsQuery, id: accountId, name: name)
     }
     
     static func getGroups() -> [Aggregate] {
-        return aggregate(groupsQuery, id: groupId, name: name)
+        return aggregate(ModelType.Group, query: groupsQuery, id: groupId, name: name)
     }
     
     static func getTypes() -> [Aggregate] {
-        return aggregate(typesQuery, id: typeId, name: groupTypeName)
+        return aggregate(ModelType.Typ, query: typesQuery, id: typeId, name: groupTypeName)
     }
     
 }

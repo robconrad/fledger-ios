@@ -13,11 +13,11 @@ import SQLite
 class ItemService<M: Item>: StandardModelService<Item> {
     
     override internal func table() -> Query {
-        return DatabaseService.main.items
+        return DatabaseService.main.items.join(DatabaseService.main.types, on: Fields.typeId == DatabaseService.main.types[Fields.id])
     }
     
     override func defaultOrder(query: Query) -> Query {
-        return query.order(Fields.date.desc, Fields.id.desc)
+        return query.order(Fields.date.desc, table()[Fields.id].desc)
     }
     
     override func baseFilter(query: Query) -> Query {

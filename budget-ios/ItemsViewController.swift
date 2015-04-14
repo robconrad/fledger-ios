@@ -24,7 +24,7 @@ class ItemsViewController: UITableViewController {
         super.viewDidLoad()
     
         table.delegate = self
-        dateFormat.dateFormat = "MM/dd"
+        dateFormat.dateFormat = "YYYY-MM-dd"
         
         itemFilters.count = 30
         itemFilters.offset = 0
@@ -49,10 +49,12 @@ class ItemsViewController: UITableViewController {
             if let i = items {
                 let date = dateFormat.stringFromDate(i[itemIndex].date)
                 let type = i[itemIndex].type().name
+                let group = i[itemIndex].group().name
                 let comments = i[itemIndex].comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                 
-                cell.title.text = "\(date) \(type) - \(comments)"
-                cell.detail.text = String(format:"$%.2f", i[itemIndex].amount * i[itemIndex].flow)
+                cell.title.text = "\(comments)"
+                cell.subDetail.text = "\(date) - \(group) - \(type)"
+                cell.setDetailCurrency(i[itemIndex].amount * i[itemIndex].flow)
             }
             
             return cell

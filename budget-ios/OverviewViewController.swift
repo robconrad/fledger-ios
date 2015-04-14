@@ -26,7 +26,7 @@ class OverviewViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DetailUITableViewCell
         
         cell.title.text = rows[indexPath.row].name
-        cell.detail.text = String(format:"$%.2f", rows[indexPath.row].value)
+        cell.setDetailCurrency(rows[indexPath.row].value)
         
         return cell
     }
@@ -40,8 +40,9 @@ class OverviewViewController: UITableViewController {
         if segue.identifier == "items" {
             if let dest = segue.destinationViewController as? ItemsViewController {
                 let filters = ItemFilters()
-                // TODO need to have group and type supported
-                filters.accountId = rows[selectedIndex!].id
+                if let index = selectedIndex {
+                    filters.addAggregate(rows[index])
+                }
                 dest.itemFilters = filters
                 dest.isSearchable = false
             }

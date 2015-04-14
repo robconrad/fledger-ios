@@ -31,7 +31,7 @@ class Item: Model {
     
     convenience init(row: Row) {
         self.init(
-            id: row.get(Fields.id),
+            id: row.get(DatabaseService.main.items[Fields.id]),
             accountId: row.get(Fields.accountId),
             typeId: row.get(Fields.typeId),
             amount: row.get(Fields.amount),
@@ -68,6 +68,10 @@ class Item: Model {
     
     func type() -> Type {
         return ModelServices.type.withId(typeId)!
+    }
+    
+    func group() -> Group {
+        return ModelServices.group.withTypeId(typeId)!
     }
     
 }

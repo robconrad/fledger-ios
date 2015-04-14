@@ -10,6 +10,7 @@ class ModelServices {
     
     static let account = AccountService<Account>()
     static let type = TypeService<Type>()
+    static let group = GroupService<Group>()
     static let item = ItemService<Item>()
     
 }
