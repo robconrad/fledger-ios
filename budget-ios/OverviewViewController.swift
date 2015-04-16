@@ -9,7 +9,7 @@
 import UIKit
 
 
-class OverviewViewController: UITableViewController {
+class OverviewViewController: AppUITableViewController {
     
     var rows: [Aggregate] = []
     var selectedIndex: Int?

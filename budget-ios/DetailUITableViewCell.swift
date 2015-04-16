@@ -6,10 +6,9 @@
 //  Copyright (c) 2015 TwoSpec Inc. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class DetailUITableViewCell: UITableViewCell {
+class DetailUITableViewCell: AppUITableViewCell {
     
     static let formatter: NSNumberFormatter = {
         let f = NSNumberFormatter()
@@ -22,22 +21,18 @@ class DetailUITableViewCell: UITableViewCell {
     var detail: UILabel = UILabel()
     var subDetail: UILabel = UILabel()
     
-    func setDetailCurrency(value: Double) {
-        detail.text = DetailUITableViewCell.formatter.stringFromNumber(value)
-        if value < 0 {
-            detail.textColor = .redColor()
-        }
-        else {
-            detail.textColor = .blackColor()
-        }
-    }
-    
-    override func awakeFromNib() {
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         
-        detail.alpha = 0.65
+        title.textColor = AppColors.text
+        
+        detail.alpha = 0.75
         detail.textAlignment = .Right
         detail.font = detail.font.fontWithSize(15)
-        subDetail.font = detail.font.fontWithSize(10)
+        detail.textColor = AppColors.text
+        
+        subDetail.font = detail.font.fontWithSize(11)
+        subDetail.textColor = AppColors.text
         
         title.setTranslatesAutoresizingMaskIntoConstraints(false)
         detail.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -53,6 +48,16 @@ class DetailUITableViewCell: UITableViewCell {
         for format in constraintFormats {
             let constraint = NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(0), metrics: nil, views: views)
             contentView.addConstraints(constraint)
+        }
+    }
+    
+    func setDetailCurrency(value: Double) {
+        detail.text = DetailUITableViewCell.formatter.stringFromNumber(value)
+        if value < 0 {
+            detail.textColor = AppColors.textError
+        }
+        else {
+            detail.textColor = AppColors.text
         }
     }
     

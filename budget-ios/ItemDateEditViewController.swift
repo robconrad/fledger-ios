@@ -8,17 +8,20 @@
 
 import UIKit
 
-class ItemDateEditViewController: UIViewController {
+class ItemDateEditViewController: AppUIViewController {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     
     var date: NSDate?
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         if let d = date {
             datePicker.setDate(d, animated: true)
         }
+        
+        datePicker.backgroundColor = .whiteColor()
         
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class OverviewsViewController: UITableViewController {
+class OverviewsViewController: AppUITableViewController {
     
     let categories = ["All", "Accounts", "Groups", "Types"]
     var selectedIndex: Int?

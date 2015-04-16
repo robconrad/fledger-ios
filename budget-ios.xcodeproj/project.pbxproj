@@ -41,6 +41,17 @@
 		3E2B86BC1ADCCFC50080B206 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BB1ADCCFC50080B206 /* GroupService.swift */; };
 		3E2B86BE1ADCD0EC0080B206 /* ItemGroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */; };
 		3E2B86C01ADCDD050080B206 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BF1ADCDD050080B206 /* ModelType.swift */; };
+		3E2B86C21ADD71E10080B206 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86C11ADD71E10080B206 /* AppColors.swift */; };
+		3E2B86C41ADD73270080B206 /* AppUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86C31ADD73270080B206 /* AppUITableViewController.swift */; };
+		3E2B86C61ADD76E40080B206 /* AppUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86C51ADD76E40080B206 /* AppUITableViewCell.swift */; };
+		3E2B86C81ADD77620080B206 /* HighlightUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86C71ADD77620080B206 /* HighlightUITableViewCell.swift */; };
+		3E2B86CA1ADD79200080B206 /* AppUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86C91ADD79200080B206 /* AppUIViewController.swift */; };
+		3E2B86CC1ADD7B400080B206 /* AppUILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86CB1ADD7B400080B206 /* AppUILabel.swift */; };
+		3E2B86CE1ADF67490080B206 /* AppUINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86CD1ADF67490080B206 /* AppUINavigationController.swift */; };
+		3E2B86D01ADF67910080B206 /* AppUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86CF1ADF67910080B206 /* AppUITabBarController.swift */; };
+		3E2B86D41ADF6D630080B206 /* AppUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D31ADF6D630080B206 /* AppUITextField.swift */; };
+		3E2B86D61ADF6E140080B206 /* AppUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D51ADF6E140080B206 /* AppUITextView.swift */; };
+		3E2B86D81ADF6FF50080B206 /* AppUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D71ADF6FF50080B206 /* AppUINavigationBar.swift */; };
 		3E3B9EF11ADA3E9E006E9016 /* ItemSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */; };
 		3E3B9EF91ADA4702006E9016 /* ItemFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9EF81ADA4702006E9016 /* ItemFilters.swift */; };
 		3E3B9F181ADADA4A006E9016 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */; };
@@ -160,6 +171,17 @@
 		3E2B86BB1ADCCFC50080B206 /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGroupEditViewController.swift; sourceTree = "<group>"; };
 		3E2B86BF1ADCDD050080B206 /* ModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
+		3E2B86C11ADD71E10080B206 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		3E2B86C31ADD73270080B206 /* AppUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITableViewController.swift; sourceTree = "<group>"; };
+		3E2B86C51ADD76E40080B206 /* AppUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITableViewCell.swift; sourceTree = "<group>"; };
+		3E2B86C71ADD77620080B206 /* HighlightUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightUITableViewCell.swift; sourceTree = "<group>"; };
+		3E2B86C91ADD79200080B206 /* AppUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIViewController.swift; sourceTree = "<group>"; };
+		3E2B86CB1ADD7B400080B206 /* AppUILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUILabel.swift; sourceTree = "<group>"; };
+		3E2B86CD1ADF67490080B206 /* AppUINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUINavigationController.swift; sourceTree = "<group>"; };
+		3E2B86CF1ADF67910080B206 /* AppUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITabBarController.swift; sourceTree = "<group>"; };
+		3E2B86D31ADF6D630080B206 /* AppUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITextField.swift; sourceTree = "<group>"; };
+		3E2B86D51ADF6E140080B206 /* AppUITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITextView.swift; sourceTree = "<group>"; };
+		3E2B86D71ADF6FF50080B206 /* AppUINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUINavigationBar.swift; sourceTree = "<group>"; };
 		3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchViewController.swift; sourceTree = "<group>"; };
 		3E3B9EF81ADA4702006E9016 /* ItemFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFilters.swift; sourceTree = "<group>"; };
 		3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
@@ -326,7 +348,18 @@
 		3E2B86B11ADCB9C60080B206 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				3E2B86C11ADD71E10080B206 /* AppColors.swift */,
+				3E2B86CB1ADD7B400080B206 /* AppUILabel.swift */,
+				3E2B86C91ADD79200080B206 /* AppUIViewController.swift */,
+				3E2B86C51ADD76E40080B206 /* AppUITableViewCell.swift */,
+				3E2B86C31ADD73270080B206 /* AppUITableViewController.swift */,
 				3E2B86B61ADCB9E80080B206 /* DetailUITableViewCell.swift */,
+				3E2B86C71ADD77620080B206 /* HighlightUITableViewCell.swift */,
+				3E2B86CD1ADF67490080B206 /* AppUINavigationController.swift */,
+				3E2B86CF1ADF67910080B206 /* AppUITabBarController.swift */,
+				3E2B86D31ADF6D630080B206 /* AppUITextField.swift */,
+				3E2B86D51ADF6E140080B206 /* AppUITextView.swift */,
+				3E2B86D71ADF6FF50080B206 /* AppUINavigationBar.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -561,28 +594,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E2B86A01ADB27D80080B206 /* ItemService.swift in Sources */,
+				3E2B86C41ADD73270080B206 /* AppUITableViewController.swift in Sources */,
 				3E2B86BC1ADCCFC50080B206 /* GroupService.swift in Sources */,
 				3E21B2B81AD7624200E00AE1 /* ItemEditViewController.swift in Sources */,
+				3E2B86CC1ADD7B400080B206 /* AppUILabel.swift in Sources */,
 				3E2B869B1ADB1F4E0080B206 /* Filters.swift in Sources */,
 				3E2B86A61ADB285F0080B206 /* MemoryModelService.swift in Sources */,
 				3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */,
+				3E2B86C61ADD76E40080B206 /* AppUITableViewCell.swift in Sources */,
+				3E2B86C21ADD71E10080B206 /* AppColors.swift in Sources */,
 				3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */,
+				3E2B86D41ADF6D630080B206 /* AppUITextField.swift in Sources */,
 				3E21B2741AD7229000E00AE1 /* OverviewsViewController.swift in Sources */,
+				3E2B86CE1ADF67490080B206 /* AppUINavigationController.swift in Sources */,
 				3E21B2E21AD9E6C100E00AE1 /* ModelServices.swift in Sources */,
 				3E2B86A81ADB40BB0080B206 /* StandardModelService.swift in Sources */,
+				3E2B86CA1ADD79200080B206 /* AppUIViewController.swift in Sources */,
 				3E3B9F181ADADA4A006E9016 /* DatabaseService.swift in Sources */,
 				3E2B86C01ADCDD050080B206 /* ModelType.swift in Sources */,
 				3E2B86AE1ADB71070080B206 /* Aggregates.swift in Sources */,
 				3E2B86B71ADCB9E80080B206 /* DetailUITableViewCell.swift in Sources */,
 				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,
+				3E2B86C81ADD77620080B206 /* HighlightUITableViewCell.swift in Sources */,
 				3E2B86A21ADB27DF0080B206 /* AccountService.swift in Sources */,
 				3E2B86BE1ADCD0EC0080B206 /* ItemGroupEditViewController.swift in Sources */,
 				3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */,
 				3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */,
+				3E2B86D61ADF6E140080B206 /* AppUITextView.swift in Sources */,
 				3E2B86A41ADB27ED0080B206 /* TypeService.swift in Sources */,
 				3E2B86AC1ADB6D720080B206 /* Aggregate.swift in Sources */,
 				3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */,
 				3E21B2E41AD9E7B800E00AE1 /* ModelService.swift in Sources */,
+				3E2B86D81ADF6FF50080B206 /* AppUINavigationBar.swift in Sources */,
 				3E2B86AA1ADB628F0080B206 /* OverviewViewController.swift in Sources */,
 				3E3B9EF91ADA4702006E9016 /* ItemFilters.swift in Sources */,
 				3E2B86BA1ADCCFBC0080B206 /* Group.swift in Sources */,
@@ -590,6 +633,7 @@
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
 				3E6820A01ADAEBFC00CD7433 /* ApplicationAssembly.swift in Sources */,
 				3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */,
+				3E2B86D01ADF67910080B206 /* AppUITabBarController.swift in Sources */,
 				3E3B9EF11ADA3E9E006E9016 /* ItemSearchViewController.swift in Sources */,
 				3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */,
 			);

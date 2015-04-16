@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ItemSearchViewController: UIViewController {
+class ItemSearchViewController: AppUIViewController {
     
     @IBOutlet weak var account: UIButton!
     @IBOutlet weak var startDate: UIButton!
@@ -58,6 +58,14 @@ class ItemSearchViewController: UIViewController {
     
     override func viewWillDisappear(animated: Bool) {
         itemFilters!.save()
+    }
+    
+    @IBAction func save(sender: AnyObject) {
+        
+        if let nav = navigationController {
+            nav.popViewControllerAnimated(true)
+        }
+        
     }
     
     @IBAction func clear(sender: AnyObject) {

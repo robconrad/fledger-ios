@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemAccountEditViewController: UITableViewController {
+class ItemAccountEditViewController: AppUITableViewController {
     
     @IBOutlet var table: UITableView!
     

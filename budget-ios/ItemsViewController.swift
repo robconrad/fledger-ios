@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsViewController: UITableViewController {
+class ItemsViewController: AppUITableViewController {
     
     @IBOutlet var table: UITableView!
     
@@ -22,7 +22,7 @@ class ItemsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         table.delegate = self
         dateFormat.dateFormat = "YYYY-MM-dd"
         

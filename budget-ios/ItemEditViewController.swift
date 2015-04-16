@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ItemEditViewController: UIViewController {
-    
+class ItemEditViewController: AppUIViewController {
+
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -19,10 +19,10 @@ class ItemEditViewController: UIViewController {
     @IBOutlet weak var account: UIButton!
     @IBOutlet weak var date: UIButton!
     @IBOutlet weak var type: UIButton!
-    @IBOutlet weak var amount: UITextField!
+    @IBOutlet weak var amount: AppUITextField!
     @IBOutlet weak var flow: UISwitch!
-    @IBOutlet weak var comments: UITextView!
-        
+    @IBOutlet weak var comments: AppUITextField!
+    
     var item: Item?
     
     var selectedAccountId: Int64?
@@ -30,14 +30,8 @@ class ItemEditViewController: UIViewController {
     var selectedTypeId: Int64?
     
     var errors = false
+    var selectingModel: ModelType?
     
-    let defaultColor = UIColor.whiteColor()
-    let errorColor = UIColor(red: 1, green: 184/255, blue: 184/255, alpha: 1)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-  
     override func viewWillAppear(animated: Bool) {
         
         item = item?.copy(
@@ -70,41 +64,43 @@ class ItemEditViewController: UIViewController {
             }
         }
         
+        if let model = selectingModel {
+            switch model {
+            case ModelType.Account: checkAccountError()
+            case ModelType.Typ: checkTypeError()
+            default: break
+            }
+            selectingModel = nil
+        }
+    }
+    
+    @IBAction func amountValueChanged(sender: AnyObject) {
+        checkAmountError()
+    }
+    
+    @IBAction func commentsValueChanged(sender: AnyObject) {
+        checkCommentsError()
     }
 
     @IBAction func save(sender: AnyObject) {
-        errors = false
-        
-        if item == nil {
-            checkErrors(selectedAccountId == nil, item: accountLabel)
-            checkErrors(selectedTypeId == nil, item: typeLabel)
-            if selectedDate == nil {
-                selectedDate = NSDate()
-            }
-        }
-        
-        let amountValue = (amount.text as NSString).doubleValue
-        checkErrors(amountValue <= 0, item: amountLabel)
-        
-        let commentsValue = comments.text
-        checkErrors(count(commentsValue) == 0, item: commentsLabel)
+        checkErrors()
             
         if !errors {
             if let i = item {
                 errors = !ModelServices.item.update(i.copy(
-                    amount: amountValue,
+                    amount: amountValue(),
                     flow: flow.on ? 1 : -1,
-                    comments: commentsValue))
+                    comments: comments.text))
             }
             else {
                 errors = ModelServices.item.insert(Item(
                     id: nil,
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
-                    amount: amountValue,
+                    amount: amountValue(),
                     flow: flow.on ? 1 : -1,
                     date: selectedDate!,
-                    comments: commentsValue)) == nil
+                    comments: comments.text)) == nil
             }
             
             if !errors {
@@ -129,24 +125,16 @@ class ItemEditViewController: UIViewController {
         }
     }
     
-    func checkErrors(errorCondition: Bool, item: UIView) {
-        if errorCondition {
-            item.backgroundColor = errorColor
-        }
-        else {
-            item.backgroundColor = defaultColor
-        }
-        errors = errors || errorCondition
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selectAccount" {
             if let dest = segue.destinationViewController as? ItemAccountEditViewController {
+                selectingModel = ModelType.Account
                 dest.accountId = item?.accountId
             }
         }
         else if segue.identifier == "selectType" {
             if let dest = segue.destinationViewController as? ItemTypeEditViewController {
+                selectingModel = ModelType.Typ
                 dest.typeId = item?.typeId
             }
         }
@@ -159,6 +147,51 @@ class ItemEditViewController: UIViewController {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
+    }
+    
+    func amountValue() -> Double {
+        return (amount.text as NSString).doubleValue
+    }
+    
+    func checkErrors(errorCondition: Bool, item: UILabel) {
+        if errorCondition {
+            item.textColor = AppColors.textError
+        }
+        else {
+            item.textColor = AppColors.text
+        }
+        errors = errors || errorCondition
+    }
+    
+    func checkErrors() {
+        errors = false
+        
+        if item == nil {
+            checkAccountError()
+            checkTypeError()
+            if selectedDate == nil {
+                selectedDate = NSDate()
+            }
+        }
+        
+        checkAmountError()
+        checkCommentsError()
+    }
+    
+    func checkAccountError() {
+        checkErrors(selectedAccountId == nil, item: accountLabel)
+    }
+    
+    func checkTypeError() {
+        checkErrors(selectedTypeId == nil, item: typeLabel)
+    }
+    
+    func checkAmountError() {
+        checkErrors(amountValue() <= 0, item: amountLabel)
+    }
+    
+    func checkCommentsError() {
+        checkErrors(count(comments.text) == 0, item: commentsLabel)
     }
     
 }

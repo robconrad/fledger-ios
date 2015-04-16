@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DatabaseService.main.createDatabaseDestructive()
         }
         
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
         return true
     }
 
