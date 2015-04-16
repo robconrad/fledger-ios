@@ -21,7 +21,7 @@ class ItemService<M: Item>: StandardModelService<Item> {
     }
     
     override func baseFilter(query: Query) -> Query {
-        return query.filter(Fields.amount > 0.0)
+        return query.filter(Fields.amount != 0)
     }
     
     override func select(filters: Filters?) -> [Item] {

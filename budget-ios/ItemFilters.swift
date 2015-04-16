@@ -28,7 +28,7 @@ class ItemFilters: Filters {
             query = query.filter(Fields.typeId == id)
         }
         if let id = groupId {
-            query = query/*.join(DatabaseService.main.types, on: Fields.typeId == DatabaseService.main.types[Fields.id])*/.filter(Fields.groupId == id)
+            query = query.filter(Fields.groupId == id)
         }
         if let date = startDate {
             query = query.filter(Fields.date >= date)

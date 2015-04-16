@@ -58,7 +58,7 @@ class ItemsViewController: AppUITableViewController {
                 
                 cell.title.text = "\(comments)"
                 cell.subDetail.text = "\(date) - \(group) - \(type)"
-                cell.setDetailCurrency(i[itemIndex].amount * i[itemIndex].flow)
+                cell.setDetailCurrency(i[itemIndex].amount)
             }
             
             return cell

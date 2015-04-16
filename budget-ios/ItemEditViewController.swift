@@ -44,8 +44,8 @@ class ItemEditViewController: AppUIViewController {
             account.setTitle(i.account().name, forState: .Normal)
             date.setTitle(i.date.datatypeValue, forState: .Normal)
             type.setTitle(i.type().name, forState: .Normal)
-            amount.text = String(format: "%.2f", i.amount)
-            flow.setOn(i.flow > 0, animated: true)
+            amount.text = String(format: "%.2f", abs(i.amount))
+            flow.setOn(i.amount > 0, animated: true)
             comments.text = i.comments
         }
         else {
@@ -88,8 +88,7 @@ class ItemEditViewController: AppUIViewController {
         if !errors {
             if let i = item {
                 errors = !ModelServices.item.update(i.copy(
-                    amount: amountValue(),
-                    flow: flow.on ? 1 : -1,
+                    amount: amountValue(includeFlow: true),
                     comments: comments.text))
             }
             else {
@@ -97,8 +96,7 @@ class ItemEditViewController: AppUIViewController {
                     id: nil,
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
-                    amount: amountValue(),
-                    flow: flow.on ? 1 : -1,
+                    amount: amountValue(includeFlow: true),
                     date: selectedDate!,
                     comments: comments.text)) == nil
             }
@@ -149,8 +147,12 @@ class ItemEditViewController: AppUIViewController {
         self.view.endEditing(true)
     }
     
-    func amountValue() -> Double {
-        return (amount.text as NSString).doubleValue
+    func amountValue(includeFlow: Bool = false) -> Double {
+        var a = (amount.text as NSString).doubleValue
+        if includeFlow && !flow.on {
+            a = -a
+        }
+        return a
     }
     
     func checkErrors(errorCondition: Bool, item: UILabel) {

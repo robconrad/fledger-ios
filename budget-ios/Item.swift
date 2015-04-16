@@ -15,16 +15,14 @@ class Item: Model {
     let accountId: Int64
     let typeId: Int64
     let amount: Double
-    let flow: Double
     let date: NSDate
     let comments: String
     
-    required init(id: Int64?, accountId: Int64, typeId: Int64, amount: Double, flow: Double, date: NSDate, comments: String) {
+    required init(id: Int64?, accountId: Int64, typeId: Int64, amount: Double, date: NSDate, comments: String) {
         self.id = id
         self.accountId = accountId
         self.typeId = typeId
         self.amount = amount
-        self.flow = flow
         self.date = date
         self.comments = comments
     }
@@ -35,7 +33,6 @@ class Item: Model {
             accountId: row.get(Fields.accountId),
             typeId: row.get(Fields.typeId),
             amount: row.get(Fields.amount),
-            flow: row.get(Fields.flow),
             date: row.get(Fields.date),
             comments: row.get(Fields.comments))
     }
@@ -45,19 +42,17 @@ class Item: Model {
             Fields.accountId <- accountId,
             Fields.typeId <- typeId,
             Fields.amount <- amount,
-            Fields.flow <- flow,
             Fields.date <- date,
             Fields.comments <- comments
         ]
     }
     
-    func copy(accountId: Int64? = nil, typeId: Int64? = nil, amount: Double? = nil, flow: Double? = nil, date: NSDate? = nil, comments: String? = nil) -> Item {
+    func copy(accountId: Int64? = nil, typeId: Int64? = nil, amount: Double? = nil, date: NSDate? = nil, comments: String? = nil) -> Item {
         return Item(
             id: id,
             accountId: accountId ?? self.accountId,
             typeId: typeId ?? self.typeId,
             amount: amount ?? self.amount,
-            flow: flow ?? self.flow,
             date: date ?? self.date,
             comments: comments ?? self.comments)
     }

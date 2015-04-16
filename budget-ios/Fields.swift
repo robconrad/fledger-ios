@@ -21,7 +21,6 @@ class Fields {
     static let accountId = Expression<Int64>("account_id")
     
     // items
-    static let flow = Expression<Double>("flow")
     static let amount = Expression<Double>("amount")
     static let comments = Expression<String>("comments")
     static let date = Expression<NSDate>("date")
@@ -35,6 +34,6 @@ class Fields {
 
 class Expressions {
     
-    static let sumAmount = sum(Fields.amount * Fields.flow)
+    static let sumAmount = sum(Fields.amount)
     
 }
