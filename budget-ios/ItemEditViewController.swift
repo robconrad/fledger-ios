@@ -167,23 +167,27 @@ class ItemEditViewController: AppUIViewController {
         errors = false
         
         if item == nil {
-            checkAccountError()
-            checkTypeError()
             if selectedDate == nil {
                 selectedDate = NSDate()
             }
         }
         
+        checkAccountError()
+        checkTypeError()
         checkAmountError()
         checkCommentsError()
     }
     
     func checkAccountError() {
-        checkErrors(selectedAccountId == nil, item: accountLabel)
+        if item == nil {
+            checkErrors(selectedAccountId == nil, item: accountLabel)
+        }
     }
     
     func checkTypeError() {
-        checkErrors(selectedTypeId == nil, item: typeLabel)
+        if item == nil {
+            checkErrors(selectedTypeId == nil, item: typeLabel)
+        }
     }
     
     func checkAmountError() {
