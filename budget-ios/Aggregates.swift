@@ -17,9 +17,9 @@ class Aggregates {
     private static let types = DatabaseService.main.types
     private static let accounts = DatabaseService.main.accounts
     
-    private static let accountId = Fields.accountId
-    private static let groupId = Fields.groupId
-    private static let typeId = Fields.typeId
+    private static let accountId = accounts[Fields.id]
+    private static let groupId = groups[Fields.id]
+    private static let typeId = types[Fields.id]
     private static let name = Fields.name
     private static let priority = Fields.priority
     private static let inactive = Fields.inactive
@@ -34,41 +34,44 @@ class Aggregates {
     private static let allQuery = items
         .select(sumAmount)
     
-    private static let accountsQuery = items
-        .select(accountId, accountName, sumAmount)
-        .join(accounts, on: accountId == accounts[Fields.id])
-        .filter(inactive == false)
+    private static let accountsQuery = accounts
+        .select(accountId, accountName, sumAmount, inactive)
+        .join(.LeftOuter, items, on: Fields.accountId == accountId)
         .group(accountId)
-        .order(priority)
+        .order(inactive, priority, accountName)
     
-    private static let groupsQuery = items
+    private static let groupsQuery = groups
         .select(groupId, groupName, sumAmount)
-        .join(types, on: typeId == types[Fields.id])
-        .join(groups, on: groupId == groups[Fields.id])
+        .join(.LeftOuter, types, on: Fields.groupId == groupId)
+        .join(.LeftOuter, items, on: Fields.typeId == typeId)
         .group(groupId)
         .order(groupName)
     
-    private static let typesQuery = items
+    private static let typesQuery = types
         .select(typeId, groupTypeName, sumAmount)
-        .join(types, on: typeId == types[Fields.id])
-        .join(groups, on: groupId == groups[Fields.id])
+        .join(.LeftOuter, items, on: Fields.typeId == typeId)
+        .join(.LeftOuter, groups, on: Fields.groupId == groupId)
         .group(typeId)
         .order(groupName, typeName)
     
-    private static func aggregate(model: ModelType, query: Query, id: Expression<Int64>, name: Expression<String>) -> [Aggregate] {
+    private static func aggregate(model: ModelType, query: Query, id: Expression<Int64>, name: Expression<String>, checkActive: Bool = false) -> [Aggregate] {
         var result: [Aggregate] = []
         for row in query {
-            result.append(Aggregate(model: model, id: row.get(id), name: row.get(name), value: row.get(sumAmount)!))
+            var active = true
+            if checkActive {
+                active = !row.get(inactive)
+            }
+            result.append(Aggregate(model: model, id: row.get(id), name: row.get(name), value: row.get(sumAmount) ?? 0, active: active))
         }
         return result
     }
     
     static func getAll() -> [Aggregate] {
-        return [Aggregate(model: nil, id: nil, name: "all", value: allQuery.first!.get(sumAmount)!)]
+        return [Aggregate(model: nil, id: nil, name: "all", value: allQuery.first?.get(sumAmount) ?? 0)]
     }
     
     static func getAccounts() -> [Aggregate] {
-        return aggregate(ModelType.Account, query: accountsQuery, id: accountId, name: name)
+        return aggregate(ModelType.Account, query: accountsQuery, id: accountId, name: name, checkActive: true)
     }
     
     static func getGroups() -> [Aggregate] {

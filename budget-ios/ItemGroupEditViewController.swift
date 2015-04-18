@@ -19,7 +19,13 @@ class ItemGroupEditViewController: AppUITableViewController {
         super.viewDidLoad()
         
         table.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         groups = ModelServices.group.all()
+        table.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +52,10 @@ class ItemGroupEditViewController: AppUITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
-            if let dest = nav.viewControllers.last as? ItemSearchViewController {
+            if let dest = nav.viewControllers.last as? TypeEditViewController {
+                dest.selectedGroupId = groups![indexPath.row].id
+            }
+            else if let dest = nav.viewControllers.last as? ItemSearchViewController {
                 dest.itemFilters!.groupId = groups![indexPath.row].id
             }
         }

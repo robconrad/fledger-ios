@@ -17,7 +17,7 @@ class Account: Model {
     let priority: Int
     let inactive: Bool
     
-    required init(id: Int64, name: String, priority: Int, inactive: Bool) {
+    required init(id: Int64?, name: String, priority: Int, inactive: Bool) {
         self.id = id
         self.name = name
         self.priority = priority
@@ -33,7 +33,19 @@ class Account: Model {
     }
     
     func toSetters() -> [Setter] {
-        return []
+        return [
+            Fields.name <- name,
+            Fields.priority <- priority,
+            Fields.inactive <- inactive
+        ]
+    }
+    
+    func copy(name: String? = nil, priority: Int? = nil, inactive: Bool? = nil) -> Account {
+        return Account(
+            id: id,
+            name: name ?? self.name,
+            priority: priority ?? self.priority,
+            inactive: inactive ?? self.inactive)
     }
     
 }

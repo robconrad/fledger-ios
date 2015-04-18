@@ -12,6 +12,10 @@ import SQLite
 
 class TypeService<T: Type>: MemoryModelService<Type> {
     
+    override func modelType() -> ModelType {
+        return ModelType.Typ
+    }
+    
     override internal func table() -> Query {
         return DatabaseService.main.types
     }

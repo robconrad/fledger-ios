@@ -48,7 +48,7 @@ class DatabaseService: NSObject {
     }
     
     func loadDefaultData() {
-        let data = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("data", withExtension: "sql")!)
+        let data = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("data-lite", withExtension: "sql")!)
         let sql = NSString(data: data!, encoding: NSASCIIStringEncoding) as! String
         db.execute(sql)
     }

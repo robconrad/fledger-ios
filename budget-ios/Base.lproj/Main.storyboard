@@ -275,18 +275,6 @@
                                     <segue destination="mR0-4M-EOF" kind="show" identifier="selectDate" id="RpM-ED-kwd"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zax-GV-4lB" customClass="AppUINavigationBar" customModule="budget_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
-                                <items>
-                                    <navigationItem id="y8F-o2-IzK">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="Azu-5k-YTo">
-                                            <connections>
-                                                <action selector="remove:" destination="9Zl-Cc-ojT" id="uKf-ad-lUO"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofk-eX-9Xr" customClass="AppUILabel" customModule="budget_ios" customModuleProvider="target">
                                 <rect key="frame" x="16" y="317" width="89" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -346,13 +334,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xaT-V9-q70" customClass="AppUIToolbar" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YTv-Ce-sts"/>
+                                    <barButtonItem systemItem="trash" id="Azu-5k-YTo">
+                                        <connections>
+                                            <action selector="remove:" destination="9Zl-Cc-ojT" id="uKf-ad-lUO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="zax-GV-4lB" secondAttribute="trailing" constant="-16" id="0eR-eI-B0J"/>
                             <constraint firstItem="9pc-46-3SU" firstAttribute="leading" secondItem="WDh-ho-YYf" secondAttribute="trailing" constant="8" id="5ct-L6-1Fr"/>
                             <constraint firstItem="GIR-4W-hSJ" firstAttribute="top" secondItem="gKq-Xj-pe7" secondAttribute="bottom" constant="19" id="BgW-lP-VeQ"/>
                             <constraint firstItem="Yfg-nc-fh9" firstAttribute="top" secondItem="SGs-z7-8gC" secondAttribute="bottom" constant="30" id="BmC-fx-p4w"/>
+                            <constraint firstItem="xaT-V9-q70" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="-16" id="C0m-vo-Rjx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9pc-46-3SU" secondAttribute="trailing" constant="56" id="DHd-mj-8gw"/>
                             <constraint firstItem="SGs-z7-8gC" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="24" id="DeE-fG-mcf"/>
                             <constraint firstItem="HAw-xt-Ewg" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="DvR-my-33e"/>
@@ -374,12 +373,12 @@
                             <constraint firstItem="fMj-Eq-ram" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="25" id="Zk2-gK-YRu"/>
                             <constraint firstItem="Yfg-nc-fh9" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="47" id="aLH-gD-0TO"/>
                             <constraint firstItem="H1L-Ff-N4Q" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="e0E-pv-kEc"/>
-                            <constraint firstItem="QUU-Tf-yeO" firstAttribute="top" secondItem="zax-GV-4lB" secondAttribute="bottom" id="eyt-Ol-gLc"/>
                             <constraint firstItem="1kn-Wy-Ibx" firstAttribute="top" secondItem="LPA-ea-mbv" secondAttribute="bottom" constant="23" id="gcv-EA-80r"/>
                             <constraint firstItem="9TL-gh-6We" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="hkf-27-NTd"/>
+                            <constraint firstItem="QUU-Tf-yeO" firstAttribute="top" secondItem="xaT-V9-q70" secondAttribute="bottom" id="i7z-AB-3he"/>
                             <constraint firstItem="WDh-ho-YYf" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="20" id="ikC-wD-oly"/>
                             <constraint firstItem="HAw-xt-Ewg" firstAttribute="top" secondItem="9TL-gh-6We" secondAttribute="bottom" constant="14" id="n8u-bY-m5W"/>
-                            <constraint firstItem="zax-GV-4lB" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="-16" id="pLk-gu-omR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xaT-V9-q70" secondAttribute="trailing" constant="-16" id="qND-Er-ZqX"/>
                             <constraint firstItem="fMj-Eq-ram" firstAttribute="leading" secondItem="Yfg-nc-fh9" secondAttribute="trailing" constant="23" id="qeQ-Ve-dIh"/>
                             <constraint firstItem="1kn-Wy-Ibx" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="qf2-kS-fvQ"/>
                             <constraint firstItem="WDh-ho-YYf" firstAttribute="leading" secondItem="fMj-Eq-ram" secondAttribute="trailing" constant="3" id="slB-d1-pw0"/>
@@ -416,6 +415,7 @@
                         <outlet property="date" destination="9TL-gh-6We" id="0cd-Zy-YQV"/>
                         <outlet property="dateLabel" destination="LPA-ea-mbv" id="dV3-z9-Rdj"/>
                         <outlet property="flow" destination="WDh-ho-YYf" id="eex-he-jo1"/>
+                        <outlet property="toolbar" destination="xaT-V9-q70" id="G2J-o9-OmK"/>
                         <outlet property="type" destination="HAw-xt-Ewg" id="Jg0-aq-qWB"/>
                         <outlet property="typeLabel" destination="1kn-Wy-Ibx" id="4P3-vP-Cqe"/>
                     </connections>
@@ -452,7 +452,13 @@
                             <outlet property="delegate" destination="5YG-CF-FsU" id="VFp-VJ-GWO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Account" id="MO0-rt-A27"/>
+                    <navigationItem key="navigationItem" title="Select Account" id="MO0-rt-A27">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="h4r-XG-mZ6">
+                            <connections>
+                                <segue destination="jy9-oj-56X" kind="show" id="yM1-uR-bIG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="table" destination="aAd-fK-Tff" id="1NW-yi-pqU"/>
@@ -460,7 +466,103 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufb-Lf-JQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="-1051"/>
+            <point key="canvasLocation" x="2143" y="-2347"/>
+        </scene>
+        <!--Edit Account-->
+        <scene sceneID="hAg-sd-hfW">
+            <objects>
+                <viewController id="jy9-oj-56X" customClass="AccountEditViewController" customModule="budget_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NdG-2H-Fyn"/>
+                        <viewControllerLayoutGuide type="bottom" id="tEC-Fq-lv1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vWn-Ni-4ZD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RXS-2b-b4L" customClass="AppUITextField" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="163" y="157" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RH-fw-HVv" customClass="AppUILabel" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="56" y="160" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="saY-Zn-Qaj">
+                                <rect key="frame" x="163" y="213" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDP-My-4Fa" customClass="AppUILabel" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="54" y="218" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Account" id="xqu-JS-jfa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="QOx-Wo-4C4">
+                            <connections>
+                                <action selector="save:" destination="jy9-oj-56X" id="Rgy-aK-h3t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="active" destination="saY-Zn-Qaj" id="sf4-HX-hCL"/>
+                        <outlet property="name" destination="RXS-2b-b4L" id="DO2-ly-TQq"/>
+                        <outlet property="nameLabel" destination="3RH-fw-HVv" id="MB3-Se-48i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tGA-od-DD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-2347"/>
+        </scene>
+        <!--Edit Group-->
+        <scene sceneID="Q4G-pv-bRV">
+            <objects>
+                <viewController id="7tu-Ns-KC0" customClass="GroupEditViewController" customModule="budget_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5xh-4J-RR2"/>
+                        <viewControllerLayoutGuide type="bottom" id="pHy-gU-SiZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N5g-CJ-Wnc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-C2-kXK" customClass="AppUITextField" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="165" y="172" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhf-l2-Owo" customClass="AppUILabel" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="58" y="175" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Group" id="2QA-qZ-BLD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jcc-pg-xEf">
+                            <connections>
+                                <action selector="save:" destination="7tu-Ns-KC0" id="eNW-yv-9cZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="name" destination="yB1-C2-kXK" id="85r-iY-o2K"/>
+                        <outlet property="nameLabel" destination="xhf-l2-Owo" id="IUC-19-Sg3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pr9-B5-FOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-1709"/>
         </scene>
         <!--Select Date-->
         <scene sceneID="dgQ-CF-ctj">
@@ -506,7 +608,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7J-yW-Yem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2655" y="-748"/>
+            <point key="canvasLocation" x="2143" y="-384"/>
         </scene>
         <!--Select Type-->
         <scene sceneID="rRg-uZ-xLB">
@@ -536,7 +638,13 @@
                             <outlet property="delegate" destination="sc5-qT-Nj7" id="zUL-hP-GQg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Type" id="oPA-kR-yV3"/>
+                    <navigationItem key="navigationItem" title="Select Type" id="oPA-kR-yV3">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZRI-0A-1if">
+                            <connections>
+                                <segue destination="06J-p5-ORq" kind="show" id="u6E-QI-onm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="table" destination="4hb-JE-Tu3" id="ixB-kG-XsY"/>
@@ -544,7 +652,71 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mff-L6-2ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="-384"/>
+            <point key="canvasLocation" x="2143" y="-1056"/>
+        </scene>
+        <!--Edit Type-->
+        <scene sceneID="Lcf-1Q-lIk">
+            <objects>
+                <viewController id="06J-p5-ORq" customClass="TypeEditViewController" customModule="budget_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="29n-lY-LLQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Cy-Vl-lWm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ofh-gX-wF0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGr-me-ijj" customClass="AppUILabel" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="54" y="197" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Group:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-xo-w8k" customClass="AppUILabel" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="52" y="258" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzy-xE-Pf3">
+                                <rect key="frame" x="128" y="256" width="176" height="30"/>
+                                <state key="normal" title="[select group]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Q5D-Ib-Bvm" kind="show" identifier="selectGroup" id="x01-vU-vyj"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tpS-tK-MId" customClass="AppUITextField" customModule="budget_ios" customModuleProvider="target">
+                                <rect key="frame" x="128" y="193" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vzy-xE-Pf3" firstAttribute="leading" secondItem="rdm-xo-w8k" secondAttribute="trailing" constant="23" id="dHm-Ms-jm8"/>
+                            <constraint firstItem="vzy-xE-Pf3" firstAttribute="leading" secondItem="rdm-xo-w8k" secondAttribute="trailing" constant="23" id="mcW-RA-92V"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Type" id="8OS-nu-QjI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="314-mV-faY">
+                            <connections>
+                                <action selector="save:" destination="06J-p5-ORq" id="kQf-yp-Sja"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="group" destination="vzy-xE-Pf3" id="ZVo-Xp-4JZ"/>
+                        <outlet property="groupLabel" destination="rdm-xo-w8k" id="wSA-IX-55d"/>
+                        <outlet property="name" destination="tpS-tK-MId" id="ugT-tu-bzG"/>
+                        <outlet property="nameLabel" destination="LGr-me-ijj" id="DCw-36-5oz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZD-X9-vgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-1056"/>
         </scene>
         <!--Overviews-->
         <scene sceneID="yWC-XN-SwT">
@@ -602,8 +774,21 @@
                             <outlet property="delegate" destination="lAW-fj-Z2l" id="TUx-yU-AzU"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Overview" id="GjS-Na-Xfa"/>
+                    <navigationItem key="navigationItem" title="Overview" id="GjS-Na-Xfa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="edU-Zj-NnF">
+                            <connections>
+                                <action selector="addAction:" destination="lAW-fj-Z2l" id="064-pr-LC8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="addButton" destination="edU-Zj-NnF" id="e1r-9r-56s"/>
+                        <outlet property="table" destination="UKB-Ph-U8X" id="u6j-cd-87J"/>
+                        <segue destination="jy9-oj-56X" kind="show" identifier="addAccount" id="Wxm-Ii-VBO"/>
+                        <segue destination="7tu-Ns-KC0" kind="show" identifier="addGroup" id="rf9-3m-AdS"/>
+                        <segue destination="06J-p5-ORq" kind="show" identifier="addType" id="iYV-Gc-2M2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73Z-a5-P4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -675,11 +860,20 @@
                             <outlet property="delegate" destination="cYC-M6-MAX" id="vPK-ag-rwx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Items" id="bx6-ul-MlU"/>
+                    <navigationItem key="navigationItem" title="Items" id="bx6-ul-MlU">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="MjW-Xs-Ava">
+                            <connections>
+                                <action selector="editAction:" destination="cYC-M6-MAX" id="hEg-i7-Aql"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="table" destination="Bbp-Iu-2IU" id="rPF-Cw-scl"/>
                         <segue destination="9Zl-Cc-ojT" kind="show" identifier="editItem" id="Uih-rT-xX5"/>
+                        <segue destination="jy9-oj-56X" kind="show" identifier="editAccount" id="Tie-et-97h"/>
+                        <segue destination="7tu-Ns-KC0" kind="show" identifier="editGroup" id="MqJ-7k-0QP"/>
+                        <segue destination="06J-p5-ORq" kind="show" identifier="editType" id="IUs-pd-bNN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOi-ew-mck" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -714,7 +908,13 @@
                             <outlet property="delegate" destination="Q5D-Ib-Bvm" id="64U-b4-Mno"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Select Group" id="ofL-fk-AHn"/>
+                    <navigationItem key="navigationItem" title="Select Group" id="ofL-fk-AHn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="04k-Yc-2fZ">
+                            <connections>
+                                <segue destination="7tu-Ns-KC0" kind="show" id="s03-Uw-Ch7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="table" destination="eTy-N1-unz" id="G8K-e0-Ct1"/>
@@ -726,9 +926,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4KF-ED-k3b"/>
+        <segue reference="iYV-Gc-2M2"/>
+        <segue reference="Wxm-Ii-VBO"/>
+        <segue reference="rf9-3m-AdS"/>
+        <segue reference="Uih-rT-xX5"/>
         <segue reference="RpM-ED-kwd"/>
         <segue reference="V9X-57-fz6"/>
         <segue reference="pfk-gM-CKb"/>
+        <segue reference="bnA-ML-59b"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,9 +17,13 @@ class ItemAccountEditViewController: AppUITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         table.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         accounts = ModelServices.account.all().filter({ !$0.inactive })
+        table.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

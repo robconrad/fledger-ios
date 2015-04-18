@@ -81,6 +81,8 @@ class StandardModelService<M: Model>: ModelService {
                 println(modelStmt.reason)
             }
             
+            println(modelStmt)
+            
             id = nil
             return .Rollback
         }

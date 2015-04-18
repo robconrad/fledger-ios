@@ -98,6 +98,21 @@ class ItemsViewController: AppUITableViewController {
                 dest.itemFilters = itemFilters
             }
         }
+        else if segue.identifier == "editAccount" {
+            if let dest = segue.destinationViewController as? AccountEditViewController {
+                dest.account = itemFilters.accountId.map { ModelServices.account.withId($0)!  }
+            }
+        }
+        else if segue.identifier == "editGroup" {
+            if let dest = segue.destinationViewController as? GroupEditViewController {
+                dest.group = itemFilters.groupId.map { ModelServices.group.withId($0)!  }
+            }
+        }
+        else if segue.identifier == "editType" {
+            if let dest = segue.destinationViewController as? TypeEditViewController {
+                dest.type = itemFilters.typeId.map { ModelServices.type.withId($0)!  }
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -108,6 +123,19 @@ class ItemsViewController: AppUITableViewController {
             itemFilters.offset! += itemFilters.count!
             items? += ModelServices.item.select(itemFilters)
             table.reloadData()
+        }
+    }
+    
+    // from overview navigation
+    @IBAction func editAction(sender: AnyObject) {
+        if itemFilters.accountId != nil {
+            performSegueWithIdentifier("editAccount", sender: sender)
+        }
+        else if itemFilters.groupId != nil {
+            performSegueWithIdentifier("editGroup", sender: sender)
+        }
+        else if itemFilters.typeId != nil {
+            performSegueWithIdentifier("editType", sender: sender)
         }
     }
     

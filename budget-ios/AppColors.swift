@@ -18,6 +18,7 @@ class AppColors {
     static let bgHeaderHighlight = UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
     
     static let text = UIColor.whiteColor()
+    static let textWeak = AppColors.bgHeader
     static let textError = UIColor.redColor()
     
 }

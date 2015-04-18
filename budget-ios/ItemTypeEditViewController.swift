@@ -19,7 +19,13 @@ class ItemTypeEditViewController: AppUITableViewController {
         super.viewDidLoad()
         
         table.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         types = ModelServices.type.all()
+        table.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

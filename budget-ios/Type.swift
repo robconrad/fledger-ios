@@ -16,7 +16,7 @@ class Type: Model {
     
     let name: String
     
-    required init(id: Int64, groupId: Int64, name: String) {
+    required init(id: Int64?, groupId: Int64, name: String) {
         self.id = id
         self.groupId = groupId
         self.name = name
@@ -30,7 +30,21 @@ class Type: Model {
     }
     
     func toSetters() -> [Setter] {
-        return []
+        return [
+            Fields.name <- name,
+            Fields.groupId <- groupId
+        ]
+    }
+    
+    func copy(groupId: Int64? = nil, name: String? = nil) -> Type {
+        return Type(
+            id: id,
+            groupId: groupId ?? self.groupId,
+            name: name ?? self.name)
+    }
+    
+    func group() -> Group {
+        return ModelServices.group.withTypeId(id!)!
     }
     
 }

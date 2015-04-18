@@ -11,40 +11,33 @@ import UIKit
 
 class OverviewsViewController: AppUITableViewController {
     
-    let categories = ["All", "Accounts", "Groups", "Types"]
-    var selectedIndex: Int?
+    var selected: OverviewCategory?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return OverviewCategory.values.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
-        cell.textLabel?.text = categories[indexPath.row]
+        cell.textLabel?.text = OverviewCategory.values[indexPath.row].rawValue
         return cell
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        selectedIndex = indexPath.row
+        selected = OverviewCategory.values[indexPath.row]
         return indexPath
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "overview" {
             if let dest = segue.destinationViewController as? OverviewViewController {
-                if let index = selectedIndex {
-                    dest.title = categories[index]
-                    switch index {
-                    case 0: dest.rows = Aggregates.getAll()
-                    case 1: dest.rows = Aggregates.getAccounts()
-                    case 2: dest.rows = Aggregates.getGroups()
-                    case 3: dest.rows = Aggregates.getTypes()
-                    default: break
-                    }
+                if let category = selected {
+                    dest.title = category.rawValue
+                    dest.category = category
                 }
             }
         }

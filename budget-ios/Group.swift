@@ -15,7 +15,7 @@ class Group: Model {
     
     let name: String
     
-    required init(id: Int64, name: String) {
+    required init(id: Int64?, name: String) {
         self.id = id
         self.name = name
     }
@@ -27,7 +27,15 @@ class Group: Model {
     }
     
     func toSetters() -> [Setter] {
-        return []
+        return [
+            Fields.name <- name
+        ]
+    }
+    
+    func copy(name: String? = nil) -> Group {
+        return Group(
+            id: id,
+            name: name ?? self.name)
     }
     
 }

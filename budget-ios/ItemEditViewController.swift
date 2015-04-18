@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ItemEditViewController: AppUIViewController {
 
+
+class ItemEditViewController: EditViewController {
+    
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
@@ -23,16 +25,18 @@ class ItemEditViewController: AppUIViewController {
     @IBOutlet weak var flow: UISwitch!
     @IBOutlet weak var comments: AppUITextField!
     
+    @IBOutlet weak var toolbar: AppUIToolbar!
+    
     var item: Item?
     
     var selectedAccountId: Int64?
     var selectedDate: NSDate?
     var selectedTypeId: Int64?
     
-    var errors = false
     var selectingModel: ModelType?
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         item = item?.copy(
             accountId: selectedAccountId,
@@ -62,6 +66,7 @@ class ItemEditViewController: AppUIViewController {
             else {
                 date.setTitle(NSDate().datatypeValue, forState: .Normal)
             }
+            toolbar.hidden = true
         }
         
         if let model = selectingModel {
@@ -81,10 +86,10 @@ class ItemEditViewController: AppUIViewController {
     @IBAction func commentsValueChanged(sender: AnyObject) {
         checkCommentsError()
     }
-
+    
     @IBAction func save(sender: AnyObject) {
         checkErrors()
-            
+        
         if !errors {
             if let i = item {
                 errors = !ModelServices.item.update(i.copy(
@@ -102,9 +107,7 @@ class ItemEditViewController: AppUIViewController {
             }
             
             if !errors {
-                if let nav = navigationController {
-                    nav.popViewControllerAnimated(true)
-                }
+                segueBack()
             }
         }
     }
@@ -117,9 +120,7 @@ class ItemEditViewController: AppUIViewController {
         }
         
         if !errors {
-            if let nav = navigationController {
-                nav.popViewControllerAnimated(true)
-            }
+            segueBack()
         }
     }
     
@@ -143,26 +144,12 @@ class ItemEditViewController: AppUIViewController {
         }
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.view.endEditing(true)
-    }
-    
     func amountValue(includeFlow: Bool = false) -> Double {
         var a = (amount.text as NSString).doubleValue
         if includeFlow && !flow.on {
             a = -a
         }
         return a
-    }
-    
-    func checkErrors(errorCondition: Bool, item: UILabel) {
-        if errorCondition {
-            item.textColor = AppColors.textError
-        }
-        else {
-            item.textColor = AppColors.text
-        }
-        errors = errors || errorCondition
     }
     
     func checkErrors() {

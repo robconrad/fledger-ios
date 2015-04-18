@@ -12,6 +12,10 @@ import SQLite
 
 class GroupService<T: Group>: MemoryModelService<Group> {
     
+    override func modelType() -> ModelType {
+        return ModelType.Group
+    }
+    
     func withTypeId(id: Int64) -> Group? {
         if let type = ModelServices.type.withId(id) {
             return withId(type.groupId)

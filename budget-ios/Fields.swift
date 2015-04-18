@@ -42,6 +42,6 @@ class Fields {
 
 class Expressions {
     
-    static let sumAmount = sum(Fields.amount)
+    static let sumAmount = sum(Expression<Double?>("amount"))
     
 }

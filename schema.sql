@@ -12,7 +12,6 @@ DROP TABLE IF EXISTS `types`;
 CREATE TABLE "types" (
     "id" INTEGER PRIMARY KEY,
     "name" longtext NOT NULL,
-    "budget" double NOT NULL,
     "group_id" int(10) NOT NULL DEFAULT '0',
     FOREIGN KEY (group_id) REFERENCES groups(id),
     UNIQUE (name, group_id)
