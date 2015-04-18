@@ -83,6 +83,7 @@
 		3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */; };
 		3EB323A81AE313EE0023825D /* AppUIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A71AE313EE0023825D /* AppUIToolbar.swift */; };
 		3EB323AE1AE3159A0023825D /* data-lite.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323AD1AE3159A0023825D /* data-lite.sql */; };
+		3EB323B01AE31B190023825D /* AppUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323AF1AE31B190023825D /* AppUIView.swift */; };
 		B58FEA10C624D06B9364F1A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C9EFC54D56CA4D49824CD2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -236,6 +237,7 @@
 		3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A71AE313EE0023825D /* AppUIToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIToolbar.swift; sourceTree = "<group>"; };
 		3EB323AD1AE3159A0023825D /* data-lite.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "data-lite.sql"; sourceTree = "<group>"; };
+		3EB323AF1AE31B190023825D /* AppUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIView.swift; sourceTree = "<group>"; };
 		450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E1C9EFC54D56CA4D49824CD2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2B86C11ADD71E10080B206 /* AppColors.swift */,
+				3EB323AF1AE31B190023825D /* AppUIView.swift */,
 				3E2B86CB1ADD7B400080B206 /* AppUILabel.swift */,
 				3E2B86C91ADD79200080B206 /* AppUIViewController.swift */,
 				3E2B86C51ADD76E40080B206 /* AppUITableViewCell.swift */,
@@ -745,6 +748,7 @@
 				3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */,
 				3E2B86C61ADD76E40080B206 /* AppUITableViewCell.swift in Sources */,
 				3E2B86C21ADD71E10080B206 /* AppColors.swift in Sources */,
+				3EB323B01AE31B190023825D /* AppUIView.swift in Sources */,
 				3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */,
 				3E2B86D41ADF6D630080B206 /* AppUITextField.swift in Sources */,
 				3E21B2741AD7229000E00AE1 /* OverviewsViewController.swift in Sources */,
