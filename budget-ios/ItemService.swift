@@ -12,6 +12,10 @@ import SQLite
 
 class ItemService<M: Item>: StandardModelService<Item> {
     
+    override func modelType() -> ModelType {
+        return ModelType.Item
+    }
+    
     override internal func table() -> Query {
         return DatabaseService.main.items.join(DatabaseService.main.types, on: Fields.typeId == DatabaseService.main.types[Fields.id])
     }

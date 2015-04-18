@@ -10,6 +10,8 @@ protocol ModelService {
     
     typealias T: Model
     
+    func modelType() -> ModelType
+    
     func withId(id: Int64) -> T?
     
     func all() -> [T]

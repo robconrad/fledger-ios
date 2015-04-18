@@ -12,6 +12,13 @@ import SQLite
 
 class StandardModelService<M: Model>: ModelService {
     
+    private let parse = DatabaseService.main.parse
+    private let db = DatabaseService.main.db
+    
+    func modelType() -> ModelType {
+        fatalError(__FUNCTION__ + " must be implemented")
+    }
+    
     internal func table() -> Query {
         fatalError(__FUNCTION__ + " must be implemented")
     }
@@ -51,15 +58,68 @@ class StandardModelService<M: Model>: ModelService {
     }
     
     func insert(e: M) -> Int64? {
-        let (id, stmt) = table().insert(e.toSetters())
-        if id == nil {
-            println(stmt.reason)
+        var id: Int64?
+        
+        let result = db.transaction { _ in
+            
+            let (modelId, modelStmt) = table().insert(e.toSetters())
+            id = modelId
+            
+            if let unwrappedId = modelId {
+                let (parseId, parseStmt) = parse.insert([
+                    Fields.model <- modelType().string,
+                    Fields.modelId <- unwrappedId
+                ])
+                if parseId != nil {
+                    return .Commit
+                }
+                else {
+                    println(parseStmt.reason)
+                }
+            }
+            else {
+                println(modelStmt.reason)
+            }
+            
+            id = nil
+            return .Rollback
+        }
+        
+        if result.failed {
+            return nil
         }
         return id
     }
     
     func update(e: M) -> Bool {
-        return table().filter(Fields.id == e.id!).update(e.toSetters()) == 1
+        var success = false
+        
+        let result = db.transaction { _ in
+            let (modelRows, modelStmt) = table().filter(Fields.id == e.id!).update(e.toSetters())
+            
+            if modelRows == 1 {
+                let query: Query = parse.filter(Fields.model == modelType().string && Fields.modelId == e.id!)
+                let (parseRows, parseStmt) = query.update(Fields.synced <- false)
+                
+                if parseRows == 1 {
+                    success = true
+                    return .Commit
+                }
+                else {
+                    println(parseStmt.reason)
+                }
+            }
+            else {
+                println(modelStmt.reason)
+            }
+            
+            return .Rollback
+        }
+        
+        if result.failed {
+            return false
+        }
+        return success
     }
     
     func delete(e: M) -> Bool {
@@ -67,7 +127,34 @@ class StandardModelService<M: Model>: ModelService {
     }
     
     func delete(id: Int64) -> Bool {
-        return table().filter(Fields.id == id).delete() == 1
+        var success = false
+        
+        let result = db.transaction { _ in
+            let (modelRows, modelStmt) = table().filter(Fields.id == id).delete()
+            
+            if modelRows == 1 {
+                let query: Query = parse.filter(Fields.model == modelType().string && Fields.modelId == id)
+                let (parseRows, parseStmt) = query.update(Fields.synced <- false, Fields.deleted <- true)
+                
+                if parseRows == 1 {
+                    success = true
+                    return .Commit
+                }
+                else {
+                    println(parseStmt.reason)
+                }
+            }
+            else {
+                println(modelStmt.reason)
+            }
+            
+            return .Rollback
+        }
+        
+        if result.failed {
+            return false
+        }
+        return success
     }
     
     func invalidate() {

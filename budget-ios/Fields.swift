@@ -30,6 +30,14 @@ class Fields {
     static let priority = Expression<Int>("priority")
     static let inactive = Expression<Bool>("inactive")
     
+    // parse
+    static let model = Expression<String>("model")
+    static let modelId = Expression<Int64>("model_id")
+    static let parseId = Expression<String>("parseId")
+    static let synced = Expression<Bool>("synced")
+    static let deleted = Expression<Bool>("deleted")
+    static let updatedAt = Expression<NSDate>("updated_at")
+    
 }
 
 class Expressions {

@@ -18,12 +18,13 @@ class DatabaseService: NSObject {
         return Singleton.instance
     }
     
-    private let db: Database
+    let db: Database
     
     let accounts: Query
     let groups: Query
     let types: Query
     let items: Query
+    let parse: Query
     
     required override init() {
         
@@ -33,40 +34,23 @@ class DatabaseService: NSObject {
         db.trace(println)
         
         accounts = db["accounts"]
-        groups = db["type_groups"]
+        groups = db["groups"]
         types = db["types"]
         items = db["items"]
+        parse = db["parse"]
         
     }
     
     func createDatabaseDestructive() {
-        let data = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("cakebudget2", withExtension: "sql")!)
-        let sql = NSString(data: data!, encoding: NSASCIIStringEncoding) as! String
+        let schema = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("schema", withExtension: "sql")!)
+        let sql = NSString(data: schema!, encoding: NSASCIIStringEncoding) as! String
         db.execute(sql)
     }
     
-    func getItems(
-        offset: Int = 0,
-        count: Int = 30,
-        itemFilters: ItemFilters? = nil
-        ) -> [Item] {
-            
-            var myItems: [Item] = []
-            
-            var query = items
-                .filter(Fields.amount > 0.0)
-                .order(Fields.date.desc, Fields.id.desc)
-                .limit(count, offset: offset)
-            
-            if let filters = itemFilters {
-                query = filters.toQuery(query)
-            }
-            
-            for item in query {
-                myItems.append(Item(row: item))
-            }
-            
-            return myItems
+    func loadDefaultData() {
+        let data = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("data", withExtension: "sql")!)
+        let sql = NSString(data: data!, encoding: NSASCIIStringEncoding) as! String
+        db.execute(sql)
     }
     
 }
