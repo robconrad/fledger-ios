@@ -214,7 +214,7 @@
         <scene sceneID="Wh1-dp-63z">
             <objects>
                 <navigationController id="VRE-48-nQO" customClass="AppUINavigationController" customModule="budget_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Items" id="xbw-ni-EDB"/>
+                    <tabBarItem key="tabBarItem" title="Items" image="listing.png" id="xbw-ni-EDB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WZk-o0-b1h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -797,7 +797,7 @@
         <scene sceneID="Qq1-ge-hAA">
             <objects>
                 <navigationController title="Overviews" id="Z6n-o7-Cw3" customClass="AppUINavigationController" customModule="budget_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Overviews" id="0Ux-PY-xOR"/>
+                    <tabBarItem key="tabBarItem" title="Overview" image="notepad.png" id="0Ux-PY-xOR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z2Q-aS-3ys">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -924,6 +924,10 @@
             <point key="canvasLocation" x="2143" y="-1709"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="listing.png" width="32" height="32"/>
+        <image name="notepad.png" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iYV-Gc-2M2"/>
         <segue reference="Wxm-Ii-VBO"/>

@@ -84,6 +84,8 @@
 		3EB323A81AE313EE0023825D /* AppUIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A71AE313EE0023825D /* AppUIToolbar.swift */; };
 		3EB323AE1AE3159A0023825D /* data-lite.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323AD1AE3159A0023825D /* data-lite.sql */; };
 		3EB323B01AE31B190023825D /* AppUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323AF1AE31B190023825D /* AppUIView.swift */; };
+		3EB323BA1AE31F2C0023825D /* listing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B81AE31F2C0023825D /* listing@2x.png */; };
+		3EB323BB1AE31F2C0023825D /* notepad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B91AE31F2C0023825D /* notepad@2x.png */; };
 		B58FEA10C624D06B9364F1A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C9EFC54D56CA4D49824CD2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -238,6 +240,8 @@
 		3EB323A71AE313EE0023825D /* AppUIToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIToolbar.swift; sourceTree = "<group>"; };
 		3EB323AD1AE3159A0023825D /* data-lite.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "data-lite.sql"; sourceTree = "<group>"; };
 		3EB323AF1AE31B190023825D /* AppUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIView.swift; sourceTree = "<group>"; };
+		3EB323B81AE31F2C0023825D /* listing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listing@2x.png"; sourceTree = "<group>"; };
+		3EB323B91AE31F2C0023825D /* notepad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notepad@2x.png"; sourceTree = "<group>"; };
 		450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E1C9EFC54D56CA4D49824CD2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -411,6 +415,7 @@
 		3E2B86B11ADCB9C60080B206 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				3EB323B31AE31F170023825D /* images */,
 				3E2B86C11ADD71E10080B206 /* AppColors.swift */,
 				3EB323AF1AE31B190023825D /* AppUIView.swift */,
 				3E2B86CB1ADD7B400080B206 /* AppUILabel.swift */,
@@ -513,6 +518,15 @@
 				3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */,
 			);
 			name = assembly;
+			sourceTree = "<group>";
+		};
+		3EB323B31AE31F170023825D /* images */ = {
+			isa = PBXGroup;
+			children = (
+				3EB323B81AE31F2C0023825D /* listing@2x.png */,
+				3EB323B91AE31F2C0023825D /* notepad@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		5BA64593D4D93334D928F593 /* Pods */ = {
@@ -686,6 +700,8 @@
 				3E21B27C1AD7229000E00AE1 /* LaunchScreen.xib in Resources */,
 				3E2B87001AE2DF830080B206 /* data.sql in Resources */,
 				3E21B2B11AD739D500E00AE1 /* schema.sql in Resources */,
+				3EB323BA1AE31F2C0023825D /* listing@2x.png in Resources */,
+				3EB323BB1AE31F2C0023825D /* notepad@2x.png in Resources */,
 				3E21B2791AD7229000E00AE1 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
