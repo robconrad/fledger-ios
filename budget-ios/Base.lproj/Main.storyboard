@@ -94,21 +94,21 @@
                                     <segue destination="Q5D-Ib-Bvm" kind="show" id="bnA-ML-59b"/>
                                 </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A8J-PL-jby" customClass="AppUINavigationBar" customModule="budget_ios" customModuleProvider="target">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpT-tT-c7c" customClass="AppUIToolbar" customModule="budget_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="480" width="320" height="44"/>
                                 <items>
-                                    <navigationItem id="HCF-C7-h4r">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="pQs-fy-MIQ">
-                                            <connections>
-                                                <action selector="clear:" destination="GUZ-Qa-CZq" id="adt-6I-SHI"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sDc-X7-cM0"/>
+                                    <barButtonItem systemItem="trash" id="oOc-Zg-BA0">
+                                        <connections>
+                                            <action selector="clear:" destination="GUZ-Qa-CZq" id="WeC-Wf-TBf"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
-                            </navigationBar>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="RpT-tT-c7c" secondAttribute="trailing" constant="-16" id="0rA-CW-9NV"/>
                             <constraint firstItem="n7k-Hf-7QG" firstAttribute="leading" secondItem="zcK-7a-Wvg" secondAttribute="trailing" constant="23" id="0uc-ra-vwS"/>
                             <constraint firstItem="5SX-Pw-lZn" firstAttribute="top" secondItem="I2x-J4-8tm" secondAttribute="bottom" constant="26" id="1Wn-F9-fyO"/>
                             <constraint firstItem="eFU-xg-PHT" firstAttribute="top" secondItem="isg-jD-ChN" secondAttribute="bottom" constant="17" id="5XO-bj-qwU"/>
@@ -117,18 +117,17 @@
                             <constraint firstItem="I2x-J4-8tm" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="15" id="Awd-yC-kU1"/>
                             <constraint firstItem="MKa-EN-bXt" firstAttribute="top" secondItem="zcK-7a-Wvg" secondAttribute="bottom" constant="23" id="BFn-kF-KWv"/>
                             <constraint firstItem="rnI-lA-qQd" firstAttribute="leading" secondItem="Cx3-NZ-ULB" secondAttribute="trailing" constant="23" id="E62-g3-Ju7"/>
+                            <constraint firstItem="jYD-09-mYc" firstAttribute="top" secondItem="RpT-tT-c7c" secondAttribute="bottom" id="GNp-lV-fEs"/>
                             <constraint firstItem="MKa-EN-bXt" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="31" id="Gl3-mR-eWT"/>
                             <constraint firstItem="Cx3-NZ-ULB" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="8" id="IdN-uE-M4w"/>
                             <constraint firstItem="zcK-7a-Wvg" firstAttribute="top" secondItem="Cx3-NZ-ULB" secondAttribute="bottom" constant="22" id="OWk-V7-FOu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rnI-lA-qQd" secondAttribute="trailing" constant="5" id="Oap-fV-ODw"/>
                             <constraint firstItem="5SX-Pw-lZn" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="1" id="Rvl-vH-Yd8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mId-Q9-9x3" secondAttribute="trailing" constant="5" id="TfT-T5-LyR"/>
-                            <constraint firstItem="jYD-09-mYc" firstAttribute="top" secondItem="A8J-PL-jby" secondAttribute="bottom" id="We3-oj-zpm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="A8J-PL-jby" secondAttribute="trailing" constant="-16" id="Yqk-pw-9K9"/>
                             <constraint firstItem="n7k-Hf-7QG" firstAttribute="top" secondItem="rnI-lA-qQd" secondAttribute="bottom" constant="13" id="blg-Qq-Gyk"/>
+                            <constraint firstItem="RpT-tT-c7c" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="-16" id="bxn-Sa-UeN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eFU-xg-PHT" secondAttribute="trailing" constant="5" id="cOg-Y8-LZR"/>
                             <constraint firstItem="mId-Q9-9x3" firstAttribute="top" secondItem="n7k-Hf-7QG" secondAttribute="bottom" constant="14" id="dty-as-poG"/>
-                            <constraint firstItem="A8J-PL-jby" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="-16" id="f2E-ab-MLR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="isg-jD-ChN" secondAttribute="trailing" constant="5" id="gh6-80-RRX"/>
                             <constraint firstItem="isg-jD-ChN" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="22" id="gjm-vr-i93"/>
                             <constraint firstItem="rnI-lA-qQd" firstAttribute="top" secondItem="eFU-xg-PHT" secondAttribute="bottom" constant="17" id="hC5-GE-cZh"/>
