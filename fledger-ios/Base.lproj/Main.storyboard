@@ -18,34 +18,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SX-Pw-lZn" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="17" y="137" width="83" height="21"/>
+                                <rect key="frame" x="16" y="182" width="83" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zcK-7a-Wvg" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="59" y="227" width="41" height="21"/>
+                                <rect key="frame" x="58" y="134" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2x-J4-8tm" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="31" y="90" width="69" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isg-jD-ChN">
-                                <rect key="frame" x="123" y="86" width="176" height="30"/>
-                                <state key="normal" title="[select account]">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="5YG-CF-FsU" kind="show" id="oEq-Ir-5ml"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7k-Hf-7QG">
-                                <rect key="frame" x="123" y="223" width="176" height="30"/>
+                                <rect key="frame" x="122" y="130" width="176" height="30"/>
                                 <state key="normal" title="[select type]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -54,7 +39,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFU-xg-PHT">
-                                <rect key="frame" x="123" y="133" width="176" height="30"/>
+                                <rect key="frame" x="122" y="178" width="176" height="30"/>
                                 <state key="normal" title="[select date]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -64,13 +49,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx3-NZ-ULB" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="24" y="184" width="76" height="21"/>
+                                <rect key="frame" x="23" y="229" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnI-lA-qQd">
-                                <rect key="frame" x="123" y="180" width="176" height="30"/>
+                                <rect key="frame" x="122" y="225" width="176" height="30"/>
                                 <state key="normal" title="[select date]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -80,13 +65,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-EN-bXt" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="47" y="271" width="53" height="21"/>
+                                <rect key="frame" x="46" y="89" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mId-Q9-9x3">
-                                <rect key="frame" x="123" y="268" width="176" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mId-Q9-9x3">
+                                <rect key="frame" x="122" y="86" width="176" height="30"/>
                                 <state key="normal" title="[select group]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -105,38 +90,52 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I2x-J4-8tm" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="30" y="273" width="69" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isg-jD-ChN">
+                                <rect key="frame" x="122" y="269" width="176" height="30"/>
+                                <state key="normal" title="[select account]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5YG-CF-FsU" kind="show" id="oEq-Ir-5ml"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="RpT-tT-c7c" secondAttribute="trailing" constant="-16" id="0rA-CW-9NV"/>
-                            <constraint firstItem="n7k-Hf-7QG" firstAttribute="leading" secondItem="zcK-7a-Wvg" secondAttribute="trailing" constant="23" id="0uc-ra-vwS"/>
-                            <constraint firstItem="5SX-Pw-lZn" firstAttribute="top" secondItem="I2x-J4-8tm" secondAttribute="bottom" constant="26" id="1Wn-F9-fyO"/>
-                            <constraint firstItem="eFU-xg-PHT" firstAttribute="top" secondItem="isg-jD-ChN" secondAttribute="bottom" constant="17" id="5XO-bj-qwU"/>
-                            <constraint firstItem="eFU-xg-PHT" firstAttribute="leading" secondItem="5SX-Pw-lZn" secondAttribute="trailing" constant="23" id="5kq-r0-9eF"/>
-                            <constraint firstItem="mId-Q9-9x3" firstAttribute="leading" secondItem="MKa-EN-bXt" secondAttribute="trailing" constant="23" id="AdD-tR-PfU"/>
-                            <constraint firstItem="I2x-J4-8tm" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="15" id="Awd-yC-kU1"/>
-                            <constraint firstItem="MKa-EN-bXt" firstAttribute="top" secondItem="zcK-7a-Wvg" secondAttribute="bottom" constant="23" id="BFn-kF-KWv"/>
-                            <constraint firstItem="rnI-lA-qQd" firstAttribute="leading" secondItem="Cx3-NZ-ULB" secondAttribute="trailing" constant="23" id="E62-g3-Ju7"/>
-                            <constraint firstItem="jYD-09-mYc" firstAttribute="top" secondItem="RpT-tT-c7c" secondAttribute="bottom" id="GNp-lV-fEs"/>
-                            <constraint firstItem="MKa-EN-bXt" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="31" id="Gl3-mR-eWT"/>
-                            <constraint firstItem="Cx3-NZ-ULB" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="8" id="IdN-uE-M4w"/>
-                            <constraint firstItem="zcK-7a-Wvg" firstAttribute="top" secondItem="Cx3-NZ-ULB" secondAttribute="bottom" constant="22" id="OWk-V7-FOu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="rnI-lA-qQd" secondAttribute="trailing" constant="5" id="Oap-fV-ODw"/>
-                            <constraint firstItem="5SX-Pw-lZn" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="1" id="Rvl-vH-Yd8"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mId-Q9-9x3" secondAttribute="trailing" constant="5" id="TfT-T5-LyR"/>
-                            <constraint firstItem="n7k-Hf-7QG" firstAttribute="top" secondItem="rnI-lA-qQd" secondAttribute="bottom" constant="13" id="blg-Qq-Gyk"/>
-                            <constraint firstItem="RpT-tT-c7c" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="-16" id="bxn-Sa-UeN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eFU-xg-PHT" secondAttribute="trailing" constant="5" id="cOg-Y8-LZR"/>
-                            <constraint firstItem="mId-Q9-9x3" firstAttribute="top" secondItem="n7k-Hf-7QG" secondAttribute="bottom" constant="14" id="dty-as-poG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="isg-jD-ChN" secondAttribute="trailing" constant="5" id="gh6-80-RRX"/>
-                            <constraint firstItem="isg-jD-ChN" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="22" id="gjm-vr-i93"/>
-                            <constraint firstItem="rnI-lA-qQd" firstAttribute="top" secondItem="eFU-xg-PHT" secondAttribute="bottom" constant="17" id="hC5-GE-cZh"/>
-                            <constraint firstItem="mId-Q9-9x3" firstAttribute="leading" secondItem="MKa-EN-bXt" secondAttribute="trailing" constant="23" id="odZ-pe-o25"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="n7k-Hf-7QG" secondAttribute="trailing" constant="5" id="oxn-bk-csw"/>
-                            <constraint firstItem="I2x-J4-8tm" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="26" id="pfS-r8-W28"/>
-                            <constraint firstItem="Cx3-NZ-ULB" firstAttribute="top" secondItem="5SX-Pw-lZn" secondAttribute="bottom" constant="26" id="rmx-GP-TpY"/>
-                            <constraint firstItem="isg-jD-ChN" firstAttribute="leading" secondItem="I2x-J4-8tm" secondAttribute="trailing" constant="23" id="vVM-Cd-o6A"/>
-                            <constraint firstItem="zcK-7a-Wvg" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="43" id="wVd-sr-cXN"/>
+                            <constraint firstItem="I2x-J4-8tm" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="14" id="213-bo-PYt"/>
+                            <constraint firstItem="5SX-Pw-lZn" firstAttribute="top" secondItem="zcK-7a-Wvg" secondAttribute="bottom" constant="27" id="4Nt-3d-RmQ"/>
+                            <constraint firstItem="n7k-Hf-7QG" firstAttribute="top" secondItem="mId-Q9-9x3" secondAttribute="bottom" constant="14" id="5Ww-fH-meh"/>
+                            <constraint firstItem="5SX-Pw-lZn" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" id="6kc-rp-OkB"/>
+                            <constraint firstItem="n7k-Hf-7QG" firstAttribute="leading" secondItem="zcK-7a-Wvg" secondAttribute="trailing" constant="23" id="89w-7C-6xQ"/>
+                            <constraint firstItem="rnI-lA-qQd" firstAttribute="leading" secondItem="Cx3-NZ-ULB" secondAttribute="trailing" constant="23" id="CJh-W3-aFD"/>
+                            <constraint firstItem="I2x-J4-8tm" firstAttribute="top" secondItem="Cx3-NZ-ULB" secondAttribute="bottom" constant="23" id="D8M-4A-YVh"/>
+                            <constraint firstItem="MKa-EN-bXt" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="25" id="GHi-CF-lyo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rnI-lA-qQd" secondAttribute="trailing" constant="6" id="HiP-oO-du7"/>
+                            <constraint firstItem="jYD-09-mYc" firstAttribute="top" secondItem="RpT-tT-c7c" secondAttribute="bottom" id="IFz-06-4im"/>
+                            <constraint firstItem="isg-jD-ChN" firstAttribute="leading" secondItem="I2x-J4-8tm" secondAttribute="trailing" constant="23" id="JlI-aC-Gha"/>
+                            <constraint firstItem="isg-jD-ChN" firstAttribute="top" secondItem="rnI-lA-qQd" secondAttribute="bottom" constant="14" id="NU0-zF-aqw"/>
+                            <constraint firstItem="eFU-xg-PHT" firstAttribute="top" secondItem="n7k-Hf-7QG" secondAttribute="bottom" constant="18" id="OZf-e6-Ae5"/>
+                            <constraint firstItem="Cx3-NZ-ULB" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="7" id="VrL-Sp-2O7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mId-Q9-9x3" secondAttribute="trailing" constant="6" id="VvP-so-lgA"/>
+                            <constraint firstItem="Cx3-NZ-ULB" firstAttribute="top" secondItem="5SX-Pw-lZn" secondAttribute="bottom" constant="26" id="XOU-3b-Az5"/>
+                            <constraint firstItem="rnI-lA-qQd" firstAttribute="top" secondItem="eFU-xg-PHT" secondAttribute="bottom" constant="17" id="aJ3-pr-2xZ"/>
+                            <constraint firstItem="RpT-tT-c7c" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="-16" id="akj-GO-emS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="isg-jD-ChN" secondAttribute="trailing" constant="6" id="eiN-AN-axJ"/>
+                            <constraint firstItem="zcK-7a-Wvg" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="42" id="hQU-Nb-sdd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RpT-tT-c7c" secondAttribute="trailing" constant="-16" id="icg-Pg-RLx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eFU-xg-PHT" secondAttribute="trailing" constant="6" id="jUH-Xt-gwV"/>
+                            <constraint firstItem="mId-Q9-9x3" firstAttribute="top" secondItem="FGp-OS-PNW" secondAttribute="bottom" constant="22" id="koL-be-06K"/>
+                            <constraint firstItem="MKa-EN-bXt" firstAttribute="leading" secondItem="BAF-ZX-faA" secondAttribute="leadingMargin" constant="30" id="l5U-7C-4c5"/>
+                            <constraint firstItem="zcK-7a-Wvg" firstAttribute="top" secondItem="MKa-EN-bXt" secondAttribute="bottom" constant="24" id="sSL-wZ-4lg"/>
+                            <constraint firstItem="eFU-xg-PHT" firstAttribute="leading" secondItem="5SX-Pw-lZn" secondAttribute="trailing" constant="23" id="uOu-eE-Wz4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n7k-Hf-7QG" secondAttribute="trailing" constant="6" id="uqf-Bc-6Ff"/>
+                            <constraint firstItem="mId-Q9-9x3" firstAttribute="leading" secondItem="MKa-EN-bXt" secondAttribute="trailing" constant="23" id="zO1-bL-aFD"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -159,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yph-kJ-5E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616" y="-1051"/>
+            <point key="canvasLocation" x="1665" y="-1056"/>
         </scene>
         <!--Items-->
         <scene sceneID="jI1-pB-ig8">
@@ -225,7 +224,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S9M-J9-8o6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="-384"/>
+            <point key="canvasLocation" x="700" y="-384"/>
         </scene>
         <!--Edit Item-->
         <scene sceneID="AvL-zd-2Vd">
@@ -240,7 +239,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bnq-p5-lIK" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="128" y="218" width="176" height="30"/>
+                                <rect key="frame" x="128" y="262" width="176" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
@@ -248,7 +247,7 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZkN-fj-Hg3">
-                                <rect key="frame" x="128" y="79" width="176" height="30"/>
+                                <rect key="frame" x="128" y="166" width="176" height="30"/>
                                 <state key="normal" title="[select account]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -256,17 +255,8 @@
                                     <segue destination="5YG-CF-FsU" kind="show" identifier="selectAccount" id="V9X-57-fz6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAw-xt-Ewg">
-                                <rect key="frame" x="128" y="170" width="176" height="30"/>
-                                <state key="normal" title="[select type]">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="sc5-qT-Nj7" kind="show" identifier="selectType" id="pfk-gM-CKb"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TL-gh-6We">
-                                <rect key="frame" x="128" y="126" width="176" height="30"/>
+                                <rect key="frame" x="128" y="125" width="176" height="30"/>
                                 <state key="normal" title="[select date]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -281,31 +271,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPA-ea-mbv" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="64" y="130" width="41" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kn-Wy-Ibx" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="64" y="174" width="41" height="21"/>
+                                <rect key="frame" x="64" y="129" width="41" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGs-z7-8gC" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="40" y="222" width="65" height="21"/>
+                                <rect key="frame" x="40" y="266" width="65" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flow:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yfg-nc-fh9" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="63" y="273" width="42" height="21"/>
+                                <rect key="frame" x="64" y="216" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIR-4W-hSJ" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="36" y="83" width="69" height="21"/>
+                                <rect key="frame" x="36" y="170" width="69" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -319,16 +303,16 @@
                                 </connections>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WDh-ho-YYf">
-                                <rect key="frame" x="159" y="268" width="51" height="31"/>
+                                <rect key="frame" x="160" y="211" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pc-46-3SU" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="216" y="273" width="14" height="21"/>
+                                <rect key="frame" x="217" y="216" width="14" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fMj-Eq-ram" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="128" y="273" width="28" height="21"/>
+                                <rect key="frame" x="129" y="216" width="28" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -344,54 +328,62 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HAw-xt-Ewg">
+                                <rect key="frame" x="128" y="84" width="176" height="30"/>
+                                <state key="normal" title="[select type]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sc5-qT-Nj7" kind="show" identifier="selectType" id="pfk-gM-CKb"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kn-Wy-Ibx" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="64" y="88" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9pc-46-3SU" firstAttribute="leading" secondItem="WDh-ho-YYf" secondAttribute="trailing" constant="8" id="5ct-L6-1Fr"/>
-                            <constraint firstItem="GIR-4W-hSJ" firstAttribute="top" secondItem="gKq-Xj-pe7" secondAttribute="bottom" constant="19" id="BgW-lP-VeQ"/>
-                            <constraint firstItem="Yfg-nc-fh9" firstAttribute="top" secondItem="SGs-z7-8gC" secondAttribute="bottom" constant="30" id="BmC-fx-p4w"/>
-                            <constraint firstItem="xaT-V9-q70" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="-16" id="C0m-vo-Rjx"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9pc-46-3SU" secondAttribute="trailing" constant="56" id="DHd-mj-8gw"/>
-                            <constraint firstItem="SGs-z7-8gC" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="24" id="DeE-fG-mcf"/>
-                            <constraint firstItem="HAw-xt-Ewg" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="DvR-my-33e"/>
-                            <constraint firstItem="Bnq-p5-lIK" firstAttribute="top" secondItem="HAw-xt-Ewg" secondAttribute="bottom" constant="18" id="FSy-3f-Ph9"/>
-                            <constraint firstItem="GIR-4W-hSJ" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="20" id="H3R-R0-kF8"/>
-                            <constraint firstItem="SGs-z7-8gC" firstAttribute="top" secondItem="1kn-Wy-Ibx" secondAttribute="bottom" constant="27" id="I79-DG-zd9"/>
-                            <constraint firstItem="Bnq-p5-lIK" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="KOm-cV-aUT"/>
-                            <constraint firstItem="fMj-Eq-ram" firstAttribute="leading" secondItem="Yfg-nc-fh9" secondAttribute="trailing" constant="41" id="Kki-Mz-50X"/>
-                            <constraint firstItem="ZkN-fj-Hg3" firstAttribute="top" secondItem="gKq-Xj-pe7" secondAttribute="bottom" constant="15" id="Nkn-Qc-2aK"/>
-                            <constraint firstItem="Ofk-eX-9Xr" firstAttribute="top" secondItem="Yfg-nc-fh9" secondAttribute="bottom" constant="23" id="NqM-C4-SdH"/>
-                            <constraint firstItem="H1L-Ff-N4Q" firstAttribute="leading" secondItem="Ofk-eX-9Xr" secondAttribute="trailing" constant="23" id="O3d-Wj-XOO"/>
-                            <constraint firstItem="Bnq-p5-lIK" firstAttribute="leading" secondItem="SGs-z7-8gC" secondAttribute="trailing" constant="23" id="Q4T-7S-wZX"/>
-                            <constraint firstItem="HAw-xt-Ewg" firstAttribute="leading" secondItem="1kn-Wy-Ibx" secondAttribute="trailing" constant="23" id="Qyd-BJ-pda"/>
-                            <constraint firstItem="ZkN-fj-Hg3" firstAttribute="leading" secondItem="GIR-4W-hSJ" secondAttribute="trailing" constant="23" id="U2O-Q8-F3N"/>
-                            <constraint firstItem="Ofk-eX-9Xr" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" id="UWC-HV-hNM"/>
-                            <constraint firstItem="9TL-gh-6We" firstAttribute="leading" secondItem="LPA-ea-mbv" secondAttribute="trailing" constant="23" id="WYL-Px-UMf"/>
-                            <constraint firstItem="H1L-Ff-N4Q" firstAttribute="top" secondItem="WDh-ho-YYf" secondAttribute="bottom" constant="14" id="XLD-m8-KWC"/>
-                            <constraint firstItem="ZkN-fj-Hg3" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="Yg1-rN-ETF"/>
-                            <constraint firstItem="fMj-Eq-ram" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="25" id="Zk2-gK-YRu"/>
-                            <constraint firstItem="Yfg-nc-fh9" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="47" id="aLH-gD-0TO"/>
-                            <constraint firstItem="H1L-Ff-N4Q" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="e0E-pv-kEc"/>
-                            <constraint firstItem="1kn-Wy-Ibx" firstAttribute="top" secondItem="LPA-ea-mbv" secondAttribute="bottom" constant="23" id="gcv-EA-80r"/>
-                            <constraint firstItem="9TL-gh-6We" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="hkf-27-NTd"/>
-                            <constraint firstItem="QUU-Tf-yeO" firstAttribute="top" secondItem="xaT-V9-q70" secondAttribute="bottom" id="i7z-AB-3he"/>
-                            <constraint firstItem="WDh-ho-YYf" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="20" id="ikC-wD-oly"/>
-                            <constraint firstItem="HAw-xt-Ewg" firstAttribute="top" secondItem="9TL-gh-6We" secondAttribute="bottom" constant="14" id="n8u-bY-m5W"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="xaT-V9-q70" secondAttribute="trailing" constant="-16" id="qND-Er-ZqX"/>
-                            <constraint firstItem="fMj-Eq-ram" firstAttribute="leading" secondItem="Yfg-nc-fh9" secondAttribute="trailing" constant="23" id="qeQ-Ve-dIh"/>
-                            <constraint firstItem="1kn-Wy-Ibx" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="qf2-kS-fvQ"/>
-                            <constraint firstItem="WDh-ho-YYf" firstAttribute="leading" secondItem="fMj-Eq-ram" secondAttribute="trailing" constant="3" id="slB-d1-pw0"/>
-                            <constraint firstItem="9pc-46-3SU" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="25" id="soO-qc-SwH"/>
-                            <constraint firstItem="9TL-gh-6We" firstAttribute="top" secondItem="ZkN-fj-Hg3" secondAttribute="bottom" constant="17" id="vG9-mo-DtA"/>
-                            <constraint firstItem="LPA-ea-mbv" firstAttribute="top" secondItem="GIR-4W-hSJ" secondAttribute="bottom" constant="26" id="xGW-nC-jAp"/>
-                            <constraint firstItem="LPA-ea-mbv" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="yAQ-We-dpm"/>
+                            <constraint firstItem="Ofk-eX-9Xr" firstAttribute="top" secondItem="SGs-z7-8gC" secondAttribute="bottom" constant="30" id="09O-iR-h6U"/>
+                            <constraint firstItem="9TL-gh-6We" firstAttribute="top" secondItem="HAw-xt-Ewg" secondAttribute="bottom" constant="11" id="16D-CK-ekZ"/>
+                            <constraint firstItem="9TL-gh-6We" firstAttribute="leading" secondItem="LPA-ea-mbv" secondAttribute="trailing" constant="23" id="5D3-Ig-hRt"/>
+                            <constraint firstItem="ZkN-fj-Hg3" firstAttribute="top" secondItem="9TL-gh-6We" secondAttribute="bottom" constant="11" id="5hm-ZI-3en"/>
+                            <constraint firstItem="SGs-z7-8gC" firstAttribute="top" secondItem="Yfg-nc-fh9" secondAttribute="bottom" constant="29" id="7zW-ef-7ta"/>
+                            <constraint firstItem="H1L-Ff-N4Q" firstAttribute="leading" secondItem="Ofk-eX-9Xr" secondAttribute="trailing" constant="23" id="CCc-IY-eBj"/>
+                            <constraint firstItem="WDh-ho-YYf" firstAttribute="leading" secondItem="fMj-Eq-ram" secondAttribute="trailing" constant="3" id="Gti-qc-qnV"/>
+                            <constraint firstItem="HAw-xt-Ewg" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="ISN-QW-qUn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xaT-V9-q70" secondAttribute="trailing" constant="-16" id="JaQ-Or-I45"/>
+                            <constraint firstItem="Ofk-eX-9Xr" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" id="KTS-JP-E04"/>
+                            <constraint firstItem="LPA-ea-mbv" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="Kd7-Kc-fy4"/>
+                            <constraint firstItem="SGs-z7-8gC" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="24" id="Lyx-L4-lQX"/>
+                            <constraint firstItem="fMj-Eq-ram" firstAttribute="top" secondItem="ZkN-fj-Hg3" secondAttribute="bottom" constant="20" id="M2L-he-Uj3"/>
+                            <constraint firstItem="LPA-ea-mbv" firstAttribute="top" secondItem="1kn-Wy-Ibx" secondAttribute="bottom" constant="20" id="Old-di-Xiv"/>
+                            <constraint firstItem="Bnq-p5-lIK" firstAttribute="top" secondItem="WDh-ho-YYf" secondAttribute="bottom" constant="20" id="PJh-be-9FN"/>
+                            <constraint firstItem="Yfg-nc-fh9" firstAttribute="top" secondItem="GIR-4W-hSJ" secondAttribute="bottom" constant="25" id="PfG-ZC-QOs"/>
+                            <constraint firstItem="1kn-Wy-Ibx" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="T8c-7G-wMp"/>
+                            <constraint firstItem="GIR-4W-hSJ" firstAttribute="top" secondItem="LPA-ea-mbv" secondAttribute="bottom" constant="20" id="TI7-GY-hfu"/>
+                            <constraint firstItem="9pc-46-3SU" firstAttribute="top" secondItem="ZkN-fj-Hg3" secondAttribute="bottom" constant="20" id="Uzd-KP-gxb"/>
+                            <constraint firstItem="ZkN-fj-Hg3" firstAttribute="leading" secondItem="GIR-4W-hSJ" secondAttribute="trailing" constant="23" id="ZNb-C6-ipE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9pc-46-3SU" secondAttribute="trailing" priority="250" constant="73" id="ZO0-eW-PLb"/>
+                            <constraint firstItem="H1L-Ff-N4Q" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="c8m-Nt-ars"/>
+                            <constraint firstItem="WDh-ho-YYf" firstAttribute="top" secondItem="ZkN-fj-Hg3" secondAttribute="bottom" constant="15" id="cjF-FN-GZz"/>
+                            <constraint firstItem="9TL-gh-6We" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="eJi-CK-sUx"/>
+                            <constraint firstItem="ZkN-fj-Hg3" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="ea4-df-b8c"/>
+                            <constraint firstItem="GIR-4W-hSJ" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="20" id="esb-RW-z1q"/>
+                            <constraint firstItem="H1L-Ff-N4Q" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="21" id="fFm-Jt-ISH"/>
+                            <constraint firstItem="Yfg-nc-fh9" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="i2J-UN-J5Y"/>
+                            <constraint firstItem="9pc-46-3SU" firstAttribute="leading" secondItem="WDh-ho-YYf" secondAttribute="trailing" constant="8" id="kj3-UU-3hx"/>
+                            <constraint firstItem="1kn-Wy-Ibx" firstAttribute="top" secondItem="gKq-Xj-pe7" secondAttribute="bottom" constant="24" id="kzB-1x-JMa"/>
+                            <constraint firstItem="HAw-xt-Ewg" firstAttribute="leading" secondItem="1kn-Wy-Ibx" secondAttribute="trailing" constant="23" id="lub-Nl-nO6"/>
+                            <constraint firstItem="xaT-V9-q70" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="-16" id="ngc-nP-FGB"/>
+                            <constraint firstItem="fMj-Eq-ram" firstAttribute="leading" secondItem="Yfg-nc-fh9" secondAttribute="trailing" constant="23" id="t6U-cj-biZ"/>
+                            <constraint firstItem="Bnq-p5-lIK" firstAttribute="leading" secondItem="SGs-z7-8gC" secondAttribute="trailing" constant="23" id="tyS-C4-Ulv"/>
+                            <constraint firstItem="QUU-Tf-yeO" firstAttribute="top" secondItem="xaT-V9-q70" secondAttribute="bottom" id="xjJ-Kn-CfX"/>
+                            <constraint firstItem="HAw-xt-Ewg" firstAttribute="top" secondItem="gKq-Xj-pe7" secondAttribute="bottom" constant="20" id="zsn-kY-pfj"/>
+                            <constraint firstItem="Bnq-p5-lIK" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="zxd-3h-gfM"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Kki-Mz-50X"/>
-                                <exclude reference="DHd-mj-8gw"/>
-                            </mask>
-                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Item" id="Zm0-Zv-HWH">
@@ -421,7 +413,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zx-Bg-8Ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616" y="-384"/>
+            <point key="canvasLocation" x="1665" y="-384"/>
         </scene>
         <!--Select Account-->
         <scene sceneID="uu5-Xe-IIO">
@@ -479,28 +471,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RXS-2b-b4L" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="163" y="157" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RXS-2b-b4L" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="98" y="94" width="206" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RH-fw-HVv" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="56" y="160" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3RH-fw-HVv" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="26" y="98" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="saY-Zn-Qaj">
-                                <rect key="frame" x="163" y="213" width="51" height="31"/>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="saY-Zn-Qaj">
+                                <rect key="frame" x="98" y="151" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Active:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDP-My-4Fa" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="54" y="218" width="53" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDP-My-4Fa" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="24" y="156" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3RH-fw-HVv" firstAttribute="leading" secondItem="vWn-Ni-4ZD" secondAttribute="leadingMargin" constant="10" id="0M6-DR-kj8"/>
+                            <constraint firstItem="saY-Zn-Qaj" firstAttribute="leading" secondItem="kDP-My-4Fa" secondAttribute="trailing" constant="21" id="0Qb-2P-AKQ"/>
+                            <constraint firstItem="RXS-2b-b4L" firstAttribute="trailing" secondItem="vWn-Ni-4ZD" secondAttribute="trailingMargin" id="1vC-Jq-8Nw"/>
+                            <constraint firstItem="RXS-2b-b4L" firstAttribute="top" secondItem="NdG-2H-Fyn" secondAttribute="bottom" constant="30" id="95i-q2-hUi"/>
+                            <constraint firstItem="kDP-My-4Fa" firstAttribute="leading" secondItem="vWn-Ni-4ZD" secondAttribute="leadingMargin" constant="8" id="MNs-4J-LSb"/>
+                            <constraint firstItem="kDP-My-4Fa" firstAttribute="top" secondItem="3RH-fw-HVv" secondAttribute="bottom" constant="37" id="TVp-3V-eco"/>
+                            <constraint firstItem="3RH-fw-HVv" firstAttribute="top" secondItem="NdG-2H-Fyn" secondAttribute="bottom" constant="34" id="YEu-zh-udX"/>
+                            <constraint firstItem="saY-Zn-Qaj" firstAttribute="top" secondItem="RXS-2b-b4L" secondAttribute="bottom" constant="27" id="Zw8-Qg-FLZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="saY-Zn-Qaj" secondAttribute="trailing" constant="157" id="vVG-Ok-yyi"/>
+                            <constraint firstItem="RXS-2b-b4L" firstAttribute="leading" secondItem="3RH-fw-HVv" secondAttribute="trailing" constant="21" id="yHv-3z-Xpd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Account" id="xqu-JS-jfa">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="QOx-Wo-4C4">
@@ -532,19 +536,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-C2-kXK" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="165" y="172" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yB1-C2-kXK" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="99" y="94" width="205" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhf-l2-Owo" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="58" y="175" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhf-l2-Owo" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="31" y="98" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xhf-l2-Owo" firstAttribute="top" secondItem="5xh-4J-RR2" secondAttribute="bottom" constant="34" id="gAc-Vb-bK0"/>
+                            <constraint firstItem="xhf-l2-Owo" firstAttribute="leading" secondItem="N5g-CJ-Wnc" secondAttribute="leadingMargin" constant="15" id="iE0-TJ-YdG"/>
+                            <constraint firstItem="yB1-C2-kXK" firstAttribute="leading" secondItem="xhf-l2-Owo" secondAttribute="trailing" constant="17" id="ieF-3R-gti"/>
+                            <constraint firstItem="yB1-C2-kXK" firstAttribute="top" secondItem="5xh-4J-RR2" secondAttribute="bottom" constant="30" id="oK7-ex-zfb"/>
+                            <constraint firstItem="yB1-C2-kXK" firstAttribute="trailing" secondItem="N5g-CJ-Wnc" secondAttribute="trailingMargin" id="pjp-qv-igt"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Group" id="2QA-qZ-BLD">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="jcc-pg-xEf">
@@ -575,8 +586,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wUZ-oT-KN9">
-                                <rect key="frame" x="0.0" y="151" width="320" height="265"/>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wUZ-oT-KN9">
+                                <rect key="frame" x="0.0" y="177" width="320" height="216"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="265" id="TVr-Cj-0Qa"/>
@@ -665,20 +676,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGr-me-ijj" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="54" y="197" width="51" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGr-me-ijj" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="23" y="96" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Group:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-xo-w8k" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="52" y="258" width="53" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdm-xo-w8k" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="21" y="150" width="53" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzy-xE-Pf3">
-                                <rect key="frame" x="128" y="256" width="176" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tpS-tK-MId" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="96" y="92" width="208" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vzy-xE-Pf3">
+                                <rect key="frame" x="96" y="146" width="208" height="30"/>
                                 <state key="normal" title="[select group]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -686,16 +702,19 @@
                                     <segue destination="Q5D-Ib-Bvm" kind="show" identifier="selectGroup" id="x01-vU-vyj"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tpS-tK-MId" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="128" y="193" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="vzy-xE-Pf3" firstAttribute="leading" secondItem="rdm-xo-w8k" secondAttribute="trailing" constant="23" id="dHm-Ms-jm8"/>
-                            <constraint firstItem="vzy-xE-Pf3" firstAttribute="leading" secondItem="rdm-xo-w8k" secondAttribute="trailing" constant="23" id="mcW-RA-92V"/>
+                            <constraint firstItem="tpS-tK-MId" firstAttribute="trailing" secondItem="Ofh-gX-wF0" secondAttribute="trailingMargin" id="484-Xv-Zb1"/>
+                            <constraint firstItem="LGr-me-ijj" firstAttribute="leading" secondItem="Ofh-gX-wF0" secondAttribute="leadingMargin" constant="7" id="4Ow-V0-1L8"/>
+                            <constraint firstItem="rdm-xo-w8k" firstAttribute="leading" secondItem="Ofh-gX-wF0" secondAttribute="leadingMargin" constant="5" id="7VH-l3-9T7"/>
+                            <constraint firstItem="rdm-xo-w8k" firstAttribute="top" secondItem="LGr-me-ijj" secondAttribute="bottom" constant="33" id="HXh-2W-jok"/>
+                            <constraint firstItem="tpS-tK-MId" firstAttribute="leading" secondItem="LGr-me-ijj" secondAttribute="trailing" constant="22" id="NS4-rh-27e"/>
+                            <constraint firstItem="vzy-xE-Pf3" firstAttribute="top" secondItem="tpS-tK-MId" secondAttribute="bottom" constant="24" id="QSh-Ib-So0"/>
+                            <constraint firstItem="tpS-tK-MId" firstAttribute="top" secondItem="29n-lY-LLQ" secondAttribute="bottom" constant="28" id="c27-EB-cOe"/>
+                            <constraint firstItem="vzy-xE-Pf3" firstAttribute="trailing" secondItem="Ofh-gX-wF0" secondAttribute="trailingMargin" id="hLm-cf-ivW"/>
+                            <constraint firstItem="LGr-me-ijj" firstAttribute="top" secondItem="29n-lY-LLQ" secondAttribute="bottom" constant="32" id="kyT-ZT-Mig"/>
+                            <constraint firstItem="vzy-xE-Pf3" firstAttribute="leading" secondItem="rdm-xo-w8k" secondAttribute="trailing" constant="22" id="zOL-C9-m9E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Type" id="8OS-nu-QjI">
@@ -791,7 +810,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="73Z-a5-P4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1616" y="320"/>
+            <point key="canvasLocation" x="1665" y="320"/>
         </scene>
         <!--Overviews-->
         <scene sceneID="Qq1-ge-hAA">
@@ -809,7 +828,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFU-PH-W29" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="320"/>
+            <point key="canvasLocation" x="700" y="320"/>
         </scene>
         <!--AppUI Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -877,7 +896,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jOi-ew-mck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2060" y="320"/>
+            <point key="canvasLocation" x="2143" y="320"/>
         </scene>
         <!--Select Group-->
         <scene sceneID="Q8p-ML-PCx">
@@ -929,13 +948,13 @@
         <image name="notepad.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iYV-Gc-2M2"/>
         <segue reference="Wxm-Ii-VBO"/>
         <segue reference="rf9-3m-AdS"/>
+        <segue reference="iYV-Gc-2M2"/>
         <segue reference="Uih-rT-xX5"/>
+        <segue reference="pfk-gM-CKb"/>
+        <segue reference="V9X-57-fz6"/>
+        <segue reference="RpM-ED-kwd"/>
         <segue reference="bnA-ML-59b"/>
-        <segue reference="kjq-Ub-517"/>
-        <segue reference="luh-re-vkP"/>
-        <segue reference="oEq-Ir-5ml"/>
     </inferredMetricsTieBreakers>
 </document>

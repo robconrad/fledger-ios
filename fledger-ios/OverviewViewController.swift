@@ -45,6 +45,9 @@ class OverviewViewController: AppUITableViewController {
         if !aggregate.active {
             cell.subDetail.text = "inactive"
         }
+        else {
+            cell.subDetail.text = ""
+        }
         
         return cell
     }
