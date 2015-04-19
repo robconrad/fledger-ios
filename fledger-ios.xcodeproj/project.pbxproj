@@ -459,6 +459,7 @@
 		3E2B870D1AE2F6AB0080B206 /* group */ = {
 			isa = PBXGroup;
 			children = (
+				3EB3239F1AE301620023825D /* GroupEditViewController.swift */,
 			);
 			name = group;
 			sourceTree = "<group>";
@@ -466,6 +467,7 @@
 		3E2B870E1AE2F6B10080B206 /* type */ = {
 			isa = PBXGroup;
 			children = (
+				3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */,
 			);
 			name = type;
 			sourceTree = "<group>";
@@ -474,8 +476,6 @@
 			isa = PBXGroup;
 			children = (
 				3E2B87031AE2E83D0080B206 /* AccountEditViewController.swift */,
-				3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */,
-				3EB3239F1AE301620023825D /* GroupEditViewController.swift */,
 			);
 			name = account;
 			sourceTree = "<group>";

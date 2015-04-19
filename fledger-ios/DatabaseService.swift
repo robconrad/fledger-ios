@@ -61,7 +61,15 @@ private let SQLDateFormatter: NSDateFormatter = {
     formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
     formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
     return formatter
-    }()
+}()
+
+private let UIDateFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+    formatter.timeZone = NSTimeZone.localTimeZone()
+    return formatter
+}()
 
 extension NSDate: Value {
     public class var declaredDatatype: String {
@@ -72,5 +80,8 @@ extension NSDate: Value {
     }
     public var datatypeValue: String {
         return SQLDateFormatter.stringFromDate(self)
+    }
+    public var uiValue: String {
+        return UIDateFormatter.stringFromDate(self)
     }
 }

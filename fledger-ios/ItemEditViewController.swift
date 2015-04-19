@@ -46,7 +46,7 @@ class ItemEditViewController: EditViewController {
         if let i = item {
             self.title = "Edit Item"
             account.setTitle(i.account().name, forState: .Normal)
-            date.setTitle(i.date.datatypeValue, forState: .Normal)
+            date.setTitle(i.date.uiValue, forState: .Normal)
             type.setTitle(i.type().name, forState: .Normal)
             amount.text = String(format: "%.2f", abs(i.amount))
             flow.setOn(i.amount > 0, animated: true)
@@ -61,10 +61,10 @@ class ItemEditViewController: EditViewController {
                 type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
             }
             if let myDate = selectedDate {
-                date.setTitle(myDate.datatypeValue, forState: .Normal)
+                date.setTitle(myDate.uiValue, forState: .Normal)
             }
             else {
-                date.setTitle(NSDate().datatypeValue, forState: .Normal)
+                date.setTitle(NSDate().uiValue, forState: .Normal)
             }
             toolbar.hidden = true
         }

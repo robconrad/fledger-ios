@@ -53,10 +53,10 @@ class ItemFilters: Filters {
             s.append("Filtered by Group: " + ModelServices.group.withId(id)!.name)
         }
         if let date = startDate {
-            s.append("Filtered by Start Date: " + date.datatypeValue)
+            s.append("Filtered by Start Date: " + date.uiValue)
         }
         if let date = endDate {
-            s.append("Filtered by End Date: " + date.datatypeValue)
+            s.append("Filtered by End Date: " + date.uiValue)
         }
         
         return s

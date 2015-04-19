@@ -39,10 +39,10 @@ class ItemSearchViewController: AppUIViewController {
             account.setTitle(ModelServices.account.withId(accountId)!.name, forState: .Normal)
         }
         if let date = itemFilters!.startDate {
-            startDate.setTitle(date.datatypeValue, forState: .Normal)
+            startDate.setTitle(date.uiValue, forState: .Normal)
         }
         if let date = itemFilters!.endDate {
-            endDate.setTitle(date.datatypeValue, forState: .Normal)
+            endDate.setTitle(date.uiValue, forState: .Normal)
         }
         if let typeId = itemFilters!.typeId {
             type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
