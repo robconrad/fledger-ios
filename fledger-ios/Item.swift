@@ -69,4 +69,8 @@ class Item: Model {
         return ModelServices.group.withTypeId(typeId)!
     }
     
+    func isTransfer() -> Bool {
+        return typeId == ModelServices.type.transferId
+    }
+    
 }

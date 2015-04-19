@@ -11,10 +11,22 @@ import UIKit
 
 class AppUIView: UIView {
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    convenience init() {
+        self.init(frame: CGRectZero)
+    }
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
-        backgroundColor = AppColors.bgHeader
+        setup()
+    }
+    
+    func setup() {
+        backgroundColor = AppColors.bgMain
     }
     
 }

@@ -48,13 +48,22 @@ class ItemAccountEditViewController: AppUITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let accountId = accounts?[indexPath.row].id
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
             if let dest = nav.viewControllers.last as? ItemEditViewController {
-                dest.selectedAccountId = accounts![indexPath.row].id
+                dest.selectedAccountId = accountId
+            }
+            else if let dest = nav.viewControllers.last as? TransferEditViewController {
+                if dest.selectingFromAccount {
+                    dest.selectedFromAccountId = accountId
+                }
+                if dest.selectingIntoAccount {
+                    dest.selectedIntoAccountId = accountId
+                }
             }
             else if let dest = nav.viewControllers.last as? ItemSearchViewController {
-                dest.itemFilters!.accountId = accounts![indexPath.row].id
+                dest.itemFilters!.accountId = accountId
             }
         }
     }

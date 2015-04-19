@@ -31,6 +31,9 @@ class ItemDateEditViewController: AppUIViewController {
             if let dest = nav.viewControllers.last as? ItemEditViewController {
                 dest.selectedDate = datePicker.date
             }
+            else if let dest = nav.viewControllers.last as? TransferEditViewController {
+                dest.selectedDate = datePicker.date
+            }
             else if let dest = nav.viewControllers.last as? ItemSearchViewController {
                 dest.setDate(datePicker.date)
             }

@@ -75,20 +75,44 @@ class ItemsViewController: AppUITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let itemIndex = indexPath.row - itemFilters.count()
         if itemIndex >= 0 {
-            self.performSegueWithIdentifier("editItem", sender: table)
+            if items![itemIndex].isTransfer() {
+                self.performSegueWithIdentifier("editTransfer", sender: self)
+            }
+            else {
+                self.performSegueWithIdentifier("editItem", sender: self)
+            }
         }
         else if isSearchable {
-            self.performSegueWithIdentifier("searchItems", sender: table)
+            self.performSegueWithIdentifier("searchItems", sender: self)
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editItem" {
-            if let destination = segue.destinationViewController as? ItemEditViewController {
+            if let dest = segue.destinationViewController as? ItemEditViewController {
                 if let row = table.indexPathForSelectedRow()?.row {
                     let itemIndex = row - itemFilters.count()
                     if itemIndex >= 0 {
-                        destination.item = items?[itemIndex]
+                        dest.item = items?[itemIndex]
+                    }
+                }
+            }
+        }
+        else if segue.identifier == "editTransfer" {
+            if let dest = segue.destinationViewController as? TransferEditViewController {
+                if let row = table.indexPathForSelectedRow()?.row {
+                    let itemIndex = row - itemFilters.count()
+                    if itemIndex >= 0 {
+                        let firstItem = items?[itemIndex]
+                        let secondItem = ModelServices.item.getTransferPair(firstItem!)
+                        if firstItem?.amount < 0 {
+                            dest.fromItem = firstItem
+                            dest.intoItem = secondItem
+                        }
+                        else {
+                            dest.intoItem = firstItem
+                            dest.fromItem = secondItem
+                        }
                     }
                 }
             }

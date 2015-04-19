@@ -50,14 +50,40 @@ class ItemTypeEditViewController: AppUITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let typeId = types?[indexPath.row].id
         if let nav = navigationController {
+            let destination: AnyObject = nav.viewControllers[nav.viewControllers.count - 2]
+            if let dest = destination as? ItemEditViewController {
+                if typeId == ModelServices.type.transferId {
+                    if let transferController = storyboard?.instantiateViewControllerWithIdentifier("transferEditViewController") as? TransferEditViewController {
+                        transferController.selectedDate = dest.selectedDate
+                        if dest.flow.on {
+                            transferController.selectedIntoAccountId = dest.selectedAccountId
+                        }
+                        else {
+                            transferController.selectedFromAccountId = dest.selectedAccountId
+                        }
+                        nav.viewControllers[nav.viewControllers.count - 2] = transferController
+                    }
+                }
+                else {
+                    dest.selectedTypeId = typeId
+                }
+            }
+            else if let dest = destination as? TransferEditViewController {
+                if typeId != ModelServices.type.transferId {
+                    if let controller = storyboard?.instantiateViewControllerWithIdentifier("itemEditViewController") as? ItemEditViewController {
+                        controller.selectedTypeId = typeId
+                        controller.selectedDate = dest.selectedDate
+                        controller.selectedAccountId = dest.selectedFromAccountId
+                        nav.viewControllers[nav.viewControllers.count - 2] = controller
+                    }
+                }
+            }
+            else if let dest = destination as? ItemSearchViewController {
+                dest.itemFilters!.typeId = typeId
+            }
             nav.popViewControllerAnimated(true)
-            if let dest = nav.viewControllers.last as? ItemEditViewController {
-                dest.selectedTypeId = types![indexPath.row].id
-            }
-            else if let dest = nav.viewControllers.last as? ItemSearchViewController {
-                dest.itemFilters!.typeId = types![indexPath.row].id
-            }
         }
     }
 

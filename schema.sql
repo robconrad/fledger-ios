@@ -2,7 +2,7 @@
 
 DROP TABLE IF EXISTS `groups`;
 CREATE TABLE "groups" (
-    "id" INTEGER PRIMARY KEY,
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "name" longtext NOT NULL,
     UNIQUE (name)
 );
@@ -10,7 +10,7 @@ CREATE TABLE "groups" (
 
 DROP TABLE IF EXISTS `types`;
 CREATE TABLE "types" (
-    "id" INTEGER PRIMARY KEY,
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "name" longtext NOT NULL,
     "group_id" int(10) NOT NULL DEFAULT '0',
     FOREIGN KEY (group_id) REFERENCES groups(id),
@@ -20,7 +20,7 @@ CREATE TABLE "types" (
 
 DROP TABLE IF EXISTS `accounts`;
 CREATE TABLE "accounts" (
-    "id" INTEGER PRIMARY KEY,
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "name" varchar(25) NOT NULL,
     "inactive" tinyint(3)  NOT NULL DEFAULT '0',
     "excluded" int(1)  NOT NULL DEFAULT '0',
@@ -31,7 +31,7 @@ CREATE TABLE "accounts" (
 
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE "items" (
-    "id" INTEGER PRIMARY KEY,
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "account_id" int(10) DEFAULT '0',
     "type_id" int(10) DEFAULT '0',
     "amount" double DEFAULT '0',
@@ -44,7 +44,7 @@ CREATE TABLE "items" (
 
 DROP TABLE IF EXISTS `parse`;
 CREATE TABLE "parse" (
-    "id" INTEGER PRIMARY KEY,
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "model" VARCHAR(25) NOT NULL,
     "model_id" INTEGER,
     "parse_id" CHAR(10),

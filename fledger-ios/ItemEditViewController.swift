@@ -9,7 +9,6 @@
 import UIKit
 
 
-
 class ItemEditViewController: EditViewController {
     
     @IBOutlet weak var accountLabel: UILabel!
@@ -34,6 +33,10 @@ class ItemEditViewController: EditViewController {
     var selectedTypeId: Int64?
     
     var selectingModel: ModelType?
+    
+    @IBAction func gotoTransfer(sender: AnyObject) {
+        performSegueWithIdentifier("editTransfer", sender: sender)
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

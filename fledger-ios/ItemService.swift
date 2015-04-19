@@ -38,4 +38,13 @@ class ItemService<M: Item>: StandardModelService<Item> {
         return elements
     }
     
+    func getTransferPair(first: Item) -> Item? {
+        return table().filter(
+            Fields.date == first.date &&
+            Fields.comments == first.comments &&
+            Fields.accountId != first.accountId &&
+            Fields.typeId == ModelServices.type.transferId
+        ).first.map { Item(row: $0) }
+    }
+    
 }

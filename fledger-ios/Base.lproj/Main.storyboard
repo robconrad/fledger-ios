@@ -158,7 +158,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yph-kJ-5E4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1665" y="-1056"/>
+            <point key="canvasLocation" x="1665" y="-1709"/>
         </scene>
         <!--Items-->
         <scene sceneID="jI1-pB-ig8">
@@ -203,6 +203,7 @@
                     <connections>
                         <outlet property="table" destination="Alf-2r-cMg" id="OTG-1x-QmV"/>
                         <segue destination="9Zl-Cc-ojT" kind="show" identifier="editItem" id="4KF-ED-k3b"/>
+                        <segue destination="6UC-2E-yyf" kind="show" identifier="editTransfer" id="2Dv-Xm-PSk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGY-jr-WKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -229,7 +230,7 @@
         <!--Edit Item-->
         <scene sceneID="AvL-zd-2Vd">
             <objects>
-                <viewController id="9Zl-Cc-ojT" customClass="ItemEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="itemEditViewController" id="9Zl-Cc-ojT" customClass="ItemEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gKq-Xj-pe7"/>
                         <viewControllerLayoutGuide type="bottom" id="QUU-Tf-yeO"/>
@@ -387,7 +388,6 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Edit Item" id="Zm0-Zv-HWH">
-                        <barButtonItem key="backBarButtonItem" title="Item" id="Sbr-6l-Qzj"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="UjI-kg-bDT">
                             <connections>
                                 <action selector="save:" destination="9Zl-Cc-ojT" id="dIh-xn-nHZ"/>
@@ -409,6 +409,7 @@
                         <outlet property="toolbar" destination="xaT-V9-q70" id="G2J-o9-OmK"/>
                         <outlet property="type" destination="HAw-xt-Ewg" id="Jg0-aq-qWB"/>
                         <outlet property="typeLabel" destination="1kn-Wy-Ibx" id="4P3-vP-Cqe"/>
+                        <segue destination="6UC-2E-yyf" kind="show" identifier="editTransfer" id="qNe-7w-aPe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zx-Bg-8Ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -942,19 +943,198 @@
             </objects>
             <point key="canvasLocation" x="2143" y="-1709"/>
         </scene>
+        <!--Edit Transfer-->
+        <scene sceneID="vge-YT-zNJ">
+            <objects>
+                <viewController storyboardIdentifier="transferEditViewController" id="6UC-2E-yyf" customClass="TransferEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2A2-Nq-bqw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Svr-Yp-fsH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1sT-l6-tBu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OXT-C5-Vl0" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="128" y="262" width="176" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="amountValueChanged:" destination="6UC-2E-yyf" eventType="editingChanged" id="25V-uh-VkO"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RNY-hz-unn">
+                                <rect key="frame" x="128" y="125" width="176" height="30"/>
+                                <state key="normal" title="[select date]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="mR0-4M-EOF" kind="show" id="jh4-6V-ZpD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRh-Ui-Rgy" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="317" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfg-bB-NfT" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="64" y="129" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2c-Xc-ok1" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="40" y="266" width="65" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6F-xf-hZY" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="60" y="170" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pch-rG-nzj">
+                                <rect key="frame" x="128" y="209" width="176" height="30"/>
+                                <state key="normal" title="[select account]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5YG-CF-FsU" kind="show" identifier="selectIntoAccount" id="PJE-6e-gXs"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uti-Nv-Vr4" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="82" y="213" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eIF-tI-BHQ" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="128" y="313" width="176" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="commentsValueChanged:" destination="6UC-2E-yyf" eventType="editingChanged" id="T9H-Dh-YdO"/>
+                                </connections>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTt-VW-7en" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Bhz-ro-2b0"/>
+                                    <barButtonItem systemItem="trash" id="SPI-2f-msW">
+                                        <connections>
+                                            <action selector="remove:" destination="6UC-2E-yyf" id="pRJ-H8-gTZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PYB-zb-oEY">
+                                <rect key="frame" x="128" y="84" width="176" height="30"/>
+                                <state key="normal" title="[select type]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sc5-qT-Nj7" kind="show" id="oK8-EO-Mjl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKZ-Dh-9jL" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="64" y="88" width="41" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ctg-yH-ai8">
+                                <rect key="frame" x="128" y="166" width="176" height="30"/>
+                                <state key="normal" title="[select account]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5YG-CF-FsU" kind="show" identifier="selectFromAccount" id="dOz-u4-owv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eIF-tI-BHQ" firstAttribute="leading" secondItem="TRh-Ui-Rgy" secondAttribute="trailing" constant="23" id="047-3y-ivS"/>
+                            <constraint firstItem="RNY-hz-unn" firstAttribute="trailing" secondItem="1sT-l6-tBu" secondAttribute="trailingMargin" id="2tY-BI-3S8"/>
+                            <constraint firstItem="pch-rG-nzj" firstAttribute="leading" secondItem="uti-Nv-Vr4" secondAttribute="trailing" constant="23" id="4qC-5m-jjq"/>
+                            <constraint firstItem="HTt-VW-7en" firstAttribute="leading" secondItem="1sT-l6-tBu" secondAttribute="leadingMargin" constant="-16" id="57r-Nc-l5h"/>
+                            <constraint firstItem="mfg-bB-NfT" firstAttribute="leading" secondItem="1sT-l6-tBu" secondAttribute="leadingMargin" constant="48" id="5ga-rM-5TI"/>
+                            <constraint firstItem="eIF-tI-BHQ" firstAttribute="trailing" secondItem="1sT-l6-tBu" secondAttribute="trailingMargin" id="CEq-rf-DLq"/>
+                            <constraint firstItem="OXT-C5-Vl0" firstAttribute="trailing" secondItem="1sT-l6-tBu" secondAttribute="trailingMargin" id="DBi-pp-cIK"/>
+                            <constraint firstItem="TRh-Ui-Rgy" firstAttribute="top" secondItem="P2c-Xc-ok1" secondAttribute="bottom" constant="30" id="EZg-Bh-PeI"/>
+                            <constraint firstItem="Ctg-yH-ai8" firstAttribute="leading" secondItem="U6F-xf-hZY" secondAttribute="trailing" constant="23" id="EzY-jB-fkg"/>
+                            <constraint firstItem="TRh-Ui-Rgy" firstAttribute="leading" secondItem="1sT-l6-tBu" secondAttribute="leadingMargin" id="Hje-ow-j1O"/>
+                            <constraint firstItem="pch-rG-nzj" firstAttribute="trailing" secondItem="1sT-l6-tBu" secondAttribute="trailingMargin" id="JEE-gb-MxD"/>
+                            <constraint firstItem="RNY-hz-unn" firstAttribute="top" secondItem="PYB-zb-oEY" secondAttribute="bottom" constant="11" id="L9e-Zg-Lnj"/>
+                            <constraint firstItem="pch-rG-nzj" firstAttribute="top" secondItem="Ctg-yH-ai8" secondAttribute="bottom" constant="13" id="LRV-ro-HJb"/>
+                            <constraint firstItem="mfg-bB-NfT" firstAttribute="top" secondItem="pKZ-Dh-9jL" secondAttribute="bottom" constant="20" id="NBt-pq-teS"/>
+                            <constraint firstItem="P2c-Xc-ok1" firstAttribute="top" secondItem="uti-Nv-Vr4" secondAttribute="bottom" constant="32" id="QZ4-js-unG"/>
+                            <constraint firstItem="uti-Nv-Vr4" firstAttribute="leading" secondItem="1sT-l6-tBu" secondAttribute="leadingMargin" constant="66" id="SHz-dX-n3u"/>
+                            <constraint firstItem="pKZ-Dh-9jL" firstAttribute="top" secondItem="2A2-Nq-bqw" secondAttribute="bottom" constant="24" id="TgR-nq-8ZV"/>
+                            <constraint firstItem="pKZ-Dh-9jL" firstAttribute="leading" secondItem="1sT-l6-tBu" secondAttribute="leadingMargin" constant="48" id="Wkx-R2-d6G"/>
+                            <constraint firstItem="Ctg-yH-ai8" firstAttribute="trailing" secondItem="1sT-l6-tBu" secondAttribute="trailingMargin" id="e1A-82-bx8"/>
+                            <constraint firstItem="eIF-tI-BHQ" firstAttribute="top" secondItem="OXT-C5-Vl0" secondAttribute="bottom" constant="21" id="fC1-yR-SGS"/>
+                            <constraint firstItem="RNY-hz-unn" firstAttribute="leading" secondItem="mfg-bB-NfT" secondAttribute="trailing" constant="23" id="fqq-FU-s9R"/>
+                            <constraint firstItem="U6F-xf-hZY" firstAttribute="top" secondItem="mfg-bB-NfT" secondAttribute="bottom" constant="20" id="jZZ-3h-baK"/>
+                            <constraint firstItem="PYB-zb-oEY" firstAttribute="top" secondItem="2A2-Nq-bqw" secondAttribute="bottom" constant="20" id="jof-2H-8oN"/>
+                            <constraint firstItem="OXT-C5-Vl0" firstAttribute="leading" secondItem="P2c-Xc-ok1" secondAttribute="trailing" constant="23" id="kJt-48-2pR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HTt-VW-7en" secondAttribute="trailing" constant="-16" id="lHz-tV-B9y"/>
+                            <constraint firstItem="PYB-zb-oEY" firstAttribute="leading" secondItem="pKZ-Dh-9jL" secondAttribute="trailing" constant="23" id="oJi-aG-HYX"/>
+                            <constraint firstItem="PYB-zb-oEY" firstAttribute="trailing" secondItem="1sT-l6-tBu" secondAttribute="trailingMargin" id="pBa-NA-W8g"/>
+                            <constraint firstItem="P2c-Xc-ok1" firstAttribute="leading" secondItem="1sT-l6-tBu" secondAttribute="leadingMargin" constant="24" id="qvx-3y-Dpr"/>
+                            <constraint firstItem="Ctg-yH-ai8" firstAttribute="top" secondItem="RNY-hz-unn" secondAttribute="bottom" constant="11" id="tVp-av-hru"/>
+                            <constraint firstItem="uti-Nv-Vr4" firstAttribute="top" secondItem="U6F-xf-hZY" secondAttribute="bottom" constant="22" id="tXa-K7-3Un"/>
+                            <constraint firstItem="Svr-Yp-fsH" firstAttribute="top" secondItem="HTt-VW-7en" secondAttribute="bottom" id="toa-x5-CgV"/>
+                            <constraint firstItem="OXT-C5-Vl0" firstAttribute="top" secondItem="pch-rG-nzj" secondAttribute="bottom" constant="23" id="wnm-3Y-MD0"/>
+                            <constraint firstItem="U6F-xf-hZY" firstAttribute="leading" secondItem="1sT-l6-tBu" secondAttribute="leadingMargin" constant="44" id="xe9-QB-yYb"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Edit Transfer" id="XsV-8P-cxO" userLabel="Edit Transfer">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="GR4-mX-qJv">
+                            <connections>
+                                <action selector="save:" destination="6UC-2E-yyf" id="v0i-CK-iZ0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="amount" destination="OXT-C5-Vl0" id="7D3-W0-aJI"/>
+                        <outlet property="amountLabel" destination="P2c-Xc-ok1" id="ahd-dE-ckn"/>
+                        <outlet property="comments" destination="eIF-tI-BHQ" id="wTs-kc-nzh"/>
+                        <outlet property="commentsLabel" destination="TRh-Ui-Rgy" id="Ldz-B0-YfL"/>
+                        <outlet property="date" destination="RNY-hz-unn" id="QHH-E3-Pte"/>
+                        <outlet property="dateLabel" destination="mfg-bB-NfT" id="J6b-Yj-ojN"/>
+                        <outlet property="fromAccount" destination="Ctg-yH-ai8" id="boU-fU-hfL"/>
+                        <outlet property="fromAccountLabel" destination="U6F-xf-hZY" id="mOF-mJ-AHI"/>
+                        <outlet property="intoAccount" destination="pch-rG-nzj" id="wva-v6-FAU"/>
+                        <outlet property="intoAccountLabel" destination="uti-Nv-Vr4" id="oc6-Mb-nzN"/>
+                        <outlet property="toolbar" destination="HTt-VW-7en" id="PDQ-9B-Lml"/>
+                        <outlet property="type" destination="PYB-zb-oEY" id="j5o-br-LZZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2I-Fc-BDJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1665" y="-1056"/>
+        </scene>
     </scenes>
     <resources>
         <image name="listing.png" width="32" height="32"/>
         <image name="notepad.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="iYV-Gc-2M2"/>
+        <segue reference="vOd-DH-h6d"/>
+        <segue reference="bnA-ML-59b"/>
+        <segue reference="RpM-ED-kwd"/>
+        <segue reference="qNe-7w-aPe"/>
+        <segue reference="V9X-57-fz6"/>
+        <segue reference="pfk-gM-CKb"/>
         <segue reference="Wxm-Ii-VBO"/>
         <segue reference="rf9-3m-AdS"/>
-        <segue reference="iYV-Gc-2M2"/>
-        <segue reference="Uih-rT-xX5"/>
-        <segue reference="pfk-gM-CKb"/>
-        <segue reference="V9X-57-fz6"/>
-        <segue reference="RpM-ED-kwd"/>
-        <segue reference="bnA-ML-59b"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,12 @@ import SQLite
 
 class TypeService<T: Type>: MemoryModelService<Type> {
     
+    let transferId: Int64 = 28
+    
+    func transferType() -> Type {
+        return withId(transferId)!
+    }
+    
     override func modelType() -> ModelType {
         return ModelType.Typ
     }
