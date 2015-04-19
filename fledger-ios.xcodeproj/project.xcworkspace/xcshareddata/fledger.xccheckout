@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2F9BDBCC-FFC4-416D-8AC3-C304D0DECE43</string>
+	<key>IDESourceControlProjectName</key>
+	<string>fledger</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>99F94EE49297D944487E4F77A2FBA308396A28CC</key>
+		<string>https://github.com/robconrad/budget-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>fledger.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>99F94EE49297D944487E4F77A2FBA308396A28CC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/robconrad/budget-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>99F94EE49297D944487E4F77A2FBA308396A28CC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>99F94EE49297D944487E4F77A2FBA308396A28CC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>budget-ios</string>
+		</dict>
+	</array>
+</dict>
+</plist>

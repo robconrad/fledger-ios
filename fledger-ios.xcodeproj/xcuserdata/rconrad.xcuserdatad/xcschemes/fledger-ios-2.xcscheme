@@ -14,38 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "024D895A1044540CC1CDE883"
-               BuildableName = "libPods.a"
-               BlueprintName = "Pods"
-               ReferencedContainer = "container:Pods/Pods.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "3E21B2691AD7229000E00AE1"
-               BuildableName = "budget-ios.app"
-               BlueprintName = "budget-ios"
-               ReferencedContainer = "container:budget-ios.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3E21B2801AD7229000E00AE1"
-               BuildableName = "budget-iosTests.xctest"
-               BlueprintName = "budget-iosTests"
-               ReferencedContainer = "container:budget-ios.xcodeproj">
+               BuildableName = "fledger-ios.app"
+               BlueprintName = "fledger-ios"
+               ReferencedContainer = "container:fledger-ios.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -56,24 +28,14 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3E21B2801AD7229000E00AE1"
-               BuildableName = "budget-iosTests.xctest"
-               BlueprintName = "budget-iosTests"
-               ReferencedContainer = "container:budget-ios.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E21B2691AD7229000E00AE1"
-            BuildableName = "budget-ios.app"
-            BlueprintName = "budget-ios"
-            ReferencedContainer = "container:budget-ios.xcodeproj">
+            BuildableName = "fledger-ios.app"
+            BlueprintName = "fledger-ios"
+            ReferencedContainer = "container:fledger-ios.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -91,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E21B2691AD7229000E00AE1"
-            BuildableName = "budget-ios.app"
-            BlueprintName = "budget-ios"
-            ReferencedContainer = "container:budget-ios.xcodeproj">
+            BuildableName = "fledger-ios.app"
+            BlueprintName = "fledger-ios"
+            ReferencedContainer = "container:fledger-ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -110,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3E21B2691AD7229000E00AE1"
-            BuildableName = "budget-ios.app"
-            BlueprintName = "budget-ios"
-            ReferencedContainer = "container:budget-ios.xcodeproj">
+            BuildableName = "fledger-ios.app"
+            BlueprintName = "fledger-ios"
+            ReferencedContainer = "container:fledger-ios.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

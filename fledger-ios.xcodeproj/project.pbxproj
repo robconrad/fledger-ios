@@ -13,7 +13,7 @@
 		3E21B2771AD7229000E00AE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B2751AD7229000E00AE1 /* Main.storyboard */; };
 		3E21B2791AD7229000E00AE1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B2781AD7229000E00AE1 /* Images.xcassets */; };
 		3E21B27C1AD7229000E00AE1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B27A1AD7229000E00AE1 /* LaunchScreen.xib */; };
-		3E21B2881AD7229000E00AE1 /* budget_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2871AD7229000E00AE1 /* budget_iosTests.swift */; };
+		3E21B2881AD7229000E00AE1 /* fledger_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2871AD7229000E00AE1 /* fledger_iosTests.swift */; };
 		3E21B2A61AD7258B00E00AE1 /* sqlite3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E21B2A31AD7243600E00AE1 /* sqlite3.framework */; };
 		3E21B2B11AD739D500E00AE1 /* schema.sql in Resources */ = {isa = PBXBuildFile; fileRef = 3E21B2B01AD739D500E00AE1 /* schema.sql */; };
 		3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B31AD7572800E00AE1 /* Item.swift */; };
@@ -156,7 +156,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3E21B26A1AD7229000E00AE1 /* budget-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "budget-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E21B26A1AD7229000E00AE1 /* fledger-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fledger-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E21B26E1AD7229000E00AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
@@ -164,9 +164,9 @@
 		3E21B2761AD7229000E00AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E21B2781AD7229000E00AE1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E21B27B1AD7229000E00AE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		3E21B2811AD7229000E00AE1 /* budget-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "budget-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E21B2811AD7229000E00AE1 /* fledger-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "fledger-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E21B2861AD7229000E00AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3E21B2871AD7229000E00AE1 /* budget_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = budget_iosTests.swift; sourceTree = "<group>"; };
+		3E21B2871AD7229000E00AE1 /* fledger_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fledger_iosTests.swift; sourceTree = "<group>"; };
 		3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		3E21B2B01AD739D500E00AE1 /* schema.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = schema.sql; path = ../schema.sql; sourceTree = "<group>"; };
 		3E21B2B31AD7572800E00AE1 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -286,8 +286,8 @@
 		3E21B2611AD7229000E00AE1 = {
 			isa = PBXGroup;
 			children = (
-				3E21B26C1AD7229000E00AE1 /* budget-ios */,
-				3E21B2841AD7229000E00AE1 /* budget-iosTests */,
+				3E21B26C1AD7229000E00AE1 /* fledger-ios */,
+				3E21B2841AD7229000E00AE1 /* fledger-iosTests */,
 				3E21B26B1AD7229000E00AE1 /* Products */,
 				3E21B2911AD7243600E00AE1 /* SQLite.xcodeproj */,
 				5BA64593D4D93334D928F593 /* Pods */,
@@ -298,13 +298,13 @@
 		3E21B26B1AD7229000E00AE1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3E21B26A1AD7229000E00AE1 /* budget-ios.app */,
-				3E21B2811AD7229000E00AE1 /* budget-iosTests.xctest */,
+				3E21B26A1AD7229000E00AE1 /* fledger-ios.app */,
+				3E21B2811AD7229000E00AE1 /* fledger-iosTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3E21B26C1AD7229000E00AE1 /* budget-ios */ = {
+		3E21B26C1AD7229000E00AE1 /* fledger-ios */ = {
 			isa = PBXGroup;
 			children = (
 				3E2B86B11ADCB9C60080B206 /* ui */,
@@ -322,7 +322,7 @@
 				3E21B26D1AD7229000E00AE1 /* Supporting Files */,
 				3E2B868B1ADAF74C0080B206 /* Bridging-Header.h */,
 			);
-			path = "budget-ios";
+			path = "fledger-ios";
 			sourceTree = "<group>";
 		};
 		3E21B26D1AD7229000E00AE1 /* Supporting Files */ = {
@@ -333,13 +333,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3E21B2841AD7229000E00AE1 /* budget-iosTests */ = {
+		3E21B2841AD7229000E00AE1 /* fledger-iosTests */ = {
 			isa = PBXGroup;
 			children = (
-				3E21B2871AD7229000E00AE1 /* budget_iosTests.swift */,
+				3E21B2871AD7229000E00AE1 /* fledger_iosTests.swift */,
 				3E21B2851AD7229000E00AE1 /* Supporting Files */,
 			);
-			path = "budget-iosTests";
+			path = "fledger-iosTests";
 			sourceTree = "<group>";
 		};
 		3E21B2851AD7229000E00AE1 /* Supporting Files */ = {
@@ -569,9 +569,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3E21B2691AD7229000E00AE1 /* budget-ios */ = {
+		3E21B2691AD7229000E00AE1 /* fledger-ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E21B28B1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "budget-ios" */;
+			buildConfigurationList = 3E21B28B1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "fledger-ios" */;
 			buildPhases = (
 				5E2A21DC9BB3767CBAE3DE1B /* Check Pods Manifest.lock */,
 				3E21B2661AD7229000E00AE1 /* Sources */,
@@ -585,14 +585,14 @@
 			dependencies = (
 				3E21B2A51AD7244A00E00AE1 /* PBXTargetDependency */,
 			);
-			name = "budget-ios";
+			name = "fledger-ios";
 			productName = "budget-ios";
-			productReference = 3E21B26A1AD7229000E00AE1 /* budget-ios.app */;
+			productReference = 3E21B26A1AD7229000E00AE1 /* fledger-ios.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3E21B2801AD7229000E00AE1 /* budget-iosTests */ = {
+		3E21B2801AD7229000E00AE1 /* fledger-iosTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3E21B28E1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "budget-iosTests" */;
+			buildConfigurationList = 3E21B28E1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "fledger-iosTests" */;
 			buildPhases = (
 				3E21B27D1AD7229000E00AE1 /* Sources */,
 				3E21B27E1AD7229000E00AE1 /* Frameworks */,
@@ -603,9 +603,9 @@
 			dependencies = (
 				3E21B2831AD7229000E00AE1 /* PBXTargetDependency */,
 			);
-			name = "budget-iosTests";
+			name = "fledger-iosTests";
 			productName = "budget-iosTests";
-			productReference = 3E21B2811AD7229000E00AE1 /* budget-iosTests.xctest */;
+			productReference = 3E21B2811AD7229000E00AE1 /* fledger-iosTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -615,7 +615,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = "TwoSpec Inc";
+				ORGANIZATIONNAME = "Robert Conrad";
 				TargetAttributes = {
 					3E21B2691AD7229000E00AE1 = {
 						CreatedOnToolsVersion = 6.3;
@@ -627,7 +627,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3E21B2651AD7229000E00AE1 /* Build configuration list for PBXProject "budget-ios" */;
+			buildConfigurationList = 3E21B2651AD7229000E00AE1 /* Build configuration list for PBXProject "fledger-ios" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -646,8 +646,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				3E21B2691AD7229000E00AE1 /* budget-ios */,
-				3E21B2801AD7229000E00AE1 /* budget-iosTests */,
+				3E21B2691AD7229000E00AE1 /* fledger-ios */,
+				3E21B2801AD7229000E00AE1 /* fledger-iosTests */,
 			);
 		};
 /* End PBXProject section */
@@ -811,7 +811,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E21B2881AD7229000E00AE1 /* budget_iosTests.swift in Sources */,
+				3E21B2881AD7229000E00AE1 /* fledger_iosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,7 +820,7 @@
 /* Begin PBXTargetDependency section */
 		3E21B2831AD7229000E00AE1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3E21B2691AD7229000E00AE1 /* budget-ios */;
+			target = 3E21B2691AD7229000E00AE1 /* fledger-ios */;
 			targetProxy = 3E21B2821AD7229000E00AE1 /* PBXContainerItemProxy */;
 		};
 		3E21B2A51AD7244A00E00AE1 /* PBXTargetDependency */ = {
@@ -890,7 +890,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "budget-ios/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -929,7 +929,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = "budget-ios/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -946,13 +946,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "budget-ios/Info.plist";
+				INFOPLIST_FILE = "fledger-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "fledger-ios";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -968,13 +968,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = "budget-ios/Info.plist";
+				INFOPLIST_FILE = "fledger-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "fledger-ios";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -991,15 +991,15 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "budget-iosTests/Info.plist";
+				INFOPLIST_FILE = "fledger-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "fledger-iosTests";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget-ios.app/budget-ios";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fledger-ios.app/fledger-ios";
 			};
 			name = Debug;
 		};
@@ -1011,22 +1011,22 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "budget-iosTests/Info.plist";
+				INFOPLIST_FILE = "fledger-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "fledger-iosTests";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/budget-ios.app/budget-ios";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fledger-ios.app/fledger-ios";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3E21B2651AD7229000E00AE1 /* Build configuration list for PBXProject "budget-ios" */ = {
+		3E21B2651AD7229000E00AE1 /* Build configuration list for PBXProject "fledger-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E21B2891AD7229000E00AE1 /* Debug */,
@@ -1035,7 +1035,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E21B28B1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "budget-ios" */ = {
+		3E21B28B1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "fledger-ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E21B28C1AD7229000E00AE1 /* Debug */,
@@ -1044,7 +1044,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3E21B28E1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "budget-iosTests" */ = {
+		3E21B28E1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "fledger-iosTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3E21B28F1AD7229000E00AE1 /* Debug */,
