@@ -24,10 +24,10 @@ class EditViewController: AppUIViewController {
     
     func checkErrors(errorCondition: Bool, item: UILabel) {
         if errorCondition {
-            item.textColor = AppColors.textError
+            item.textColor = AppColors.textError()
         }
         else {
-            item.textColor = AppColors.text
+            item.textColor = AppColors.text()
         }
         errors = errors || errorCondition
     }

@@ -8,13 +8,16 @@
 
 import UIKit
 
-class AppUIToolbar: UIToolbar {
+class AppUIToolbar: UIToolbar, CanStyle {
+    
+    func applyStyle() {
+        barTintColor = AppColors.bgHeaderHighlight()
+    }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        barTintColor = AppColors.bgHeaderHighlight
-        
+        applyStyle()
     }
     
 }

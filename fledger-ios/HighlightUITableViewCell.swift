@@ -13,7 +13,7 @@ class HighlightUITableViewCell: AppUITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        backgroundColor = AppColors.bgHighlight
+        backgroundColor = AppColors.bgHighlight()
         
     }
 

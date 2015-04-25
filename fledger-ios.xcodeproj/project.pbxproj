@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0516421AEC304000D6637F /* AppStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516411AEC304000D6637F /* AppStyling.swift */; };
+		3E0516481AEC357600D6637F /* CanStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516471AEC357600D6637F /* CanStyle.swift */; };
+		3E05164A1AEC36E600D6637F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516491AEC36E600D6637F /* MainTabBarController.swift */; };
 		3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */; };
 		3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */; };
 		3E21B2741AD7229000E00AE1 /* OverviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2731AD7229000E00AE1 /* OverviewsViewController.swift */; };
@@ -76,6 +79,8 @@
 		3E3B9EF91ADA4702006E9016 /* ItemFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9EF81ADA4702006E9016 /* ItemFilters.swift */; };
 		3E3B9F181ADADA4A006E9016 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */; };
 		3E4AF7491AE36A4A0092F66A /* TransferEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */; };
+		3E4AF7511AE436DB0092F66A /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E4AF7501AE436DB0092F66A /* settings@2x.png */; };
+		3E4AF7531AE437500092F66A /* SettingsEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */; };
 		3E6820A01ADAEBFC00CD7433 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */; };
 		3E6820AF1ADAF0D700CD7433 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B29F1AD7243600E00AE1 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E6820B01ADAF0D700CD7433 /* sqlite3.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B2A31AD7243600E00AE1 /* sqlite3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -157,6 +162,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3E0516411AEC304000D6637F /* AppStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyling.swift; sourceTree = "<group>"; };
+		3E0516471AEC357600D6637F /* CanStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanStyle.swift; sourceTree = "<group>"; };
+		3E0516491AEC36E600D6637F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		3E21B26A1AD7229000E00AE1 /* fledger-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fledger-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E21B26E1AD7229000E00AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +243,8 @@
 		3E3B9EF81ADA4702006E9016 /* ItemFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFilters.swift; sourceTree = "<group>"; };
 		3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferEditViewController.swift; sourceTree = "<group>"; };
+		3E4AF7501AE436DB0092F66A /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEditViewController.swift; sourceTree = "<group>"; };
 		3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
@@ -312,7 +322,6 @@
 				3E2B86B11ADCB9C60080B206 /* ui */,
 				3E6820A11ADAECB900CD7433 /* assembly */,
 				3E3B9F101ADAD9BB006E9016 /* services */,
-				3E21B2B21AD7571900E00AE1 /* models */,
 				3E2B87091AE2F3CC0080B206 /* controllers */,
 				3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */,
 				3E21B2B01AD739D500E00AE1 /* schema.sql */,
@@ -432,6 +441,8 @@
 				3E2B86D51ADF6E140080B206 /* AppUITextView.swift */,
 				3E2B86D71ADF6FF50080B206 /* AppUINavigationBar.swift */,
 				3EB323A71AE313EE0023825D /* AppUIToolbar.swift */,
+				3E0516411AEC304000D6637F /* AppStyling.swift */,
+				3E0516471AEC357600D6637F /* CanStyle.swift */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -454,6 +465,8 @@
 				3E2B87101AE2F6BC0080B206 /* item */,
 				3E2B87111AE2F6E90080B206 /* overview */,
 				3E2B870B1AE2F4510080B206 /* EditViewController.swift */,
+				3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */,
+				3E0516491AEC36E600D6637F /* MainTabBarController.swift */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -511,6 +524,7 @@
 			isa = PBXGroup;
 			children = (
 				3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */,
+				3E21B2B21AD7571900E00AE1 /* models */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -526,6 +540,7 @@
 		3EB323B31AE31F170023825D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3E4AF7501AE436DB0092F66A /* settings@2x.png */,
 				3EB323B81AE31F2C0023825D /* listing@2x.png */,
 				3EB323B91AE31F2C0023825D /* notepad@2x.png */,
 			);
@@ -706,6 +721,7 @@
 				3EB323BA1AE31F2C0023825D /* listing@2x.png in Resources */,
 				3EB323BB1AE31F2C0023825D /* notepad@2x.png in Resources */,
 				3E21B2791AD7229000E00AE1 /* Images.xcassets in Resources */,
+				3E4AF7511AE436DB0092F66A /* settings@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +782,7 @@
 				3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */,
 				3E2B86A61ADB285F0080B206 /* MemoryModelService.swift in Sources */,
 				3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */,
+				3E05164A1AEC36E600D6637F /* MainTabBarController.swift in Sources */,
 				3E2B86C61ADD76E40080B206 /* AppUITableViewCell.swift in Sources */,
 				3E2B86C21ADD71E10080B206 /* AppColors.swift in Sources */,
 				3EB323B01AE31B190023825D /* AppUIView.swift in Sources */,
@@ -781,7 +798,9 @@
 				3E2B86C01ADCDD050080B206 /* ModelType.swift in Sources */,
 				3E2B86AE1ADB71070080B206 /* Aggregates.swift in Sources */,
 				3E2B87041AE2E83D0080B206 /* AccountEditViewController.swift in Sources */,
+				3E0516481AEC357600D6637F /* CanStyle.swift in Sources */,
 				3E2B86B71ADCB9E80080B206 /* DetailUITableViewCell.swift in Sources */,
+				3E0516421AEC304000D6637F /* AppStyling.swift in Sources */,
 				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,
 				3E2B86C81ADD77620080B206 /* HighlightUITableViewCell.swift in Sources */,
 				3E2B86A21ADB27DF0080B206 /* AccountService.swift in Sources */,
@@ -791,6 +810,7 @@
 				3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */,
 				3E2B86D61ADF6E140080B206 /* AppUITextView.swift in Sources */,
 				3E2B86A41ADB27ED0080B206 /* TypeService.swift in Sources */,
+				3E4AF7531AE437500092F66A /* SettingsEditViewController.swift in Sources */,
 				3E2B86AC1ADB6D720080B206 /* Aggregate.swift in Sources */,
 				3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */,
 				3E21B2E41AD9E7B800E00AE1 /* ModelService.swift in Sources */,

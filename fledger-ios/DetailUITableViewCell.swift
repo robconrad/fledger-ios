@@ -24,15 +24,15 @@ class DetailUITableViewCell: AppUITableViewCell {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        title.textColor = AppColors.text
+        title.textColor = AppColors.text()
         
         detail.alpha = 0.75
         detail.textAlignment = .Right
         detail.font = detail.font.fontWithSize(15)
-        detail.textColor = AppColors.text
+        detail.textColor = AppColors.text()
         
         subDetail.font = detail.font.fontWithSize(11)
-        subDetail.textColor = AppColors.text
+        subDetail.textColor = AppColors.text()
         
         title.setTranslatesAutoresizingMaskIntoConstraints(false)
         detail.setTranslatesAutoresizingMaskIntoConstraints(false)
@@ -54,10 +54,10 @@ class DetailUITableViewCell: AppUITableViewCell {
     func setDetailCurrency(value: Double) {
         detail.text = DetailUITableViewCell.formatter.stringFromNumber(value)
         if value < 0 {
-            detail.textColor = AppColors.textError
+            detail.textColor = AppColors.textError()
         }
         else {
-            detail.textColor = AppColors.text
+            detail.textColor = AppColors.text()
         }
     }
     

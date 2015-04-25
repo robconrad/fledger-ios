@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             DatabaseService.main.loadDefaultData()
         }
         
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        AppStyling.apply()
         
         // Initialize Parse.
 //        Parse.setApplicationId("fjcMqJqBTJsHRsrDkuKk7wGuAMMTu1d4820IdBQg", clientKey: "hyiXQhwKd2aQvusxJuRliyxrKEhRx6Xx9gTndNaV")

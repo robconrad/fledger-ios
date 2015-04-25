@@ -26,7 +26,7 @@ class AppUIView: UIView {
     }
     
     func setup() {
-        backgroundColor = AppColors.bgMain
+        backgroundColor = AppColors.bgMain()
     }
     
 }

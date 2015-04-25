@@ -9,12 +9,16 @@
 import UIKit
 
 
-class AppUITableViewController: UITableViewController {
+class AppUITableViewController: UITableViewController, CanStyle {
+    
+    func applyStyle() {
+        AppUIViewController.applyStyle(self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppUIViewController.applyColors(self)
+        applyStyle()
     }
         
 }

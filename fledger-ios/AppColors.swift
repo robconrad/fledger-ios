@@ -11,14 +11,51 @@ import Foundation
 
 class AppColors {
     
-    static let bgMain = UIColor.blackColor()
-    static let bgHighlightTransient = UIColor(red: 75/255, green: 75/255, blue: 75/255, alpha: 1)
-    static let bgHighlight = UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1)
-    static let bgHeader = UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1)
-    static let bgHeaderHighlight = UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1)
+    enum Token {
+        case bgMain
+        case bgHighlightTransient
+        case bgHighlight
+        case bgHeader
+        case bgHeaderHighlight
+        case text
+        case textError
+    }
     
-    static let text = UIColor.whiteColor()
-    static let textWeak = AppColors.bgHeader
-    static let textError = UIColor.redColor()
+    private static let darkColors: [Token: UIColor] = [
+        Token.bgMain: UIColor.blackColor(),
+        Token.bgHighlightTransient: UIColor(red: 75/255, green: 75/255, blue: 75/255, alpha: 1),
+        Token.bgHighlight: UIColor(red: 50/255, green: 50/255, blue: 50/255, alpha: 1),
+        Token.bgHeader: UIColor(red: 25/255, green: 25/255, blue: 25/255, alpha: 1),
+        Token.bgHeaderHighlight: UIColor(red: 40/255, green: 40/255, blue: 40/255, alpha: 1),
+        Token.text: UIColor.whiteColor(),
+        Token.textError: UIColor.redColor()
+    ]
+    
+    private static let lightColors: [Token: UIColor] = [
+        Token.bgMain: UIColor.whiteColor(),
+        Token.bgHighlightTransient: UIColor(red: 180/255, green: 180/255, blue: 180/255, alpha: 1),
+        Token.bgHighlight: UIColor(red: 205/255, green: 205/255, blue: 205/255, alpha: 1),
+        Token.bgHeader: UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1),
+        Token.bgHeaderHighlight: UIColor(red: 215/255, green: 215/255, blue: 215/255, alpha: 1),
+        Token.text: UIColor.blackColor(),
+        Token.textError: UIColor.redColor()
+    ]
+    
+    private static func get(token: Token) -> UIColor {
+        switch AppStyling.get() {
+        case .Light: return lightColors[token]!
+        case .Dark: return darkColors[token]!
+        }
+    }
+    
+    static func bgMain() -> UIColor { return get(Token.bgMain) }
+    static func bgHighlightTransient() -> UIColor { return get(Token.bgHighlightTransient) }
+    static func bgHighlight() -> UIColor { return get(Token.bgHighlight) }
+    static func bgHeader() -> UIColor { return get(Token.bgHeader) }
+    static func bgHeaderHighlight() -> UIColor { return get(Token.bgHeaderHighlight) }
+    
+    static func text() -> UIColor { return get(Token.text) }
+    static func textWeak() -> UIColor { return AppColors.bgHeader() }
+    static func textError() -> UIColor { return get(Token.textError) }
     
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7528.3" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7518.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -213,7 +213,7 @@
         <!--Items-->
         <scene sceneID="Wh1-dp-63z">
             <objects>
-                <navigationController id="VRE-48-nQO" customClass="AppUINavigationController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="itemsNavController" id="VRE-48-nQO" customClass="AppUINavigationController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Items" image="listing.png" id="xbw-ni-EDB"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WZk-o0-b1h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -813,10 +813,60 @@
             </objects>
             <point key="canvasLocation" x="1665" y="320"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="Z6X-Ex-zNW">
+            <objects>
+                <viewController storyboardIdentifier="settingsEditViewController" id="iGV-g5-6gj" customClass="SettingsEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="B6y-3L-0s3"/>
+                        <viewControllerLayoutGuide type="bottom" id="l6i-U0-OKZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wzv-wy-w4R">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="utb-0k-0oz">
+                                <rect key="frame" x="133" y="101" width="51" height="31"/>
+                                <connections>
+                                    <action selector="themeSwitchChanged:" destination="iGV-g5-6gj" eventType="valueChanged" id="01g-dh-EmK"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-Uv-YEq" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="89" y="106" width="36" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Light" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuh-bS-9HR" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="190" y="106" width="39" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="utb-0k-0oz" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="81" id="29s-cC-omS"/>
+                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="Bpa-Io-EQR"/>
+                            <constraint firstItem="utb-0k-0oz" firstAttribute="leading" secondItem="4YG-Uv-YEq" secondAttribute="trailing" constant="8" id="EcC-jc-Vyj"/>
+                            <constraint firstItem="4YG-Uv-YEq" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="NfE-GF-PFd"/>
+                            <constraint firstAttribute="centerX" secondItem="utb-0k-0oz" secondAttribute="centerX" id="SIo-HU-aO4"/>
+                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="leading" secondItem="utb-0k-0oz" secondAttribute="trailing" constant="8" id="kAc-fE-wXF"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="UY4-0W-4Cn"/>
+                    <connections>
+                        <outlet property="themeSwitch" destination="utb-0k-0oz" id="sVh-UG-zoe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qNa-he-W1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="700" y="1002"/>
+        </scene>
         <!--Overviews-->
         <scene sceneID="Qq1-ge-hAA">
             <objects>
-                <navigationController title="Overviews" id="Z6n-o7-Cw3" customClass="AppUINavigationController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="overviewNavController" title="Overviews" id="Z6n-o7-Cw3" customClass="AppUINavigationController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Overview" image="notepad.png" id="0Ux-PY-xOR"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="z2Q-aS-3ys">
@@ -831,10 +881,10 @@
             </objects>
             <point key="canvasLocation" x="700" y="320"/>
         </scene>
-        <!--AppUI Tab Bar Controller-->
+        <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="AppUITabBarController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
@@ -845,6 +895,7 @@
                     <connections>
                         <segue destination="VRE-48-nQO" kind="relationship" relationship="viewControllers" id="Pmn-jh-8wG"/>
                         <segue destination="Z6n-o7-Cw3" kind="relationship" relationship="viewControllers" id="zG3-Wj-jIm"/>
+                        <segue destination="iGV-g5-6gj" kind="relationship" relationship="viewControllers" id="7h7-59-5ak"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1125,16 +1176,17 @@
     <resources>
         <image name="listing.png" width="32" height="32"/>
         <image name="notepad.png" width="32" height="32"/>
+        <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iYV-Gc-2M2"/>
-        <segue reference="vOd-DH-h6d"/>
         <segue reference="bnA-ML-59b"/>
-        <segue reference="RpM-ED-kwd"/>
-        <segue reference="qNe-7w-aPe"/>
-        <segue reference="V9X-57-fz6"/>
-        <segue reference="pfk-gM-CKb"/>
+        <segue reference="iYV-Gc-2M2"/>
         <segue reference="Wxm-Ii-VBO"/>
         <segue reference="rf9-3m-AdS"/>
+        <segue reference="2Dv-Xm-PSk"/>
+        <segue reference="vOd-DH-h6d"/>
+        <segue reference="dOz-u4-owv"/>
+        <segue reference="oK8-EO-Mjl"/>
+        <segue reference="jh4-6V-ZpD"/>
     </inferredMetricsTieBreakers>
 </document>

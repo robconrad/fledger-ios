@@ -11,11 +11,11 @@ class AppUITableViewCell: UITableViewCell {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        backgroundColor = AppColors.bgMain
-        textLabel?.textColor = AppColors.text
+        backgroundColor = AppColors.bgMain()
+        textLabel?.textColor = AppColors.text()
         
         let selectedBgView = UIView()
-        selectedBgView.backgroundColor = AppColors.bgHighlightTransient
+        selectedBgView.backgroundColor = AppColors.bgHighlightTransient()
         selectedBackgroundView = selectedBgView
     }
     

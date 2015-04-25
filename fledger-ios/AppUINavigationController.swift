@@ -8,13 +8,17 @@
 
 import UIKit
 
-class AppUINavigationController: UINavigationController {
+class AppUINavigationController: UINavigationController, CanStyle {
 
+    func applyStyle() {
+        navigationBar.barTintColor = AppColors.bgHeader()
+        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: AppColors.text()]
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationBar.barTintColor = AppColors.bgHeader
-        navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: AppColors.text]
+        applyStyle()
     }
     
 }

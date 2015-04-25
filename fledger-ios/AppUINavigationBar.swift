@@ -8,13 +8,19 @@
 
 import UIKit
 
-class AppUINavigationBar: UINavigationBar {
+class AppUINavigationBar: UINavigationBar, CanStyle {
+    
+    func applyStyle() {
+        
+        barTintColor = AppColors.bgHeaderHighlight()
+        titleTextAttributes = [NSForegroundColorAttributeName: AppColors.text()]
+        
+    }
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        barTintColor = AppColors.bgHeaderHighlight
-        titleTextAttributes = [NSForegroundColorAttributeName: AppColors.text]
+        applyStyle()
     }
     
 }

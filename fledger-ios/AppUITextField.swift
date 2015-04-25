@@ -13,8 +13,8 @@ class AppUITextField: UITextField {
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-        backgroundColor = AppColors.bgHighlight
-        textColor = AppColors.text
+        backgroundColor = AppColors.bgHighlight()
+        textColor = AppColors.text()
     }
     
 }

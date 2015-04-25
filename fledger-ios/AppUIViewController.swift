@@ -9,17 +9,21 @@
 import UIKit
 
 
-class AppUIViewController: UIViewController {
+class AppUIViewController: UIViewController, CanStyle {
     
-    static func applyColors(view: UIViewController) {
+    static func applyStyle(view: UIViewController) {
         
-        view.view.backgroundColor = AppColors.bgMain
+        view.view.backgroundColor = AppColors.bgMain()
+    }
+    
+    func applyStyle() {
+        AppUIViewController.applyStyle(self)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AppUIViewController.applyColors(self)
+        applyStyle()
     }
     
 }

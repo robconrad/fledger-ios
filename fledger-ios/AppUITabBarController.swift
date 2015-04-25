@@ -8,13 +8,17 @@
 
 import UIKit
 
-class AppUITabBarController: UITabBarController {
+class AppUITabBarController: UITabBarController, CanStyle {
+    
+    func applyStyle() {
+        tabBar.barTintColor = AppColors.bgHeader()
+        tabBar.tintColor = AppColors.text()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.barTintColor = AppColors.bgHeader
-        tabBar.tintColor = AppColors.text
+        applyStyle()
     }
     
 }
