@@ -13,6 +13,8 @@
 		3E05164E1AEC69DD00D6637F /* ValueUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05164D1AEC69DD00D6637F /* ValueUITableViewCell.swift */; };
 		3E0516541AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516531AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift */; };
 		3E0516561AEC764600D6637F /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516551AEC764600D6637F /* ArrayExtension.swift */; };
+		3E0516581AEC9F2C00D6637F /* ItemLocationEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516571AEC9F2C00D6637F /* ItemLocationEditViewController.swift */; };
+		3E162F0A1AECB35700574498 /* CenterPinMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E162F091AECB35700574498 /* CenterPinMapViewController.m */; };
 		3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */; };
 		3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */; };
 		3E21B2741AD7229000E00AE1 /* OverviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2731AD7229000E00AE1 /* OverviewsViewController.swift */; };
@@ -95,6 +97,9 @@
 		3EB323B01AE31B190023825D /* AppUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323AF1AE31B190023825D /* AppUIView.swift */; };
 		3EB323BA1AE31F2C0023825D /* listing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B81AE31F2C0023825D /* listing@2x.png */; };
 		3EB323BB1AE31F2C0023825D /* notepad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B91AE31F2C0023825D /* notepad@2x.png */; };
+		3EF0EFFE1AED7D9200D14B31 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFD1AED7D9200D14B31 /* Location.swift */; };
+		3EF0F0001AED7D9B00D14B31 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFF1AED7D9B00D14B31 /* LocationService.swift */; };
+		3EF0F0021AED8A0300D14B31 /* AppUIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */; };
 		B58FEA10C624D06B9364F1A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C9EFC54D56CA4D49824CD2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +176,9 @@
 		3E05164D1AEC69DD00D6637F /* ValueUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueUITableViewCell.swift; sourceTree = "<group>"; };
 		3E0516531AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueDetail2UITableViewCell.swift; sourceTree = "<group>"; };
 		3E0516551AEC764600D6637F /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		3E0516571AEC9F2C00D6637F /* ItemLocationEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemLocationEditViewController.swift; sourceTree = "<group>"; };
+		3E162F081AECB35700574498 /* CenterPinMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterPinMapViewController.h; sourceTree = "<group>"; };
+		3E162F091AECB35700574498 /* CenterPinMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterPinMapViewController.m; sourceTree = "<group>"; };
 		3E21B26A1AD7229000E00AE1 /* fledger-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fledger-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E21B26E1AD7229000E00AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -260,6 +268,9 @@
 		3EB323AF1AE31B190023825D /* AppUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIView.swift; sourceTree = "<group>"; };
 		3EB323B81AE31F2C0023825D /* listing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listing@2x.png"; sourceTree = "<group>"; };
 		3EB323B91AE31F2C0023825D /* notepad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notepad@2x.png"; sourceTree = "<group>"; };
+		3EF0EFFD1AED7D9200D14B31 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		3EF0EFFF1AED7D9B00D14B31 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E1C9EFC54D56CA4D49824CD2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,6 +350,8 @@
 				3E21B27A1AD7229000E00AE1 /* LaunchScreen.xib */,
 				3E21B26D1AD7229000E00AE1 /* Supporting Files */,
 				3E2B868B1ADAF74C0080B206 /* Bridging-Header.h */,
+				3E162F081AECB35700574498 /* CenterPinMapViewController.h */,
+				3E162F091AECB35700574498 /* CenterPinMapViewController.m */,
 			);
 			path = "fledger-ios";
 			sourceTree = "<group>";
@@ -383,6 +396,7 @@
 		3E21B2B21AD7571900E00AE1 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				3EF0EFF81AED7D8200D14B31 /* location */,
 				3E2B86B81ADCCFAE0080B206 /* group */,
 				3E2B869E1ADB27AE0080B206 /* type */,
 				3E2B869D1ADB27AA0080B206 /* account */,
@@ -440,6 +454,7 @@
 				3E2B86C91ADD79200080B206 /* AppUIViewController.swift */,
 				3E2B86C51ADD76E40080B206 /* AppUITableViewCell.swift */,
 				3E2B86C31ADD73270080B206 /* AppUITableViewController.swift */,
+				3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */,
 				3E2B86B61ADCB9E80080B206 /* ValueDetailUITableViewCell.swift */,
 				3E0516531AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift */,
 				3E05164D1AEC69DD00D6637F /* ValueUITableViewCell.swift */,
@@ -512,6 +527,7 @@
 				3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */,
 				3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */,
 				3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */,
+				3E0516571AEC9F2C00D6637F /* ItemLocationEditViewController.swift */,
 				3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */,
 				3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */,
 				3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */,
@@ -554,6 +570,15 @@
 				3EB323B91AE31F2C0023825D /* notepad@2x.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		3EF0EFF81AED7D8200D14B31 /* location */ = {
+			isa = PBXGroup;
+			children = (
+				3EF0EFFD1AED7D9200D14B31 /* Location.swift */,
+				3EF0EFFF1AED7D9B00D14B31 /* LocationService.swift */,
+			);
+			name = location;
 			sourceTree = "<group>";
 		};
 		5BA64593D4D93334D928F593 /* Pods */ = {
@@ -788,6 +813,7 @@
 				3E2B86CC1ADD7B400080B206 /* AppUILabel.swift in Sources */,
 				3E2B869B1ADB1F4E0080B206 /* Filters.swift in Sources */,
 				3E0516561AEC764600D6637F /* ArrayExtension.swift in Sources */,
+				3EF0F0001AED7D9B00D14B31 /* LocationService.swift in Sources */,
 				3E4AF7491AE36A4A0092F66A /* TransferEditViewController.swift in Sources */,
 				3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */,
 				3E2B86A61ADB285F0080B206 /* MemoryModelService.swift in Sources */,
@@ -809,12 +835,15 @@
 				3E2B86C01ADCDD050080B206 /* ModelType.swift in Sources */,
 				3E2B86AE1ADB71070080B206 /* Aggregates.swift in Sources */,
 				3E2B87041AE2E83D0080B206 /* AccountEditViewController.swift in Sources */,
+				3EF0EFFE1AED7D9200D14B31 /* Location.swift in Sources */,
 				3E0516481AEC357600D6637F /* CanStyle.swift in Sources */,
 				3E2B86B71ADCB9E80080B206 /* ValueDetailUITableViewCell.swift in Sources */,
 				3E0516421AEC304000D6637F /* AppStyling.swift in Sources */,
 				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,
+				3E162F0A1AECB35700574498 /* CenterPinMapViewController.m in Sources */,
 				3E2B86C81ADD77620080B206 /* HighlightUITableViewCell.swift in Sources */,
 				3E2B86A21ADB27DF0080B206 /* AccountService.swift in Sources */,
+				3EF0F0021AED8A0300D14B31 /* AppUIActivityIndicatorView.swift in Sources */,
 				3EB323A81AE313EE0023825D /* AppUIToolbar.swift in Sources */,
 				3E2B86BE1ADCD0EC0080B206 /* ItemGroupEditViewController.swift in Sources */,
 				3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */,
@@ -829,6 +858,7 @@
 				3E2B86D81ADF6FF50080B206 /* AppUINavigationBar.swift in Sources */,
 				3E2B86AA1ADB628F0080B206 /* OverviewViewController.swift in Sources */,
 				3E3B9EF91ADA4702006E9016 /* ItemFilters.swift in Sources */,
+				3E0516581AEC9F2C00D6637F /* ItemLocationEditViewController.swift in Sources */,
 				3E2B86BA1ADCCFBC0080B206 /* Group.swift in Sources */,
 				3E21B2BC1AD773CC00E00AE1 /* Type.swift in Sources */,
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
@@ -976,6 +1006,7 @@
 			baseConfigurationReference = 450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -990,6 +1021,8 @@
 				);
 				PRODUCT_NAME = "fledger-ios";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -998,6 +1031,7 @@
 			baseConfigurationReference = C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1012,6 +1046,7 @@
 				);
 				PRODUCT_NAME = "fledger-ios";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/Bridging-Header.h";
 			};
 			name = Release;
 		};

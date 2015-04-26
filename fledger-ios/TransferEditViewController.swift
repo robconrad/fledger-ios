@@ -115,6 +115,7 @@ class TransferEditViewController: EditViewController {
                     id: nil,
                     accountId: selectedFromAccountId!,
                     typeId: ModelServices.type.transferId,
+                    locationId: nil,
                     amount: -amountValue(),
                     date: selectedDate!,
                     comments: comments.text)) == nil
@@ -122,6 +123,7 @@ class TransferEditViewController: EditViewController {
                     id: nil,
                     accountId: selectedIntoAccountId!,
                     typeId: ModelServices.type.transferId,
+                    locationId: nil,
                     amount: amountValue(),
                     date: selectedDate!,
                     comments: comments.text)) == nil

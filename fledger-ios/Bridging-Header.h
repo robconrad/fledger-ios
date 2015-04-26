@@ -7,3 +7,4 @@
 //
 
 #import "Typhoon.h"
+#import "CenterPinMapViewController.h"

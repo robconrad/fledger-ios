@@ -19,14 +19,23 @@ class Fields {
     static let typeId = Expression<Int64>("type_id")
     static let groupId = Expression<Int64>("group_id")
     static let accountId = Expression<Int64>("account_id")
+    static let locationId = Expression<Int64?>("location_id")
+    
+    // common
+    static let name = Expression<String>("name")
+    static let nameOpt = Expression<String?>("name")
     
     // items
     static let amount = Expression<Double>("amount")
     static let comments = Expression<String>("comments")
     static let date = Expression<NSDate>("date")
     
+    // locations
+    static let latitude = Expression<Double>("latitude")
+    static let longitude = Expression<Double>("longitude")
+    static let address = Expression<String>("address")
+    
     // accounts
-    static let name = Expression<String>("name")
     static let priority = Expression<Int>("priority")
     static let inactive = Expression<Bool>("inactive")
     

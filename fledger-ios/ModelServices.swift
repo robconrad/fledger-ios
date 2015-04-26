@@ -11,6 +11,7 @@ class ModelServices {
     static let account = AccountService<Account>()
     static let type = TypeService<Type>()
     static let group = GroupService<Group>()
+    static let location = LocationService<Location>()
     static let item = ItemService<Item>()
     
 }

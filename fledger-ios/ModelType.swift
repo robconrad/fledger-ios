@@ -14,6 +14,7 @@ enum ModelType {
     case Group
     case Typ
     case Account
+    case Location
     case Item
     
     var string: String {
@@ -21,6 +22,7 @@ enum ModelType {
         case Group: return "group"
         case Typ: return "type"
         case Account: return "account"
+        case Location: return "location"
         case Item: return "item"
         }
     }

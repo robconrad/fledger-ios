@@ -105,6 +105,7 @@ class ItemFilters: Filters {
             case .Account: accountId = agg.id
             case .Group: groupId = agg.id
             case .Typ: typeId = agg.id
+            case .Location: break
             case .Item: break
             }
         }

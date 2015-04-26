@@ -20,6 +20,7 @@ class DatabaseService: NSObject {
     
     let db: Database
     
+    let locations: Query
     let accounts: Query
     let groups: Query
     let types: Query
@@ -33,6 +34,7 @@ class DatabaseService: NSObject {
         
         db.trace(println)
         
+        locations = db["locations"]
         accounts = db["accounts"]
         groups = db["groups"]
         types = db["types"]

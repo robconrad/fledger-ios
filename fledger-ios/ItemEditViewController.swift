@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 
 class ItemEditViewController: EditViewController {
@@ -16,6 +17,7 @@ class ItemEditViewController: EditViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var commentsLabel: UILabel!
+    @IBOutlet weak var locationLabel: AppUILabel!
     
     @IBOutlet weak var account: UIButton!
     @IBOutlet weak var date: UIButton!
@@ -23,6 +25,7 @@ class ItemEditViewController: EditViewController {
     @IBOutlet weak var amount: AppUITextField!
     @IBOutlet weak var flow: UISwitch!
     @IBOutlet weak var comments: AppUITextField!
+    @IBOutlet weak var location: UIButton!
     
     @IBOutlet weak var toolbar: AppUIToolbar!
     
@@ -31,6 +34,7 @@ class ItemEditViewController: EditViewController {
     var selectedAccountId: Int64?
     var selectedDate: NSDate?
     var selectedTypeId: Int64?
+    var selectedLocationId: Int64?
     
     var selectingModel: ModelType?
     
@@ -104,6 +108,7 @@ class ItemEditViewController: EditViewController {
                     id: nil,
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
+                    locationId: nil,
                     amount: amountValue(includeFlow: true),
                     date: selectedDate!,
                     comments: comments.text)) == nil
@@ -143,6 +148,11 @@ class ItemEditViewController: EditViewController {
         else if segue.identifier == "selectDate" {
             if let dest = segue.destinationViewController as? ItemDateEditViewController {
                 dest.date = selectedDate ?? item?.date
+            }
+        }
+        else if segue.identifier == "selectLocation" {
+            if let dest = segue.destinationViewController as? ItemLocationEditViewController {
+                dest.locationId = selectedLocationId ?? item?.locationId
             }
         }
     }

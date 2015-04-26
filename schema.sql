@@ -28,17 +28,29 @@ CREATE TABLE "accounts" (
     UNIQUE (name)
 );
 
+DROP TABLE IF EXISTS `locations`;
+CREATE TABLE "locations" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" varchar(255),
+    "latitude" double NOT NULL,
+    "longitude" double NOT NULL,
+    "address" text NOT NULL,
+    UNIQUE(name)
+);
+
 
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE "items" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "account_id" int(10) DEFAULT '0',
-    "type_id" int(10) DEFAULT '0',
+    "account_id" int(10) NOT NULL,
+    "type_id" int(10) NOT NULL,
+    "location_id" int(10),
     "amount" double DEFAULT '0',
-    "date" date DEFAULT '0000-00-00',
-    "comments" longtext,
+    "date" date NOT NULL,
+    "comments" text,
     FOREIGN KEY (account_id) REFERENCES account(id),
-    FOREIGN KEY (type_id) REFERENCES type(id)
+    FOREIGN KEY (type_id) REFERENCES type(id),
+    FOREIGN KEY (location_id) REFERENCES location(id)
 );
 
 

@@ -11,8 +11,7 @@ import UIKit
 
 class AppUIViewController: UIViewController, CanStyle {
     
-    static func applyStyle(view: UIViewController) {
-        
+    static func applyStyle(view: UIViewController) {        
         view.view.backgroundColor = AppColors.bgMain()
     }
     

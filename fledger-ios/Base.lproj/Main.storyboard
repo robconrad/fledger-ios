@@ -295,6 +295,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh2-7A-1PE">
+                                <rect key="frame" x="128" y="361" width="176" height="30"/>
+                                <state key="normal" title="[select location]">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="HYX-SK-hD7" kind="show" identifier="selectLocation" id="mQg-W9-Yxv"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H1L-Ff-N4Q" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="128" y="313" width="176" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -344,10 +353,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-Gd-AlC" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="33" y="365" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ofk-eX-9Xr" firstAttribute="top" secondItem="SGs-z7-8gC" secondAttribute="bottom" constant="30" id="09O-iR-h6U"/>
+                            <constraint firstItem="eh2-7A-1PE" firstAttribute="trailing" secondItem="H1L-Ff-N4Q" secondAttribute="trailing" id="0Kd-Q1-BhY"/>
                             <constraint firstItem="9TL-gh-6We" firstAttribute="top" secondItem="HAw-xt-Ewg" secondAttribute="bottom" constant="11" id="16D-CK-ekZ"/>
                             <constraint firstItem="9TL-gh-6We" firstAttribute="leading" secondItem="LPA-ea-mbv" secondAttribute="trailing" constant="23" id="5D3-Ig-hRt"/>
                             <constraint firstItem="ZkN-fj-Hg3" firstAttribute="top" secondItem="9TL-gh-6We" secondAttribute="bottom" constant="11" id="5hm-ZI-3en"/>
@@ -355,6 +371,7 @@
                             <constraint firstItem="H1L-Ff-N4Q" firstAttribute="leading" secondItem="Ofk-eX-9Xr" secondAttribute="trailing" constant="23" id="CCc-IY-eBj"/>
                             <constraint firstItem="WDh-ho-YYf" firstAttribute="leading" secondItem="fMj-Eq-ram" secondAttribute="trailing" constant="3" id="Gti-qc-qnV"/>
                             <constraint firstItem="HAw-xt-Ewg" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="ISN-QW-qUn"/>
+                            <constraint firstItem="eh2-7A-1PE" firstAttribute="baseline" secondItem="QHZ-Gd-AlC" secondAttribute="baseline" id="IVh-Wj-H77"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xaT-V9-q70" secondAttribute="trailing" constant="-16" id="JaQ-Or-I45"/>
                             <constraint firstItem="Ofk-eX-9Xr" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" id="KTS-JP-E04"/>
                             <constraint firstItem="LPA-ea-mbv" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="Kd7-Kc-fy4"/>
@@ -365,18 +382,21 @@
                             <constraint firstItem="Yfg-nc-fh9" firstAttribute="top" secondItem="GIR-4W-hSJ" secondAttribute="bottom" constant="25" id="PfG-ZC-QOs"/>
                             <constraint firstItem="1kn-Wy-Ibx" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="T8c-7G-wMp"/>
                             <constraint firstItem="GIR-4W-hSJ" firstAttribute="top" secondItem="LPA-ea-mbv" secondAttribute="bottom" constant="20" id="TI7-GY-hfu"/>
+                            <constraint firstItem="QHZ-Gd-AlC" firstAttribute="trailing" secondItem="Ofk-eX-9Xr" secondAttribute="trailing" id="UDo-Yj-IAE"/>
                             <constraint firstItem="9pc-46-3SU" firstAttribute="top" secondItem="ZkN-fj-Hg3" secondAttribute="bottom" constant="20" id="Uzd-KP-gxb"/>
                             <constraint firstItem="ZkN-fj-Hg3" firstAttribute="leading" secondItem="GIR-4W-hSJ" secondAttribute="trailing" constant="23" id="ZNb-C6-ipE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="9pc-46-3SU" secondAttribute="trailing" priority="250" constant="73" id="ZO0-eW-PLb"/>
                             <constraint firstItem="H1L-Ff-N4Q" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="c8m-Nt-ars"/>
                             <constraint firstItem="WDh-ho-YYf" firstAttribute="top" secondItem="ZkN-fj-Hg3" secondAttribute="bottom" constant="15" id="cjF-FN-GZz"/>
                             <constraint firstItem="9TL-gh-6We" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="eJi-CK-sUx"/>
+                            <constraint firstItem="QHZ-Gd-AlC" firstAttribute="top" secondItem="Ofk-eX-9Xr" secondAttribute="bottom" constant="27" id="eNH-Zr-3w2"/>
                             <constraint firstItem="ZkN-fj-Hg3" firstAttribute="trailing" secondItem="wgK-zz-87k" secondAttribute="trailingMargin" id="ea4-df-b8c"/>
                             <constraint firstItem="GIR-4W-hSJ" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="20" id="esb-RW-z1q"/>
                             <constraint firstItem="H1L-Ff-N4Q" firstAttribute="top" secondItem="Bnq-p5-lIK" secondAttribute="bottom" constant="21" id="fFm-Jt-ISH"/>
                             <constraint firstItem="Yfg-nc-fh9" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="48" id="i2J-UN-J5Y"/>
                             <constraint firstItem="9pc-46-3SU" firstAttribute="leading" secondItem="WDh-ho-YYf" secondAttribute="trailing" constant="8" id="kj3-UU-3hx"/>
                             <constraint firstItem="1kn-Wy-Ibx" firstAttribute="top" secondItem="gKq-Xj-pe7" secondAttribute="bottom" constant="24" id="kzB-1x-JMa"/>
+                            <constraint firstItem="eh2-7A-1PE" firstAttribute="leading" secondItem="H1L-Ff-N4Q" secondAttribute="leading" id="lQi-9U-60d"/>
                             <constraint firstItem="HAw-xt-Ewg" firstAttribute="leading" secondItem="1kn-Wy-Ibx" secondAttribute="trailing" constant="23" id="lub-Nl-nO6"/>
                             <constraint firstItem="xaT-V9-q70" firstAttribute="leading" secondItem="wgK-zz-87k" secondAttribute="leadingMargin" constant="-16" id="ngc-nP-FGB"/>
                             <constraint firstItem="fMj-Eq-ram" firstAttribute="leading" secondItem="Yfg-nc-fh9" secondAttribute="trailing" constant="23" id="t6U-cj-biZ"/>
@@ -406,6 +426,8 @@
                         <outlet property="date" destination="9TL-gh-6We" id="0cd-Zy-YQV"/>
                         <outlet property="dateLabel" destination="LPA-ea-mbv" id="dV3-z9-Rdj"/>
                         <outlet property="flow" destination="WDh-ho-YYf" id="eex-he-jo1"/>
+                        <outlet property="location" destination="eh2-7A-1PE" id="2Zn-w3-PS8"/>
+                        <outlet property="locationLabel" destination="QHZ-Gd-AlC" id="SH3-10-TSi"/>
                         <outlet property="toolbar" destination="xaT-V9-q70" id="G2J-o9-OmK"/>
                         <outlet property="type" destination="HAw-xt-Ewg" id="Jg0-aq-qWB"/>
                         <outlet property="typeLabel" destination="1kn-Wy-Ibx" id="4P3-vP-Cqe"/>
@@ -621,6 +643,69 @@
             </objects>
             <point key="canvasLocation" x="2143" y="-384"/>
         </scene>
+        <!--Select Location-->
+        <scene sceneID="xqx-w9-trs">
+            <objects>
+                <viewController id="HYX-SK-hD7" customClass="ItemLocationEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="stc-9k-N7y"/>
+                        <viewControllerLayoutGuide type="bottom" id="xKt-gQ-JkE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0Rg-nL-pZC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ear-Hi-vbH">
+                                <rect key="frame" x="0.0" y="160" width="320" height="364"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HYX-SK-hD7" id="rZU-1D-OuM"/>
+                                </connections>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-xP-fyO" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="64" width="288" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="3yJ-C4-CFG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hKZ-u2-0Gz" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="284" y="102" width="20" height="24"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ARq-xP-fyO" firstAttribute="top" secondItem="stc-9k-N7y" secondAttribute="bottom" id="4Js-ua-yQm"/>
+                            <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="hKZ-u2-0Gz" secondAttribute="bottom" constant="38" id="IBs-hv-kLp"/>
+                            <constraint firstItem="hKZ-u2-0Gz" firstAttribute="top" secondItem="stc-9k-N7y" secondAttribute="bottom" constant="38" id="JGG-Ha-fl4"/>
+                            <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="ARq-xP-fyO" secondAttribute="bottom" id="JWZ-gk-OZm"/>
+                            <constraint firstItem="ear-Hi-vbH" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" constant="-16" id="VYq-0K-yRS"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ear-Hi-vbH" secondAttribute="trailing" constant="-16" id="aUo-SX-iQO"/>
+                            <constraint firstItem="xKt-gQ-JkE" firstAttribute="top" secondItem="ear-Hi-vbH" secondAttribute="bottom" id="mjC-Hp-CZh"/>
+                            <constraint firstItem="ARq-xP-fyO" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" id="mn1-jj-lVG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ARq-xP-fyO" secondAttribute="trailing" id="vVy-eh-0L6"/>
+                            <constraint firstItem="hKZ-u2-0Gz" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="z0W-x8-hnj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Location" id="3T4-Ik-bH0">
+                        <barButtonItem key="rightBarButtonItem" title="Select" id="UXh-Ks-5zr">
+                            <connections>
+                                <action selector="selectDate:" destination="mR0-4M-EOF" id="iWL-M7-cyk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="locationLabel" destination="ARq-xP-fyO" id="aIH-Vx-WsQ"/>
+                        <outlet property="locationLoading" destination="hKZ-u2-0Gz" id="KMA-YU-Wp5"/>
+                        <outlet property="mapView" destination="ear-Hi-vbH" id="Gx2-Qm-WAi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-xP-KU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2580" y="-384"/>
+        </scene>
         <!--Select Type-->
         <scene sceneID="rRg-uZ-xLB">
             <objects>
@@ -833,25 +918,31 @@
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Dark" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4YG-Uv-YEq" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="89" y="106" width="36" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="36" id="KIb-dZ-CV1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Light" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zuh-bS-9HR" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="190" y="106" width="39" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="UpG-Y9-CUC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="utb-0k-0oz" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="81" id="29s-cC-omS"/>
-                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="Bpa-Io-EQR"/>
-                            <constraint firstItem="utb-0k-0oz" firstAttribute="leading" secondItem="4YG-Uv-YEq" secondAttribute="trailing" constant="8" id="EcC-jc-Vyj"/>
-                            <constraint firstItem="4YG-Uv-YEq" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="NfE-GF-PFd"/>
-                            <constraint firstAttribute="centerX" secondItem="utb-0k-0oz" secondAttribute="centerX" id="SIo-HU-aO4"/>
-                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="leading" secondItem="utb-0k-0oz" secondAttribute="trailing" constant="8" id="kAc-fE-wXF"/>
+                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="6yh-C0-BnV"/>
+                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="leading" secondItem="utb-0k-0oz" secondAttribute="trailing" constant="8" id="GrZ-Xe-bGi"/>
+                            <constraint firstItem="4YG-Uv-YEq" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="X7v-oh-xIF"/>
+                            <constraint firstItem="utb-0k-0oz" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="81" id="hb7-VF-aS4"/>
+                            <constraint firstAttribute="centerX" secondItem="utb-0k-0oz" secondAttribute="centerX" id="j4R-ge-fAR"/>
+                            <constraint firstItem="utb-0k-0oz" firstAttribute="leading" secondItem="4YG-Uv-YEq" secondAttribute="trailing" constant="8" id="qwe-4r-W3b"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="UY4-0W-4Cn"/>
@@ -1179,13 +1270,13 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2Dv-Xm-PSk"/>
         <segue reference="vOd-DH-h6d"/>
+        <segue reference="RpM-ED-kwd"/>
         <segue reference="V9X-57-fz6"/>
-        <segue reference="kjq-Ub-517"/>
-        <segue reference="bnA-ML-59b"/>
-        <segue reference="Z9w-ld-zSS"/>
+        <segue reference="qNe-7w-aPe"/>
+        <segue reference="pfk-gM-CKb"/>
         <segue reference="u6E-QI-onm"/>
+        <segue reference="bnA-ML-59b"/>
         <segue reference="s03-Uw-Ch7"/>
         <segue reference="Wxm-Ii-VBO"/>
     </inferredMetricsTieBreakers>
