@@ -38,21 +38,21 @@ class Aggregates {
         .select(accountId, accountName, sumAmount, inactive)
         .join(.LeftOuter, items, on: Fields.accountId == accountId)
         .group(accountId)
-        .order(inactive, priority, accountName)
+        .order(inactive, priority, collate(.Nocase, accountName))
     
     private static let groupsQuery = groups
         .select(groupId, groupName, sumAmount)
         .join(.LeftOuter, types, on: Fields.groupId == groupId)
         .join(.LeftOuter, items, on: Fields.typeId == typeId)
         .group(groupId)
-        .order(groupName)
+        .order(collate(.Nocase, groupName))
     
     private static let typesQuery = types
         .select(typeId, groupTypeName, sumAmount)
         .join(.LeftOuter, items, on: Fields.typeId == typeId)
         .join(.LeftOuter, groups, on: Fields.groupId == groupId)
         .group(typeId)
-        .order(groupName, typeName)
+        .order(collate(.Nocase, groupName), collate(.Nocase, typeName))
     
     private static func aggregate(model: ModelType, query: Query, id: Expression<Int64>, name: Expression<String>, checkActive: Bool = false) -> [Aggregate] {
         var result: [Aggregate] = []
