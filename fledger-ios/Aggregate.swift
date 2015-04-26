@@ -16,13 +16,15 @@ class Aggregate {
     let name: String
     let value: Double
     let active: Bool
+    let section: String?
     
-    required init(model: ModelType?, id: Int64?, name: String, value: Double, active: Bool = true) {
+    required init(model: ModelType?, id: Int64?, name: String, value: Double, active: Bool = true, section: String? = nil) {
         self.model = model
         self.id = id
         self.name = name
         self.value = value
         self.active = active
+        self.section = section
     }
     
     func toString() -> String {

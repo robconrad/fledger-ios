@@ -15,38 +15,83 @@ class ItemTypeEditViewController: AppUITableViewController {
     var typeId: Int64?
     var types: [Type]?
     
+    var sections: [String] = []
+    var sectionIndices: [String] = []
+    var sectionRows: [String: [Type]] = [:]
+    
     var selected: NSIndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         table.delegate = self
+        table.sectionIndexBackgroundColor = AppColors.bgHighlight()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        sections = []
+        sectionRows = [:]
         types = ModelServices.type.all()
+        
+        for type in types! {
+            let section = type.group().name
+            if sectionRows[section] == nil {
+                sectionRows[section] = []
+            }
+            sectionRows[section]!.append(type)
+        }
+        for section in sectionRows.keys {
+            sections.append(section)
+        }
+        sections = sorted(sections, { left, right in
+            return left.lowercaseString < right.lowercaseString
+        })
+        for section in sections {
+            sectionIndices.append(section.substringToIndex(advance(section.startIndex, min(3, count(section)))))
+        }
+        
         table.reloadData()
         
         if typeId != nil {
-            let index = types!.find { $0.id == self.typeId }
+            let type = types!.filter { $0.id == self.typeId }.first!
+            let section = type.group().name
+            let index = sectionRows[section]?.find { $0.id == self.typeId }
             if let i = index {
-                let indexPath = NSIndexPath(forRow: i, inSection: 0)
+                let indexPath = NSIndexPath(forRow: i, inSection: sections.find { $0 == section }!)
                 table.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
             }
         }
     }
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return types?.count ?? 0
+        return sectionRows[sections[section]]!.count
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel.textColor = AppColors.text()
+        header.contentView.backgroundColor = AppColors.bgHighlight()
+    }
+    
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+        return sectionIndices
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var reuseIdentifier = "default"
         var label = "failure"
         
-        if let type = types?[indexPath.row] {
+        if let type = sectionRows[sections[indexPath.section]]?[indexPath.row] {
             if type.id == typeId {
                 reuseIdentifier = "selected"
             }
@@ -60,7 +105,7 @@ class ItemTypeEditViewController: AppUITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let typeId = types?[indexPath.row].id
+        let typeId = self.sectionRows[sections[indexPath.section]]![indexPath.row].id
         if let nav = navigationController {
             let destination: AnyObject = nav.viewControllers[nav.viewControllers.count - 2]
             if let dest = destination as? ItemEditViewController {

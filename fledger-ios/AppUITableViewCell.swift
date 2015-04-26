@@ -15,7 +15,7 @@ class AppUITableViewCell: UITableViewCell {
         textLabel?.textColor = AppColors.text()
         
         let selectedBgView = UIView()
-        selectedBgView.backgroundColor = AppColors.bgHighlightTransient()
+        selectedBgView.backgroundColor = AppColors.bgSelected()
         selectedBackgroundView = selectedBgView
     }
     

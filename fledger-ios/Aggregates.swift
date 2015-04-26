@@ -27,7 +27,6 @@ class Aggregates {
     private static let accountName = accounts[name]
     private static let groupName = groups[name]
     private static let typeName = types[name]
-    private static let groupTypeName = groupName + " - " + typeName
     
     private static let sumAmount = Expressions.sumAmount
     
@@ -48,7 +47,7 @@ class Aggregates {
         .order(collate(.Nocase, groupName))
     
     private static let typesQuery = types
-        .select(typeId, groupTypeName, sumAmount)
+        .select(typeId, typeName, groupName, sumAmount)
         .join(.LeftOuter, items, on: Fields.typeId == typeId)
         .join(.LeftOuter, groups, on: Fields.groupId == groupId)
         .group(typeId)
@@ -61,7 +60,11 @@ class Aggregates {
             if checkActive {
                 active = !row.get(inactive)
             }
-            result.append(Aggregate(model: model, id: row.get(id), name: row.get(name), value: row.get(sumAmount) ?? 0, active: active))
+            var section: String?
+            if model == ModelType.Typ {
+                section = row.get(groupName)
+            }
+            result.append(Aggregate(model: model, id: row.get(id), name: row.get(name), value: row.get(sumAmount) ?? 0, active: active, section: section))
         }
         return result
     }
@@ -79,7 +82,7 @@ class Aggregates {
     }
     
     static func getTypes() -> [Aggregate] {
-        return aggregate(ModelType.Typ, query: typesQuery, id: typeId, name: groupTypeName)
+        return aggregate(ModelType.Typ, query: typesQuery, id: typeId, name: typeName)
     }
     
 }

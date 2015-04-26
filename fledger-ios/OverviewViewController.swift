@@ -16,28 +16,77 @@ class OverviewViewController: AppUITableViewController {
     @IBOutlet var table: UITableView!
     
     private var rows: [Aggregate] = []
-    private var selectedIndex: Int?
+    private var sections: [String] = []
+    private var sectionIndices: [String] = []
+    private var sectionRows: [String:[Aggregate]] = [:]
+    private var selectedAggregate: Aggregate?
     
     var category: OverviewCategory?
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        table.sectionIndexBackgroundColor = AppColors.bgHighlight()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        sections = []
+        sectionIndices = []
+        sectionRows = [:]
         rows = getAggregator()()
+        for row in rows {
+            if let section = row.section {
+                if sectionRows[section] == nil {
+                    sectionRows[section] = []
+                }
+                sectionRows[section]!.append(row)
+            }
+        }
+        for section in sectionRows.keys {
+            sections.append(section)
+        }
+        sections = sorted(sections, { left, right in
+            return left.lowercaseString < right.lowercaseString
+        })
+        for section in sections {
+            sectionIndices.append(section.substringToIndex(advance(section.startIndex, min(3, count(section)))))
+        }
+        
         table.reloadData()
         
         if category == .All {
             addButton.enabled = false
         }
     }
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return sections.count > 0 ? sections.count : 1
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rows.count
+        return sections.count > 0 ? sectionRows[sections[section]]!.count : rows.count
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections.count > 0 ? sections[section] : nil
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel.textColor = AppColors.text()
+        header.contentView.backgroundColor = AppColors.bgHighlight()
+    }
+    
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+        return sectionIndices
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ValueDetailUITableViewCell
         
-        let aggregate = rows[indexPath.row]
+        let aggregate = sections.count > 0 ? sectionRows[sections[indexPath.section]]![indexPath.row] : rows[indexPath.row]
         
         cell.title.text = aggregate.name
         ValueUITableViewCell.setFieldCurrency(cell.value, double: aggregate.value)
@@ -53,7 +102,7 @@ class OverviewViewController: AppUITableViewController {
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        selectedIndex = indexPath.row
+        selectedAggregate = sections.count > 0 ? sectionRows[sections[indexPath.section]]![indexPath.row] : rows[indexPath.row]
         return indexPath
     }
     
@@ -61,8 +110,8 @@ class OverviewViewController: AppUITableViewController {
         if segue.identifier == "items" {
             if let dest = segue.destinationViewController as? ItemsViewController {
                 let filters = ItemFilters()
-                if let index = selectedIndex {
-                    filters.addAggregate(rows[index])
+                if let aggregate = selectedAggregate {
+                    filters.addAggregate(aggregate)
                 }
                 dest.itemFilters = filters
                 dest.isSearchable = false

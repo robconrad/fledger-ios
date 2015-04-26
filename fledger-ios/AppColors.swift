@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class AppColors {
     
     enum Token {
@@ -20,6 +19,8 @@ class AppColors {
         case text
         case textError
     }
+    
+    // favorite blue: UIColor(red: 13/255, green: 138/255, blue: 245/255, alpha: 1)
     
     private static let darkColors: [Token: UIColor] = [
         Token.bgMain: UIColor.blackColor(),
@@ -51,6 +52,7 @@ class AppColors {
     static func bgMain() -> UIColor { return get(Token.bgMain) }
     static func bgHighlightTransient() -> UIColor { return get(Token.bgHighlightTransient) }
     static func bgHighlight() -> UIColor { return get(Token.bgHighlight) }
+    static func bgSelected() -> UIColor { return get(Token.bgHighlightTransient) }
     static func bgHeader() -> UIColor { return get(Token.bgHeader) }
     static func bgHeaderHighlight() -> UIColor { return get(Token.bgHeaderHighlight) }
     
