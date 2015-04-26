@@ -36,11 +36,10 @@ class ItemEditViewController: EditViewController {
     var selectedTypeId: Int64?
     var selectedLocationId: Int64?
     
-    var selectingModel: ModelType?
+    var deletedLocation: Bool = false
+    var updatedLocation: Location?
     
-    @IBAction func gotoTransfer(sender: AnyObject) {
-        performSegueWithIdentifier("editTransfer", sender: sender)
-    }
+    var selectingModel: ModelType?
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,13 +47,19 @@ class ItemEditViewController: EditViewController {
         item = item?.copy(
             accountId: selectedAccountId,
             date: selectedDate,
-            typeId: selectedTypeId)
+            typeId: selectedTypeId,
+            locationId: selectedLocationId)
+        
+        item = item?.clear(
+            locationId: deletedLocation)
         
         if let i = item {
+            let loc = i.location()
             self.title = "Edit Item"
             account.setTitle(i.account().name, forState: .Normal)
             date.setTitle(i.date.uiValue, forState: .Normal)
             type.setTitle(i.type().name, forState: .Normal)
+            location.setTitle(updatedLocation?.title() ?? loc?.title() ?? "[select location]", forState: .Normal)
             amount.text = String(format: "%.2f", abs(i.amount))
             flow.setOn(i.amount > 0, animated: true)
             comments.text = i.comments
@@ -64,15 +69,25 @@ class ItemEditViewController: EditViewController {
             if let accountId = selectedAccountId {
                 account.setTitle(ModelServices.account.withId(accountId)!.name, forState: .Normal)
             }
+            
             if let typeId = selectedTypeId {
                 type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
             }
+            
+            if let loc = updatedLocation {
+                location.setTitle(loc.title() ?? "[none]", forState: .Normal)
+            }
+            else if let locationId = selectedLocationId {
+                location.setTitle(ModelServices.location.withId(locationId)?.title() ?? "[none]", forState: .Normal)
+            }
+            
             if let myDate = selectedDate {
                 date.setTitle(myDate.uiValue, forState: .Normal)
             }
             else {
                 date.setTitle(NSDate().uiValue, forState: .Normal)
             }
+            
             toolbar.hidden = true
         }
         
@@ -98,6 +113,24 @@ class ItemEditViewController: EditViewController {
         checkErrors()
         
         if !errors {
+            if let location = updatedLocation {
+                if let id = location.id {
+                    // this location is used in multiple items, don't update make new instead
+                    if ModelServices.location.itemCount(id) > 1 {
+                        selectedLocationId = ModelServices.location.insert(location)
+                    }
+                    // this location is only used in one item, update instead of new
+                    else {
+                        ModelServices.location.update(location)
+                        selectedLocationId = id
+                    }
+                }
+                else {
+                    selectedLocationId = ModelServices.location.insert(location)
+                }
+                item = item?.copy(locationId: selectedLocationId)
+            }
+            
             if let i = item {
                 errors = !ModelServices.item.update(i.copy(
                     amount: amountValue(includeFlow: true),
@@ -108,7 +141,7 @@ class ItemEditViewController: EditViewController {
                     id: nil,
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
-                    locationId: nil,
+                    locationId: selectedLocationId,
                     amount: amountValue(includeFlow: true),
                     date: selectedDate!,
                     comments: comments.text)) == nil

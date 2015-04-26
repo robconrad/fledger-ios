@@ -51,4 +51,8 @@ class Location: Model {
             address: address ?? self.address)
     }
     
+    func title() -> String {
+        return name ?? address
+    }
+    
 }

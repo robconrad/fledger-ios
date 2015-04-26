@@ -62,6 +62,17 @@ class Item: Model {
             comments: comments ?? self.comments)
     }
     
+    func clear(locationId: Bool = false) -> Item {
+        return Item(
+            id: id,
+            accountId: accountId,
+            typeId: typeId,
+            locationId: locationId ? nil : self.locationId,
+            amount: amount,
+            date: date,
+            comments: comments)
+    }
+    
     func account() -> Account {
         return ModelServices.account.withId(accountId)!
     }

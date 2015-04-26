@@ -656,42 +656,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ear-Hi-vbH">
-                                <rect key="frame" x="0.0" y="160" width="320" height="364"/>
+                                <rect key="frame" x="0.0" y="196" width="320" height="284"/>
                                 <connections>
                                     <outlet property="delegate" destination="HYX-SK-hD7" id="rZU-1D-OuM"/>
                                 </connections>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARq-xP-fyO" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="16" y="64" width="288" height="96"/>
+                                <rect key="frame" x="16" y="110" width="288" height="84"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="3yJ-C4-CFG"/>
+                                    <constraint firstAttribute="height" constant="72" id="Lmz-Ab-V4Y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hKZ-u2-0Gz" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="284" y="102" width="20" height="24"/>
+                                <rect key="frame" x="284" y="148" width="20" height="18"/>
                             </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VH7-Fv-KZj" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNd-F8-865" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z9j-Nr-uxf"/>
+                                    <barButtonItem systemItem="trash" id="fIe-QG-Yi3">
+                                        <connections>
+                                            <action selector="deleteLocation:" destination="HYX-SK-hD7" id="XnT-jF-t6N"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ARq-xP-fyO" firstAttribute="top" secondItem="stc-9k-N7y" secondAttribute="bottom" id="4Js-ua-yQm"/>
-                            <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="hKZ-u2-0Gz" secondAttribute="bottom" constant="38" id="IBs-hv-kLp"/>
-                            <constraint firstItem="hKZ-u2-0Gz" firstAttribute="top" secondItem="stc-9k-N7y" secondAttribute="bottom" constant="38" id="JGG-Ha-fl4"/>
-                            <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="ARq-xP-fyO" secondAttribute="bottom" id="JWZ-gk-OZm"/>
-                            <constraint firstItem="ear-Hi-vbH" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" constant="-16" id="VYq-0K-yRS"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ear-Hi-vbH" secondAttribute="trailing" constant="-16" id="aUo-SX-iQO"/>
-                            <constraint firstItem="xKt-gQ-JkE" firstAttribute="top" secondItem="ear-Hi-vbH" secondAttribute="bottom" id="mjC-Hp-CZh"/>
-                            <constraint firstItem="ARq-xP-fyO" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" id="mn1-jj-lVG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ARq-xP-fyO" secondAttribute="trailing" id="vVy-eh-0L6"/>
-                            <constraint firstItem="hKZ-u2-0Gz" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="z0W-x8-hnj"/>
+                            <constraint firstItem="VH7-Fv-KZj" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" id="5Ay-KA-oGo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="VNd-F8-865" secondAttribute="trailing" constant="-16" id="5Kf-GO-dBD"/>
+                            <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="hKZ-u2-0Gz" secondAttribute="bottom" constant="32" id="6N3-lI-Oba"/>
+                            <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="ARq-xP-fyO" secondAttribute="bottom" constant="8" id="7b2-X0-vus"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ear-Hi-vbH" secondAttribute="trailing" constant="-16" id="G97-5G-Xrd"/>
+                            <constraint firstItem="ear-Hi-vbH" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" constant="-16" id="GG5-10-ePt"/>
+                            <constraint firstItem="VH7-Fv-KZj" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="Hr9-cO-iZB"/>
+                            <constraint firstItem="VNd-F8-865" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" constant="-16" id="JiZ-OR-rma"/>
+                            <constraint firstItem="ARq-xP-fyO" firstAttribute="top" secondItem="VH7-Fv-KZj" secondAttribute="bottom" constant="8" id="Ksi-6q-fQh"/>
+                            <constraint firstItem="hKZ-u2-0Gz" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="Y87-HD-OzC"/>
+                            <constraint firstItem="xKt-gQ-JkE" firstAttribute="top" secondItem="VNd-F8-865" secondAttribute="bottom" id="dZG-tJ-81H"/>
+                            <constraint firstItem="ARq-xP-fyO" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="fqX-uW-f4S"/>
+                            <constraint firstItem="VH7-Fv-KZj" firstAttribute="top" secondItem="stc-9k-N7y" secondAttribute="bottom" constant="16" id="kH0-D1-GNv"/>
+                            <constraint firstItem="hKZ-u2-0Gz" firstAttribute="top" secondItem="VH7-Fv-KZj" secondAttribute="bottom" constant="38" id="myv-t7-1xR"/>
+                            <constraint firstItem="VNd-F8-865" firstAttribute="top" secondItem="ear-Hi-vbH" secondAttribute="bottom" id="vnE-vS-0Og"/>
+                            <constraint firstItem="ARq-xP-fyO" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" id="y4P-WZ-eGM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Select Location" id="3T4-Ik-bH0">
                         <barButtonItem key="rightBarButtonItem" title="Select" id="UXh-Ks-5zr">
                             <connections>
-                                <action selector="selectDate:" destination="mR0-4M-EOF" id="iWL-M7-cyk"/>
+                                <action selector="selectLocation:" destination="HYX-SK-hD7" id="59W-6B-CEx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -700,6 +722,8 @@
                         <outlet property="locationLabel" destination="ARq-xP-fyO" id="aIH-Vx-WsQ"/>
                         <outlet property="locationLoading" destination="hKZ-u2-0Gz" id="KMA-YU-Wp5"/>
                         <outlet property="mapView" destination="ear-Hi-vbH" id="Gx2-Qm-WAi"/>
+                        <outlet property="name" destination="VH7-Fv-KZj" id="8oE-Xg-rdR"/>
+                        <outlet property="selectButton" destination="UXh-Ks-5zr" id="3yk-5O-oWg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-xP-KU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1270,14 +1294,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vOd-DH-h6d"/>
-        <segue reference="RpM-ED-kwd"/>
         <segue reference="V9X-57-fz6"/>
-        <segue reference="qNe-7w-aPe"/>
-        <segue reference="pfk-gM-CKb"/>
-        <segue reference="u6E-QI-onm"/>
+        <segue reference="vOd-DH-h6d"/>
+        <segue reference="Wxm-Ii-VBO"/>
         <segue reference="bnA-ML-59b"/>
         <segue reference="s03-Uw-Ch7"/>
-        <segue reference="Wxm-Ii-VBO"/>
+        <segue reference="qNe-7w-aPe"/>
+        <segue reference="RpM-ED-kwd"/>
+        <segue reference="pfk-gM-CKb"/>
+        <segue reference="u6E-QI-onm"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,13 +12,17 @@ import AddressBookUI
 
 class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapViewControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var selectButton: UIBarButtonItem!
     @IBOutlet weak var locationLoading: UIActivityIndicatorView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var name: UITextField!
     
     var locationId: Int64?
+    var location: Location?
     
     var coordinate: CLLocationCoordinate2D?
+    var address: String?
     
     lazy private var locationManager = CLLocationManager()
 
@@ -31,6 +35,7 @@ class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapVi
         
         locationLoading.startAnimating()
         locationLoading.hidden = true
+        selectButton.enabled = false
         
         shouldReverseGeocode = true
         delegate = self
@@ -46,7 +51,9 @@ class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapVi
         super.viewWillAppear(animated)
         
         if let id = locationId {
-            coordinate = ModelServices.location.withId(id)!.coordinate
+            location = ModelServices.location.withId(id)
+            name.text = location!.name ?? ""
+            coordinate = location!.coordinate
         }
         
         resetAddress()
@@ -80,7 +87,9 @@ class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapVi
     
     func centerPinMapViewController(sender: CenterPinMapViewController!, didResolvePlacemark p: CLPlacemark!) {
         locationLoading.hidden = true
-        locationLabel.text = ABCreateStringWithAddressDictionary(p.addressDictionary, true)
+        selectButton.enabled = true
+        address = ABCreateStringWithAddressDictionary(p.addressDictionary, true)
+        locationLabel.text = address
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
@@ -95,6 +104,7 @@ class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapVi
     
     func resetAddress() {
         locationLoading.hidden = false
+        selectButton.enabled = false
     }
     
     func centerMap() {
@@ -103,6 +113,28 @@ class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapVi
             let span = MKCoordinateSpanMake(delta, delta)
             let region = MKCoordinateRegion(center: c, span: span)
             mapView.setRegion(region, animated: false)
+        }
+    }
+    
+    @IBAction func selectLocation(sender: AnyObject) {
+        if let nav = navigationController {
+            nav.popViewControllerAnimated(true)
+            if let dest = nav.viewControllers.last as? ItemEditViewController {
+                if coordinate != nil && address != nil {
+                    dest.updatedLocation = Location(id: locationId, name: name.text == "" ? nil : name.text, coordinate: coordinate!, address: address!)
+                }
+            }
+        }
+    }
+    
+    @IBAction func deleteLocation(sender: AnyObject) {
+        if let nav = navigationController {
+            nav.popViewControllerAnimated(true)
+            if let dest = nav.viewControllers.last as? ItemEditViewController {
+                dest.deletedLocation = true
+                dest.selectedLocationId = nil
+                dest.updatedLocation = nil
+            }
         }
     }
     

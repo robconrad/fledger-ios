@@ -34,4 +34,8 @@ class LocationService<T: Location>: MemoryModelService<Location> {
         return elements
     }
     
+    func itemCount(id: Int64) -> Int {
+        return DatabaseService.main.items.filter(Fields.locationId == id).count
+    }
+    
 }
