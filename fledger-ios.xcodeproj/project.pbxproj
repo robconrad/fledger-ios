@@ -10,6 +10,8 @@
 		3E0516421AEC304000D6637F /* AppStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516411AEC304000D6637F /* AppStyling.swift */; };
 		3E0516481AEC357600D6637F /* CanStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516471AEC357600D6637F /* CanStyle.swift */; };
 		3E05164A1AEC36E600D6637F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516491AEC36E600D6637F /* MainTabBarController.swift */; };
+		3E05164E1AEC69DD00D6637F /* ValueUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E05164D1AEC69DD00D6637F /* ValueUITableViewCell.swift */; };
+		3E0516541AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516531AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift */; };
 		3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */; };
 		3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */; };
 		3E21B2741AD7229000E00AE1 /* OverviewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2731AD7229000E00AE1 /* OverviewsViewController.swift */; };
@@ -39,7 +41,7 @@
 		3E2B86AA1ADB628F0080B206 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86A91ADB628F0080B206 /* OverviewViewController.swift */; };
 		3E2B86AC1ADB6D720080B206 /* Aggregate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86AB1ADB6D720080B206 /* Aggregate.swift */; };
 		3E2B86AE1ADB71070080B206 /* Aggregates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86AD1ADB71070080B206 /* Aggregates.swift */; };
-		3E2B86B71ADCB9E80080B206 /* DetailUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B61ADCB9E80080B206 /* DetailUITableViewCell.swift */; };
+		3E2B86B71ADCB9E80080B206 /* ValueDetailUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B61ADCB9E80080B206 /* ValueDetailUITableViewCell.swift */; };
 		3E2B86BA1ADCCFBC0080B206 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B91ADCCFBC0080B206 /* Group.swift */; };
 		3E2B86BC1ADCCFC50080B206 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BB1ADCCFC50080B206 /* GroupService.swift */; };
 		3E2B86BE1ADCD0EC0080B206 /* ItemGroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */; };
@@ -165,6 +167,8 @@
 		3E0516411AEC304000D6637F /* AppStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyling.swift; sourceTree = "<group>"; };
 		3E0516471AEC357600D6637F /* CanStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanStyle.swift; sourceTree = "<group>"; };
 		3E0516491AEC36E600D6637F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3E05164D1AEC69DD00D6637F /* ValueUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueUITableViewCell.swift; sourceTree = "<group>"; };
+		3E0516531AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueDetail2UITableViewCell.swift; sourceTree = "<group>"; };
 		3E21B26A1AD7229000E00AE1 /* fledger-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "fledger-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E21B26E1AD7229000E00AE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,7 +207,7 @@
 		3E2B86A91ADB628F0080B206 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		3E2B86AB1ADB6D720080B206 /* Aggregate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aggregate.swift; sourceTree = "<group>"; };
 		3E2B86AD1ADB71070080B206 /* Aggregates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aggregates.swift; sourceTree = "<group>"; };
-		3E2B86B61ADCB9E80080B206 /* DetailUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailUITableViewCell.swift; sourceTree = "<group>"; };
+		3E2B86B61ADCB9E80080B206 /* ValueDetailUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueDetailUITableViewCell.swift; sourceTree = "<group>"; };
 		3E2B86B91ADCCFBC0080B206 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3E2B86BB1ADCCFC50080B206 /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
 		3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGroupEditViewController.swift; sourceTree = "<group>"; };
@@ -433,7 +437,9 @@
 				3E2B86C91ADD79200080B206 /* AppUIViewController.swift */,
 				3E2B86C51ADD76E40080B206 /* AppUITableViewCell.swift */,
 				3E2B86C31ADD73270080B206 /* AppUITableViewController.swift */,
-				3E2B86B61ADCB9E80080B206 /* DetailUITableViewCell.swift */,
+				3E2B86B61ADCB9E80080B206 /* ValueDetailUITableViewCell.swift */,
+				3E0516531AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift */,
+				3E05164D1AEC69DD00D6637F /* ValueUITableViewCell.swift */,
 				3E2B86C71ADD77620080B206 /* HighlightUITableViewCell.swift */,
 				3E2B86CD1ADF67490080B206 /* AppUINavigationController.swift */,
 				3E2B86CF1ADF67910080B206 /* AppUITabBarController.swift */,
@@ -786,6 +792,7 @@
 				3E2B86C61ADD76E40080B206 /* AppUITableViewCell.swift in Sources */,
 				3E2B86C21ADD71E10080B206 /* AppColors.swift in Sources */,
 				3EB323B01AE31B190023825D /* AppUIView.swift in Sources */,
+				3E05164E1AEC69DD00D6637F /* ValueUITableViewCell.swift in Sources */,
 				3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */,
 				3E2B86D41ADF6D630080B206 /* AppUITextField.swift in Sources */,
 				3E21B2741AD7229000E00AE1 /* OverviewsViewController.swift in Sources */,
@@ -799,7 +806,7 @@
 				3E2B86AE1ADB71070080B206 /* Aggregates.swift in Sources */,
 				3E2B87041AE2E83D0080B206 /* AccountEditViewController.swift in Sources */,
 				3E0516481AEC357600D6637F /* CanStyle.swift in Sources */,
-				3E2B86B71ADCB9E80080B206 /* DetailUITableViewCell.swift in Sources */,
+				3E2B86B71ADCB9E80080B206 /* ValueDetailUITableViewCell.swift in Sources */,
 				3E0516421AEC304000D6637F /* AppStyling.swift in Sources */,
 				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,
 				3E2B86C81ADD77620080B206 /* HighlightUITableViewCell.swift in Sources */,
@@ -810,6 +817,7 @@
 				3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */,
 				3E2B86D61ADF6E140080B206 /* AppUITextView.swift in Sources */,
 				3E2B86A41ADB27ED0080B206 /* TypeService.swift in Sources */,
+				3E0516541AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift in Sources */,
 				3E4AF7531AE437500092F66A /* SettingsEditViewController.swift in Sources */,
 				3E2B86AC1ADB6D720080B206 /* Aggregate.swift in Sources */,
 				3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */,

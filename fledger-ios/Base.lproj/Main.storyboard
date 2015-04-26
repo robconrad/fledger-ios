@@ -169,7 +169,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="Je5-kQ-56n" customClass="DetailUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="Je5-kQ-56n" customClass="ValueDetail2UITableViewCell" customModule="fledger_ios" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Je5-kQ-56n" id="3bJ-uN-flE">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -778,7 +778,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Q2E-ob-7MM" customClass="DetailUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="Q2E-ob-7MM" customClass="ValueDetailUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q2E-ob-7MM" id="9zD-WI-4PY">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -911,7 +911,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="4Zm-Yc-5aP" customClass="DetailUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="4Zm-Yc-5aP" customClass="ValueDetail2UITableViewCell" customModule="fledger_ios" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Zm-Yc-5aP" id="iLW-tr-ht4">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1179,14 +1179,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bnA-ML-59b"/>
-        <segue reference="iYV-Gc-2M2"/>
-        <segue reference="Wxm-Ii-VBO"/>
-        <segue reference="rf9-3m-AdS"/>
-        <segue reference="2Dv-Xm-PSk"/>
-        <segue reference="vOd-DH-h6d"/>
-        <segue reference="dOz-u4-owv"/>
-        <segue reference="oK8-EO-Mjl"/>
         <segue reference="jh4-6V-ZpD"/>
+        <segue reference="2Dv-Xm-PSk"/>
+        <segue reference="Wxm-Ii-VBO"/>
+        <segue reference="iYV-Gc-2M2"/>
+        <segue reference="rf9-3m-AdS"/>
+        <segue reference="vOd-DH-h6d"/>
+        <segue reference="bnA-ML-59b"/>
+        <segue reference="kjq-Ub-517"/>
+        <segue reference="dOz-u4-owv"/>
     </inferredMetricsTieBreakers>
 </document>

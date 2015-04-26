@@ -14,12 +14,15 @@ class Filters {
     var offset: Int?
     var count: Int?
     
-    func toQuery(var query: Query) -> Query {
-        
-        let myOffset = offset ?? 0
-        let myCount = count ?? Int.max
-        
-        return query.limit(myCount, offset: myOffset)
+    func toQuery(query: Query, limit: Bool = true) -> Query {
+        if limit {
+            let myOffset = offset ?? 0
+            let myCount = count ?? Int.max
+            return query.limit(myCount, offset: myOffset)
+        }
+        else {
+            return query
+        }
     }
     
 }

@@ -39,11 +39,11 @@ class StandardModelService<M: Model>: ModelService {
         return query
     }
     
-    func baseQuery(filters: Filters? = nil) -> Query {
+    func baseQuery(filters: Filters? = nil, limit: Bool = true) -> Query {
         var query = defaultOrder(baseFilter(table()))
         
         if let f = filters {
-            query = f.toQuery(query)
+            query = f.toQuery(query, limit: limit)
         }
         
         return query
@@ -54,7 +54,7 @@ class StandardModelService<M: Model>: ModelService {
     }
     
     func count(filters: Filters?) -> Int {
-        return baseQuery(filters: filters).count
+        return baseQuery(filters: filters, limit: false).count
     }
     
     func insert(e: M) -> Int64? {

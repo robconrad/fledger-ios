@@ -35,18 +35,18 @@ class OverviewViewController: AppUITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! DetailUITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ValueDetailUITableViewCell
         
         let aggregate = rows[indexPath.row]
         
         cell.title.text = aggregate.name
-        cell.setDetailCurrency(aggregate.value)
+        ValueUITableViewCell.setFieldCurrency(cell.value, double: aggregate.value)
         
         if !aggregate.active {
-            cell.subDetail.text = "inactive"
+            cell.detailLeft.text = "inactive"
         }
         else {
-            cell.subDetail.text = ""
+            cell.detailLeft.text = ""
         }
         
         return cell

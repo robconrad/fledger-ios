@@ -13,12 +13,27 @@ class ItemsViewController: AppUITableViewController {
     @IBOutlet var table: UITableView!
     
     var items: [Item]?
+    var itemSums = Dictionary<Int64, Double>()
     
     var itemFilters = ItemFiltersFromDefaults()
     
     var isSearchable = true
     
     let dateFormat = NSDateFormatter()
+    
+    private let dataQueue: NSOperationQueue = {
+        var q = NSOperationQueue()
+        q.name = "Items View Sum Background/Data Queue"
+        q.maxConcurrentOperationCount = 5
+        return q
+    }()
+    
+    private let uiQueue: NSOperationQueue = {
+        var q = NSOperationQueue()
+        q.name = "Items View Sum Foreground/UI Queue"
+        q.maxConcurrentOperationCount = 1
+        return q
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +46,7 @@ class ItemsViewController: AppUITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         // when the view is appearing we reload data because it could habe been changed
         // we have to pull the entire amount of data that has been pulled through infinite scrolling so that the table can
         //  be scrolled to the same point the user left (e.g. when leaving to edit item #100 and returning)
@@ -38,6 +54,13 @@ class ItemsViewController: AppUITableViewController {
         itemFilters.offset = 0
         items = ModelServices.item.select(itemFilters)
         table.reloadData()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        uiQueue.cancelAllOperations()
+        dataQueue.cancelAllOperations()
+        itemSums = [:]
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,17 +71,28 @@ class ItemsViewController: AppUITableViewController {
         let itemIndex = indexPath.row - itemFilters.count() 
         
         if itemIndex >= 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("default") as! DetailUITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("default") as! ValueDetail2UITableViewCell
             
             if let i = items {
+                let item = i[itemIndex]
                 let date = dateFormat.stringFromDate(i[itemIndex].date)
-                let type = i[itemIndex].type().name
-                let group = i[itemIndex].group().name
-                let comments = i[itemIndex].comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
+                let type = item.type().name
+                let group = item.group().name
+                let comments = item.comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
                 
                 cell.title.text = "\(comments)"
-                cell.subDetail.text = "\(date) - \(group) - \(type)"
-                cell.setDetailCurrency(i[itemIndex].amount)
+                cell.detailLeft.text = "\(date) - \(group) - \(type)"
+                ValueUITableViewCell.setFieldCurrency(cell.value, double: item.amount)
+                
+                if let sum = itemSums[item.id!] {
+                    ValueUITableViewCell.setFieldCurrency(cell.detailRight, double: sum)
+                }
+                else {
+                    cell.detailRight.text = "-"
+                    cell.detailRight.textColor = AppColors.text()
+                    
+                    dataQueue.addOperation(ItemSumOperation(item: item, controller: self, indexPath: indexPath, filters: itemFilters))
+                }
             }
             
             return cell
@@ -164,4 +198,63 @@ class ItemsViewController: AppUITableViewController {
     }
     
 }
+
+class ItemSumOperation: NSOperation {
+    
+    let item: Item
+    let controller: ItemsViewController
+    let indexPath: NSIndexPath
+    let filters: ItemFilters
+    
+    init(item: Item, controller: ItemsViewController, indexPath: NSIndexPath, filters: ItemFilters) {
+        self.item = item
+        self.controller = controller
+        self.indexPath = indexPath
+        self.filters = filters
+    }
+    
+    override func main() {
+        if self.cancelled {
+            return
+        }
+        
+        if controller.itemSums[item.id!] == nil {
+            controller.itemSums[item.id!] = ModelServices.item.getSum(item, filters: filters)
+        }
+        else {
+            return
+        }
+        
+        if self.cancelled {
+            return
+        }
+        
+        if controller.uiQueue.operationCount == 0 {
+            controller.uiQueue.addOperation(ReloadTableOperation(controller: controller))
+        }
+    }
+    
+}
+
+class ReloadTableOperation: NSOperation {
+    
+    let controller: ItemsViewController
+    
+    init(controller: ItemsViewController) {
+        self.controller = controller
+    }
+    
+    override func main() {
+        if self.cancelled {
+            return
+        }
+        
+        dispatch_sync(dispatch_get_main_queue()) {
+            self.controller.table.reloadData()
+        }
+    }
+    
+}
+
+
 

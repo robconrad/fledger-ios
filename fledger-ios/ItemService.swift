@@ -12,6 +12,8 @@ import SQLite
 
 class ItemService<M: Item>: StandardModelService<Item> {
     
+    private let id = DatabaseService.main.items[Fields.id]
+    
     override func modelType() -> ModelType {
         return ModelType.Item
     }
@@ -45,6 +47,14 @@ class ItemService<M: Item>: StandardModelService<Item> {
             Fields.accountId != first.accountId &&
             Fields.typeId == ModelServices.type.transferId
         ).first.map { Item(row: $0) }
+    }
+    
+    func getSum(item: Item, filters: Filters) -> Double {
+        return baseQuery(filters: filters, limit: false)
+            .filter(
+                Fields.date < item.date ||
+                (Fields.date == item.date && id <= item.id!))
+            .sum(Fields.amount) ?? 0
     }
     
 }
