@@ -24,6 +24,14 @@ class ItemAccountEditViewController: AppUITableViewController {
         super.viewWillAppear(animated)
         accounts = ModelServices.account.all().filter({ !$0.inactive })
         table.reloadData()
+        
+        if accountId != nil {
+            let index = accounts!.find { $0.id == self.accountId }
+            if let i = index {
+                let indexPath = NSIndexPath(forRow: i, inSection: 0)
+                table.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

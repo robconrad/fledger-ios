@@ -60,6 +60,34 @@ class ItemSearchViewController: AppUIViewController {
         itemFilters!.save()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "selectAccount" {
+            if let dest = segue.destinationViewController as? ItemAccountEditViewController {
+                dest.accountId = itemFilters?.accountId
+            }
+        }
+        else if segue.identifier == "selectType" {
+            if let dest = segue.destinationViewController as? ItemTypeEditViewController {
+                dest.typeId = itemFilters?.typeId
+            }
+        }
+        else if segue.identifier == "selectGroup" {
+            if let dest = segue.destinationViewController as? ItemGroupEditViewController {
+                dest.groupId = itemFilters?.groupId
+            }
+        }
+        else if segue.identifier == "selectStartDate" {
+            if let dest = segue.destinationViewController as? ItemDateEditViewController {
+                dest.date = itemFilters?.startDate
+            }
+        }
+        else if segue.identifier == "selectEndDate" {
+            if let dest = segue.destinationViewController as? ItemDateEditViewController {
+                dest.date = itemFilters?.endDate
+            }
+        }
+    }
+    
     @IBAction func save(sender: AnyObject) {
         
         if let nav = navigationController {

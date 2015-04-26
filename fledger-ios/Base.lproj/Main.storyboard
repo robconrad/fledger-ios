@@ -35,7 +35,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sc5-qT-Nj7" kind="show" id="kjq-Ub-517"/>
+                                    <segue destination="sc5-qT-Nj7" kind="show" identifier="selectType" id="kjq-Ub-517"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFU-xg-PHT">
@@ -45,7 +45,7 @@
                                 </state>
                                 <connections>
                                     <action selector="selectStartDate:" destination="GUZ-Qa-CZq" eventType="touchUpInside" id="nRR-Kg-qey"/>
-                                    <segue destination="mR0-4M-EOF" kind="show" id="luh-re-vkP"/>
+                                    <segue destination="mR0-4M-EOF" kind="show" identifier="selectStartDate" id="luh-re-vkP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx3-NZ-ULB" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
@@ -61,7 +61,7 @@
                                 </state>
                                 <connections>
                                     <action selector="selectEndDate:" destination="GUZ-Qa-CZq" eventType="touchUpInside" id="AH7-iv-bbR"/>
-                                    <segue destination="mR0-4M-EOF" kind="show" id="Z9w-ld-zSS"/>
+                                    <segue destination="mR0-4M-EOF" kind="show" identifier="selectEndDate" id="Z9w-ld-zSS"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKa-EN-bXt" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
@@ -76,7 +76,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Q5D-Ib-Bvm" kind="show" id="bnA-ML-59b"/>
+                                    <segue destination="Q5D-Ib-Bvm" kind="show" identifier="selectGroup" id="bnA-ML-59b"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpT-tT-c7c" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
@@ -102,7 +102,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="5YG-CF-FsU" kind="show" id="oEq-Ir-5ml"/>
+                                    <segue destination="5YG-CF-FsU" kind="show" identifier="selectAccount" id="oEq-Ir-5ml"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1179,14 +1179,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jh4-6V-ZpD"/>
         <segue reference="2Dv-Xm-PSk"/>
-        <segue reference="Wxm-Ii-VBO"/>
-        <segue reference="iYV-Gc-2M2"/>
-        <segue reference="rf9-3m-AdS"/>
         <segue reference="vOd-DH-h6d"/>
-        <segue reference="bnA-ML-59b"/>
+        <segue reference="V9X-57-fz6"/>
         <segue reference="kjq-Ub-517"/>
-        <segue reference="dOz-u4-owv"/>
+        <segue reference="bnA-ML-59b"/>
+        <segue reference="Z9w-ld-zSS"/>
+        <segue reference="iYV-Gc-2M2"/>
+        <segue reference="Wxm-Ii-VBO"/>
+        <segue reference="rf9-3m-AdS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,6 +15,8 @@ class ItemTypeEditViewController: AppUITableViewController {
     var typeId: Int64?
     var types: [Type]?
     
+    var selected: NSIndexPath?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +28,14 @@ class ItemTypeEditViewController: AppUITableViewController {
         
         types = ModelServices.type.all()
         table.reloadData()
+        
+        if typeId != nil {
+            let index = types!.find { $0.id == self.typeId }
+            if let i = index {
+                let indexPath = NSIndexPath(forRow: i, inSection: 0)
+                table.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

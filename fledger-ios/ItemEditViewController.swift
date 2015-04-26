@@ -131,18 +131,18 @@ class ItemEditViewController: EditViewController {
         if segue.identifier == "selectAccount" {
             if let dest = segue.destinationViewController as? ItemAccountEditViewController {
                 selectingModel = ModelType.Account
-                dest.accountId = item?.accountId
+                dest.accountId = selectedAccountId ?? item?.accountId
             }
         }
         else if segue.identifier == "selectType" {
             if let dest = segue.destinationViewController as? ItemTypeEditViewController {
                 selectingModel = ModelType.Typ
-                dest.typeId = item?.typeId
+                dest.typeId = selectedTypeId ?? item?.typeId
             }
         }
         else if segue.identifier == "selectDate" {
             if let dest = segue.destinationViewController as? ItemDateEditViewController {
-                dest.date = item?.date
+                dest.date = selectedDate ?? item?.date
             }
         }
     }

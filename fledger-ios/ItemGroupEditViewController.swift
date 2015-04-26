@@ -26,6 +26,14 @@ class ItemGroupEditViewController: AppUITableViewController {
         
         groups = ModelServices.group.all()
         table.reloadData()
+        
+        if groupId != nil {
+            let index = groups!.find { $0.id == self.groupId }
+            if let i = index {
+                let indexPath = NSIndexPath(forRow: i, inSection: 0)
+                table.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
