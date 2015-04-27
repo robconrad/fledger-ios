@@ -13,8 +13,13 @@ class SettingsEditViewController: AppUIViewController {
     
     @IBOutlet weak var themeSwitch: UISwitch!
     
+    @IBOutlet weak var activity: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activity.hidden = true
+        activity.startAnimating()
         
         themeSwitch.setOn(AppStyling.get() == AppStyling.Mode.Light, animated: false)
     }
@@ -27,6 +32,17 @@ class SettingsEditViewController: AppUIViewController {
         
         let nav = tabBarController as! MainTabBarController
         nav.applyStyle()
+    }
+    
+    @IBAction func loadFullDataset(sender: AnyObject) {
+        activity.hidden = false
+        DatabaseService.main.createDatabaseDestructive()
+        dispatch_async(dispatch_get_global_queue(0, 0)) {
+            DatabaseService.main.loadDefaultData(file: "data")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.activity.hidden = true
+            }
+        }
     }
     
 }
