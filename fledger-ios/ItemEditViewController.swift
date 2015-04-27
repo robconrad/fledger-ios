@@ -113,24 +113,6 @@ class ItemEditViewController: EditViewController {
         checkErrors()
         
         if !errors {
-            if let location = updatedLocation {
-                if let id = location.id {
-                    // this location is used in multiple items, don't update make new instead
-                    if ModelServices.location.itemCount(id) > 1 {
-                        selectedLocationId = ModelServices.location.insert(location)
-                    }
-                    // this location is only used in one item, update instead of new
-                    else {
-                        ModelServices.location.update(location)
-                        selectedLocationId = id
-                    }
-                }
-                else {
-                    selectedLocationId = ModelServices.location.insert(location)
-                }
-                item = item?.copy(locationId: selectedLocationId)
-            }
-            
             if let i = item {
                 errors = !ModelServices.item.update(i.copy(
                     amount: amountValue(includeFlow: true),
@@ -148,6 +130,7 @@ class ItemEditViewController: EditViewController {
             }
             
             if !errors {
+                ModelServices.location.cleanup()
                 segueBack()
             }
         }
@@ -185,7 +168,7 @@ class ItemEditViewController: EditViewController {
         }
         else if segue.identifier == "selectLocation" {
             if let dest = segue.destinationViewController as? ItemLocationEditViewController {
-                dest.locationId = selectedLocationId ?? item?.locationId
+                dest.model.setLocationId(selectedLocationId ?? item?.locationId)
             }
         }
     }
@@ -211,6 +194,7 @@ class ItemEditViewController: EditViewController {
         checkTypeError()
         checkAmountError()
         checkCommentsError()
+        checkLocationError()
     }
     
     func checkAccountError() {
@@ -231,6 +215,34 @@ class ItemEditViewController: EditViewController {
     
     func checkCommentsError() {
         checkErrors(count(comments.text) == 0, item: commentsLabel)
+    }
+    
+    func checkLocationError() {
+        // don't attempt location updates until all other errors are cleared
+        if errors {
+            return
+        }
+        
+        if let location = updatedLocation {
+            if let id = location.id {
+                // this location is used in multiple items, don't update make new instead
+                if ModelServices.location.itemCount(id) > 1 {
+                    selectedLocationId = ModelServices.location.insert(location)
+                    checkErrors(selectedLocationId == nil, item: locationLabel)
+                }
+                // this location is only used in one item, update instead of new
+                else {
+                    let result = ModelServices.location.update(location)
+                    selectedLocationId = id
+                    checkErrors(!result, item: locationLabel)
+                }
+            }
+            else {
+                selectedLocationId = ModelServices.location.insert(location)
+                checkErrors(selectedLocationId == nil, item: locationLabel)
+            }
+            item = item?.copy(locationId: selectedLocationId)
+        }
     }
     
 }

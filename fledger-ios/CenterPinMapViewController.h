@@ -23,6 +23,9 @@
 
 @interface CenterPinMapViewController : UIViewController
 
+///@brief Center annotation view
+@property (nonatomic, strong) MKPinAnnotationView *centerAnnotationView;
+
 ///@brief Center coordinate of the mapView
 @property (nonatomic, readonly) CLLocationCoordinate2D selectedCoordinate;
 

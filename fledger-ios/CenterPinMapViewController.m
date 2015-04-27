@@ -12,7 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) MKPointAnnotation *centerAnnotaion;
-@property (strong, nonatomic) MKPinAnnotationView *centerAnnotationView;
 @property (strong, nonatomic) UIToolbar *toolbar;
 @property (nonatomic) BOOL lastValidZoomState;
 @property (nonatomic, strong) CLGeocoder *geocoder;

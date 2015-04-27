@@ -1294,14 +1294,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="V9X-57-fz6"/>
-        <segue reference="vOd-DH-h6d"/>
-        <segue reference="Wxm-Ii-VBO"/>
-        <segue reference="bnA-ML-59b"/>
         <segue reference="s03-Uw-Ch7"/>
+        <segue reference="bnA-ML-59b"/>
+        <segue reference="Wxm-Ii-VBO"/>
+        <segue reference="vOd-DH-h6d"/>
         <segue reference="qNe-7w-aPe"/>
-        <segue reference="RpM-ED-kwd"/>
-        <segue reference="pfk-gM-CKb"/>
+        <segue reference="luh-re-vkP"/>
+        <segue reference="kjq-Ub-517"/>
+        <segue reference="oEq-Ir-5ml"/>
         <segue reference="u6E-QI-onm"/>
     </inferredMetricsTieBreakers>
 </document>

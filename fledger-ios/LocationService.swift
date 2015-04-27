@@ -38,4 +38,8 @@ class LocationService<T: Location>: MemoryModelService<Location> {
         return DatabaseService.main.items.filter(Fields.locationId == id).count
     }
     
+    func cleanup() {
+        // TODO delete locations that have 0 items attached
+    }
+    
 }
