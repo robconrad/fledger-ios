@@ -1,5 +1,5 @@
 //
-//  ItemDateEditViewController.swift
+//  ItemlocationEditController.swift
 //  fledger-ios
 //
 //  Created by Robert Conrad on 4/11/15.
@@ -7,68 +7,66 @@
 //
 
 import UIKit
-import MapKit
-import AddressBookUI
 
-
-class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapViewControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
+class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var selectButton: UIBarButtonItem!
-    @IBOutlet weak var locationLoading: UIActivityIndicatorView!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var name: UITextField!
+    @IBOutlet var table: UITableView!
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
     
-    let model = ItemLocationEditViewModel()
+    var locationId: Int64?
+    var locations: [Location]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        AppUIViewController.applyStyle(self)
-        model.initializeController(self)
-    }
-    
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        super.touchesBegan(touches, withEvent: event)
-        model.beginInteraction()
+        table.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        model.initializeMap()
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        model.cleanup()
-    }
-    
-    func centerPinMapViewController(sender: CenterPinMapViewController!, didChangeSelectedCoordinate coordinate: CLLocationCoordinate2D) {
-        model.updateCoordinateFromMap(coordinate)
-    }
-    
-    func centerPinMapViewController(sender: CenterPinMapViewController!, didResolvePlacemark placemark: CLPlacemark!) {
-        model.finishGeocoding(placemark)
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        model.updateCoordinateFromLocationManager((locations[0] as! CLLocation).coordinate)
-    }
-    
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
-        if let annotation = view.annotation as? LocationAnnotation {
-            model.selectAnnotation(annotation)
+        locations = ModelServices.location.all()
+        table.reloadData()
+        
+        if locationId == nil {
+            deleteButton.enabled = false
+        }
+        else {
+            deleteButton.enabled = true
+            
+            let index = locations!.find { $0.id == self.locationId }
+            if let i = index {
+                let indexPath = NSIndexPath(forRow: i, inSection: 0)
+                table.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
+            }
         }
     }
     
-    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
-        model.deselectAnnotation()
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return locations.map { locations in locations.count } ?? 0
     }
     
-    @IBAction func selectLocation(sender: AnyObject) {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var reuseIdentifier = "default"
+        var label = "failure"
+        
+        if let location = locations?[indexPath.row] {
+            if location.id == locationId {
+                reuseIdentifier = "selected"
+            }
+            label = location.title()
+        }
+        
+        let cell = table.dequeueReusableCellWithIdentifier(reuseIdentifier) as! UITableViewCell
+        cell.textLabel?.text = label
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let locationId = locations?[indexPath.row].id
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
             if let dest = nav.viewControllers.last as? ItemEditViewController {
-                dest.updatedLocation = model.getUpdatedLocation()
+                dest.selectedLocationId = locationId
             }
         }
     }
@@ -77,172 +75,10 @@ class ItemLocationEditViewController: CenterPinMapViewController, CenterPinMapVi
         if let nav = navigationController {
             nav.popViewControllerAnimated(true)
             if let dest = nav.viewControllers.last as? ItemEditViewController {
-                dest.deletedLocation = true
                 dest.selectedLocationId = nil
-                dest.updatedLocation = nil
+                dest.deletedLocation = true
             }
         }
     }
-    
-}
 
-class ItemLocationEditViewModel {
-    
-    private var c: ItemLocationEditViewController?
-    
-    private var locationId: Int64?
-    private var location: Location?
-    
-    private var coordinate: CLLocationCoordinate2D?
-    private var address: String?
-    private var lastPlacemark: CLPlacemark?
-    
-    private var selectedAnnotation: LocationAnnotation?
-    
-    private var userInteractionStarted = false
-    
-    lazy private var locationManager = CLLocationManager()
-    
-    func initializeController(c: ItemLocationEditViewController) {
-        self.c = c
-        
-        c.locationLoading.startAnimating()
-        c.locationLoading.hidden = true
-        c.selectButton.enabled = false
-        
-        c.shouldReverseGeocode = true
-        c.delegate = c
-        
-        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-            for loc in ModelServices.location.all() {
-                // ignore our own annotation because it will be added in map initialization synchronously
-                if self.locationId != loc.id {
-                    self.c!.mapView.addAnnotation(LocationAnnotation(location: loc))
-                }
-            }
-        }
-    }
-    
-    func initializeMap() {
-        if let id = locationId {
-            location = ModelServices.location.withId(id)
-            coordinate = location!.coordinate
-            c!.name.text = location!.name ?? ""
-        }
-        else {
-            beginGeocoding()
-        }
-        
-        if coordinate == nil {
-            locationManager.requestWhenInUseAuthorization()
-            if CLLocationManager.locationServicesEnabled() {
-                locationManager.delegate = c
-                locationManager.startUpdatingLocation()
-            }
-        }
-        else {
-            setRegion()
-            if let loc = location {
-                let a = LocationAnnotation(location: loc)
-                self.c!.mapView.addAnnotation(a)
-                c!.mapView.selectAnnotation(a, animated: true)
-            }
-        }
-    }
-    
-    func setLocationId(locationId: Int64?) {
-        self.locationId = locationId
-    }
-    
-    func beginInteraction() {
-        userInteractionStarted = true
-    }
-    
-    func updateCoordinateFromMap(coordinate: CLLocationCoordinate2D) {
-        if userInteractionStarted {
-            if let selected = c!.mapView.selectedAnnotations as? [MKPointAnnotation] {
-                for a in selected {
-                    c!.mapView.deselectAnnotation(a, animated: true)
-                }
-            }
-            beginGeocoding()
-            self.coordinate = coordinate
-        }
-    }
-    
-    func updateCoordinateFromLocationManager(coordinate: CLLocationCoordinate2D) {
-        if userInteractionStarted {
-            locationManager.stopUpdatingLocation()
-        }
-        else {
-            self.coordinate = coordinate
-            setRegion()
-        }
-    }
-    
-    func beginGeocoding() {
-        c!.locationLoading.hidden = false
-        c!.selectButton.enabled = false
-    }
-    
-    private func finishGeocoding() {
-        c!.locationLoading.hidden = true
-        c!.selectButton.enabled = true
-    }
-    
-    func finishGeocoding(placemark: CLPlacemark) {
-        lastPlacemark = placemark
-        if selectedAnnotation == nil {
-            finishGeocoding()
-            address = ABCreateStringWithAddressDictionary(placemark.addressDictionary, true)
-            c!.locationLabel.text = address
-        }
-    }
-    
-    func selectAnnotation(annotation: LocationAnnotation) {
-        finishGeocoding()
-        selectedAnnotation = annotation
-        c!.name.text = annotation.location.name
-        c!.locationLabel.text = annotation.location.address
-        c!.centerAnnotationView.hidden = true
-    }
-    
-    func deselectAnnotation() {
-        selectedAnnotation = nil
-        if let placemark = lastPlacemark {
-            finishGeocoding(placemark)
-        }
-        c!.centerAnnotationView.hidden = false
-        c!.name.text = nil
-    }
-    
-    func getUpdatedLocation() -> Location? {
-        if let annotation = selectedAnnotation {
-            return annotation.location.copy(name: getName())
-        }
-        else if coordinate != nil && address != nil {
-            return Location(id: locationId, name: getName(), coordinate: coordinate!, address: address!)
-        }
-        return nil
-    }
-    
-    func cleanup() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.stopUpdatingLocation()
-        }
-    }
-    
-    private func getName() -> String? {
-        return c!.name.text == "" ? nil : c!.name.text
-    }
-    
-    private func setRegion() {
-        if let coord = coordinate {
-            let delta = 0.015
-            let span = MKCoordinateSpanMake(delta, delta)
-            let region = MKCoordinateRegion(center: coord, span: span)
-            c!.mapView.setRegion(region, animated: false)
-        }
-    }
-    
 }

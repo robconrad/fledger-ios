@@ -301,7 +301,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HYX-SK-hD7" kind="show" identifier="selectLocation" id="mQg-W9-Yxv"/>
+                                    <segue destination="HwA-6A-HQx" kind="show" identifier="selectLocation" id="6bS-fJ-ZeN"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H1L-Ff-N4Q" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
@@ -482,6 +482,86 @@
             </objects>
             <point key="canvasLocation" x="2143" y="-2347"/>
         </scene>
+        <!--Select Location-->
+        <scene sceneID="xr5-9p-u8l">
+            <objects>
+                <viewController id="HwA-6A-HQx" customClass="ItemLocationEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X1A-Bn-p2j"/>
+                        <viewControllerLayoutGuide type="bottom" id="giu-kd-RgN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wOx-7y-8bv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SDE-s3-d4N" customClass="AppUITableView" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="default" id="hQQ-rl-3t2" customClass="AppUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQQ-rl-3t2" id="a7G-QR-OQt">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selected" id="N03-7y-VJ2" customClass="HighlightUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N03-7y-VJ2" id="QBw-Mr-WYS">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="HwA-6A-HQx" id="BfO-8C-glY"/>
+                                    <outlet property="delegate" destination="HwA-6A-HQx" id="xc9-a9-yIz"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbl-Ku-t5d" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Bm6-rs-HQD"/>
+                                    <barButtonItem systemItem="trash" id="68e-1b-o3O">
+                                        <connections>
+                                            <action selector="deleteLocation:" destination="HwA-6A-HQx" id="z5u-Xk-xxv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SDE-s3-d4N" secondAttribute="trailing" constant="-16" id="63J-HQ-dnl"/>
+                            <constraint firstItem="SDE-s3-d4N" firstAttribute="top" secondItem="wOx-7y-8bv" secondAttribute="topMargin" id="FSB-as-pxg"/>
+                            <constraint firstItem="Pbl-Ku-t5d" firstAttribute="top" secondItem="SDE-s3-d4N" secondAttribute="bottom" id="Hk8-Dg-H2E"/>
+                            <constraint firstItem="Pbl-Ku-t5d" firstAttribute="leading" secondItem="wOx-7y-8bv" secondAttribute="leadingMargin" constant="-16" id="UNP-uh-Fn7"/>
+                            <constraint firstItem="giu-kd-RgN" firstAttribute="top" secondItem="Pbl-Ku-t5d" secondAttribute="bottom" id="cgT-pA-Wgx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pbl-Ku-t5d" secondAttribute="trailing" constant="-16" id="faf-GY-hRo"/>
+                            <constraint firstItem="SDE-s3-d4N" firstAttribute="top" secondItem="X1A-Bn-p2j" secondAttribute="bottom" id="sSW-ZU-R8P"/>
+                            <constraint firstItem="SDE-s3-d4N" firstAttribute="leading" secondItem="wOx-7y-8bv" secondAttribute="leadingMargin" constant="-16" id="uvg-3L-kR0"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="sSW-ZU-R8P"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Location" id="GxM-R1-Xsf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yO7-23-rpH">
+                            <connections>
+                                <segue destination="HYX-SK-hD7" kind="show" id="ASg-mi-anP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="deleteButton" destination="68e-1b-o3O" id="X6i-rU-YWD"/>
+                        <outlet property="table" destination="SDE-s3-d4N" id="WM6-VL-DIG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="msg-Ac-Qp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2143" y="-3007"/>
+        </scene>
         <!--Edit Account-->
         <scene sceneID="hAg-sd-hfW">
             <objects>
@@ -643,10 +723,10 @@
             </objects>
             <point key="canvasLocation" x="2143" y="-384"/>
         </scene>
-        <!--Select Location-->
+        <!--Edit Location-->
         <scene sceneID="xqx-w9-trs">
             <objects>
-                <viewController id="HYX-SK-hD7" customClass="ItemLocationEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HYX-SK-hD7" userLabel="Edit Location" customClass="LocationEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="stc-9k-N7y"/>
                         <viewControllerLayoutGuide type="bottom" id="xKt-gQ-JkE"/>
@@ -656,7 +736,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ear-Hi-vbH">
-                                <rect key="frame" x="0.0" y="196" width="320" height="284"/>
+                                <rect key="frame" x="0.0" y="196" width="320" height="328"/>
                                 <connections>
                                     <outlet property="delegate" destination="HYX-SK-hD7" id="rZU-1D-OuM"/>
                                 </connections>
@@ -678,42 +758,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNd-F8-865" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="480" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z9j-Nr-uxf"/>
-                                    <barButtonItem systemItem="trash" id="fIe-QG-Yi3">
-                                        <connections>
-                                            <action selector="deleteLocation:" destination="HYX-SK-hD7" id="XnT-jF-t6N"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="xKt-gQ-JkE" firstAttribute="top" secondItem="ear-Hi-vbH" secondAttribute="bottom" id="4V2-c5-JQK"/>
                             <constraint firstItem="VH7-Fv-KZj" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" id="5Ay-KA-oGo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="VNd-F8-865" secondAttribute="trailing" constant="-16" id="5Kf-GO-dBD"/>
                             <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="hKZ-u2-0Gz" secondAttribute="bottom" constant="32" id="6N3-lI-Oba"/>
                             <constraint firstItem="ear-Hi-vbH" firstAttribute="top" secondItem="ARq-xP-fyO" secondAttribute="bottom" constant="8" id="7b2-X0-vus"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ear-Hi-vbH" secondAttribute="trailing" constant="-16" id="G97-5G-Xrd"/>
                             <constraint firstItem="ear-Hi-vbH" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" constant="-16" id="GG5-10-ePt"/>
                             <constraint firstItem="VH7-Fv-KZj" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="Hr9-cO-iZB"/>
-                            <constraint firstItem="VNd-F8-865" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" constant="-16" id="JiZ-OR-rma"/>
                             <constraint firstItem="ARq-xP-fyO" firstAttribute="top" secondItem="VH7-Fv-KZj" secondAttribute="bottom" constant="8" id="Ksi-6q-fQh"/>
                             <constraint firstItem="hKZ-u2-0Gz" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="Y87-HD-OzC"/>
-                            <constraint firstItem="xKt-gQ-JkE" firstAttribute="top" secondItem="VNd-F8-865" secondAttribute="bottom" id="dZG-tJ-81H"/>
                             <constraint firstItem="ARq-xP-fyO" firstAttribute="trailing" secondItem="0Rg-nL-pZC" secondAttribute="trailingMargin" id="fqX-uW-f4S"/>
                             <constraint firstItem="VH7-Fv-KZj" firstAttribute="top" secondItem="stc-9k-N7y" secondAttribute="bottom" constant="16" id="kH0-D1-GNv"/>
                             <constraint firstItem="hKZ-u2-0Gz" firstAttribute="top" secondItem="VH7-Fv-KZj" secondAttribute="bottom" constant="38" id="myv-t7-1xR"/>
-                            <constraint firstItem="VNd-F8-865" firstAttribute="top" secondItem="ear-Hi-vbH" secondAttribute="bottom" id="vnE-vS-0Og"/>
                             <constraint firstItem="ARq-xP-fyO" firstAttribute="leading" secondItem="0Rg-nL-pZC" secondAttribute="leadingMargin" id="y4P-WZ-eGM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Location" id="3T4-Ik-bH0">
-                        <barButtonItem key="rightBarButtonItem" title="Select" id="UXh-Ks-5zr">
+                    <navigationItem key="navigationItem" title="Edit Location" id="3T4-Ik-bH0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UXh-Ks-5zr">
                             <connections>
-                                <action selector="selectLocation:" destination="HYX-SK-hD7" id="59W-6B-CEx"/>
+                                <action selector="saveLocation:" destination="HYX-SK-hD7" id="eAq-5P-toM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -723,12 +789,12 @@
                         <outlet property="locationLoading" destination="hKZ-u2-0Gz" id="KMA-YU-Wp5"/>
                         <outlet property="mapView" destination="ear-Hi-vbH" id="Gx2-Qm-WAi"/>
                         <outlet property="name" destination="VH7-Fv-KZj" id="8oE-Xg-rdR"/>
-                        <outlet property="selectButton" destination="UXh-Ks-5zr" id="3yk-5O-oWg"/>
+                        <outlet property="saveButton" destination="UXh-Ks-5zr" id="6V2-yF-LIX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfg-xP-KU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2580" y="-384"/>
+            <point key="canvasLocation" x="2580" y="-3007"/>
         </scene>
         <!--Select Type-->
         <scene sceneID="rRg-uZ-xLB">
@@ -1311,14 +1377,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="s03-Uw-Ch7"/>
-        <segue reference="bnA-ML-59b"/>
-        <segue reference="Wxm-Ii-VBO"/>
         <segue reference="vOd-DH-h6d"/>
+        <segue reference="bnA-ML-59b"/>
+        <segue reference="s03-Uw-Ch7"/>
         <segue reference="qNe-7w-aPe"/>
-        <segue reference="luh-re-vkP"/>
-        <segue reference="kjq-Ub-517"/>
-        <segue reference="oEq-Ir-5ml"/>
+        <segue reference="jh4-6V-ZpD"/>
+        <segue reference="dOz-u4-owv"/>
+        <segue reference="oK8-EO-Mjl"/>
+        <segue reference="yM1-uR-bIG"/>
         <segue reference="u6E-QI-onm"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -37,7 +37,6 @@ class ItemEditViewController: EditViewController {
     var selectedLocationId: Int64?
     
     var deletedLocation: Bool = false
-    var updatedLocation: Location?
     
     var selectingModel: ModelType?
     
@@ -52,14 +51,14 @@ class ItemEditViewController: EditViewController {
         
         item = item?.clear(
             locationId: deletedLocation)
+        deletedLocation = false
         
         if let i = item {
-            let loc = i.location()
             self.title = "Edit Item"
             account.setTitle(i.account().name, forState: .Normal)
             date.setTitle(i.date.uiValue, forState: .Normal)
             type.setTitle(i.type().name, forState: .Normal)
-            location.setTitle(updatedLocation?.title() ?? loc?.title() ?? "[select location]", forState: .Normal)
+            location.setTitle(i.location()?.title() ?? "[select location]", forState: .Normal)
             amount.text = String(format: "%.2f", abs(i.amount))
             flow.setOn(i.amount > 0, animated: true)
             comments.text = i.comments
@@ -74,10 +73,7 @@ class ItemEditViewController: EditViewController {
                 type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
             }
             
-            if let loc = updatedLocation {
-                location.setTitle(loc.title() ?? "[none]", forState: .Normal)
-            }
-            else if let locationId = selectedLocationId {
+            if let locationId = selectedLocationId {
                 location.setTitle(ModelServices.location.withId(locationId)?.title() ?? "[none]", forState: .Normal)
             }
             
@@ -168,7 +164,7 @@ class ItemEditViewController: EditViewController {
         }
         else if segue.identifier == "selectLocation" {
             if let dest = segue.destinationViewController as? ItemLocationEditViewController {
-                dest.model.setLocationId(selectedLocationId ?? item?.locationId)
+                dest.locationId = selectedLocationId ?? item?.locationId
             }
         }
     }
@@ -218,31 +214,7 @@ class ItemEditViewController: EditViewController {
     }
     
     func checkLocationError() {
-        // don't attempt location updates until all other errors are cleared
-        if errors {
-            return
-        }
-        
-        if let location = updatedLocation {
-            if let id = location.id {
-                // this location is used in multiple items, don't update make new instead
-                if ModelServices.location.itemCount(id) > 1 {
-                    selectedLocationId = ModelServices.location.insert(location)
-                    checkErrors(selectedLocationId == nil, item: locationLabel)
-                }
-                // this location is only used in one item, update instead of new
-                else {
-                    let result = ModelServices.location.update(location)
-                    selectedLocationId = id
-                    checkErrors(!result, item: locationLabel)
-                }
-            }
-            else {
-                selectedLocationId = ModelServices.location.insert(location)
-                checkErrors(selectedLocationId == nil, item: locationLabel)
-            }
-            item = item?.copy(locationId: selectedLocationId)
-        }
+        // nada mucho
     }
     
 }
