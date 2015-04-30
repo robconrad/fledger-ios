@@ -65,7 +65,6 @@ class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource
         
         if let location = locations?[indexPath.row] {
             cell.textLabel?.text = location.title()
-            cell.detailLeft.text =  "distance"
             ValueUITableViewCell.setFieldDistance(cell.value, double: location.distance ?? -1)
         }
         
