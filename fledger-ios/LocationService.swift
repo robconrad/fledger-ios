@@ -38,6 +38,25 @@ class LocationService<T: Location>: MemoryModelService<Location> {
         return DatabaseService.main.items.filter(Fields.locationId == id).count
     }
     
+    func nearest(coordinate: CLLocationCoordinate2D) -> [Location] {
+        
+        var elements: [Location] = []
+        let stmt = DatabaseService.main.db.prepare("SELECT id, name, latitude, longitude, address, distance(latitude, longitude, ?, ?) AS computedDistance FROM locations ORDER BY computedDistance")
+        
+        for row in stmt.run(coordinate.latitude, coordinate.longitude) {
+            elements.append(Location(
+                id: (row[0] as! Int64),
+                name: row[1] as? String,
+                latitude: row[2] as! Double,
+                longitude: row[3] as! Double,
+                address: row[4] as! String,
+                distance: row[5] as? Double)
+            )
+        }
+        
+        return elements
+    }
+    
     func cleanup() {
         // TODO delete locations that have 0 items attached
     }

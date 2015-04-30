@@ -18,19 +18,31 @@ class Location: Model {
     let name: String?
     let coordinate: CLLocationCoordinate2D
     let address: String
+    let distance: Double?
     
-    required init(id: Int64?, name: String?, coordinate: CLLocationCoordinate2D, address: String) {
+    required init(id: Int64?, name: String?, coordinate: CLLocationCoordinate2D, address: String, distance: Double? = nil) {
         self.id = id
         self.name = name
         self.coordinate = coordinate
         self.address = address
+        self.distance = distance
+    }
+    
+    convenience init(id: Int64?, name: String?, latitude: Double, longitude: Double, address: String, distance: Double? = nil) {
+        self.init(
+            id: id,
+            name: name,
+            coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+            address: address,
+            distance: distance)
     }
     
     convenience init(row: Row) {
         self.init(
             id: row.get(Fields.id),
             name: row.get(Fields.nameOpt),
-            coordinate: CLLocationCoordinate2D(latitude: row.get(Fields.latitude), longitude: row.get(Fields.longitude)),
+            latitude: row.get(Fields.latitude),
+            longitude: row.get(Fields.longitude),
             address: row.get(Fields.address))
     }
     

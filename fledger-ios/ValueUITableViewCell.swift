@@ -10,21 +10,33 @@ import UIKit
 
 class ValueUITableViewCell: AppUITableViewCell {
     
-    static let formatter: NSNumberFormatter = {
+    static let currencyFormatter: NSNumberFormatter = {
         let f = NSNumberFormatter()
         f.numberStyle = .CurrencyStyle
         f.locale = NSLocale(localeIdentifier: "en_US")
         return f
     }()
     
+    static let distanceFormatter: NSNumberFormatter = {
+        let f = NSNumberFormatter()
+        f.numberStyle = .DecimalStyle
+        f.maximumFractionDigits = 1
+        f.locale = NSLocale(localeIdentifier: "en_US")
+        return f
+    }()
+    
     static func setFieldCurrency(field: UILabel, double: Double) {
-        field.text = ValueUITableViewCell.formatter.stringFromNumber(double)
+        field.text = ValueUITableViewCell.currencyFormatter.stringFromNumber(double)
         if double < 0 {
             field.textColor = AppColors.textError()
         }
         else {
             field.textColor = AppColors.text()
         }
+    }
+    
+    static func setFieldDistance(field: UILabel, double: Double) {
+        field.text = ValueUITableViewCell.distanceFormatter.stringFromNumber(double).map { $0 + " km" }
     }
     
     var title: UILabel = UILabel()

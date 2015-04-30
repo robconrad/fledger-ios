@@ -498,15 +498,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="default" id="hQQ-rl-3t2" customClass="AppUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="default" id="jic-rZ-KP6" customClass="ValueDetailUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQQ-rl-3t2" id="a7G-QR-OQt">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selected" id="N03-7y-VJ2" customClass="HighlightUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N03-7y-VJ2" id="QBw-Mr-WYS">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jic-rZ-KP6" id="Ti6-2p-KFh">
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -530,8 +524,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="SDE-s3-d4N" firstAttribute="top" secondItem="wOx-7y-8bv" secondAttribute="topMargin" id="5ib-kn-5PZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="SDE-s3-d4N" secondAttribute="trailing" constant="-16" id="63J-HQ-dnl"/>
-                            <constraint firstItem="SDE-s3-d4N" firstAttribute="top" secondItem="wOx-7y-8bv" secondAttribute="topMargin" id="FSB-as-pxg"/>
                             <constraint firstItem="Pbl-Ku-t5d" firstAttribute="top" secondItem="SDE-s3-d4N" secondAttribute="bottom" id="Hk8-Dg-H2E"/>
                             <constraint firstItem="Pbl-Ku-t5d" firstAttribute="leading" secondItem="wOx-7y-8bv" secondAttribute="leadingMargin" constant="-16" id="UNP-uh-Fn7"/>
                             <constraint firstItem="giu-kd-RgN" firstAttribute="top" secondItem="Pbl-Ku-t5d" secondAttribute="bottom" id="cgT-pA-Wgx"/>
@@ -1378,13 +1372,13 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vOd-DH-h6d"/>
-        <segue reference="bnA-ML-59b"/>
-        <segue reference="s03-Uw-Ch7"/>
-        <segue reference="qNe-7w-aPe"/>
+        <segue reference="2Dv-Xm-PSk"/>
         <segue reference="jh4-6V-ZpD"/>
         <segue reference="dOz-u4-owv"/>
         <segue reference="oK8-EO-Mjl"/>
         <segue reference="yM1-uR-bIG"/>
         <segue reference="u6E-QI-onm"/>
+        <segue reference="bnA-ML-59b"/>
+        <segue reference="s03-Uw-Ch7"/>
     </inferredMetricsTieBreakers>
 </document>

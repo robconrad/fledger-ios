@@ -41,6 +41,17 @@ class DatabaseService: NSObject {
         items = db["items"]
         parse = db["parse"]
         
+        db.create(function: "distance", deterministic: true) { args in
+            if let lat1 = args[0] as? Double, long1 = args[1] as? Double, lat2 = args[2] as? Double, long2 = args[3] as? Double {
+                let piOver180 = 0.01745327
+                let lat1rad = lat1 * piOver180
+                let lat2rad = lat2 * piOver180
+                let long1rad = long1 * piOver180
+                let long2rad = long2 * piOver180
+                return acos(sin(lat1rad) * sin(lat2rad) + cos(lat1rad) * cos(lat2rad) * cos(long2rad - long1rad)) * 6378.1
+            }
+            return nil
+        }
     }
     
     func createDatabaseDestructive() {
