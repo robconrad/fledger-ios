@@ -35,7 +35,8 @@ CREATE TABLE "locations" (
     "latitude" double NOT NULL,
     "longitude" double NOT NULL,
     "address" text NOT NULL,
-    UNIQUE(name)
+    UNIQUE(name),
+    UNIQUE(address)
 );
 
 

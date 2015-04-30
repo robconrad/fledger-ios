@@ -11,11 +11,14 @@ import MapKit
 
 class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var sortByLabel: UIBarButtonItem!
     @IBOutlet var table: UITableView!
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     
     var locationId: Int64?
     var locations: [Location]?
+    
+    private var sortBy = LocationSortBy.Distance
     
     private var userLocation: CLLocation?
     
@@ -30,6 +33,8 @@ class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource
         activity.startAnimating()
         navigationItem.titleView = activity
         
+        sortByLabel.title = "Sort By " + LocationSortBy.Name.rawValue
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
@@ -39,6 +44,8 @@ class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations userLocations: [AnyObject]!) {
         userLocation = userLocations[0] as? CLLocation
+        navigationItem.titleView = nil
+        locationManager.stopUpdatingLocation()
         reloadData()
     }
     
@@ -57,9 +64,6 @@ class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource
         let cell = table.dequeueReusableCellWithIdentifier("default") as! ValueDetailUITableViewCell
         
         if let location = locations?[indexPath.row] {
-            if location.id == locationId {
-                cell.backgroundColor = AppColors.bgHighlight()
-            }
             cell.textLabel?.text = location.title()
             cell.detailLeft.text =  "distance"
             ValueUITableViewCell.setFieldDistance(cell.value, double: location.distance ?? -1)
@@ -88,9 +92,18 @@ class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource
         }
     }
     
+    @IBAction func sortByAction(sender: AnyObject) {
+        sortByLabel.title = "Sort By " + sortBy.rawValue
+        switch sortBy {
+        case .Distance: sortBy = .Name
+        case .Name: sortBy = .Distance
+        }
+        reloadData()
+    }
+    
     private func reloadData() {
         if let location = userLocation {
-            locations = ModelServices.location.nearest(location.coordinate)
+            locations = ModelServices.location.nearest(location.coordinate, sortBy: sortBy)
             table.reloadData()
             
             let index = locations!.find { $0.id == self.locationId }
@@ -98,9 +111,6 @@ class ItemLocationEditViewController: AppUIViewController, UITableViewDataSource
                 let indexPath = NSIndexPath(forRow: i, inSection: 0)
                 table.selectRowAtIndexPath(indexPath, animated: true, scrollPosition: UITableViewScrollPosition.Middle)
             }
-            
-            navigationItem.titleView = nil
-            locationManager.stopUpdatingLocation()
         }
     }
 

@@ -38,10 +38,16 @@ class LocationService<T: Location>: MemoryModelService<Location> {
         return DatabaseService.main.items.filter(Fields.locationId == id).count
     }
     
-    func nearest(coordinate: CLLocationCoordinate2D) -> [Location] {
+    func nearest(coordinate: CLLocationCoordinate2D, sortBy: LocationSortBy) -> [Location] {
+        
+        let orderBy: String
+        switch sortBy {
+        case .Name: orderBy = "CASE WHEN name IS NULL THEN address ELSE name END"
+        case .Distance: orderBy = "computedDistance"
+        }
         
         var elements: [Location] = []
-        let stmt = DatabaseService.main.db.prepare("SELECT id, name, latitude, longitude, address, distance(latitude, longitude, ?, ?) AS computedDistance FROM locations ORDER BY computedDistance")
+        let stmt = DatabaseService.main.db.prepare("SELECT id, name, latitude, longitude, address, distance(latitude, longitude, ?, ?) AS computedDistance FROM locations ORDER BY \(orderBy)")
         
         for row in stmt.run(coordinate.latitude, coordinate.longitude) {
             elements.append(Location(
@@ -61,4 +67,9 @@ class LocationService<T: Location>: MemoryModelService<Location> {
         // TODO delete locations that have 0 items attached
     }
     
+}
+
+enum LocationSortBy: String {
+    case Name = "Name"
+    case Distance = "Distance"
 }

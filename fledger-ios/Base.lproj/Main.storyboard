@@ -513,6 +513,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbl-Ku-t5d" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="480" width="320" height="44"/>
                                 <items>
+                                    <barButtonItem title="Sort By" id="vlg-TN-DCR">
+                                        <connections>
+                                            <action selector="sortByAction:" destination="HwA-6A-HQx" id="YKa-bi-Zed"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Bm6-rs-HQD"/>
                                     <barButtonItem systemItem="trash" id="68e-1b-o3O">
                                         <connections>
@@ -549,6 +554,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="deleteButton" destination="68e-1b-o3O" id="X6i-rU-YWD"/>
+                        <outlet property="sortByLabel" destination="vlg-TN-DCR" id="l5q-Sb-Ena"/>
                         <outlet property="table" destination="SDE-s3-d4N" id="WM6-VL-DIG"/>
                     </connections>
                 </viewController>
@@ -741,7 +747,7 @@
                                     <constraint firstAttribute="height" constant="72" id="Lmz-Ab-V4Y"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hKZ-u2-0Gz" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
