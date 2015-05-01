@@ -9,6 +9,9 @@
 import UIKit
 import XCTest
 
+import fledger_ios
+
+
 class fledger_iosTests: XCTestCase {
     
     override func setUp() {
@@ -24,6 +27,11 @@ class fledger_iosTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
+        
+        let group = Group(id: nil, name: "bob")
+        
+        XCTAssert(group.name == "bob", "group name")
+        
     }
     
     func testPerformanceExample() {
