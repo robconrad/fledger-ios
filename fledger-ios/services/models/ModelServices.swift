@@ -8,7 +8,7 @@
 
 class ModelServices {
     
-    static private let service = DatabaseService.main
+    static private let service = DatabaseServiceImpl.main
     
     static let account = AccountService<Account>(service)
     static let type = TypeService<Type>(service)

@@ -18,7 +18,7 @@ class SettingsEditViewController: AppUIViewController {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.dbService = DatabaseService.main
+        self.dbService = DatabaseServiceImpl.main
     }
     
     convenience init(_ dbService: DatabaseService) {
@@ -49,7 +49,7 @@ class SettingsEditViewController: AppUIViewController {
         activity.hidden = false
         dbService.createDatabaseDestructive()
         dispatch_async(dispatch_get_global_queue(0, 0)) {
-            self.dbService.loadDefaultData(file: "data")
+            self.dbService.loadDefaultData("data")
             dispatch_async(dispatch_get_main_queue()) {
                 self.activity.hidden = true
             }

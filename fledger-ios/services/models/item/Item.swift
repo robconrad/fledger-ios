@@ -31,7 +31,7 @@ class Item: Model {
     
     convenience init(row: Row) {
         self.init(
-            id: row.get(DatabaseService.main.items[Fields.id]),
+            id: row.get(DatabaseServiceImpl.main.items[Fields.id]),
             accountId: row.get(Fields.accountId),
             typeId: row.get(Fields.typeId),
             locationId: row.get(Fields.locationId),

@@ -113,6 +113,7 @@
 		3E7FDCA21AF44FA4008DA09E /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BD1AD7799C00E00AE1 /* Account.swift */; };
 		3E7FDCA31AF44FA4008DA09E /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86A11ADB27DF0080B206 /* AccountService.swift */; };
 		3E7FDCA41AF44FBE008DA09E /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */; };
+		3E7FDCA61AF59FC8008DA09E /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */; };
 		3EB323A01AE301620023825D /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3239F1AE301620023825D /* GroupEditViewController.swift */; };
 		3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A11AE303B10023825D /* OverviewCategory.swift */; };
 		3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */; };
@@ -289,6 +290,7 @@
 		3E62D8B41AF2F43F00E07582 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceTest.swift; sourceTree = "<group>"; };
+		3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
 		3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEditViewController.swift; sourceTree = "<group>"; };
@@ -583,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */,
+				3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */,
 				3E21B2B21AD7571900E00AE1 /* models */,
 			);
 			path = services;
@@ -907,6 +910,7 @@
 				3E2B87041AE2E83D0080B206 /* AccountEditViewController.swift in Sources */,
 				3EF0EFFE1AED7D9200D14B31 /* Location.swift in Sources */,
 				3E0516481AEC357600D6637F /* CanStyle.swift in Sources */,
+				3E7FDCA61AF59FC8008DA09E /* DatabaseServiceImpl.swift in Sources */,
 				3E2B86B71ADCB9E80080B206 /* ValueDetailUITableViewCell.swift in Sources */,
 				3E0516421AEC304000D6637F /* AppStyling.swift in Sources */,
 				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,

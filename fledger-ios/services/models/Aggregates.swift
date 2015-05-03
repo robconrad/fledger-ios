@@ -37,7 +37,7 @@ class Aggregates {
     private let groupsQuery: Query
     private let typesQuery: Query
     
-    static let main = Aggregates(DatabaseService.main)
+    static let main = Aggregates(DatabaseServiceImpl.main)
     
     required init(_ dbService: DatabaseService) {
         self.dbService = dbService
