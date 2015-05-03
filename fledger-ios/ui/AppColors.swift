@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 TwoSpec Inc. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class AppColors {

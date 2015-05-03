@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Robert Conrad. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 class TypesTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate {

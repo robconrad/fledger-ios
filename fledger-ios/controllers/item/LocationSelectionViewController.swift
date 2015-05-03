@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 
+
 class LocationSelectionViewController: AppUIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var sortByLabel: UIBarButtonItem!
@@ -59,7 +60,7 @@ class LocationSelectionViewController: AppUIViewController, CLLocationManagerDel
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations userLocations: [AnyObject]!) {
-        (userLocations[0] as? CLLocation).map { table.setUserLocation($0) }
+        (userLocations[0] as? CLLocation).map { self.table.setUserLocation($0) }
         navigationItem.titleView = nil
         locationManager.stopUpdatingLocation()
     }

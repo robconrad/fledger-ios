@@ -9,8 +9,8 @@
 import Foundation
 
 
-public class ApplicationAssembly : TyphoonAssembly {
-    
-
-    
-}
+//public class ApplicationAssembly : TyphoonAssembly {
+//    
+//
+//    
+//}

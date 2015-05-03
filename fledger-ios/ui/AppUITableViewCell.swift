@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 TwoSpec Inc. All rights reserved.
 //
 
+import UIKit
+
+
 class AppUITableViewCell: UITableViewCell {
     
     required init(coder aDecoder: NSCoder) {

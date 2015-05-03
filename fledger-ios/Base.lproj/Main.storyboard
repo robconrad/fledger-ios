@@ -568,10 +568,10 @@
             </objects>
             <point key="canvasLocation" x="2143" y="-3007"/>
         </scene>
-        <!--Edit Account-->
+        <!--AccountEditViewController-->
         <scene sceneID="hAg-sd-hfW">
             <objects>
-                <viewController id="jy9-oj-56X" customClass="AccountEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountEditViewController" title="AccountEditViewController" id="jy9-oj-56X" customClass="AccountEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NdG-2H-Fyn"/>
                         <viewControllerLayoutGuide type="bottom" id="tEC-Fq-lv1"/>
