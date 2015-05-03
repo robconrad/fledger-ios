@@ -59,8 +59,6 @@
 		3E2B86D41ADF6D630080B206 /* AppUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D31ADF6D630080B206 /* AppUITextField.swift */; };
 		3E2B86D61ADF6E140080B206 /* AppUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D51ADF6E140080B206 /* AppUITextView.swift */; };
 		3E2B86D81ADF6FF50080B206 /* AppUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D71ADF6FF50080B206 /* AppUINavigationBar.swift */; };
-		3E2B86DB1AE019AA0080B206 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2B86D91AE019AA0080B206 /* Bolts.framework */; };
-		3E2B86DC1AE019AA0080B206 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2B86DA1AE019AA0080B206 /* Parse.framework */; };
 		3E2B86E31AE01A6D0080B206 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2B86DD1AE019E80080B206 /* AudioToolbox.framework */; };
 		3E2B86E41AE01A750080B206 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2B86DF1AE019F00080B206 /* CFNetwork.framework */; };
 		3E2B86E51AE01A7C0080B206 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E2B86E11AE019F70080B206 /* CoreGraphics.framework */; };
@@ -88,7 +86,6 @@
 		3E62D8B81AF2F5DE00E07582 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B91ADCCFBC0080B206 /* Group.swift */; };
 		3E62D8B91AF2F5FB00E07582 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
 		3E62D8BA1AF2F60300E07582 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B51AD757D200E00AE1 /* Fields.swift */; };
-		3E6820A01ADAEBFC00CD7433 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */; };
 		3E6820AF1ADAF0D700CD7433 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B29F1AD7243600E00AE1 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E6820B01ADAF0D700CD7433 /* sqlite3.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B2A31AD7243600E00AE1 /* sqlite3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E7FDC8F1AF44E4C008DA09E /* LocationServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */; };
@@ -145,7 +142,6 @@
 		3E95C5971AF5F1C6003D88C6 /* AppUITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D51ADF6E140080B206 /* AppUITextView.swift */; };
 		3E95C5981AF5F1C6003D88C6 /* AppUINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86D71ADF6FF50080B206 /* AppUINavigationBar.swift */; };
 		3E95C5991AF5F1C6003D88C6 /* AppUIToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A71AE313EE0023825D /* AppUIToolbar.swift */; };
-		3E95C59A1AF5F1C6003D88C6 /* ApplicationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */; };
 		3E95C59B1AF5F1C6003D88C6 /* AccountSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2D81AD9E0AF00E00AE1 /* AccountSelectionViewController.swift */; };
 		3E95C59C1AF5F1C6003D88C6 /* AccountsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */; };
 		3E95C59D1AF5F1C6003D88C6 /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3239F1AE301620023825D /* GroupEditViewController.swift */; };
@@ -346,7 +342,6 @@
 		3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEditViewController.swift; sourceTree = "<group>"; };
 		3E62D8B31AF2F43F00E07582 /* libPods-Typhoon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Typhoon.a"; path = "Pods/../build/Debug-iphoneos/libPods-Typhoon.a"; sourceTree = "<group>"; };
 		3E62D8B41AF2F43F00E07582 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationAssembly.swift; sourceTree = "<group>"; };
 		3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceTest.swift; sourceTree = "<group>"; };
 		3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		3E7FDCA71AF5A482008DA09E /* DatabaseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceMock.swift; sourceTree = "<group>"; };
@@ -396,9 +391,7 @@
 				3E2B86E51AE01A7C0080B206 /* CoreGraphics.framework in Frameworks */,
 				3E2B86E41AE01A750080B206 /* CFNetwork.framework in Frameworks */,
 				3E2B86E31AE01A6D0080B206 /* AudioToolbox.framework in Frameworks */,
-				3E2B86DB1AE019AA0080B206 /* Bolts.framework in Frameworks */,
 				3E21B2A61AD7258B00E00AE1 /* sqlite3.framework in Frameworks */,
-				3E2B86DC1AE019AA0080B206 /* Parse.framework in Frameworks */,
 				B58FEA10C624D06B9364F1A9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,7 +431,6 @@
 			isa = PBXGroup;
 			children = (
 				3E2B86B11ADCB9C60080B206 /* ui */,
-				3E6820A11ADAECB900CD7433 /* assembly */,
 				3E3B9F101ADAD9BB006E9016 /* services */,
 				3E2B87091AE2F3CC0080B206 /* controllers */,
 				3E21B26F1AD7229000E00AE1 /* AppDelegate.swift */,
@@ -660,14 +652,6 @@
 				3E21B2B21AD7571900E00AE1 /* models */,
 			);
 			path = services;
-			sourceTree = "<group>";
-		};
-		3E6820A11ADAECB900CD7433 /* assembly */ = {
-			isa = PBXGroup;
-			children = (
-				3E68209F1ADAEBFC00CD7433 /* ApplicationAssembly.swift */,
-			);
-			path = assembly;
 			sourceTree = "<group>";
 		};
 		3E7FDC8B1AF44E15008DA09E /* services */ = {
@@ -1052,7 +1036,6 @@
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
 				3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */,
 				3E7FDCAD1AF5B0C9008DA09E /* SelectHandlers.swift in Sources */,
-				3E6820A01ADAEBFC00CD7433 /* ApplicationAssembly.swift in Sources */,
 				3E21B2D91AD9E0AF00E00AE1 /* AccountSelectionViewController.swift in Sources */,
 				3EF0F00F1AEF1C3D00D14B31 /* LocationSelectionViewController.swift in Sources */,
 				3E2B86D01ADF67910080B206 /* AppUITabBarController.swift in Sources */,
@@ -1084,7 +1067,6 @@
 				3E95C5971AF5F1C6003D88C6 /* AppUITextView.swift in Sources */,
 				3E95C5981AF5F1C6003D88C6 /* AppUINavigationBar.swift in Sources */,
 				3E95C5991AF5F1C6003D88C6 /* AppUIToolbar.swift in Sources */,
-				3E95C59A1AF5F1C6003D88C6 /* ApplicationAssembly.swift in Sources */,
 				3E95C59B1AF5F1C6003D88C6 /* AccountSelectionViewController.swift in Sources */,
 				3E95C59C1AF5F1C6003D88C6 /* AccountsTableView.swift in Sources */,
 				3E95C59D1AF5F1C6003D88C6 /* GroupEditViewController.swift in Sources */,

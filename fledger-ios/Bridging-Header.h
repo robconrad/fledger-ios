@@ -6,5 +6,4 @@
 //  Copyright (c) 2015 TwoSpec Inc. All rights reserved.
 //
 
-//#import "Typhoon.h"
 #import "CenterPinMapViewController.h"
