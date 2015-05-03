@@ -19,24 +19,10 @@ class ItemSearchViewController: AppUIViewController {
     
     var itemFilters: ItemFilters?
     
-    private var askingForStartDate = false
-    private var askingForEndDate = false
-    
-    func setDate(date: NSDate) {
-        if askingForStartDate {
-            itemFilters!.startDate = date
-        }
-        if askingForEndDate {
-            itemFilters!.endDate = date
-        }
-        askingForStartDate = false
-        askingForEndDate = false
-    }
-    
     override func viewWillAppear(animated: Bool) {
         
         if let accountId = itemFilters!.accountId {
-            account.setTitle(ModelServices.account.withId(accountId)!.name, forState: .Normal)
+            account.setTitle(ModelServices.account.withId(accountId)?.name ?? "?", forState: .Normal)
         }
         if let date = itemFilters!.startDate {
             startDate.setTitle(date.uiValue, forState: .Normal)
@@ -45,15 +31,11 @@ class ItemSearchViewController: AppUIViewController {
             endDate.setTitle(date.uiValue, forState: .Normal)
         }
         if let typeId = itemFilters!.typeId {
-            type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
+            type.setTitle(ModelServices.type.withId(typeId)?.name ?? "?", forState: .Normal)
         }
         if let groupId = itemFilters!.groupId {
-            group.setTitle(ModelServices.group.withId(groupId)!.name, forState: .Normal)
+            group.setTitle(ModelServices.group.withId(groupId)?.name ?? "?", forState: .Normal)
         }
-        
-        askingForStartDate = false
-        askingForEndDate = false
-        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -70,23 +52,35 @@ class ItemSearchViewController: AppUIViewController {
             }
         }
         else if segue.identifier == "selectType" {
-            if let dest = segue.destinationViewController as? ItemTypeEditViewController {
+            if let dest = segue.destinationViewController as? TypeSelectionViewController {
                 dest.typeId = itemFilters?.typeId
+                dest.selectHandler = { typeId in
+                    self.itemFilters!.typeId = typeId
+                }
             }
         }
         else if segue.identifier == "selectGroup" {
-            if let dest = segue.destinationViewController as? ItemGroupEditViewController {
+            if let dest = segue.destinationViewController as? GroupSelectionViewController {
                 dest.groupId = itemFilters?.groupId
+                dest.selectHandler = { groupId in
+                    self.itemFilters!.groupId = groupId
+                }
             }
         }
         else if segue.identifier == "selectStartDate" {
-            if let dest = segue.destinationViewController as? ItemDateEditViewController {
+            if let dest = segue.destinationViewController as? DateSelectionViewController {
                 dest.date = itemFilters?.startDate
+                dest.selectHandler = { date in
+                    self.itemFilters!.startDate = date
+                }
             }
         }
         else if segue.identifier == "selectEndDate" {
-            if let dest = segue.destinationViewController as? ItemDateEditViewController {
+            if let dest = segue.destinationViewController as? DateSelectionViewController {
                 dest.date = itemFilters?.endDate
+                dest.selectHandler = { date in
+                    self.itemFilters!.endDate = date
+                }
             }
         }
     }
@@ -107,14 +101,6 @@ class ItemSearchViewController: AppUIViewController {
             nav.popViewControllerAnimated(true)
         }
         
-    }
-    
-    @IBAction func selectStartDate(sender: AnyObject) {
-        askingForStartDate = true
-    }
-    
-    @IBAction func selectEndDate(sender: AnyObject) {
-        askingForEndDate = true
     }
     
 }

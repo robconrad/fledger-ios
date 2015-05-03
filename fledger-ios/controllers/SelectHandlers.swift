@@ -10,3 +10,4 @@ import Foundation
 
 
 typealias SelectIdHandler = (Int64) -> Void
+typealias SelectDateHandler = (NSDate) -> Void

@@ -35,7 +35,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sc5-qT-Nj7" kind="show" identifier="selectType" id="kjq-Ub-517"/>
+                                    <segue destination="EGw-Dr-4hg" kind="show" identifier="selectType" id="t8H-QI-cpw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFU-xg-PHT">
@@ -44,7 +44,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectStartDate:" destination="GUZ-Qa-CZq" eventType="touchUpInside" id="nRR-Kg-qey"/>
                                     <segue destination="mR0-4M-EOF" kind="show" identifier="selectStartDate" id="luh-re-vkP"/>
                                 </connections>
                             </button>
@@ -60,7 +59,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectEndDate:" destination="GUZ-Qa-CZq" eventType="touchUpInside" id="AH7-iv-bbR"/>
                                     <segue destination="mR0-4M-EOF" kind="show" identifier="selectEndDate" id="Z9w-ld-zSS"/>
                                 </connections>
                             </button>
@@ -76,7 +74,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Q5D-Ib-Bvm" kind="show" identifier="selectGroup" id="bnA-ML-59b"/>
+                                    <segue destination="e4M-6K-WBQ" kind="show" identifier="selectGroup" id="TJl-o6-oeJ"/>
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RpT-tT-c7c" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
@@ -344,7 +342,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sc5-qT-Nj7" kind="show" identifier="selectType" id="pfk-gM-CKb"/>
+                                    <segue destination="EGw-Dr-4hg" kind="show" identifier="selectType" id="9Us-9N-FSC"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kn-Wy-Ibx" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
@@ -497,7 +495,7 @@
         <!--Select Location-->
         <scene sceneID="xr5-9p-u8l">
             <objects>
-                <viewController id="HwA-6A-HQx" customClass="ItemLocationEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HwA-6A-HQx" customClass="LocationSelectionViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X1A-Bn-p2j"/>
                         <viewControllerLayoutGuide type="bottom" id="giu-kd-RgN"/>
@@ -506,7 +504,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SDE-s3-d4N" customClass="AppUITableView" customModule="fledger_ios" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="SDE-s3-d4N" customClass="LocationsTableView" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -517,23 +515,19 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="HwA-6A-HQx" id="BfO-8C-glY"/>
-                                    <outlet property="delegate" destination="HwA-6A-HQx" id="xc9-a9-yIz"/>
-                                </connections>
                             </tableView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbl-Ku-t5d" customClass="AppUIToolbar" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="480" width="320" height="44"/>
                                 <items>
                                     <barButtonItem title="Sort By" id="vlg-TN-DCR">
                                         <connections>
-                                            <action selector="sortByAction:" destination="HwA-6A-HQx" id="YKa-bi-Zed"/>
+                                            <action selector="sortByAction:" destination="HwA-6A-HQx" id="hEm-Xe-j8B"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Bm6-rs-HQD"/>
                                     <barButtonItem systemItem="trash" id="68e-1b-o3O">
                                         <connections>
-                                            <action selector="deleteLocation:" destination="HwA-6A-HQx" id="z5u-Xk-xxv"/>
+                                            <action selector="deleteLocation:" destination="HwA-6A-HQx" id="uV4-sv-lpa"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -565,9 +559,9 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="deleteButton" destination="68e-1b-o3O" id="X6i-rU-YWD"/>
-                        <outlet property="sortByLabel" destination="vlg-TN-DCR" id="l5q-Sb-Ena"/>
-                        <outlet property="table" destination="SDE-s3-d4N" id="WM6-VL-DIG"/>
+                        <outlet property="deleteButton" destination="68e-1b-o3O" id="0pD-RZ-H3Y"/>
+                        <outlet property="sortByLabel" destination="vlg-TN-DCR" id="52r-vd-czh"/>
+                        <outlet property="table" destination="SDE-s3-d4N" id="bBv-Tc-6tj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="msg-Ac-Qp1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -689,10 +683,66 @@
             </objects>
             <point key="canvasLocation" x="2580" y="-1709"/>
         </scene>
+        <!--Select Type-->
+        <scene sceneID="A4Z-Rh-AIt">
+            <objects>
+                <viewController id="EGw-Dr-4hg" customClass="TypeSelectionViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FpJ-2F-K9Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="Zdf-KX-X8w"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4fy-jh-YUA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="HUG-pL-OHZ" customClass="TypesTableView" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="BL6-hm-jMC" customClass="AppUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BL6-hm-jMC" id="i10-L5-nIP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selected" id="ymk-iU-fax" customClass="HighlightUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ymk-iU-fax" id="NNG-DI-NJs">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HUG-pL-OHZ" firstAttribute="bottom" secondItem="4fy-jh-YUA" secondAttribute="bottomMargin" id="IeO-l5-gkm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HUG-pL-OHZ" secondAttribute="trailing" constant="-16" id="Vk2-TX-QzO"/>
+                            <constraint firstItem="HUG-pL-OHZ" firstAttribute="leading" secondItem="4fy-jh-YUA" secondAttribute="leadingMargin" constant="-16" id="m8s-en-dWr"/>
+                            <constraint firstItem="HUG-pL-OHZ" firstAttribute="top" secondItem="4fy-jh-YUA" secondAttribute="topMargin" id="plw-af-fFg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Type" id="RBe-5h-JnT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZNO-dF-OfX">
+                            <connections>
+                                <segue destination="06J-p5-ORq" kind="show" id="C3e-mv-Gjr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="table" destination="HUG-pL-OHZ" id="NqY-BK-28B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6q-81-zDc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2143" y="-1056"/>
+        </scene>
         <!--Select Date-->
         <scene sceneID="dgQ-CF-ctj">
             <objects>
-                <viewController id="mR0-4M-EOF" customClass="ItemDateEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mR0-4M-EOF" customClass="DateSelectionViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Zip-Pe-yt4"/>
                         <viewControllerLayoutGuide type="bottom" id="ZAO-G8-c0g"/>
@@ -722,13 +772,13 @@
                     <navigationItem key="navigationItem" title="Select Date" id="UQe-i6-SAA">
                         <barButtonItem key="rightBarButtonItem" title="Select" id="MNQ-Rw-geb">
                             <connections>
-                                <action selector="selectDate:" destination="mR0-4M-EOF" id="XvP-2b-2Re"/>
+                                <action selector="selectDate:" destination="mR0-4M-EOF" id="6bU-ko-hST"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="datePicker" destination="wUZ-oT-KN9" id="NfM-PP-SIL"/>
+                        <outlet property="datePicker" destination="wUZ-oT-KN9" id="FAX-W4-sIp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U7J-yW-Yem" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -808,50 +858,6 @@
             </objects>
             <point key="canvasLocation" x="2580" y="-3007"/>
         </scene>
-        <!--Select Type-->
-        <scene sceneID="rRg-uZ-xLB">
-            <objects>
-                <tableViewController id="sc5-qT-Nj7" customClass="ItemTypeEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4hb-JE-Tu3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="uoo-VU-p6L" customClass="AppUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uoo-VU-p6L" id="Lf0-dw-IVt">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selected" id="B9J-Y8-eVS" customClass="HighlightUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B9J-Y8-eVS" id="hkF-Go-sza">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="sc5-qT-Nj7" id="iqg-yW-Nvr"/>
-                            <outlet property="delegate" destination="sc5-qT-Nj7" id="zUL-hP-GQg"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Select Type" id="oPA-kR-yV3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZRI-0A-1if">
-                            <connections>
-                                <segue destination="06J-p5-ORq" kind="show" id="u6E-QI-onm"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="table" destination="4hb-JE-Tu3" id="ixB-kG-XsY"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mff-L6-2ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2143" y="-1056"/>
-        </scene>
         <!--Edit Type-->
         <scene sceneID="Lcf-1Q-lIk">
             <objects>
@@ -887,7 +893,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Q5D-Ib-Bvm" kind="show" identifier="selectGroup" id="x01-vU-vyj"/>
+                                    <segue destination="e4M-6K-WBQ" kind="show" identifier="selectGroup" id="dCu-7W-hHG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1161,46 +1167,58 @@
             <point key="canvasLocation" x="2143" y="320"/>
         </scene>
         <!--Select Group-->
-        <scene sceneID="Q8p-ML-PCx">
+        <scene sceneID="Emp-R8-XxY">
             <objects>
-                <tableViewController title="Select Group" id="Q5D-Ib-Bvm" customClass="ItemGroupEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eTy-N1-unz">
+                <viewController id="e4M-6K-WBQ" customClass="GroupSelectionViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J0u-bq-TAf"/>
+                        <viewControllerLayoutGuide type="bottom" id="hbB-tD-oNC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GJo-sT-scT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nDs-ml-7EU" customClass="GroupsTableView" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="aLd-0v-qyi" customClass="AppUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aLd-0v-qyi" id="1sb-hN-Ha0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selected" id="G7G-kW-fmK" customClass="HighlightUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G7G-kW-fmK" id="l1w-Yd-AEH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="default" id="RRJ-ca-Cqr" customClass="AppUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RRJ-ca-Cqr" id="XP5-0W-UBp">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selected" id="I3A-37-gy2" customClass="HighlightUITableViewCell" customModule="fledger_ios" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I3A-37-gy2" id="LMa-mc-5rK">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Q5D-Ib-Bvm" id="N5i-Lh-OQV"/>
-                            <outlet property="delegate" destination="Q5D-Ib-Bvm" id="64U-b4-Mno"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Select Group" id="ofL-fk-AHn">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="04k-Yc-2fZ">
+                        <constraints>
+                            <constraint firstItem="nDs-ml-7EU" firstAttribute="top" secondItem="GJo-sT-scT" secondAttribute="topMargin" id="35u-3R-wR0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nDs-ml-7EU" secondAttribute="trailing" constant="-16" id="TDW-5o-caf"/>
+                            <constraint firstItem="nDs-ml-7EU" firstAttribute="leading" secondItem="GJo-sT-scT" secondAttribute="leadingMargin" constant="-16" id="ewH-aw-MiK"/>
+                            <constraint firstItem="nDs-ml-7EU" firstAttribute="bottom" secondItem="GJo-sT-scT" secondAttribute="bottomMargin" id="tET-Y7-JDB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Select Group" id="jP0-1R-okb">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bOZ-5y-EqM">
                             <connections>
-                                <segue destination="7tu-Ns-KC0" kind="show" id="s03-Uw-Ch7"/>
+                                <segue destination="7tu-Ns-KC0" kind="show" id="B8r-eD-t0Z"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="table" destination="eTy-N1-unz" id="G8K-e0-Ct1"/>
+                        <outlet property="table" destination="nDs-ml-7EU" id="2bH-zK-Sva"/>
                     </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uui-N2-faG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F4Y-gr-Kcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2143" y="-1709"/>
         </scene>
@@ -1296,9 +1314,6 @@
                                 <state key="normal" title="[select type]">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="sc5-qT-Nj7" kind="show" id="oK8-EO-Mjl"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKZ-Dh-9jL" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="64" y="88" width="41" height="21"/>
@@ -1389,14 +1404,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vOd-DH-h6d"/>
-        <segue reference="2Dv-Xm-PSk"/>
-        <segue reference="luh-re-vkP"/>
-        <segue reference="kjq-Ub-517"/>
-        <segue reference="tDY-ck-rPf"/>
-        <segue reference="bnA-ML-59b"/>
-        <segue reference="u6E-QI-onm"/>
         <segue reference="mzE-Ww-JUB"/>
-        <segue reference="s03-Uw-Ch7"/>
+        <segue reference="tDY-ck-rPf"/>
+        <segue reference="vOd-DH-h6d"/>
+        <segue reference="qNe-7w-aPe"/>
+        <segue reference="TJl-o6-oeJ"/>
+        <segue reference="t8H-QI-cpw"/>
+        <segue reference="luh-re-vkP"/>
+        <segue reference="B8r-eD-t0Z"/>
+        <segue reference="C3e-mv-Gjr"/>
     </inferredMetricsTieBreakers>
 </document>

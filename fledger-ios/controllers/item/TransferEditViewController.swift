@@ -171,8 +171,11 @@ class TransferEditViewController: EditViewController {
             }
         }
         else if segue.identifier == "selectDate" {
-            if let dest = segue.destinationViewController as? ItemDateEditViewController {
+            if let dest = segue.destinationViewController as? DateSelectionViewController {
                 dest.date = fromItem?.date
+                dest.selectHandler = { date in
+                    self.selectedDate = date
+                }
             }
         }
     }

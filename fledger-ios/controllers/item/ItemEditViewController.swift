@@ -155,19 +155,42 @@ class ItemEditViewController: EditViewController {
             }
         }
         else if segue.identifier == "selectType" {
-            if let dest = segue.destinationViewController as? ItemTypeEditViewController {
+            if let dest = segue.destinationViewController as? TypeSelectionViewController {
                 selectingModel = ModelType.Typ
                 dest.typeId = selectedTypeId ?? item?.typeId
+                dest.selectHandler = { typeId in
+                    if typeId == ModelServices.type.transferId {
+                        if let transferController = self.storyboard?.instantiateViewControllerWithIdentifier("transferEditViewController") as? TransferEditViewController {
+                            transferController.selectedDate = self.selectedDate
+                            if self.flow.on {
+                                transferController.selectedIntoAccountId = self.selectedAccountId
+                            }
+                            else {
+                                transferController.selectedFromAccountId = self.selectedAccountId
+                            }
+                            self.navigationController!.viewControllers[self.navigationController!.viewControllers.count - 2] = transferController
+                        }
+                    }
+                    else {
+                        self.selectedTypeId = typeId
+                    }
+                }
             }
         }
         else if segue.identifier == "selectDate" {
-            if let dest = segue.destinationViewController as? ItemDateEditViewController {
+            if let dest = segue.destinationViewController as? DateSelectionViewController {
                 dest.date = selectedDate ?? item?.date
+                dest.selectHandler = { date in
+                    self.selectedDate = date
+                }
             }
         }
         else if segue.identifier == "selectLocation" {
-            if let dest = segue.destinationViewController as? ItemLocationEditViewController {
+            if let dest = segue.destinationViewController as? LocationSelectionViewController {
                 dest.locationId = selectedLocationId ?? item?.locationId
+                dest.selectHandler = { locationId in
+                    self.selectedLocationId = locationId
+                }
             }
         }
     }

@@ -82,7 +82,7 @@ class LocationEditViewController: CenterPinMapViewController, CenterPinMapViewCo
         if locationId != nil {
             if let nav = navigationController {
                 nav.popViewControllerAnimated(true)
-                if let dest = nav.viewControllers.last as? ItemLocationEditViewController {
+                if let dest = nav.viewControllers.last as? LocationSelectionViewController {
                     dest.locationId = locationId
                 }
             }

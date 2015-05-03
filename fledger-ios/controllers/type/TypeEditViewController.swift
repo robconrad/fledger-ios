@@ -44,9 +44,12 @@ class TypeEditViewController: EditViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selectGroup" {
-            if let dest = segue.destinationViewController as? ItemGroupEditViewController {
+            if let dest = segue.destinationViewController as? GroupSelectionViewController {
                 selectingGroup = true
                 dest.groupId = type?.groupId
+                dest.selectHandler = { groupId in
+                    self.selectedGroupId = groupId
+                }
             }
         }
     }

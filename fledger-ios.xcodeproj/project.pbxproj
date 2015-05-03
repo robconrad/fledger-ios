@@ -32,8 +32,8 @@
 		3E21B2E21AD9E6C100E00AE1 /* ModelServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */; };
 		3E21B2E41AD9E7B800E00AE1 /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */; };
 		3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
-		3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */; };
-		3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */; };
+		3E21B2F01ADA00C600E00AE1 /* TypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2EF1ADA00C600E00AE1 /* TypeSelectionViewController.swift */; };
+		3E21B2F41ADA05C700E00AE1 /* DateSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2F31ADA05C700E00AE1 /* DateSelectionViewController.swift */; };
 		3E2B869B1ADB1F4E0080B206 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B869A1ADB1F4E0080B206 /* Filters.swift */; };
 		3E2B86A01ADB27D80080B206 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B869F1ADB27D80080B206 /* ItemService.swift */; };
 		3E2B86A21ADB27DF0080B206 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86A11ADB27DF0080B206 /* AccountService.swift */; };
@@ -46,7 +46,7 @@
 		3E2B86B71ADCB9E80080B206 /* ValueDetailUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B61ADCB9E80080B206 /* ValueDetailUITableViewCell.swift */; };
 		3E2B86BA1ADCCFBC0080B206 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B91ADCCFBC0080B206 /* Group.swift */; };
 		3E2B86BC1ADCCFC50080B206 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BB1ADCCFC50080B206 /* GroupService.swift */; };
-		3E2B86BE1ADCD0EC0080B206 /* ItemGroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */; };
+		3E2B86BE1ADCD0EC0080B206 /* GroupSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BD1ADCD0EC0080B206 /* GroupSelectionViewController.swift */; };
 		3E2B86C01ADCDD050080B206 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BF1ADCDD050080B206 /* ModelType.swift */; };
 		3E2B86C21ADD71E10080B206 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86C11ADD71E10080B206 /* AppColors.swift */; };
 		3E2B86C41ADD73270080B206 /* AppUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86C31ADD73270080B206 /* AppUITableViewController.swift */; };
@@ -117,7 +117,10 @@
 		3E7FDCA81AF5A482008DA09E /* DatabaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCA71AF5A482008DA09E /* DatabaseServiceMock.swift */; };
 		3E7FDCA91AF5A906008DA09E /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */; };
 		3E7FDCAB1AF5AA44008DA09E /* AccountsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */; };
-		3E7FDCAD1AF5B0C9008DA09E /* SelectIdHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCAC1AF5B0C9008DA09E /* SelectIdHandler.swift */; };
+		3E7FDCAD1AF5B0C9008DA09E /* SelectHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCAC1AF5B0C9008DA09E /* SelectHandlers.swift */; };
+		3E95C5791AF5C23B003D88C6 /* GroupsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C5781AF5C23B003D88C6 /* GroupsTableView.swift */; };
+		3E95C57B1AF5C293003D88C6 /* TypesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C57A1AF5C293003D88C6 /* TypesTableView.swift */; };
+		3E95C57D1AF5C29F003D88C6 /* LocationsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C57C1AF5C29F003D88C6 /* LocationsTableView.swift */; };
 		3EB323A01AE301620023825D /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3239F1AE301620023825D /* GroupEditViewController.swift */; };
 		3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A11AE303B10023825D /* OverviewCategory.swift */; };
 		3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */; };
@@ -130,7 +133,7 @@
 		3EF0F0001AED7D9B00D14B31 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFF1AED7D9B00D14B31 /* LocationService.swift */; };
 		3EF0F0021AED8A0300D14B31 /* AppUIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */; };
 		3EF0F0061AEDB15300D14B31 /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0051AEDB15300D14B31 /* LocationAnnotation.swift */; };
-		3EF0F00F1AEF1C3D00D14B31 /* ItemLocationEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F00E1AEF1C3D00D14B31 /* ItemLocationEditViewController.swift */; };
+		3EF0F00F1AEF1C3D00D14B31 /* LocationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F00E1AEF1C3D00D14B31 /* LocationSelectionViewController.swift */; };
 		3EF0F0111AEF231900D14B31 /* AppUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0101AEF231900D14B31 /* AppUITableView.swift */; };
 		B58FEA10C624D06B9364F1A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C9EFC54D56CA4D49824CD2 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -232,8 +235,8 @@
 		3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelServices.swift; sourceTree = "<group>"; };
 		3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelService.swift; sourceTree = "<group>"; };
 		3E21B2E51AD9E8FC00E00AE1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTypeEditViewController.swift; sourceTree = "<group>"; };
-		3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDateEditViewController.swift; sourceTree = "<group>"; };
+		3E21B2EF1ADA00C600E00AE1 /* TypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypeSelectionViewController.swift; path = ../item/TypeSelectionViewController.swift; sourceTree = "<group>"; };
+		3E21B2F31ADA05C700E00AE1 /* DateSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateSelectionViewController.swift; path = item/DateSelectionViewController.swift; sourceTree = "<group>"; };
 		3E2B868B1ADAF74C0080B206 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		3E2B86901ADAFB1A0080B206 /* libPods-Typhoon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Typhoon.a"; path = "Pods/../build/Debug-iphoneos/libPods-Typhoon.a"; sourceTree = "<group>"; };
 		3E2B86921ADAFBD50080B206 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
@@ -251,7 +254,7 @@
 		3E2B86B61ADCB9E80080B206 /* ValueDetailUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueDetailUITableViewCell.swift; sourceTree = "<group>"; };
 		3E2B86B91ADCCFBC0080B206 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		3E2B86BB1ADCCFC50080B206 /* GroupService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupService.swift; sourceTree = "<group>"; };
-		3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGroupEditViewController.swift; sourceTree = "<group>"; };
+		3E2B86BD1ADCD0EC0080B206 /* GroupSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroupSelectionViewController.swift; path = ../item/GroupSelectionViewController.swift; sourceTree = "<group>"; };
 		3E2B86BF1ADCDD050080B206 /* ModelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		3E2B86C11ADD71E10080B206 /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		3E2B86C31ADD73270080B206 /* AppUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITableViewController.swift; sourceTree = "<group>"; };
@@ -297,7 +300,10 @@
 		3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		3E7FDCA71AF5A482008DA09E /* DatabaseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceMock.swift; sourceTree = "<group>"; };
 		3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountsTableView.swift; path = ../item/AccountsTableView.swift; sourceTree = "<group>"; };
-		3E7FDCAC1AF5B0C9008DA09E /* SelectIdHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIdHandler.swift; sourceTree = "<group>"; };
+		3E7FDCAC1AF5B0C9008DA09E /* SelectHandlers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHandlers.swift; sourceTree = "<group>"; };
+		3E95C5781AF5C23B003D88C6 /* GroupsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableView.swift; sourceTree = "<group>"; };
+		3E95C57A1AF5C293003D88C6 /* TypesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypesTableView.swift; path = ../group/TypesTableView.swift; sourceTree = "<group>"; };
+		3E95C57C1AF5C29F003D88C6 /* LocationsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationsTableView.swift; path = "fledger-ios/controllers/group/LocationsTableView.swift"; sourceTree = SOURCE_ROOT; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
 		3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEditViewController.swift; sourceTree = "<group>"; };
@@ -310,7 +316,7 @@
 		3EF0EFFF1AED7D9B00D14B31 /* LocationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3EF0F0051AEDB15300D14B31 /* LocationAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationAnnotation.swift; sourceTree = "<group>"; };
-		3EF0F00E1AEF1C3D00D14B31 /* ItemLocationEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemLocationEditViewController.swift; sourceTree = "<group>"; };
+		3EF0F00E1AEF1C3D00D14B31 /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSelectionViewController.swift; path = ../item/LocationSelectionViewController.swift; sourceTree = "<group>"; };
 		3EF0F0101AEF231900D14B31 /* AppUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITableView.swift; sourceTree = "<group>"; };
 		450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -529,12 +535,13 @@
 				3E2B870D1AE2F6AB0080B206 /* group */,
 				3E2B870E1AE2F6B10080B206 /* type */,
 				3EF0F00B1AEF1AAF00D14B31 /* location */,
+				3E95C57E1AF5D59D003D88C6 /* date */,
 				3E2B87101AE2F6BC0080B206 /* item */,
 				3E2B87111AE2F6E90080B206 /* overview */,
 				3E2B870B1AE2F4510080B206 /* EditViewController.swift */,
 				3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */,
 				3E0516491AEC36E600D6637F /* MainTabBarController.swift */,
-				3E7FDCAC1AF5B0C9008DA09E /* SelectIdHandler.swift */,
+				3E7FDCAC1AF5B0C9008DA09E /* SelectHandlers.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -543,6 +550,8 @@
 			isa = PBXGroup;
 			children = (
 				3EB3239F1AE301620023825D /* GroupEditViewController.swift */,
+				3E2B86BD1ADCD0EC0080B206 /* GroupSelectionViewController.swift */,
+				3E95C5781AF5C23B003D88C6 /* GroupsTableView.swift */,
 			);
 			path = group;
 			sourceTree = "<group>";
@@ -551,6 +560,8 @@
 			isa = PBXGroup;
 			children = (
 				3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */,
+				3E21B2EF1ADA00C600E00AE1 /* TypeSelectionViewController.swift */,
+				3E95C57A1AF5C293003D88C6 /* TypesTableView.swift */,
 			);
 			path = type;
 			sourceTree = "<group>";
@@ -569,13 +580,9 @@
 			isa = PBXGroup;
 			children = (
 				3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */,
+				3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */,
 				3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */,
 				3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */,
-				3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */,
-				3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */,
-				3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */,
-				3EF0F00E1AEF1C3D00D14B31 /* ItemLocationEditViewController.swift */,
-				3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */,
 			);
 			path = item;
 			sourceTree = "<group>";
@@ -633,6 +640,14 @@
 			name = location;
 			sourceTree = "<group>";
 		};
+		3E95C57E1AF5D59D003D88C6 /* date */ = {
+			isa = PBXGroup;
+			children = (
+				3E21B2F31ADA05C700E00AE1 /* DateSelectionViewController.swift */,
+			);
+			name = date;
+			sourceTree = "<group>";
+		};
 		3EB323B31AE31F170023825D /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +672,8 @@
 			isa = PBXGroup;
 			children = (
 				3E0516571AEC9F2C00D6637F /* LocationEditViewController.swift */,
+				3EF0F00E1AEF1C3D00D14B31 /* LocationSelectionViewController.swift */,
+				3E95C57C1AF5C29F003D88C6 /* LocationsTableView.swift */,
 			);
 			path = location;
 			sourceTree = "<group>";
@@ -906,6 +923,7 @@
 				3EF0F0061AEDB15300D14B31 /* LocationAnnotation.swift in Sources */,
 				3E2B86C21ADD71E10080B206 /* AppColors.swift in Sources */,
 				3EB323B01AE31B190023825D /* AppUIView.swift in Sources */,
+				3E95C5791AF5C23B003D88C6 /* GroupsTableView.swift in Sources */,
 				3E05164E1AEC69DD00D6637F /* ValueUITableViewCell.swift in Sources */,
 				3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */,
 				3E2B86D41ADF6D630080B206 /* AppUITextField.swift in Sources */,
@@ -913,6 +931,7 @@
 				3E2B86CE1ADF67490080B206 /* AppUINavigationController.swift in Sources */,
 				3E21B2E21AD9E6C100E00AE1 /* ModelServices.swift in Sources */,
 				3E2B86A81ADB40BB0080B206 /* StandardModelService.swift in Sources */,
+				3E95C57D1AF5C29F003D88C6 /* LocationsTableView.swift in Sources */,
 				3E2B870C1AE2F4510080B206 /* EditViewController.swift in Sources */,
 				3E2B86CA1ADD79200080B206 /* AppUIViewController.swift in Sources */,
 				3E3B9F181ADADA4A006E9016 /* DatabaseService.swift in Sources */,
@@ -926,13 +945,14 @@
 				3E0516421AEC304000D6637F /* AppStyling.swift in Sources */,
 				3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */,
 				3E162F0A1AECB35700574498 /* CenterPinMapViewController.m in Sources */,
+				3E95C57B1AF5C293003D88C6 /* TypesTableView.swift in Sources */,
 				3E2B86C81ADD77620080B206 /* HighlightUITableViewCell.swift in Sources */,
 				3E2B86A21ADB27DF0080B206 /* AccountService.swift in Sources */,
 				3EF0F0021AED8A0300D14B31 /* AppUIActivityIndicatorView.swift in Sources */,
 				3EB323A81AE313EE0023825D /* AppUIToolbar.swift in Sources */,
-				3E2B86BE1ADCD0EC0080B206 /* ItemGroupEditViewController.swift in Sources */,
-				3E21B2F01ADA00C600E00AE1 /* ItemTypeEditViewController.swift in Sources */,
-				3E21B2F41ADA05C700E00AE1 /* ItemDateEditViewController.swift in Sources */,
+				3E2B86BE1ADCD0EC0080B206 /* GroupSelectionViewController.swift in Sources */,
+				3E21B2F01ADA00C600E00AE1 /* TypeSelectionViewController.swift in Sources */,
+				3E21B2F41ADA05C700E00AE1 /* DateSelectionViewController.swift in Sources */,
 				3E2B86D61ADF6E140080B206 /* AppUITextView.swift in Sources */,
 				3E2B86A41ADB27ED0080B206 /* TypeService.swift in Sources */,
 				3E0516541AEC6C4900D6637F /* ValueDetail2UITableViewCell.swift in Sources */,
@@ -949,10 +969,10 @@
 				3EF0F0111AEF231900D14B31 /* AppUITableView.swift in Sources */,
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
 				3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */,
-				3E7FDCAD1AF5B0C9008DA09E /* SelectIdHandler.swift in Sources */,
+				3E7FDCAD1AF5B0C9008DA09E /* SelectHandlers.swift in Sources */,
 				3E6820A01ADAEBFC00CD7433 /* ApplicationAssembly.swift in Sources */,
 				3E21B2D91AD9E0AF00E00AE1 /* AccountSelectionViewController.swift in Sources */,
-				3EF0F00F1AEF1C3D00D14B31 /* ItemLocationEditViewController.swift in Sources */,
+				3EF0F00F1AEF1C3D00D14B31 /* LocationSelectionViewController.swift in Sources */,
 				3E2B86D01ADF67910080B206 /* AppUITabBarController.swift in Sources */,
 				3E3B9EF11ADA3E9E006E9016 /* ItemSearchViewController.swift in Sources */,
 				3E21B2721AD7229000E00AE1 /* ItemsViewController.swift in Sources */,

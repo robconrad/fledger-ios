@@ -44,13 +44,13 @@ class ItemFilters: Filters {
         var s: [String] = []
         
         if let id = accountId {
-            s.append("Filtered by Account: " + ModelServices.account.withId(id)!.name)
+            s.append("Filtered by Account: " + (ModelServices.account.withId(id)?.name ?? "?"))
         }
         if let id = typeId {
-            s.append("Filtered by Type: " + ModelServices.type.withId(id)!.name)
+            s.append("Filtered by Type: " + (ModelServices.type.withId(id)?.name ?? "?"))
         }
         if let id = groupId {
-            s.append("Filtered by Group: " + ModelServices.group.withId(id)!.name)
+            s.append("Filtered by Group: " + (ModelServices.group.withId(id)?.name ?? "?"))
         }
         if let date = startDate {
             s.append("Filtered by Start Date: " + date.uiValue)
