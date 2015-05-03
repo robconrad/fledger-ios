@@ -30,5 +30,15 @@ class AccountSelectionViewController: AppUIViewController {
         table.reloadData()
         accountId.map { table.setAccount($0) }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dest = segue.destinationViewController as? AccountEditViewController {
+            let currentHandler = dest.editHandler
+            dest.editHandler = { accountId in
+                currentHandler(accountId)
+                accountId.map { self.table.selectHandler!($0) }
+            }
+        }
+    }
 
 }

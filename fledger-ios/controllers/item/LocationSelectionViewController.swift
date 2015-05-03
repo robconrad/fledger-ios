@@ -49,12 +49,11 @@ class LocationSelectionViewController: AppUIViewController, CLLocationManagerDel
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "addLocation" {
-            if let dest = segue.destinationViewController as? LocationEditViewController {
-                dest.editHandler = { locationId in
-                    self.navigationController?.popViewControllerAnimated(true)
-                    self.locationId = locationId
-                }
+        if let dest = segue.destinationViewController as? LocationEditViewController {
+            dest.editHandler = { locationId in
+                self.locationId = locationId
+                self.navigationController?.popViewControllerAnimated(true)
+                self.table.selectHandler.map { handler in locationId.map { handler($0) } }
             }
         }
     }

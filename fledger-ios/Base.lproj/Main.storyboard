@@ -479,7 +479,7 @@
                     <navigationItem key="navigationItem" title="Select Account" id="zqm-mn-nN9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bvx-dQ-RN1">
                             <connections>
-                                <segue destination="jy9-oj-56X" kind="show" id="mzE-Ww-JUB"/>
+                                <segue destination="jy9-oj-56X" kind="show" identifier="addAccount" id="mzE-Ww-JUB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

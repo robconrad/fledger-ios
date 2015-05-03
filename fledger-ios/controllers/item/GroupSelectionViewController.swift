@@ -30,5 +30,15 @@ class GroupSelectionViewController: AppUIViewController {
         table.reloadData()
         groupId.map { table.setGroup($0) }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dest = segue.destinationViewController as? GroupEditViewController {
+            let currentHandler = dest.editHandler
+            dest.editHandler = { groupId in
+                currentHandler(groupId)
+                groupId.map { self.table.selectHandler!($0) }
+            }
+        }
+    }
 
 }

@@ -30,5 +30,15 @@ class TypeSelectionViewController: AppUIViewController {
         table.reloadData()
         typeId.map { table.setType($0) }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let dest = segue.destinationViewController as? TypeEditViewController {
+            let currentHandler = dest.editHandler
+            dest.editHandler = { typeId in
+                currentHandler(typeId)
+                typeId.map { self.table.selectHandler!($0) }
+            }
+        }
+    }
 
 }
