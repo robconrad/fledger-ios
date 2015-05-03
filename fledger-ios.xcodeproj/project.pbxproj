@@ -116,6 +116,8 @@
 		3E7FDCA61AF59FC8008DA09E /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */; };
 		3E7FDCA81AF5A482008DA09E /* DatabaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCA71AF5A482008DA09E /* DatabaseServiceMock.swift */; };
 		3E7FDCA91AF5A906008DA09E /* DatabaseServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */; };
+		3E7FDCAB1AF5AA44008DA09E /* AccountsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */; };
+		3E7FDCAD1AF5B0C9008DA09E /* SelectIdHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCAC1AF5B0C9008DA09E /* SelectIdHandler.swift */; };
 		3EB323A01AE301620023825D /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3239F1AE301620023825D /* GroupEditViewController.swift */; };
 		3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A11AE303B10023825D /* OverviewCategory.swift */; };
 		3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */; };
@@ -294,6 +296,8 @@
 		3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceTest.swift; sourceTree = "<group>"; };
 		3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		3E7FDCA71AF5A482008DA09E /* DatabaseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceMock.swift; sourceTree = "<group>"; };
+		3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountsTableView.swift; path = ../item/AccountsTableView.swift; sourceTree = "<group>"; };
+		3E7FDCAC1AF5B0C9008DA09E /* SelectIdHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectIdHandler.swift; sourceTree = "<group>"; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
 		3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEditViewController.swift; sourceTree = "<group>"; };
@@ -530,6 +534,7 @@
 				3E2B870B1AE2F4510080B206 /* EditViewController.swift */,
 				3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */,
 				3E0516491AEC36E600D6637F /* MainTabBarController.swift */,
+				3E7FDCAC1AF5B0C9008DA09E /* SelectIdHandler.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2B87031AE2E83D0080B206 /* AccountEditViewController.swift */,
+				3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */,
 			);
 			path = account;
 			sourceTree = "<group>";
@@ -887,6 +893,7 @@
 				3E2B86BC1ADCCFC50080B206 /* GroupService.swift in Sources */,
 				3E21B2B81AD7624200E00AE1 /* ItemEditViewController.swift in Sources */,
 				3E2B86CC1ADD7B400080B206 /* AppUILabel.swift in Sources */,
+				3E7FDCAB1AF5AA44008DA09E /* AccountsTableView.swift in Sources */,
 				3E2B869B1ADB1F4E0080B206 /* Filters.swift in Sources */,
 				3E0516561AEC764600D6637F /* ArrayExtension.swift in Sources */,
 				3EF0F0001AED7D9B00D14B31 /* LocationService.swift in Sources */,
@@ -942,6 +949,7 @@
 				3EF0F0111AEF231900D14B31 /* AppUITableView.swift in Sources */,
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
 				3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */,
+				3E7FDCAD1AF5B0C9008DA09E /* SelectIdHandler.swift in Sources */,
 				3E6820A01ADAEBFC00CD7433 /* ApplicationAssembly.swift in Sources */,
 				3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */,
 				3EF0F00F1AEF1C3D00D14B31 /* ItemLocationEditViewController.swift in Sources */,

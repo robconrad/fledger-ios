@@ -442,7 +442,7 @@
         <scene sceneID="uu5-Xe-IIO">
             <objects>
                 <tableViewController id="5YG-CF-FsU" customClass="ItemAccountEditViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aAd-fK-Tff">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aAd-fK-Tff" customClass="AccountsTableView" customModule="fledger_ios" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -461,10 +461,6 @@
                                 <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="5YG-CF-FsU" id="JOH-th-yyx"/>
-                            <outlet property="delegate" destination="5YG-CF-FsU" id="VFp-VJ-GWO"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Select Account" id="MO0-rt-A27">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="h4r-XG-mZ6">

@@ -149,6 +149,9 @@ class ItemEditViewController: EditViewController {
             if let dest = segue.destinationViewController as? ItemAccountEditViewController {
                 selectingModel = ModelType.Account
                 dest.accountId = selectedAccountId ?? item?.accountId
+                dest.selectHandler = { accountId in
+                    self.selectedAccountId = accountId
+                }
             }
         }
         else if segue.identifier == "selectType" {

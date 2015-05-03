@@ -156,12 +156,18 @@ class TransferEditViewController: EditViewController {
             if let dest = segue.destinationViewController as? ItemAccountEditViewController {
                 selectingFromAccount = true
                 dest.accountId = fromItem?.accountId
+                dest.selectHandler = { accountId in
+                    self.selectedFromAccountId = accountId
+                }
             }
         }
         else if segue.identifier == "selectIntoAccount" {
             if let dest = segue.destinationViewController as? ItemAccountEditViewController {
                 selectingIntoAccount = true
                 dest.accountId = intoItem?.accountId
+                dest.selectHandler = { accountId in
+                    self.selectedIntoAccountId = accountId
+                }
             }
         }
         else if segue.identifier == "selectDate" {

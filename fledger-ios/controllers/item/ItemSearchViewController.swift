@@ -64,6 +64,9 @@ class ItemSearchViewController: AppUIViewController {
         if segue.identifier == "selectAccount" {
             if let dest = segue.destinationViewController as? ItemAccountEditViewController {
                 dest.accountId = itemFilters?.accountId
+                dest.selectHandler = { accountId in
+                    self.itemFilters!.accountId = accountId
+                }
             }
         }
         else if segue.identifier == "selectType" {
