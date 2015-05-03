@@ -29,7 +29,6 @@
 		3E21B2BC1AD773CC00E00AE1 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BB1AD773CC00E00AE1 /* Type.swift */; };
 		3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BD1AD7799C00E00AE1 /* Account.swift */; };
 		3E21B2D91AD9E0AF00E00AE1 /* AccountSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2D81AD9E0AF00E00AE1 /* AccountSelectionViewController.swift */; };
-		3E21B2E21AD9E6C100E00AE1 /* ModelServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */; };
 		3E21B2E41AD9E7B800E00AE1 /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */; };
 		3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
 		3E21B2F01ADA00C600E00AE1 /* TypeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2EF1ADA00C600E00AE1 /* TypeSelectionViewController.swift */; };
@@ -83,6 +82,8 @@
 		3E4AF7491AE36A4A0092F66A /* TransferEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */; };
 		3E4AF7511AE436DB0092F66A /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E4AF7501AE436DB0092F66A /* settings@2x.png */; };
 		3E4AF7531AE437500092F66A /* SettingsEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */; };
+		3E5399771AF6C8D8006BA612 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399761AF6C8D8006BA612 /* Services.swift */; };
+		3E5399791AF6CF94006BA612 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399781AF6CF94006BA612 /* Service.swift */; };
 		3E62D8B81AF2F5DE00E07582 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B91ADCCFBC0080B206 /* Group.swift */; };
 		3E62D8B91AF2F5FB00E07582 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
 		3E62D8BA1AF2F60300E07582 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B51AD757D200E00AE1 /* Fields.swift */; };
@@ -100,7 +101,6 @@
 		3E7FDC981AF44F99008DA09E /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */; };
 		3E7FDC991AF44F99008DA09E /* MemoryModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86A51ADB285F0080B206 /* MemoryModelService.swift */; };
 		3E7FDC9A1AF44F99008DA09E /* StandardModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86A71ADB40BB0080B206 /* StandardModelService.swift */; };
-		3E7FDC9B1AF44F99008DA09E /* ModelServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */; };
 		3E7FDC9C1AF44F99008DA09E /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B869A1ADB1F4E0080B206 /* Filters.swift */; };
 		3E7FDC9D1AF44F99008DA09E /* ParseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86FD1AE020EC0080B206 /* ParseModel.swift */; };
 		3E7FDC9E1AF44FA4008DA09E /* LocationAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0051AEDB15300D14B31 /* LocationAnnotation.swift */; };
@@ -279,7 +279,6 @@
 		3E21B2BB1AD773CC00E00AE1 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		3E21B2BD1AD7799C00E00AE1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		3E21B2D81AD9E0AF00E00AE1 /* AccountSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSelectionViewController.swift; path = ../item/AccountSelectionViewController.swift; sourceTree = "<group>"; };
-		3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelServices.swift; sourceTree = "<group>"; };
 		3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelService.swift; sourceTree = "<group>"; };
 		3E21B2E51AD9E8FC00E00AE1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3E21B2EF1ADA00C600E00AE1 /* TypeSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypeSelectionViewController.swift; path = ../item/TypeSelectionViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +339,8 @@
 		3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferEditViewController.swift; sourceTree = "<group>"; };
 		3E4AF7501AE436DB0092F66A /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
 		3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsEditViewController.swift; sourceTree = "<group>"; };
+		3E5399761AF6C8D8006BA612 /* Services.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		3E5399781AF6CF94006BA612 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		3E62D8B31AF2F43F00E07582 /* libPods-Typhoon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Typhoon.a"; path = "Pods/../build/Debug-iphoneos/libPods-Typhoon.a"; sourceTree = "<group>"; };
 		3E62D8B41AF2F43F00E07582 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceTest.swift; sourceTree = "<group>"; };
@@ -501,7 +502,6 @@
 				3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */,
 				3E2B86A51ADB285F0080B206 /* MemoryModelService.swift */,
 				3E2B86A71ADB40BB0080B206 /* StandardModelService.swift */,
-				3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */,
 				3E2B869A1ADB1F4E0080B206 /* Filters.swift */,
 				3E21B2B51AD757D200E00AE1 /* Fields.swift */,
 				3E2B86BF1ADCDD050080B206 /* ModelType.swift */,
@@ -647,6 +647,8 @@
 		3E3B9F101ADAD9BB006E9016 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				3E5399781AF6CF94006BA612 /* Service.swift */,
+				3E5399761AF6C8D8006BA612 /* Services.swift */,
 				3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */,
 				3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */,
 				3E21B2B21AD7571900E00AE1 /* models */,
@@ -992,10 +994,10 @@
 				3E95C5791AF5C23B003D88C6 /* GroupsTableView.swift in Sources */,
 				3E05164E1AEC69DD00D6637F /* ValueUITableViewCell.swift in Sources */,
 				3E21B2B41AD7572800E00AE1 /* Item.swift in Sources */,
+				3E5399771AF6C8D8006BA612 /* Services.swift in Sources */,
 				3E2B86D41ADF6D630080B206 /* AppUITextField.swift in Sources */,
 				3E21B2741AD7229000E00AE1 /* OverviewsViewController.swift in Sources */,
 				3E2B86CE1ADF67490080B206 /* AppUINavigationController.swift in Sources */,
-				3E21B2E21AD9E6C100E00AE1 /* ModelServices.swift in Sources */,
 				3E2B86A81ADB40BB0080B206 /* StandardModelService.swift in Sources */,
 				3E95C57D1AF5C29F003D88C6 /* LocationsTableView.swift in Sources */,
 				3E2B870C1AE2F4510080B206 /* EditViewController.swift in Sources */,
@@ -1035,6 +1037,7 @@
 				3EF0F0111AEF231900D14B31 /* AppUITableView.swift in Sources */,
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
 				3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */,
+				3E5399791AF6CF94006BA612 /* Service.swift in Sources */,
 				3E7FDCAD1AF5B0C9008DA09E /* SelectHandlers.swift in Sources */,
 				3E21B2D91AD9E0AF00E00AE1 /* AccountSelectionViewController.swift in Sources */,
 				3EF0F00F1AEF1C3D00D14B31 /* LocationSelectionViewController.swift in Sources */,
@@ -1119,7 +1122,6 @@
 				3E95C5841AF5F053003D88C6 /* EditViewController.swift in Sources */,
 				3E7FDC901AF44EAE008DA09E /* LocationService.swift in Sources */,
 				3E7FDC921AF44EE8008DA09E /* ModelType.swift in Sources */,
-				3E7FDC9B1AF44F99008DA09E /* ModelServices.swift in Sources */,
 				3E7FDC9C1AF44F99008DA09E /* Filters.swift in Sources */,
 				3E62D8B81AF2F5DE00E07582 /* Group.swift in Sources */,
 				3E7FDCA41AF44FBE008DA09E /* DatabaseService.swift in Sources */,

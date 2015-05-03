@@ -74,23 +74,23 @@ class Item: Model {
     }
     
     func account() -> Account {
-        return ModelServices.account.withId(accountId)!
+        return Services.get(AccountService.self).withId(accountId)!
     }
     
     func type() -> Type {
-        return ModelServices.type.withId(typeId)!
+        return Services.get(TypeService.self).withId(typeId)!
     }
     
     func group() -> Group {
-        return ModelServices.group.withTypeId(typeId)!
+        return Services.get(GroupService.self).withTypeId(typeId)!
     }
     
     func location() -> Location? {
-        return locationId.flatMap { ModelServices.location.withId($0) }
+        return locationId.flatMap { Services.get(LocationService.self).withId($0) }
     }
     
     func isTransfer() -> Bool {
-        return typeId == ModelServices.type.transferId
+        return typeId == Services.get(TypeService.self).transferId
     }
     
 }

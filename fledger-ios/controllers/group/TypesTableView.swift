@@ -49,7 +49,7 @@ class TypesTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
     override func reloadData() {
         sections = []
         sectionRows = [:]
-        types = ModelServices.type.all()
+        types = Services.get(TypeService.self).all()
         
         for type in types! {
             let section = type.group().name

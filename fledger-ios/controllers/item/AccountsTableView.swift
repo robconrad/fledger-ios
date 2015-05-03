@@ -38,7 +38,7 @@ class AccountsTableView: AppUITableView, UITableViewDataSource, UITableViewDeleg
     }
     
     override func reloadData() {
-        accounts = ModelServices.account.all().filter({ !$0.inactive })
+        accounts = Services.get(AccountService.self).all().filter({ !$0.inactive })
         super.reloadData()
     }
     

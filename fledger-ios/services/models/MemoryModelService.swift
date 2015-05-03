@@ -12,8 +12,8 @@ class MemoryModelService<M: Model>: StandardModelService<M> {
     internal var _allArray: [M]?
     internal var _allDict: [Int64: M]?
     
-    required init(_ dbService: DatabaseService) {
-        super.init(dbService)
+    required init() {
+        super.init()
     }
     
     override func withId(id: Int64) -> M? {

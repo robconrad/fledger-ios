@@ -32,7 +32,7 @@ class TypeEditViewController: EditViewController {
         else {
             self.title = "Add Type"
             if let groupId = selectedGroupId {
-                group.setTitle(ModelServices.group.withId(groupId)!.name, forState: .Normal)
+                group.setTitle(Services.get(GroupService.self).withId(groupId)!.name, forState: .Normal)
             }
         }
         
@@ -61,11 +61,11 @@ class TypeEditViewController: EditViewController {
             var id = type?.id
             
             if let t = type {
-                errors = !ModelServices.type.update(t.copy(
+                errors = !Services.get(TypeService.self).update(t.copy(
                     name: name.text))
             }
             else {
-                id = ModelServices.type.insert(Type(
+                id = Services.get(TypeService.self).insert(Type(
                     id: nil,
                     groupId: selectedGroupId!,
                     name: name.text))

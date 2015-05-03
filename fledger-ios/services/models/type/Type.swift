@@ -44,7 +44,7 @@ class Type: Model {
     }
     
     func group() -> Group {
-        return ModelServices.group.withTypeId(id!)!
+        return Services.get(GroupService.self).withTypeId(id!)!
     }
     
 }

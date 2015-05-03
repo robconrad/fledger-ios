@@ -38,7 +38,7 @@ class GroupsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegat
     }
     
     override func reloadData() {
-        groups = ModelServices.group.all()
+        groups = Services.get(GroupService.self).all()
         super.reloadData()
     }
     

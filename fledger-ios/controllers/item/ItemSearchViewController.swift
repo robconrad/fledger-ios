@@ -22,7 +22,7 @@ class ItemSearchViewController: AppUIViewController {
     override func viewWillAppear(animated: Bool) {
         
         if let accountId = itemFilters!.accountId {
-            account.setTitle(ModelServices.account.withId(accountId)?.name ?? "?", forState: .Normal)
+            account.setTitle(Services.get(AccountService.self).withId(accountId)?.name ?? "?", forState: .Normal)
         }
         if let date = itemFilters!.startDate {
             startDate.setTitle(date.uiValue, forState: .Normal)
@@ -31,10 +31,10 @@ class ItemSearchViewController: AppUIViewController {
             endDate.setTitle(date.uiValue, forState: .Normal)
         }
         if let typeId = itemFilters!.typeId {
-            type.setTitle(ModelServices.type.withId(typeId)?.name ?? "?", forState: .Normal)
+            type.setTitle(Services.get(TypeService.self).withId(typeId)?.name ?? "?", forState: .Normal)
         }
         if let groupId = itemFilters!.groupId {
-            group.setTitle(ModelServices.group.withId(groupId)?.name ?? "?", forState: .Normal)
+            group.setTitle(Services.get(GroupService.self).withId(groupId)?.name ?? "?", forState: .Normal)
         }
     }
     

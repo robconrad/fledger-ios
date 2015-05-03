@@ -14,20 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    private let dbService: DatabaseService
-    
-    required init(_ dbService: DatabaseService) {
-        self.dbService = dbService
-        super.init()
-    }
-    
-    convenience override init() {
-        self.init(DatabaseServiceImpl.main)
-    }
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         
+        Services.register(DatabaseService.self, DatabaseServiceImpl())
+        
+        Services.register(ItemService.self, ItemService<Item>())
+        Services.register(AccountService.self, AccountService<Account>())
+        Services.register(TypeService.self, TypeService<Type>())
+        Services.register(GroupService.self, GroupService<Group>())
+        Services.register(LocationService.self, LocationService<Location>())
+        
+        let dbService = Services.get(DatabaseService.self)
         if true || !NSUserDefaults.standardUserDefaults().boolForKey("created") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
             dbService.createDatabaseDestructive()

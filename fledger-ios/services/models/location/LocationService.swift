@@ -13,8 +13,8 @@ import MapKit
 
 class LocationService<T: Location>: MemoryModelService<Location> {
     
-    required init(_ dbService: DatabaseService) {
-        super.init(dbService)
+    required init() {
+        super.init()
     }
     
     override func modelType() -> ModelType {

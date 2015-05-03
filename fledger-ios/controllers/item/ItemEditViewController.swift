@@ -66,15 +66,15 @@ class ItemEditViewController: EditViewController {
         else {
             self.title = "Add Item"
             if let accountId = selectedAccountId {
-                account.setTitle(ModelServices.account.withId(accountId)!.name, forState: .Normal)
+                account.setTitle(Services.get(AccountService.self).withId(accountId)!.name, forState: .Normal)
             }
             
             if let typeId = selectedTypeId {
-                type.setTitle(ModelServices.type.withId(typeId)!.name, forState: .Normal)
+                type.setTitle(Services.get(TypeService.self).withId(typeId)!.name, forState: .Normal)
             }
             
             if let locationId = selectedLocationId {
-                location.setTitle(ModelServices.location.withId(locationId)?.title() ?? "[none]", forState: .Normal)
+                location.setTitle(Services.get(LocationService.self).withId(locationId)?.title() ?? "[none]", forState: .Normal)
             }
             
             if let myDate = selectedDate {
@@ -112,12 +112,12 @@ class ItemEditViewController: EditViewController {
             var id = item?.id
             
             if let i = item {
-                errors = !ModelServices.item.update(i.copy(
+                errors = !Services.get(ItemService.self).update(i.copy(
                     amount: amountValue(includeFlow: true),
                     comments: comments.text))
             }
             else {
-                id = ModelServices.item.insert(Item(
+                id = Services.get(ItemService.self).insert(Item(
                     id: nil,
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
@@ -129,7 +129,7 @@ class ItemEditViewController: EditViewController {
             }
             
             if !errors {
-                ModelServices.location.cleanup()
+                Services.get(LocationService.self).cleanup()
                 editHandler(id)
             }
         }
@@ -139,7 +139,7 @@ class ItemEditViewController: EditViewController {
         errors = false
         
         if let i = item {
-            errors = !ModelServices.item.delete(i)
+            errors = !Services.get(ItemService.self).delete(i)
         }
         
         if !errors {
@@ -162,7 +162,7 @@ class ItemEditViewController: EditViewController {
                 selectingModel = ModelType.Typ
                 dest.typeId = selectedTypeId ?? item?.typeId
                 dest.selectHandler = { typeId in
-                    if typeId == ModelServices.type.transferId {
+                    if typeId == Services.get(TypeService.self).transferId {
                         if let transferController = self.storyboard?.instantiateViewControllerWithIdentifier("transferEditViewController") as? TransferEditViewController {
                             transferController.selectedDate = self.selectedDate
                             if self.flow.on {

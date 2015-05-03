@@ -17,7 +17,7 @@ class AccountEditViewController: EditViewController {
     
     var account: Account?
     
-    var accountService = ModelServices.account
+    var accountService = Services.get(AccountService.self)
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

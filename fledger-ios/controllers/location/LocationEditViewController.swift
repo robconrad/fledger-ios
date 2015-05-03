@@ -72,12 +72,12 @@ class LocationEditViewController: CenterPinMapViewController, CenterPinMapViewCo
         
         if let location = model.getUpdatedLocation() {
             if let id = location.id {
-                if ModelServices.location.update(location) {
+                if Services.get(LocationService.self).update(location) {
                     locationId = id
                 }
             }
             else {
-                locationId = ModelServices.location.insert(location)
+                locationId = Services.get(LocationService.self).insert(location)
             }
         }
         
@@ -114,7 +114,7 @@ class LocationEditViewModel {
         c.delegate = c
         
         dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
-            for loc in ModelServices.location.all() {
+            for loc in Services.get(LocationService.self).all() {
                 // ignore our own annotation because it will be added in map initialization synchronously
                 if self.locationId != loc.id {
                     self.c!.mapView.addAnnotation(LocationAnnotation(location: loc))
@@ -125,7 +125,7 @@ class LocationEditViewModel {
     
     func initializeMap() {
         if let id = locationId {
-            location = ModelServices.location.withId(id)
+            location = Services.get(LocationService.self).withId(id)
             coordinate = location!.coordinate
             c!.name.text = location!.name ?? ""
         }

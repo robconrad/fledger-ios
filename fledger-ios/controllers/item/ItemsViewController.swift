@@ -52,7 +52,7 @@ class ItemsViewController: AppUITableViewController {
         //  be scrolled to the same point the user left (e.g. when leaving to edit item #100 and returning)
         itemFilters.count = itemFilters.offset! + itemFilters.count!
         itemFilters.offset = 0
-        items = ModelServices.item.select(itemFilters)
+        items = Services.get(ItemService.self).select(itemFilters)
         table.reloadData()
     }
     
@@ -138,7 +138,7 @@ class ItemsViewController: AppUITableViewController {
                     let itemIndex = row - itemFilters.count()
                     if itemIndex >= 0 {
                         let firstItem = items?[itemIndex]
-                        let secondItem = ModelServices.item.getTransferPair(firstItem!)
+                        let secondItem = Services.get(ItemService.self).getTransferPair(firstItem!)
                         if firstItem?.amount < 0 {
                             dest.fromItem = firstItem
                             dest.intoItem = secondItem
@@ -158,17 +158,17 @@ class ItemsViewController: AppUITableViewController {
         }
         else if segue.identifier == "editAccount" {
             if let dest = segue.destinationViewController as? AccountEditViewController {
-                dest.account = itemFilters.accountId.map { ModelServices.account.withId($0)!  }
+                dest.account = itemFilters.accountId.map { Services.get(AccountService.self).withId($0)!  }
             }
         }
         else if segue.identifier == "editGroup" {
             if let dest = segue.destinationViewController as? GroupEditViewController {
-                dest.group = itemFilters.groupId.map { ModelServices.group.withId($0)!  }
+                dest.group = itemFilters.groupId.map { Services.get(GroupService.self).withId($0)!  }
             }
         }
         else if segue.identifier == "editType" {
             if let dest = segue.destinationViewController as? TypeEditViewController {
-                dest.type = itemFilters.typeId.map { ModelServices.type.withId($0)!  }
+                dest.type = itemFilters.typeId.map { Services.get(TypeService.self).withId($0)!  }
             }
         }
     }
@@ -179,7 +179,7 @@ class ItemsViewController: AppUITableViewController {
         // TODO do we need to reload all the data? can't we incrementally add data? should infinite scrolling be a sliding window that reloads in either direction??
         if indexPath.row == itemFilters.count! + itemFilters.offset! - 1 {
             itemFilters.offset! += itemFilters.count!
-            items? += ModelServices.item.select(itemFilters)
+            items? += Services.get(ItemService.self).select(itemFilters)
             table.reloadData()
         }
     }
@@ -219,7 +219,7 @@ class ItemSumOperation: NSOperation {
         }
         
         if controller.itemSums[item.id!] == nil {
-            controller.itemSums[item.id!] = ModelServices.item.getSum(item, filters: filters)
+            controller.itemSums[item.id!] = Services.get(ItemService.self).getSum(item, filters: filters)
         }
         else {
             return

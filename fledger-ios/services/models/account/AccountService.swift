@@ -12,8 +12,8 @@ import SQLite
 
 class AccountService<T: Account>: MemoryModelService<Account> {
     
-    required init(_ dbService: DatabaseService) {
-        super.init(dbService)
+    required init() {
+        super.init()
     }
     
     override func modelType() -> ModelType {

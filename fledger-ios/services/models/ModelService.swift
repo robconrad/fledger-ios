@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 TwoSpec Inc. All rights reserved.
 //
 
-protocol ModelService {
+protocol ModelService: Service {
     
     typealias T: Model
     

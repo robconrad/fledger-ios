@@ -12,11 +12,11 @@ import SQLite
 
 class TypeService<T: Type>: MemoryModelService<Type> {
     
-    required init(_ dbService: DatabaseService) {
-        super.init(dbService)
-    }
-    
     let transferId: Int64 = 28
+    
+    required init() {
+        super.init()
+    }
     
     func transferType() -> Type {
         return withId(transferId)!

@@ -17,8 +17,8 @@ class StandardModelService<M: Model>: ModelService {
     internal let db: Database
     internal let parse: Query
     
-    required init(_ dbService: DatabaseService) {
-        self.dbService = dbService
+    required init() {
+        self.dbService = Services.get(DatabaseService.self)
         self.db = dbService.db
         self.parse = dbService.parse
     }

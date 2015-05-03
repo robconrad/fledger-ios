@@ -35,11 +35,11 @@ class GroupEditViewController: EditViewController {
             var id = group?.id
             
             if let g = group {
-                errors = !ModelServices.group.update(g.copy(
+                errors = !Services.get(GroupService.self).update(g.copy(
                     name: name.text))
             }
             else {
-                id = ModelServices.group.insert(Group(
+                id = Services.get(GroupService.self).insert(Group(
                     id: nil,
                     name: name.text))
                 errors = id == nil

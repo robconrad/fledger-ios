@@ -14,9 +14,9 @@ class ItemService<M: Item>: StandardModelService<Item> {
     
     private let id: Expression<Int64>
     
-    required init(_ dbService: DatabaseService) {
-        id = dbService.items[Fields.id]
-        super.init(dbService)
+    required init() {
+        id = Services.get(DatabaseService.self).items[Fields.id]
+        super.init()
     }
     
     override func modelType() -> ModelType {
@@ -50,7 +50,7 @@ class ItemService<M: Item>: StandardModelService<Item> {
             Fields.date == first.date &&
             Fields.comments == first.comments &&
             Fields.accountId != first.accountId &&
-            Fields.typeId == ModelServices.type.transferId
+            Fields.typeId == Services.get(TypeService.self).transferId
         ).first.map { Item(row: $0) }
     }
     
