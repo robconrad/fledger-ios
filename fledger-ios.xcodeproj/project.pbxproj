@@ -28,7 +28,7 @@
 		3E21B2B81AD7624200E00AE1 /* ItemEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */; };
 		3E21B2BC1AD773CC00E00AE1 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BB1AD773CC00E00AE1 /* Type.swift */; };
 		3E21B2BE1AD7799C00E00AE1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2BD1AD7799C00E00AE1 /* Account.swift */; };
-		3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */; };
+		3E21B2D91AD9E0AF00E00AE1 /* AccountSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2D81AD9E0AF00E00AE1 /* AccountSelectionViewController.swift */; };
 		3E21B2E21AD9E6C100E00AE1 /* ModelServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */; };
 		3E21B2E41AD9E7B800E00AE1 /* ModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */; };
 		3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
@@ -228,7 +228,7 @@
 		3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEditViewController.swift; sourceTree = "<group>"; };
 		3E21B2BB1AD773CC00E00AE1 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		3E21B2BD1AD7799C00E00AE1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAccountEditViewController.swift; sourceTree = "<group>"; };
+		3E21B2D81AD9E0AF00E00AE1 /* AccountSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountSelectionViewController.swift; path = ../item/AccountSelectionViewController.swift; sourceTree = "<group>"; };
 		3E21B2E11AD9E6C100E00AE1 /* ModelServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelServices.swift; sourceTree = "<group>"; };
 		3E21B2E31AD9E7B800E00AE1 /* ModelService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelService.swift; sourceTree = "<group>"; };
 		3E21B2E51AD9E8FC00E00AE1 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -559,6 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				3E2B87031AE2E83D0080B206 /* AccountEditViewController.swift */,
+				3E21B2D81AD9E0AF00E00AE1 /* AccountSelectionViewController.swift */,
 				3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */,
 			);
 			path = account;
@@ -570,7 +571,6 @@
 				3E21B2711AD7229000E00AE1 /* ItemsViewController.swift */,
 				3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */,
 				3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */,
-				3E21B2D81AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift */,
 				3E21B2F31ADA05C700E00AE1 /* ItemDateEditViewController.swift */,
 				3E2B86BD1ADCD0EC0080B206 /* ItemGroupEditViewController.swift */,
 				3E21B2EF1ADA00C600E00AE1 /* ItemTypeEditViewController.swift */,
@@ -951,7 +951,7 @@
 				3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */,
 				3E7FDCAD1AF5B0C9008DA09E /* SelectIdHandler.swift in Sources */,
 				3E6820A01ADAEBFC00CD7433 /* ApplicationAssembly.swift in Sources */,
-				3E21B2D91AD9E0AF00E00AE1 /* ItemAccountEditViewController.swift in Sources */,
+				3E21B2D91AD9E0AF00E00AE1 /* AccountSelectionViewController.swift in Sources */,
 				3EF0F00F1AEF1C3D00D14B31 /* ItemLocationEditViewController.swift in Sources */,
 				3E2B86D01ADF67910080B206 /* AppUITabBarController.swift in Sources */,
 				3E3B9EF11ADA3E9E006E9016 /* ItemSearchViewController.swift in Sources */,

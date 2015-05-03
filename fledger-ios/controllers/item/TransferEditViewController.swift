@@ -153,7 +153,7 @@ class TransferEditViewController: EditViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selectFromAccount" {
-            if let dest = segue.destinationViewController as? ItemAccountEditViewController {
+            if let dest = segue.destinationViewController as? AccountSelectionViewController {
                 selectingFromAccount = true
                 dest.accountId = fromItem?.accountId
                 dest.selectHandler = { accountId in
@@ -162,7 +162,7 @@ class TransferEditViewController: EditViewController {
             }
         }
         else if segue.identifier == "selectIntoAccount" {
-            if let dest = segue.destinationViewController as? ItemAccountEditViewController {
+            if let dest = segue.destinationViewController as? AccountSelectionViewController {
                 selectingIntoAccount = true
                 dest.accountId = intoItem?.accountId
                 dest.selectHandler = { accountId in

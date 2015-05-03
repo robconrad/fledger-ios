@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemAccountEditViewController: AppUIViewController {
+class AccountSelectionViewController: AppUIViewController {
     
     @IBOutlet var table: AccountsTableView!
     

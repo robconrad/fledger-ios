@@ -146,7 +146,7 @@ class ItemEditViewController: EditViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "selectAccount" {
-            if let dest = segue.destinationViewController as? ItemAccountEditViewController {
+            if let dest = segue.destinationViewController as? AccountSelectionViewController {
                 selectingModel = ModelType.Account
                 dest.accountId = selectedAccountId ?? item?.accountId
                 dest.selectHandler = { accountId in
