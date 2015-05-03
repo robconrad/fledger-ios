@@ -32,18 +32,21 @@ class GroupEditViewController: EditViewController {
         checkErrors()
         
         if !errors {
+            var id = group?.id
+            
             if let g = group {
                 errors = !ModelServices.group.update(g.copy(
                     name: name.text))
             }
             else {
-                errors = ModelServices.group.insert(Group(
+                id = ModelServices.group.insert(Group(
                     id: nil,
-                    name: name.text)) == nil
+                    name: name.text))
+                errors = id == nil
             }
             
             if !errors {
-                segueBack()
+                editHandler(id)
             }
         }
     }

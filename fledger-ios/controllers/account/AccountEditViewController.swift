@@ -35,21 +35,24 @@ class AccountEditViewController: EditViewController {
         checkErrors()
         
         if !errors {
+            var id = account?.id
+            
             if let a = account {
                 errors = !ModelServices.account.update(a.copy(
                     name: name.text,
                     inactive: !active.on))
             }
             else {
-                errors = ModelServices.account.insert(Account(
+                id = ModelServices.account.insert(Account(
                     id: nil,
                     name: name.text,
                     priority: 0,
-                    inactive: !active.on)) == nil
+                    inactive: !active.on))
+                errors = id == nil
             }
             
             if !errors {
-                segueBack()
+                editHandler(id)
             }
         }
     }

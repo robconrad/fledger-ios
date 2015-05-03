@@ -553,7 +553,7 @@
                     <navigationItem key="navigationItem" title="Select Location" id="GxM-R1-Xsf">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yO7-23-rpH">
                             <connections>
-                                <segue destination="HYX-SK-hD7" kind="show" id="ASg-mi-anP"/>
+                                <segue destination="HYX-SK-hD7" kind="show" identifier="addLocation" id="ASg-mi-anP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

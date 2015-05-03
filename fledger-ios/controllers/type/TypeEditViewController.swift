@@ -58,19 +58,22 @@ class TypeEditViewController: EditViewController {
         checkErrors()
         
         if !errors {
+            var id = type?.id
+            
             if let t = type {
                 errors = !ModelServices.type.update(t.copy(
                     name: name.text))
             }
             else {
-                errors = ModelServices.type.insert(Type(
+                id = ModelServices.type.insert(Type(
                     id: nil,
                     groupId: selectedGroupId!,
-                    name: name.text)) == nil
+                    name: name.text))
+                errors = id == nil
             }
             
             if !errors {
-                segueBack()
+                editHandler(id)
             }
         }
     }

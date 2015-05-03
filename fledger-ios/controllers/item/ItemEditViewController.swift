@@ -109,25 +109,28 @@ class ItemEditViewController: EditViewController {
         checkErrors()
         
         if !errors {
+            var id = item?.id
+            
             if let i = item {
                 errors = !ModelServices.item.update(i.copy(
                     amount: amountValue(includeFlow: true),
                     comments: comments.text))
             }
             else {
-                errors = ModelServices.item.insert(Item(
+                id = ModelServices.item.insert(Item(
                     id: nil,
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
                     locationId: selectedLocationId,
                     amount: amountValue(includeFlow: true),
                     date: selectedDate!,
-                    comments: comments.text)) == nil
+                    comments: comments.text))
+                errors = id == nil
             }
             
             if !errors {
                 ModelServices.location.cleanup()
-                segueBack()
+                editHandler(id)
             }
         }
     }
@@ -140,7 +143,7 @@ class ItemEditViewController: EditViewController {
         }
         
         if !errors {
-            segueBack()
+            editHandler(nil)
         }
     }
     

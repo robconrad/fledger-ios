@@ -44,7 +44,6 @@ class LocationsTableView: AppUITableView, UITableViewDataSource, UITableViewDele
     
     override func reloadData() {
         if let location = userLocation {
-            println("oh hai")
             locations = ModelServices.location.nearest(location.coordinate, sortBy: sortBy)
             super.reloadData()
             selectLocation()

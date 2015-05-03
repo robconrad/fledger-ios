@@ -12,10 +12,8 @@ class EditViewController: AppUIViewController {
     
     var errors = false
     
-    func segueBack() {
-        if let nav = navigationController {
-            nav.popViewControllerAnimated(true)
-        }
+    lazy var editHandler: EditIdHandler = { id in
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {

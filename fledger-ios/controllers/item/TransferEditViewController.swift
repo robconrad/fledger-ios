@@ -130,7 +130,7 @@ class TransferEditViewController: EditViewController {
             }
             
             if !errors {
-                segueBack()
+                editHandler(nil)
             }
         }
     }
@@ -147,7 +147,7 @@ class TransferEditViewController: EditViewController {
         }
         
         if !errors {
-            segueBack()
+            editHandler(nil)
         }
     }
     

@@ -21,6 +21,8 @@ class LocationEditViewController: CenterPinMapViewController, CenterPinMapViewCo
     
     let model = LocationEditViewModel()
     
+    var editHandler: EditIdHandler?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         AppUIViewController.applyStyle(self)
@@ -79,17 +81,7 @@ class LocationEditViewController: CenterPinMapViewController, CenterPinMapViewCo
             }
         }
         
-        if locationId != nil {
-            if let nav = navigationController {
-                nav.popViewControllerAnimated(true)
-                if let dest = nav.viewControllers.last as? LocationSelectionViewController {
-                    dest.locationId = locationId
-                }
-            }
-        }
-        else {
-            
-        }
+        editHandler.map { $0(locationId) }
     }
     
 }

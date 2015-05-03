@@ -48,6 +48,17 @@ class LocationSelectionViewController: AppUIViewController, CLLocationManagerDel
         deleteButton.enabled = locationId != nil
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "addLocation" {
+            if let dest = segue.destinationViewController as? LocationEditViewController {
+                dest.editHandler = { locationId in
+                    self.navigationController?.popViewControllerAnimated(true)
+                    self.locationId = locationId
+                }
+            }
+        }
+    }
+    
     func locationManager(manager: CLLocationManager!, didUpdateLocations userLocations: [AnyObject]!) {
         (userLocations[0] as? CLLocation).map { table.setUserLocation($0) }
         navigationItem.titleView = nil
