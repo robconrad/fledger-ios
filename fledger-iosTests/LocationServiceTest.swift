@@ -12,10 +12,20 @@ import fledger_ios
 
 class LocationServiceTest: XCTestCase {
 
-    let service = LocationService<Location>(DatabaseService.main)
+    var database: DatabaseService!
+    var location: LocationService<Location>!
+    
+    override func setUp() {
+        super.setUp()
+        
+        database = DatabaseServiceMock()
+        database.createDatabaseDestructive()
+    
+        location = LocationService<Location>(database)
+    }
 
     func testModelType() {
-        XCTAssert(service.modelType() == ModelType.Location, "model type is location")
+        XCTAssert(location.modelType() == ModelType.Location, "model type is location")
     }
 
 }
