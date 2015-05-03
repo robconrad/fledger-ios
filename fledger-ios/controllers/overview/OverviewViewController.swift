@@ -133,10 +133,10 @@ class OverviewViewController: AppUITableViewController {
     func getAggregator() -> (() -> [Aggregate]) {
         if let c = category {
             switch c {
-            case .All: return Aggregates.getAll
-            case .Account: return Aggregates.getAccounts
-            case .Group: return Aggregates.getGroups
-            case .Typ: return Aggregates.getTypes
+            case .All: return Aggregates.main.getAll
+            case .Account: return Aggregates.main.getAccounts
+            case .Group: return Aggregates.main.getGroups
+            case .Typ: return Aggregates.main.getTypes
             }
         }
         return { _ in [] }

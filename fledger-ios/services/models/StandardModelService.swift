@@ -12,8 +12,16 @@ import SQLite
 
 class StandardModelService<M: Model>: ModelService {
     
-    private let parse = DatabaseService.main.parse
-    private let db = DatabaseService.main.db
+    internal let dbService: DatabaseService
+
+    internal let db: Database
+    internal let parse: Query
+    
+    required init(_ dbService: DatabaseService) {
+        self.dbService = dbService
+        self.db = dbService.db
+        self.parse = dbService.parse
+    }
     
     func modelType() -> ModelType {
         fatalError(__FUNCTION__ + " must be implemented")

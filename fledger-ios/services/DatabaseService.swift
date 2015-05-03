@@ -9,14 +9,9 @@
 import Foundation
 import SQLite
 
-class DatabaseService: NSObject {
+class DatabaseService {
 
-    class var main: DatabaseService {
-        struct Singleton {
-            static let instance = DatabaseService()
-        }
-        return Singleton.instance
-    }
+    static let main = DatabaseService()
     
     let db: Database
     
@@ -27,7 +22,7 @@ class DatabaseService: NSObject {
     let items: Query
     let parse: Query
     
-    required override init() {
+    required init() {
         
         let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
         db = Database("\(path)/db.sqlite3")

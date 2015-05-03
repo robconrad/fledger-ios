@@ -12,48 +12,77 @@ import SQLite
 
 class Aggregates {
     
-    private static let items = DatabaseService.main.items
-    private static let groups = DatabaseService.main.groups
-    private static let types = DatabaseService.main.types
-    private static let accounts = DatabaseService.main.accounts
+    private let dbService: DatabaseService
     
-    private static let accountId = accounts[Fields.id]
-    private static let groupId = groups[Fields.id]
-    private static let typeId = types[Fields.id]
-    private static let name = Fields.name
-    private static let priority = Fields.priority
-    private static let inactive = Fields.inactive
+    private let items: Query
+    private let groups: Query
+    private let types: Query
+    private let accounts: Query
     
-    private static let accountName = accounts[name]
-    private static let groupName = groups[name]
-    private static let typeName = types[name]
+    private let accountId: Expression<Int64>
+    private let groupId: Expression<Int64>
+    private let typeId: Expression<Int64>
+    private let name: Expression<String>
+    private let priority: Expression<Int>
+    private let inactive: Expression<Bool>
     
-    private static let sumAmount = Expressions.sumAmount
+    private let accountName: Expression<String>
+    private let groupName: Expression<String>
+    private let typeName: Expression<String>
     
-    private static let allQuery = items
-        .select(sumAmount)
+    private let sumAmount = Expressions.sumAmount
     
-    private static let accountsQuery = accounts
-        .select(accountId, accountName, sumAmount, inactive)
-        .join(.LeftOuter, items, on: Fields.accountId == accountId)
-        .group(accountId)
-        .order(inactive, priority, collate(.Nocase, accountName))
+    private let allQuery: Query
+    private let accountsQuery: Query
+    private let groupsQuery: Query
+    private let typesQuery: Query
     
-    private static let groupsQuery = groups
-        .select(groupId, groupName, sumAmount)
-        .join(.LeftOuter, types, on: Fields.groupId == groupId)
-        .join(.LeftOuter, items, on: Fields.typeId == typeId)
-        .group(groupId)
-        .order(collate(.Nocase, groupName))
+    static let main = Aggregates(DatabaseService.main)
     
-    private static let typesQuery = types
-        .select(typeId, typeName, groupName, sumAmount)
-        .join(.LeftOuter, items, on: Fields.typeId == typeId)
-        .join(.LeftOuter, groups, on: Fields.groupId == groupId)
-        .group(typeId)
-        .order(collate(.Nocase, groupName), collate(.Nocase, typeName))
+    required init(_ dbService: DatabaseService) {
+        self.dbService = dbService
+        
+        items = dbService.items
+        groups = dbService.groups
+        types = dbService.types
+        accounts = dbService.accounts
+        
+        accountId = accounts[Fields.id]
+        groupId = groups[Fields.id]
+        typeId = types[Fields.id]
+        name = Fields.name
+        priority = Fields.priority
+        inactive = Fields.inactive
+        
+        accountName = accounts[name]
+        groupName = groups[name]
+        typeName = types[name]
+        
+        allQuery = items
+            .select(sumAmount)
+        
+        accountsQuery = accounts
+            .select(accountId, accountName, sumAmount, inactive)
+            .join(.LeftOuter, items, on: Fields.accountId == accountId)
+            .group(accountId)
+            .order(inactive, priority, collate(.Nocase, accountName))
+        
+        groupsQuery = groups
+            .select(groupId, groupName, sumAmount)
+            .join(.LeftOuter, types, on: Fields.groupId == groupId)
+            .join(.LeftOuter, items, on: Fields.typeId == typeId)
+            .group(groupId)
+            .order(collate(.Nocase, groupName))
+        
+        typesQuery = types
+            .select(typeId, typeName, groupName, sumAmount)
+            .join(.LeftOuter, items, on: Fields.typeId == typeId)
+            .join(.LeftOuter, groups, on: Fields.groupId == groupId)
+            .group(typeId)
+            .order(collate(.Nocase, groupName), collate(.Nocase, typeName))
+    }
     
-    private static func aggregate(model: ModelType, query: Query, id: Expression<Int64>, name: Expression<String>, checkActive: Bool = false) -> [Aggregate] {
+    private func aggregate(model: ModelType, query: Query, id: Expression<Int64>, name: Expression<String>, checkActive: Bool = false) -> [Aggregate] {
         var result: [Aggregate] = []
         for row in query {
             var active = true
@@ -69,19 +98,19 @@ class Aggregates {
         return result
     }
     
-    static func getAll() -> [Aggregate] {
+    func getAll() -> [Aggregate] {
         return [Aggregate(model: nil, id: nil, name: "all", value: allQuery.first?.get(sumAmount) ?? 0)]
     }
     
-    static func getAccounts() -> [Aggregate] {
+    func getAccounts() -> [Aggregate] {
         return aggregate(ModelType.Account, query: accountsQuery, id: accountId, name: name, checkActive: true)
     }
     
-    static func getGroups() -> [Aggregate] {
+    func getGroups() -> [Aggregate] {
         return aggregate(ModelType.Group, query: groupsQuery, id: groupId, name: name)
     }
     
-    static func getTypes() -> [Aggregate] {
+    func getTypes() -> [Aggregate] {
         return aggregate(ModelType.Typ, query: typesQuery, id: typeId, name: typeName)
     }
     

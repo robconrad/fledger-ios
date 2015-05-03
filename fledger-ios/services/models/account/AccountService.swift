@@ -12,12 +12,16 @@ import SQLite
 
 class AccountService<T: Account>: MemoryModelService<Account> {
     
+    required init(_ dbService: DatabaseService) {
+        super.init(dbService)
+    }
+    
     override func modelType() -> ModelType {
         return ModelType.Account
     }
     
     override internal func table() -> Query {
-        return DatabaseService.main.accounts
+        return dbService.accounts
     }
     
     override func defaultOrder(query: Query) -> Query {

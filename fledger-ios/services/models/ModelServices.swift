@@ -8,11 +8,13 @@
 
 class ModelServices {
     
-    static let account = AccountService<Account>()
-    static let type = TypeService<Type>()
-    static let group = GroupService<Group>()
-    static let location = LocationService<Location>()
-    static let item = ItemService<Item>()
+    static private let service = DatabaseService.main
+    
+    static let account = AccountService<Account>(service)
+    static let type = TypeService<Type>(service)
+    static let group = GroupService<Group>(service)
+    static let location = LocationService<Location>(service)
+    static let item = ItemService<Item>(service)
     
 }
 

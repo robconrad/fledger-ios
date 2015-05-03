@@ -12,6 +12,10 @@ import SQLite
 
 class TypeService<T: Type>: MemoryModelService<Type> {
     
+    required init(_ dbService: DatabaseService) {
+        super.init(dbService)
+    }
+    
     let transferId: Int64 = 28
     
     func transferType() -> Type {
@@ -23,7 +27,7 @@ class TypeService<T: Type>: MemoryModelService<Type> {
     }
     
     override internal func table() -> Query {
-        return DatabaseService.main.types
+        return dbService.types
     }
     
     override func defaultOrder(query: Query) -> Query {

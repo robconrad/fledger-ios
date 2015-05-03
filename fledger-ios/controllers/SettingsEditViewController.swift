@@ -12,8 +12,19 @@ import UIKit
 class SettingsEditViewController: AppUIViewController {
     
     @IBOutlet weak var themeSwitch: UISwitch!
-    
     @IBOutlet weak var activity: UIActivityIndicatorView!
+    
+    private var dbService: DatabaseService!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.dbService = DatabaseService.main
+    }
+    
+    convenience init(_ dbService: DatabaseService) {
+        self.init(coder: NSCoder())
+        self.dbService = dbService
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +47,9 @@ class SettingsEditViewController: AppUIViewController {
     
     @IBAction func loadFullDataset(sender: AnyObject) {
         activity.hidden = false
-        DatabaseService.main.createDatabaseDestructive()
+        dbService.createDatabaseDestructive()
         dispatch_async(dispatch_get_global_queue(0, 0)) {
-            DatabaseService.main.loadDefaultData(file: "data")
+            self.dbService.loadDefaultData(file: "data")
             dispatch_async(dispatch_get_main_queue()) {
                 self.activity.hidden = true
             }

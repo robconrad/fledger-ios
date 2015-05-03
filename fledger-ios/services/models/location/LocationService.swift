@@ -8,16 +8,21 @@
 
 import Foundation
 import SQLite
+import MapKit
 
 
 class LocationService<T: Location>: MemoryModelService<Location> {
+    
+    required init(_ dbService: DatabaseService) {
+        super.init(dbService)
+    }
     
     override func modelType() -> ModelType {
         return ModelType.Location
     }
     
     override internal func table() -> Query {
-        return DatabaseService.main.locations
+        return dbService.locations
     }
     
     override func defaultOrder(query: Query) -> Query {
@@ -35,7 +40,7 @@ class LocationService<T: Location>: MemoryModelService<Location> {
     }
     
     func itemCount(id: Int64) -> Int {
-        return DatabaseService.main.items.filter(Fields.locationId == id).count
+        return dbService.items.filter(Fields.locationId == id).count
     }
     
     func nearest(coordinate: CLLocationCoordinate2D, sortBy: LocationSortBy) -> [Location] {
@@ -47,7 +52,7 @@ class LocationService<T: Location>: MemoryModelService<Location> {
         }
         
         var elements: [Location] = []
-        let stmt = DatabaseService.main.db.prepare("SELECT id, name, latitude, longitude, address, distance(latitude, longitude, ?, ?) AS computedDistance FROM locations ORDER BY \(orderBy)")
+        let stmt = db.prepare("SELECT id, name, latitude, longitude, address, distance(latitude, longitude, ?, ?) AS computedDistance FROM locations ORDER BY \(orderBy)")
         
         for row in stmt.run(coordinate.latitude, coordinate.longitude) {
             elements.append(Location(

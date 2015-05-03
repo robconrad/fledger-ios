@@ -12,14 +12,19 @@ import SQLite
 
 class ItemService<M: Item>: StandardModelService<Item> {
     
-    private let id = DatabaseService.main.items[Fields.id]
+    private let id: Expression<Int64>
+    
+    required init(_ dbService: DatabaseService) {
+        id = dbService.items[Fields.id]
+        super.init(dbService)
+    }
     
     override func modelType() -> ModelType {
         return ModelType.Item
     }
     
     override internal func table() -> Query {
-        return DatabaseService.main.items.join(DatabaseService.main.types, on: Fields.typeId == DatabaseService.main.types[Fields.id])
+        return dbService.items.join(dbService.types, on: Fields.typeId == dbService.types[Fields.id])
     }
     
     override func defaultOrder(query: Query) -> Query {

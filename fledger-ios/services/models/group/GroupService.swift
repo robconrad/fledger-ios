@@ -12,6 +12,10 @@ import SQLite
 
 class GroupService<T: Group>: MemoryModelService<Group> {
     
+    required init(_ dbService: DatabaseService) {
+        super.init(dbService)
+    }
+    
     override func modelType() -> ModelType {
         return ModelType.Group
     }
@@ -24,7 +28,7 @@ class GroupService<T: Group>: MemoryModelService<Group> {
     }
     
     override internal func table() -> Query {
-        return DatabaseService.main.groups
+        return dbService.groups
     }
     
     override func defaultOrder(query: Query) -> Query {

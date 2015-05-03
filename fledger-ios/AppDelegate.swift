@@ -14,14 +14,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    private let dbService: DatabaseService
+    
+    required init(_ dbService: DatabaseService) {
+        self.dbService = dbService
+        super.init()
+    }
+    
+    convenience override init() {
+        self.init(DatabaseService.main)
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
         if true || !NSUserDefaults.standardUserDefaults().boolForKey("created") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
-            DatabaseService.main.createDatabaseDestructive()
-            DatabaseService.main.loadDefaultData()
+            dbService.createDatabaseDestructive()
+            dbService.loadDefaultData()
         }
         
         AppStyling.apply()
