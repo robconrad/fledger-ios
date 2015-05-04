@@ -10,6 +10,12 @@ protocol ModelService: Service {
     
     typealias T: Model
     
+    /*************************************
+     Note that all methods in ModelService are copy/pasted into all 
+     ChildModelService protocols to get around Swift's bullshit shortcoming
+     that associated types can not be specified in inherited protocols
+    **************************************/
+    
     func modelType() -> ModelType
     
     func withId(id: Int64) -> T?

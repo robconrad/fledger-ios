@@ -31,9 +31,9 @@ protocol LocationService {
     func delete(id: Int64) -> Bool
     
     func invalidate()
-    /***************************************
-    END COPY PASTA FROM BASE ModelService
-    ***************************************/
+    /*************************************
+     END COPY PASTA FROM BASE ModelService
+    **************************************/
     
     func itemCount(id: Int64) -> Int
     

@@ -31,9 +31,9 @@ protocol GroupService {
     func delete(id: Int64) -> Bool
     
     func invalidate()
-    /***************************************
-    END COPY PASTA FROM BASE ModelService
-    ***************************************/
+    /*************************************
+     END COPY PASTA FROM BASE ModelService
+    **************************************/
 
     func withTypeId(id: Int64) -> Group?
     

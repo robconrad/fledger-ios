@@ -31,9 +31,9 @@ protocol ItemService {
     func delete(id: Int64) -> Bool
     
     func invalidate()
-    /***************************************
-    END COPY PASTA FROM BASE ModelService
-    ***************************************/
+    /*************************************
+     END COPY PASTA FROM BASE ModelService
+    **************************************/
     
     func getTransferPair(first: Item) -> Item?
     

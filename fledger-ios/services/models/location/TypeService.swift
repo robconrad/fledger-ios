@@ -31,9 +31,9 @@ protocol TypeService {
     func delete(id: Int64) -> Bool
     
     func invalidate()
-    /***************************************
-    END COPY PASTA FROM BASE ModelService
-    ***************************************/
+    /*************************************
+     END COPY PASTA FROM BASE ModelService
+    **************************************/
     
     var transferId: Int64 { get }
     
