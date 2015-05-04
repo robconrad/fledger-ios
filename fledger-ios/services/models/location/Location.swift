@@ -11,6 +11,15 @@ import Foundation
 import SQLite
 
 
+func ==(a: Location, b: Location) -> Bool {
+    return a.id == b.id
+        && a.name == b.name
+        && a.coordinate.latitude == b.coordinate.latitude
+        && a.coordinate.longitude == b.coordinate.longitude
+        && a.address == b.address
+        && a.distance == b.distance
+}
+
 class Location: Model {
     
     let id: Int64?
@@ -61,6 +70,15 @@ class Location: Model {
             name: name ?? self.name,
             coordinate: coordinate ?? self.coordinate,
             address: address ?? self.address)
+    }
+    
+    func withId(id: Int64?) -> Location {
+        return Location(
+            id: id,
+            name: name,
+            coordinate: coordinate,
+            address: address,
+            distance: distance)
     }
     
     func title() -> String {

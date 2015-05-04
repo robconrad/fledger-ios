@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol ItemService {
+protocol ItemService: Service {
     
     /***************************************
      BEGIN COPY PASTA FROM BASE ModelService

@@ -9,6 +9,14 @@
 import Foundation
 import SQLite
 
+
+func ==(a: Account, b: Account) -> Bool {
+    return a.id == b.id
+        && a.name == b.name
+        && a.priority == b.priority
+        && a.inactive == b.inactive
+}
+
 class Account: Model {
     
     let id: Int64?

@@ -9,7 +9,7 @@
 import SQLite
 
 
-protocol Model {
+protocol Model: Equatable {
     
     var id: Int64? { get }
     

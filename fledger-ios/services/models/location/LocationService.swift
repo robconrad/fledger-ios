@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol LocationService {
+protocol LocationService: Service {
     
     /***************************************
      BEGIN COPY PASTA FROM BASE ModelService

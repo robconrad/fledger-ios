@@ -9,6 +9,18 @@
 import Foundation
 import SQLite
 
+
+func ==(a: Item, b: Item) -> Bool {
+    return a.id == b.id
+        && a.accountId == b.accountId
+        && a.typeId == b.typeId
+        && a.locationId == b.locationId
+        && a.locationId == b.locationId
+        && a.amount == b.amount
+        && a.date == b.date
+        && a.comments == b.comments
+}
+
 class Item: Model {
     
     let id: Int64?

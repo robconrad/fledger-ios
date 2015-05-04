@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol GroupService {
+protocol GroupService: Service {
     
     /***************************************
      BEGIN COPY PASTA FROM BASE ModelService

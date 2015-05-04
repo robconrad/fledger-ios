@@ -9,18 +9,46 @@
 import fledger_ios
 
 
-class AccountServiceMock<T: Account>: AccountService<Account> {
+class AccountServiceMock: AccountService {
     
-    required init(_ dbService: DatabaseService) {
-        super.init(dbService)
+    func modelType() -> ModelType {
+        return .Account
     }
     
-    override func update(e: Account) -> Bool {
+    func withId(id: Int64) -> Account? {
+        return nil
+    }
+    
+    func all() -> [Account] {
+        return []
+    }
+    
+    func select(filters: Filters?) -> [Account] {
+        return []
+    }
+    
+    func count(filters: Filters?) -> Int {
+        return 1
+    }
+    
+    func update(e: Account) -> Bool {
         return true
     }
     
-    override func insert(e: Account) -> Int64? {
+    func insert(e: Account) -> Int64? {
         return 1
+    }
+    
+    func delete(e: Account) -> Bool {
+        return true
+    }
+    
+    func delete(id: Int64) -> Bool {
+        return true
+    }
+    
+    func invalidate() {
+        
     }
     
 }

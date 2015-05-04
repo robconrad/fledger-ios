@@ -89,12 +89,19 @@
 		3E5399851AF71721006BA612 /* TypeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399841AF71721006BA612 /* TypeService.swift */; };
 		3E5399871AF71729006BA612 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399861AF71729006BA612 /* AccountService.swift */; };
 		3E5399891AF71730006BA612 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399881AF71730006BA612 /* ItemService.swift */; };
+		3E53998A1AF71A06006BA612 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399761AF6C8D8006BA612 /* Services.swift */; };
+		3E53998B1AF71A31006BA612 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E53997A1AF6E1FD006BA612 /* LocationService.swift */; };
+		3E53998C1AF71A36006BA612 /* GroupService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399821AF71718006BA612 /* GroupService.swift */; };
+		3E53998D1AF71A36006BA612 /* TypeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399841AF71721006BA612 /* TypeService.swift */; };
+		3E53998E1AF71A36006BA612 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399861AF71729006BA612 /* AccountService.swift */; };
+		3E53998F1AF71A36006BA612 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399881AF71730006BA612 /* ItemService.swift */; };
+		3E5399901AF71A6C006BA612 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399781AF6CF94006BA612 /* Service.swift */; };
 		3E62D8B81AF2F5DE00E07582 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B91ADCCFBC0080B206 /* Group.swift */; };
 		3E62D8B91AF2F5FB00E07582 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
 		3E62D8BA1AF2F60300E07582 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B51AD757D200E00AE1 /* Fields.swift */; };
 		3E6820AF1ADAF0D700CD7433 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B29F1AD7243600E00AE1 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E6820B01ADAF0D700CD7433 /* sqlite3.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B2A31AD7243600E00AE1 /* sqlite3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3E7FDC8F1AF44E4C008DA09E /* LocationServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */; };
+		3E7FDC8F1AF44E4C008DA09E /* LocationServiceImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplTest.swift */; };
 		3E7FDC901AF44EAE008DA09E /* LocationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFF1AED7D9B00D14B31 /* LocationServiceImpl.swift */; };
 		3E7FDC911AF44EB8008DA09E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFD1AED7D9200D14B31 /* Location.swift */; };
 		3E7FDC921AF44EE8008DA09E /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BF1ADCDD050080B206 /* ModelType.swift */; };
@@ -353,7 +360,7 @@
 		3E5399881AF71730006BA612 /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemService.swift; path = ../location/ItemService.swift; sourceTree = "<group>"; };
 		3E62D8B31AF2F43F00E07582 /* libPods-Typhoon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Typhoon.a"; path = "Pods/../build/Debug-iphoneos/libPods-Typhoon.a"; sourceTree = "<group>"; };
 		3E62D8B41AF2F43F00E07582 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
-		3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceTest.swift; sourceTree = "<group>"; };
+		3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceImplTest.swift; sourceTree = "<group>"; };
 		3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		3E7FDCA71AF5A482008DA09E /* DatabaseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceMock.swift; sourceTree = "<group>"; };
 		3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountsTableView.swift; path = ../item/AccountsTableView.swift; sourceTree = "<group>"; };
@@ -691,7 +698,7 @@
 		3E7FDC8D1AF44E21008DA09E /* location */ = {
 			isa = PBXGroup;
 			children = (
-				3E7FDC8E1AF44E4C008DA09E /* LocationServiceTest.swift */,
+				3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplTest.swift */,
 			);
 			name = location;
 			sourceTree = "<group>";
@@ -1086,6 +1093,8 @@
 				3E95C5931AF5F1C6003D88C6 /* HighlightUITableViewCell.swift in Sources */,
 				3E95C5941AF5F1C6003D88C6 /* AppUINavigationController.swift in Sources */,
 				3E95C5951AF5F1C6003D88C6 /* AppUITabBarController.swift in Sources */,
+				3E53998E1AF71A36006BA612 /* AccountService.swift in Sources */,
+				3E53998A1AF71A06006BA612 /* Services.swift in Sources */,
 				3E95C5961AF5F1C6003D88C6 /* AppUITextField.swift in Sources */,
 				3E95C5971AF5F1C6003D88C6 /* AppUITextView.swift in Sources */,
 				3E95C5981AF5F1C6003D88C6 /* AppUINavigationBar.swift in Sources */,
@@ -1098,8 +1107,10 @@
 				3E95C5A01AF5F1C6003D88C6 /* TypeEditViewController.swift in Sources */,
 				3E95C5A11AF5F1C6003D88C6 /* TypeSelectionViewController.swift in Sources */,
 				3E95C5A21AF5F1C6003D88C6 /* TypesTableView.swift in Sources */,
+				3E5399901AF71A6C006BA612 /* Service.swift in Sources */,
 				3E95C5A31AF5F1C6003D88C6 /* LocationEditViewController.swift in Sources */,
 				3E95C5A41AF5F1C6003D88C6 /* LocationSelectionViewController.swift in Sources */,
+				3E53998B1AF71A31006BA612 /* LocationService.swift in Sources */,
 				3E95C5A51AF5F1C6003D88C6 /* LocationsTableView.swift in Sources */,
 				3E95C5A61AF5F1C6003D88C6 /* DateSelectionViewController.swift in Sources */,
 				3E95C5A71AF5F1C6003D88C6 /* ItemsViewController.swift in Sources */,
@@ -1109,6 +1120,7 @@
 				3E95C5AB1AF5F1C6003D88C6 /* OverviewCategory.swift in Sources */,
 				3E95C5AC1AF5F1C6003D88C6 /* OverviewsViewController.swift in Sources */,
 				3E95C5AD1AF5F1C6003D88C6 /* OverviewViewController.swift in Sources */,
+				3E53998F1AF71A36006BA612 /* ItemService.swift in Sources */,
 				3E95C5AE1AF5F1C6003D88C6 /* SettingsEditViewController.swift in Sources */,
 				3E95C5AF1AF5F1C6003D88C6 /* MainTabBarController.swift in Sources */,
 				3E95C5B01AF5F1C6003D88C6 /* AppDelegate.swift in Sources */,
@@ -1122,7 +1134,7 @@
 				3E7FDC971AF44F99008DA09E /* Aggregates.swift in Sources */,
 				3E7FDCA21AF44FA4008DA09E /* Account.swift in Sources */,
 				3E7FDCA01AF44FA4008DA09E /* Type.swift in Sources */,
-				3E7FDC8F1AF44E4C008DA09E /* LocationServiceTest.swift in Sources */,
+				3E7FDC8F1AF44E4C008DA09E /* LocationServiceImplTest.swift in Sources */,
 				3E95C5831AF5EF25003D88C6 /* AccountEditViewController.swift in Sources */,
 				3E95C5821AF5EEB4003D88C6 /* AccountEditViewControllerTest.swift in Sources */,
 				3E7FDC961AF44F99008DA09E /* Aggregate.swift in Sources */,
@@ -1132,6 +1144,7 @@
 				3E95C5871AF5F082003D88C6 /* CanStyle.swift in Sources */,
 				3E7FDC9D1AF44F99008DA09E /* ParseModel.swift in Sources */,
 				3E7FDC941AF44F99008DA09E /* ItemServiceImpl.swift in Sources */,
+				3E53998C1AF71A36006BA612 /* GroupService.swift in Sources */,
 				3E7FDCA91AF5A906008DA09E /* DatabaseServiceImpl.swift in Sources */,
 				3E7FDCA11AF44FA4008DA09E /* TypeServiceImpl.swift in Sources */,
 				3E95C5861AF5F072003D88C6 /* AppUIViewController.swift in Sources */,
@@ -1148,6 +1161,7 @@
 				3E7FDC911AF44EB8008DA09E /* Location.swift in Sources */,
 				3E7FDCA31AF44FA4008DA09E /* AccountServiceImpl.swift in Sources */,
 				3E7FDC9E1AF44FA4008DA09E /* LocationAnnotation.swift in Sources */,
+				3E53998D1AF71A36006BA612 /* TypeService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

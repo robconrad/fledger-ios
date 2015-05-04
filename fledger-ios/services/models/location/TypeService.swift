@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol TypeService {
+protocol TypeService: Service {
     
     /***************************************
      BEGIN COPY PASTA FROM BASE ModelService

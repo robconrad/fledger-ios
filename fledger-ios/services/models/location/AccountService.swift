@@ -9,7 +9,7 @@
 import Foundation
 
 
-protocol AccountService {
+protocol AccountService: Service {
     
     /***************************************
      BEGIN COPY PASTA FROM BASE ModelService

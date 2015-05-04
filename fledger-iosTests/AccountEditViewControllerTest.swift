@@ -18,12 +18,11 @@ class AccountEditViewControllerTest: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        
+        Services.register(AccountService.self, AccountServiceMock())
 
         var storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: NSBundle(forClass: self.dynamicType))
         vc = storyboard.instantiateViewControllerWithIdentifier("AccountEditViewController") as! AccountEditViewController
-    
-        vc.accountService = AccountServiceMock<Account>(DatabaseServiceMock())
-        
         vc.viewDidLoad()
     }
     
