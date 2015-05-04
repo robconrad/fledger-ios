@@ -158,17 +158,17 @@ class ItemsViewController: AppUITableViewController {
         }
         else if segue.identifier == "editAccount" {
             if let dest = segue.destinationViewController as? AccountEditViewController {
-                dest.account = itemFilters.accountId.map { Services.get(AccountService.self).withId($0)!  }
+                dest.account = itemFilters.accountId.map { Services.get(AccountService.self).withId($0)! }
             }
         }
         else if segue.identifier == "editGroup" {
             if let dest = segue.destinationViewController as? GroupEditViewController {
-                dest.group = itemFilters.groupId.map { Services.get(GroupService.self).withId($0)!  }
+                dest.group = itemFilters.groupId.map { Services.get(GroupService.self).withId($0)! }
             }
         }
         else if segue.identifier == "editType" {
             if let dest = segue.destinationViewController as? TypeEditViewController {
-                dest.type = itemFilters.typeId.map { Services.get(TypeService.self).withId($0)!  }
+                dest.type = itemFilters.typeId.map { Services.get(TypeService.self).withId($0)! }
             }
         }
     }

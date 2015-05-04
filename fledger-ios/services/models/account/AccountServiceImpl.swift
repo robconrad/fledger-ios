@@ -10,7 +10,7 @@ import Foundation
 import SQLite
 
 
-class AccountService<T: Account>: MemoryModelService<Account> {
+class AccountServiceImpl<T: Account>: MemoryModelServiceImpl<Account>, AccountService {
     
     required init() {
         super.init()

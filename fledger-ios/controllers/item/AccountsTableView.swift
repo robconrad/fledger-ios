@@ -16,6 +16,8 @@ class AccountsTableView: AppUITableView, UITableViewDataSource, UITableViewDeleg
     
     var selectHandler: SelectIdHandler?
     
+    private let accountService = Services.get(AccountService.self)
+    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         delegate = self
@@ -38,7 +40,7 @@ class AccountsTableView: AppUITableView, UITableViewDataSource, UITableViewDeleg
     }
     
     override func reloadData() {
-        accounts = Services.get(AccountService.self).all().filter({ !$0.inactive })
+        accounts = accountService.all().filter({ !$0.inactive })
         super.reloadData()
     }
     

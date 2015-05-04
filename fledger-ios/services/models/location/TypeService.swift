@@ -9,25 +9,25 @@
 import Foundation
 
 
-protocol LocationService {
+protocol TypeService {
     
     /***************************************
      BEGIN COPY PASTA FROM BASE ModelService
      ***************************************/
     func modelType() -> ModelType
     
-    func withId(id: Int64) -> Location?
+    func withId(id: Int64) -> Type?
     
-    func all() -> [Location]
-    func select(filters: Filters?) -> [Location]
+    func all() -> [Type]
+    func select(filters: Filters?) -> [Type]
     
     func count(filters: Filters?) -> Int
     
-    func insert(e: Location) -> Int64?
+    func insert(e: Type) -> Int64?
     
-    func update(e: Location) -> Bool
+    func update(e: Type) -> Bool
     
-    func delete(e: Location) -> Bool
+    func delete(e: Type) -> Bool
     func delete(id: Int64) -> Bool
     
     func invalidate()
@@ -35,15 +35,8 @@ protocol LocationService {
     END COPY PASTA FROM BASE ModelService
     ***************************************/
     
-    func itemCount(id: Int64) -> Int
+    var transferId: Int64 { get }
     
-    func nearest(coordinate: CLLocationCoordinate2D, sortBy: LocationSortBy) -> [Location]
+    func transferType() -> Type
     
-    func cleanup()
-    
-}
-
-enum LocationSortBy: String {
-    case Name = "Name"
-    case Distance = "Distance"
 }

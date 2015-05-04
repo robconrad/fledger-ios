@@ -9,41 +9,32 @@
 import Foundation
 
 
-protocol LocationService {
+protocol GroupService {
     
     /***************************************
      BEGIN COPY PASTA FROM BASE ModelService
      ***************************************/
     func modelType() -> ModelType
     
-    func withId(id: Int64) -> Location?
+    func withId(id: Int64) -> Group?
     
-    func all() -> [Location]
-    func select(filters: Filters?) -> [Location]
+    func all() -> [Group]
+    func select(filters: Filters?) -> [Group]
     
     func count(filters: Filters?) -> Int
     
-    func insert(e: Location) -> Int64?
+    func insert(e: Group) -> Int64?
     
-    func update(e: Location) -> Bool
+    func update(e: Group) -> Bool
     
-    func delete(e: Location) -> Bool
+    func delete(e: Group) -> Bool
     func delete(id: Int64) -> Bool
     
     func invalidate()
     /***************************************
     END COPY PASTA FROM BASE ModelService
     ***************************************/
-    
-    func itemCount(id: Int64) -> Int
-    
-    func nearest(coordinate: CLLocationCoordinate2D, sortBy: LocationSortBy) -> [Location]
-    
-    func cleanup()
-    
-}
 
-enum LocationSortBy: String {
-    case Name = "Name"
-    case Distance = "Distance"
+    func withTypeId(id: Int64) -> Group?
+    
 }

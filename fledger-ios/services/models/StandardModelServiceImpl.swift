@@ -10,7 +10,7 @@ import Foundation
 import SQLite
 
 
-class StandardModelService<M: Model>: ModelService {
+class StandardModelServiceImpl<M: Model>: ModelService {
     
     internal let dbService: DatabaseService
 

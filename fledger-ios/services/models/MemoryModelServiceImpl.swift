@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 TwoSpec Inc. All rights reserved.
 //
 
-class MemoryModelService<M: Model>: StandardModelService<M> {
+class MemoryModelServiceImpl<M: Model>: StandardModelServiceImpl<M> {
     
     // return all managed models of the type
     internal var _allArray: [M]?

@@ -10,7 +10,7 @@ import Foundation
 import SQLite
 
 
-class ItemService<M: Item>: StandardModelService<Item> {
+class ItemServiceImpl<M: Item>: StandardModelServiceImpl<Item>, ItemService {
     
     private let id: Expression<Int64>
     

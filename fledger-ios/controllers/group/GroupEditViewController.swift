@@ -16,6 +16,8 @@ class GroupEditViewController: EditViewController {
     
     var group: Group?
     
+    private let groupService = Services.get(GroupService.self)
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -35,11 +37,11 @@ class GroupEditViewController: EditViewController {
             var id = group?.id
             
             if let g = group {
-                errors = !Services.get(GroupService.self).update(g.copy(
+                errors = !groupService.update(g.copy(
                     name: name.text))
             }
             else {
-                id = Services.get(GroupService.self).insert(Group(
+                id = groupService.insert(Group(
                     id: nil,
                     name: name.text))
                 errors = id == nil

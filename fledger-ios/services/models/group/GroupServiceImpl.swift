@@ -10,7 +10,7 @@ import Foundation
 import SQLite
 
 
-class GroupService<T: Group>: MemoryModelService<Group> {
+class GroupServiceImpl<T: Group>: MemoryModelServiceImpl<Group>, GroupService {
     
     required init() {
         super.init()
@@ -18,13 +18,6 @@ class GroupService<T: Group>: MemoryModelService<Group> {
     
     override func modelType() -> ModelType {
         return ModelType.Group
-    }
-    
-    func withTypeId(id: Int64) -> Group? {
-        if let type = Services.get(TypeService.self).withId(id) {
-            return withId(type.groupId)
-        }
-        return nil
     }
     
     override internal func table() -> Query {
@@ -43,6 +36,13 @@ class GroupService<T: Group>: MemoryModelService<Group> {
         }
         
         return elements
+    }
+    
+    func withTypeId(id: Int64) -> Group? {
+        if let type = Services.get(TypeService.self).withId(id) {
+            return withId(type.groupId)
+        }
+        return nil
     }
     
 }

@@ -10,16 +10,12 @@ import Foundation
 import SQLite
 
 
-class TypeService<T: Type>: MemoryModelService<Type> {
+class TypeServiceImpl<T: Type>: MemoryModelServiceImpl<Type>, TypeService {
     
     let transferId: Int64 = 28
     
     required init() {
         super.init()
-    }
-    
-    func transferType() -> Type {
-        return withId(transferId)!
     }
     
     override func modelType() -> ModelType {
@@ -42,6 +38,10 @@ class TypeService<T: Type>: MemoryModelService<Type> {
         }
         
         return elements
+    }
+    
+    func transferType() -> Type {
+        return withId(transferId)!
     }
     
 }

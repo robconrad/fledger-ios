@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Services.register(DatabaseService.self, DatabaseServiceImpl())
         
-        Services.register(ItemService.self, ItemService<Item>())
-        Services.register(AccountService.self, AccountService<Account>())
-        Services.register(TypeService.self, TypeService<Type>())
-        Services.register(GroupService.self, GroupService<Group>())
-        Services.register(LocationService.self, LocationService<Location>())
+        Services.register(ItemService.self, ItemServiceImpl())
+        Services.register(AccountService.self, AccountServiceImpl())
+        Services.register(TypeService.self, TypeServiceImpl())
+        Services.register(GroupService.self, GroupServiceImpl())
+        Services.register(LocationService.self, LocationServiceImpl())
         
         let dbService = Services.get(DatabaseService.self)
         if true || !NSUserDefaults.standardUserDefaults().boolForKey("created") {
