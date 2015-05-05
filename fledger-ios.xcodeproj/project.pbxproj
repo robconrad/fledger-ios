@@ -96,6 +96,8 @@
 		3E53998E1AF71A36006BA612 /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399861AF71729006BA612 /* AccountService.swift */; };
 		3E53998F1AF71A36006BA612 /* ItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399881AF71730006BA612 /* ItemService.swift */; };
 		3E5399901AF71A6C006BA612 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E5399781AF6CF94006BA612 /* Service.swift */; };
+		3E53999D1AF87725006BA612 /* Pods-fledger-iosTests.debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3E53999B1AF87725006BA612 /* Pods-fledger-iosTests.debug.xcconfig */; };
+		3E53999E1AF87725006BA612 /* Pods-fledger-iosTests.release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 3E53999C1AF87725006BA612 /* Pods-fledger-iosTests.release.xcconfig */; };
 		3E62D8B81AF2F5DE00E07582 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86B91ADCCFBC0080B206 /* Group.swift */; };
 		3E62D8B91AF2F5FB00E07582 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2E51AD9E8FC00E00AE1 /* Model.swift */; };
 		3E62D8BA1AF2F60300E07582 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B51AD757D200E00AE1 /* Fields.swift */; };
@@ -195,6 +197,7 @@
 		3EF0F00F1AEF1C3D00D14B31 /* LocationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F00E1AEF1C3D00D14B31 /* LocationSelectionViewController.swift */; };
 		3EF0F0111AEF231900D14B31 /* AppUITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0101AEF231900D14B31 /* AppUITableView.swift */; };
 		B58FEA10C624D06B9364F1A9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1C9EFC54D56CA4D49824CD2 /* libPods.a */; };
+		DB964B18F72F3D932554B5EE /* Pods_fledger_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA16619783FFC36A22A6050 /* Pods_fledger_iosTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -358,6 +361,9 @@
 		3E5399841AF71721006BA612 /* TypeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypeService.swift; path = ../location/TypeService.swift; sourceTree = "<group>"; };
 		3E5399861AF71729006BA612 /* AccountService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountService.swift; path = ../location/AccountService.swift; sourceTree = "<group>"; };
 		3E5399881AF71730006BA612 /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemService.swift; path = ../location/ItemService.swift; sourceTree = "<group>"; };
+		3E5399931AF86763006BA612 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
+		3E53999B1AF87725006BA612 /* Pods-fledger-iosTests.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-fledger-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fledger-iosTests/Pods-fledger-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E53999C1AF87725006BA612 /* Pods-fledger-iosTests.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-fledger-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fledger-iosTests/Pods-fledger-iosTests.release.xcconfig"; sourceTree = "<group>"; };
 		3E62D8B31AF2F43F00E07582 /* libPods-Typhoon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-Typhoon.a"; path = "Pods/../build/Debug-iphoneos/libPods-Typhoon.a"; sourceTree = "<group>"; };
 		3E62D8B41AF2F43F00E07582 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceImplTest.swift; sourceTree = "<group>"; };
@@ -386,6 +392,7 @@
 		3EF0F00E1AEF1C3D00D14B31 /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationSelectionViewController.swift; path = ../item/LocationSelectionViewController.swift; sourceTree = "<group>"; };
 		3EF0F0101AEF231900D14B31 /* AppUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITableView.swift; sourceTree = "<group>"; };
 		450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		BFA16619783FFC36A22A6050 /* Pods_fledger_iosTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fledger_iosTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E1C9EFC54D56CA4D49824CD2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -418,6 +425,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB964B18F72F3D932554B5EE /* Pods_fledger_iosTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,6 +779,8 @@
 			children = (
 				450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */,
 				C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */,
+				3E53999B1AF87725006BA612 /* Pods-fledger-iosTests.debug.xcconfig */,
+				3E53999C1AF87725006BA612 /* Pods-fledger-iosTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -778,6 +788,7 @@
 		87E925EC407BA5ACAC3AED6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3E5399931AF86763006BA612 /* libPods.a */,
 				3E95C5C21AF6B258003D88C6 /* libPods.a */,
 				3E62D8B31AF2F43F00E07582 /* libPods-Typhoon.a */,
 				3E62D8B41AF2F43F00E07582 /* libPods.a */,
@@ -802,6 +813,7 @@
 				3E2B86921ADAFBD50080B206 /* libPods.a */,
 				3E2B86901ADAFB1A0080B206 /* libPods-Typhoon.a */,
 				E1C9EFC54D56CA4D49824CD2 /* libPods.a */,
+				BFA16619783FFC36A22A6050 /* Pods_fledger_iosTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -834,9 +846,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E21B28E1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "fledger-iosTests" */;
 			buildPhases = (
+				B1D8D11FB20A853D564C22BE /* Check Pods Manifest.lock */,
 				3E21B27D1AD7229000E00AE1 /* Sources */,
 				3E21B27E1AD7229000E00AE1 /* Frameworks */,
 				3E21B27F1AD7229000E00AE1 /* Resources */,
+				49C4C81D5D58F290D44B6925 /* Embed Pods Frameworks */,
+				A325ED699A334BFA959EC5FC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -951,7 +966,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E53999E1AF87725006BA612 /* Pods-fledger-iosTests.release.xcconfig in Resources */,
 				3E95C5CB1AF6B4B4003D88C6 /* Main.storyboard in Resources */,
+				3E53999D1AF87725006BA612 /* Pods-fledger-iosTests.debug.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -973,7 +990,52 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		49C4C81D5D58F290D44B6925 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fledger-iosTests/Pods-fledger-iosTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5E2A21DC9BB3767CBAE3DE1B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A325ED699A334BFA959EC5FC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-fledger-iosTests/Pods-fledger-iosTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1D8D11FB20A853D564C22BE /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1340,7 +1402,7 @@
 		};
 		3E21B28F1AD7229000E00AE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 450C45DE2D91AFBE89BDE2AF /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 3E53999B1AF87725006BA612 /* Pods-fledger-iosTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1367,7 +1429,7 @@
 		};
 		3E21B2901AD7229000E00AE1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C3BC77D9B578F34F553B7D09 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 3E53999C1AF87725006BA612 /* Pods-fledger-iosTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
