@@ -10,7 +10,9 @@ class ServiceBootstrap {
     private static var _registered = false
 
     static func registered() -> Bool {
-        register()
+        if (!_registered) {
+            register()
+        }
         return _registered
     }
 
