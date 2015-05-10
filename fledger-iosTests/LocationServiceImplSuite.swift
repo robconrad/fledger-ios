@@ -10,22 +10,16 @@ import XCTest
 import fledger_ios
 
 
-class LocationServiceImplTest: XCTestCase {
-    
-    var db: DatabaseService!
-    var service: LocationServiceImpl<Location>!
-    
-    override func setUp() {
-        super.setUp()
-        
-        let mydb = DatabaseServiceMock()
-        db = mydb
+class LocationServiceImplSuite: AppTestSuite {
+
+    static let service_: LocationServiceImpl<Location> = {
+        let db = DatabaseServiceMock()
         db.createDatabaseDestructive()
-        
-        Services.register(DatabaseService.self, mydb)
-    
-        service = LocationServiceImpl()
-    }
+        Services.register(DatabaseService.self, db)
+        return LocationServiceImpl()
+    }()
+
+    let service = LocationServiceImplSuite.service_
 
     func testModelType() {
         XCTAssertEqual(service.modelType(), ModelType.Location)

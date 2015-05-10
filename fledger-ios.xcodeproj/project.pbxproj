@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3DC61544D429146AE589C388 /* ServiceBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC619CB1C1C4E63F5ED4AE8 /* ServiceBootstrap.swift */; };
+		3DC618F6EB7A8FBE38E5523B /* ServiceBootstrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC619CB1C1C4E63F5ED4AE8 /* ServiceBootstrap.swift */; };
+		3DC61D00F43D641BF65D6449 /* AppTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC618A2600A85B2AE218B99 /* AppTestSuite.swift */; };
 		3E0516421AEC304000D6637F /* AppStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516411AEC304000D6637F /* AppStyling.swift */; };
 		3E0516481AEC357600D6637F /* CanStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516471AEC357600D6637F /* CanStyle.swift */; };
 		3E05164A1AEC36E600D6637F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516491AEC36E600D6637F /* MainTabBarController.swift */; };
@@ -101,7 +104,7 @@
 		3E62D8BA1AF2F60300E07582 /* Fields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E21B2B51AD757D200E00AE1 /* Fields.swift */; };
 		3E6820AF1ADAF0D700CD7433 /* SQLite.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B29F1AD7243600E00AE1 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E6820B01ADAF0D700CD7433 /* sqlite3.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E21B2A31AD7243600E00AE1 /* sqlite3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3E7FDC8F1AF44E4C008DA09E /* LocationServiceImplTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplTest.swift */; };
+		3E7FDC8F1AF44E4C008DA09E /* LocationServiceImplSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplSuite.swift */; };
 		3E7FDC901AF44EAE008DA09E /* LocationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFF1AED7D9B00D14B31 /* LocationServiceImpl.swift */; };
 		3E7FDC911AF44EB8008DA09E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFD1AED7D9200D14B31 /* Location.swift */; };
 		3E7FDC921AF44EE8008DA09E /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B86BF1ADCDD050080B206 /* ModelType.swift */; };
@@ -130,7 +133,7 @@
 		3E95C5791AF5C23B003D88C6 /* GroupsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C5781AF5C23B003D88C6 /* GroupsTableView.swift */; };
 		3E95C57B1AF5C293003D88C6 /* TypesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C57A1AF5C293003D88C6 /* TypesTableView.swift */; };
 		3E95C57D1AF5C29F003D88C6 /* LocationsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C57C1AF5C29F003D88C6 /* LocationsTableView.swift */; };
-		3E95C5821AF5EEB4003D88C6 /* AccountEditViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C5811AF5EEB4003D88C6 /* AccountEditViewControllerTest.swift */; };
+		3E95C5821AF5EEB4003D88C6 /* AccountEditViewControllerSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E95C5811AF5EEB4003D88C6 /* AccountEditViewControllerSuite.swift */; };
 		3E95C5831AF5EF25003D88C6 /* AccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B87031AE2E83D0080B206 /* AccountEditViewController.swift */; };
 		3E95C5841AF5F053003D88C6 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B870B1AE2F4510080B206 /* EditViewController.swift */; };
 		3E95C5851AF5F06B003D88C6 /* SelectHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7FDCAC1AF5B0C9008DA09E /* SelectHandlers.swift */; };
@@ -265,6 +268,8 @@
 
 /* Begin PBXFileReference section */
 		01AE109A475EC9D9C8A9EE24 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DC618A2600A85B2AE218B99 /* AppTestSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTestSuite.swift; sourceTree = "<group>"; };
+		3DC619CB1C1C4E63F5ED4AE8 /* ServiceBootstrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceBootstrap.swift; sourceTree = "<group>"; };
 		3E0516411AEC304000D6637F /* AppStyling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyling.swift; sourceTree = "<group>"; };
 		3E0516471AEC357600D6637F /* CanStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanStyle.swift; sourceTree = "<group>"; };
 		3E0516491AEC36E600D6637F /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -357,7 +362,7 @@
 		3E5399881AF71730006BA612 /* ItemService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemService.swift; path = ../location/ItemService.swift; sourceTree = "<group>"; };
 		3E53999B1AF87725006BA612 /* Pods-fledger-iosTests.debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-fledger-iosTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-fledger-iosTests/Pods-fledger-iosTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E53999C1AF87725006BA612 /* Pods-fledger-iosTests.release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = "Pods-fledger-iosTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-fledger-iosTests/Pods-fledger-iosTests.release.xcconfig"; sourceTree = "<group>"; };
-		3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceImplTest.swift; sourceTree = "<group>"; };
+		3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceImplSuite.swift; sourceTree = "<group>"; };
 		3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceImpl.swift; sourceTree = "<group>"; };
 		3E7FDCA71AF5A482008DA09E /* DatabaseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceMock.swift; sourceTree = "<group>"; };
 		3E7FDCAA1AF5AA44008DA09E /* AccountsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AccountsTableView.swift; path = ../item/AccountsTableView.swift; sourceTree = "<group>"; };
@@ -365,7 +370,7 @@
 		3E95C5781AF5C23B003D88C6 /* GroupsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupsTableView.swift; sourceTree = "<group>"; };
 		3E95C57A1AF5C293003D88C6 /* TypesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TypesTableView.swift; path = ../group/TypesTableView.swift; sourceTree = "<group>"; };
 		3E95C57C1AF5C29F003D88C6 /* LocationsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationsTableView.swift; path = "fledger-ios/controllers/group/LocationsTableView.swift"; sourceTree = SOURCE_ROOT; };
-		3E95C5811AF5EEB4003D88C6 /* AccountEditViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEditViewControllerTest.swift; sourceTree = "<group>"; };
+		3E95C5811AF5EEB4003D88C6 /* AccountEditViewControllerSuite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEditViewControllerSuite.swift; sourceTree = "<group>"; };
 		3E95C5CD1AF6BC66003D88C6 /* AccountServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountServiceMock.swift; sourceTree = "<group>"; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
@@ -413,6 +418,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3DC615A477F97DDC8F2D3975 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				3DC618A2600A85B2AE218B99 /* AppTestSuite.swift */,
+			);
+			path = test;
+			sourceTree = "<group>";
+		};
 		3E21B2611AD7229000E00AE1 = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +483,7 @@
 				3E7FDC8B1AF44E15008DA09E /* services */,
 				3E95C57F1AF5EE8F003D88C6 /* controllers */,
 				3E21B2851AD7229000E00AE1 /* Supporting Files */,
+				3DC615A477F97DDC8F2D3975 /* test */,
 			);
 			path = "fledger-iosTests";
 			sourceTree = "<group>";
@@ -662,6 +676,7 @@
 				3E3B9F171ADADA4A006E9016 /* DatabaseService.swift */,
 				3E7FDCA51AF59FC8008DA09E /* DatabaseServiceImpl.swift */,
 				3E21B2B21AD7571900E00AE1 /* models */,
+				3DC619CB1C1C4E63F5ED4AE8 /* ServiceBootstrap.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -687,7 +702,7 @@
 		3E7FDC8D1AF44E21008DA09E /* location */ = {
 			isa = PBXGroup;
 			children = (
-				3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplTest.swift */,
+				3E7FDC8E1AF44E4C008DA09E /* LocationServiceImplSuite.swift */,
 			);
 			name = location;
 			sourceTree = "<group>";
@@ -711,7 +726,7 @@
 		3E95C5801AF5EEA1003D88C6 /* account */ = {
 			isa = PBXGroup;
 			children = (
-				3E95C5811AF5EEB4003D88C6 /* AccountEditViewControllerTest.swift */,
+				3E95C5811AF5EEB4003D88C6 /* AccountEditViewControllerSuite.swift */,
 			);
 			name = account;
 			sourceTree = "<group>";
@@ -1057,6 +1072,7 @@
 				3E5399871AF71729006BA612 /* AccountService.swift in Sources */,
 				3EB323A01AE301620023825D /* GroupEditViewController.swift in Sources */,
 				3E2B86FE1AE020EC0080B206 /* ParseModel.swift in Sources */,
+				3DC618F6EB7A8FBE38E5523B /* ServiceBootstrap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,9 +1134,9 @@
 				3E7FDC971AF44F99008DA09E /* Aggregates.swift in Sources */,
 				3E7FDCA21AF44FA4008DA09E /* Account.swift in Sources */,
 				3E7FDCA01AF44FA4008DA09E /* Type.swift in Sources */,
-				3E7FDC8F1AF44E4C008DA09E /* LocationServiceImplTest.swift in Sources */,
+				3E7FDC8F1AF44E4C008DA09E /* LocationServiceImplSuite.swift in Sources */,
 				3E95C5831AF5EF25003D88C6 /* AccountEditViewController.swift in Sources */,
-				3E95C5821AF5EEB4003D88C6 /* AccountEditViewControllerTest.swift in Sources */,
+				3E95C5821AF5EEB4003D88C6 /* AccountEditViewControllerSuite.swift in Sources */,
 				3E7FDC961AF44F99008DA09E /* Aggregate.swift in Sources */,
 				3E7FDC981AF44F99008DA09E /* ModelService.swift in Sources */,
 				3E95C5881AF5F093003D88C6 /* AppColors.swift in Sources */,
@@ -1146,6 +1162,8 @@
 				3E7FDCA31AF44FA4008DA09E /* AccountServiceImpl.swift in Sources */,
 				3E7FDC9E1AF44FA4008DA09E /* LocationAnnotation.swift in Sources */,
 				3E53998D1AF71A36006BA612 /* TypeService.swift in Sources */,
+				3DC61D00F43D641BF65D6449 /* AppTestSuite.swift in Sources */,
+				3DC61544D429146AE589C388 /* ServiceBootstrap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

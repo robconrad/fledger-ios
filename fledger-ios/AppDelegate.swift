@@ -15,15 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        Services.register(DatabaseService.self, DatabaseServiceImpl())
-        
-        Services.register(ItemService.self, ItemServiceImpl())
-        Services.register(AccountService.self, AccountServiceImpl())
-        Services.register(TypeService.self, TypeServiceImpl())
-        Services.register(GroupService.self, GroupServiceImpl())
-        Services.register(LocationService.self, LocationServiceImpl())
-        
+
+        println("register services \(ServiceBootstrap.registered())")
+
         let dbService = Services.get(DatabaseService.self)
         if true || !NSUserDefaults.standardUserDefaults().boolForKey("created") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
