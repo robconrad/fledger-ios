@@ -12,7 +12,8 @@ import UIKit
 class SettingsEditViewController: AppUIViewController {
     
     @IBOutlet weak var themeSwitch: UISwitch!
-    @IBOutlet weak var activity: UIActivityIndicatorView!
+    @IBOutlet weak var loadActivity: UIActivityIndicatorView!
+    @IBOutlet weak var syncActivity: UIActivityIndicatorView!
     
     private var dbService: DatabaseService!
     
@@ -29,8 +30,11 @@ class SettingsEditViewController: AppUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activity.hidden = true
-        activity.startAnimating()
+        loadActivity.hidden = true
+        loadActivity.startAnimating()
+        
+        syncActivity.hidden = true
+        syncActivity.startAnimating()
         
         themeSwitch.setOn(AppStyling.get() == AppStyling.Mode.Light, animated: false)
     }
@@ -46,12 +50,22 @@ class SettingsEditViewController: AppUIViewController {
     }
     
     @IBAction func loadFullDataset(sender: AnyObject) {
-        activity.hidden = false
+        loadActivity.hidden = false
         dbService.createDatabaseDestructive()
         dispatch_async(dispatch_get_global_queue(0, 0)) {
             self.dbService.loadDefaultData("data")
             dispatch_async(dispatch_get_main_queue()) {
-                self.activity.hidden = true
+                self.loadActivity.hidden = true
+            }
+        }
+    }
+    
+    @IBAction func syncFromParse(sender: AnyObject) {
+        syncActivity.hidden = false
+        dispatch_async(dispatch_get_global_queue(0, 0)) {
+            Services.get(ParseService.self).syncAllFromRemote()
+            dispatch_async(dispatch_get_main_queue()) {
+                self.syncActivity.hidden = true
             }
         }
     }

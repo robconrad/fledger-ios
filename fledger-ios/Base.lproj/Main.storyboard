@@ -1050,24 +1050,42 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="L7N-mh-B78" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="220" y="197" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOy-JY-3Mf">
+                                <rect key="frame" x="102" y="269" width="111" height="30"/>
+                                <state key="normal" title="sync from parse">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="syncFromParse:" destination="iGV-g5-6gj" eventType="touchUpInside" id="6Bd-nw-BQ7"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="thV-UQ-SjK" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="220" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="OQW-AI-ier" secondAttribute="centerX" id="5Kh-SC-AkT"/>
                             <constraint firstItem="Zuh-bS-9HR" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="6yh-C0-BnV"/>
+                            <constraint firstItem="thV-UQ-SjK" firstAttribute="leading" secondItem="oOy-JY-3Mf" secondAttribute="trailing" constant="7" id="AlV-8A-Wvc"/>
                             <constraint firstItem="Zuh-bS-9HR" firstAttribute="leading" secondItem="utb-0k-0oz" secondAttribute="trailing" constant="8" id="GrZ-Xe-bGi"/>
+                            <constraint firstItem="thV-UQ-SjK" firstAttribute="leading" secondItem="oOy-JY-3Mf" secondAttribute="trailing" constant="8" id="Iqh-pV-jog"/>
                             <constraint firstItem="4YG-Uv-YEq" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="X7v-oh-xIF"/>
                             <constraint firstItem="L7N-mh-B78" firstAttribute="leading" secondItem="OQW-AI-ier" secondAttribute="trailing" constant="8" id="aPU-Au-SBQ"/>
                             <constraint firstItem="OQW-AI-ier" firstAttribute="top" secondItem="utb-0k-0oz" secondAttribute="bottom" constant="60" id="cxR-wY-rHh"/>
+                            <constraint firstAttribute="centerX" secondItem="oOy-JY-3Mf" secondAttribute="centerX" id="eK4-hG-70q"/>
                             <constraint firstItem="utb-0k-0oz" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="81" id="hb7-VF-aS4"/>
                             <constraint firstAttribute="centerX" secondItem="utb-0k-0oz" secondAttribute="centerX" id="j4R-ge-fAR"/>
                             <constraint firstItem="L7N-mh-B78" firstAttribute="top" secondItem="Zuh-bS-9HR" secondAttribute="bottom" constant="70" id="k21-ml-tJe"/>
                             <constraint firstItem="utb-0k-0oz" firstAttribute="leading" secondItem="4YG-Uv-YEq" secondAttribute="trailing" constant="8" id="qwe-4r-W3b"/>
+                            <constraint firstItem="oOy-JY-3Mf" firstAttribute="top" secondItem="OQW-AI-ier" secondAttribute="bottom" constant="47" id="tCs-x6-TXs"/>
+                            <constraint firstItem="thV-UQ-SjK" firstAttribute="top" secondItem="L7N-mh-B78" secondAttribute="bottom" constant="57" id="tzF-t7-caq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="UY4-0W-4Cn"/>
                     <connections>
-                        <outlet property="activity" destination="L7N-mh-B78" id="FR9-bR-BN1"/>
+                        <outlet property="loadActivity" destination="L7N-mh-B78" id="Kt2-WB-fpV"/>
+                        <outlet property="syncActivity" destination="thV-UQ-SjK" id="7fx-MR-bhH"/>
                         <outlet property="themeSwitch" destination="utb-0k-0oz" id="sVh-UG-zoe"/>
                     </connections>
                 </viewController>
