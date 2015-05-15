@@ -81,14 +81,14 @@ class StandardModelServiceImpl<M: Model>: ModelService {
     }
     
     func insert(e: M) -> Int64? {
-        return insert(e, fromParse: false)
+        return insert(e, fromRemote: false)
     }
     
-    internal func insert(e: M, fromParse: Bool) -> Int64? {
+    internal func insert(e: M, fromRemote: Bool) -> Int64? {
         var id: Int64?
         
-        if fromParse {
-            assert(e.pf != nil, "pf may not be empty if insert is fromParse")
+        if fromRemote {
+            assert(e.pf != nil, "pf may not be empty if insert is fromRemote")
         }
         
         let result = db.transaction { _ in
@@ -101,7 +101,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
                     Fields.model <- modelType().rawValue,
                     Fields.modelId <- unwrappedId,
                     Fields.parseId <- e.pf?.objectId,
-                    Fields.synced <- fromParse,
+                    Fields.synced <- fromRemote,
                     Fields.deleted <- false,
                     Fields.updatedAt <- e.pf?.updatedAt.map { NSDateTime($0) }
                 ])
@@ -126,16 +126,18 @@ class StandardModelServiceImpl<M: Model>: ModelService {
             return nil
         }
         
-        parseService.syncAllToRemoteInBackground()
+        if !fromRemote {
+            parseService.syncAllToRemoteInBackground()
+        }
         
         return id
     }
     
     func update(e: M) -> Bool {
-        return update(e, fromParse: false)
+        return update(e, fromRemote: false)
     }
     
-    internal func update(e: M, fromParse: Bool) -> Bool {
+    internal func update(e: M, fromRemote: Bool) -> Bool {
         var success = false
         
         let result = db.transaction { _ in
@@ -143,7 +145,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
             
             if modelRows == 1 {
                 let query: Query = parse.filter(Fields.model == modelType().rawValue && Fields.modelId == e.id!)
-                var setters = [Fields.synced <- fromParse]
+                var setters = [Fields.synced <- fromRemote]
                 if let parseId = e.pf?.objectId, updatedAt = e.pf?.updatedAt {
                     setters.append(Fields.parseId <- parseId)
                     setters.append(Fields.updatedAt <- NSDateTime(updatedAt))
@@ -169,7 +171,9 @@ class StandardModelServiceImpl<M: Model>: ModelService {
             return false
         }
         
-        parseService.syncAllToRemoteInBackground()
+        if !fromRemote {
+            parseService.syncAllToRemoteInBackground()
+        }
         
         return success
     }
@@ -179,6 +183,10 @@ class StandardModelServiceImpl<M: Model>: ModelService {
     }
     
     func delete(id: Int64) -> Bool {
+        return delete(id, fromRemote: false)
+    }
+    
+    internal func delete(id: Int64, fromRemote: Bool) -> Bool {
         var success = false
         
         let result = db.transaction { _ in
@@ -207,7 +215,9 @@ class StandardModelServiceImpl<M: Model>: ModelService {
             return false
         }
         
-        parseService.syncAllToRemoteInBackground()
+        if !fromRemote {
+            parseService.syncAllToRemoteInBackground()
+        }
         
         return success
     }
@@ -238,12 +248,12 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         let models = pfObjects.map { self.fromPFObject($0) }
         for model in models {
             if model.id == nil {
-                if insert(model, fromParse: true) == nil {
+                if insert(model, fromRemote: true) == nil {
                     fatalError(__FUNCTION__ + " failed to insert \(model)")
                 }
             }
             else {
-                if !update(model, fromParse: true) {
+                if !update(model, fromRemote: true) {
                     fatalError(__FUNCTION__ + " failed to update \(model)")
                 }
             }

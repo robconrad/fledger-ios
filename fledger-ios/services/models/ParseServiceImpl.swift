@@ -89,9 +89,12 @@ class ParseServiceImpl: ParseService {
     }
     
     func remote(modelType: ModelType, updatedOnly: Bool) -> [PFObject]? {
-        let updatedAtLeast = parse.filter(Fields.model == modelType.rawValue).max(Fields.updatedAt)?.date ?? NSDate(timeIntervalSince1970: 0)
+        let updatedAtLeast = NSDate.dateByAddingTimeInterval(parse.filter(Fields.model == modelType.rawValue).max(Fields.updatedAt)?.date ?? NSDate(timeIntervalSince1970: 0))
         var query = PFQuery(className: modelType.rawValue)
-        query.whereKey("updatedAt", greaterThanOrEqualTo: updatedAtLeast)
+        // because this is greaterThan not greaterThanOrEqualTo it's theoretically possible to lose data, but unlikely 
+        //  so we take the optimization of not having to bring back at least one row on every sync check
+        //  (because equalTo would match for the max updatedAt queried above)
+        query.whereKey("updatedAt", greaterThan: updatedAtLeast(1))
         let result = query.findObjects() as? [PFObject]
         println("Remote query for PFObjects of \(modelType) updatedAtLeast \(updatedAtLeast) returned \(result?.count ?? 0) rows")
         return result
