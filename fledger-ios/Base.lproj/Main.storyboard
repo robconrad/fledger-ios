@@ -162,7 +162,7 @@
         <scene sceneID="jI1-pB-ig8">
             <objects>
                 <tableViewController title="Items" id="Rtb-Bn-PjM" customClass="ItemsViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Alf-2r-cMg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Alf-2r-cMg" customClass="ItemsTableView" customModule="fledger_ios" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -181,10 +181,6 @@
                                 <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Rtb-Bn-PjM" id="IpD-jC-a2E"/>
-                            <outlet property="delegate" destination="Rtb-Bn-PjM" id="iru-X3-PzW"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="wlu-7v-AGC">
                         <barButtonItem key="leftBarButtonItem" systemItem="search" id="IME-Rf-yOz">
@@ -1122,7 +1118,7 @@
         <scene sceneID="BVm-eJ-2GB">
             <objects>
                 <tableViewController title="Items" id="cYC-M6-MAX" customClass="ItemsViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bbp-Iu-2IU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Bbp-Iu-2IU" customClass="ItemsTableView" customModule="fledger_ios" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1141,10 +1137,6 @@
                                 <color key="backgroundColor" red="0.80520044189999995" green="0.80520044189999995" blue="0.80520044189999995" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="cYC-M6-MAX" id="zHN-1S-IVp"/>
-                            <outlet property="delegate" destination="cYC-M6-MAX" id="vPK-ag-rwx"/>
-                        </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Items" id="bx6-ul-MlU">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="MjW-Xs-Ava">
@@ -1404,14 +1396,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mzE-Ww-JUB"/>
-        <segue reference="tDY-ck-rPf"/>
-        <segue reference="vOd-DH-h6d"/>
-        <segue reference="qNe-7w-aPe"/>
-        <segue reference="TJl-o6-oeJ"/>
-        <segue reference="t8H-QI-cpw"/>
+        <segue reference="Uih-rT-xX5"/>
+        <segue reference="2Dv-Xm-PSk"/>
         <segue reference="luh-re-vkP"/>
-        <segue reference="B8r-eD-t0Z"/>
-        <segue reference="C3e-mv-Gjr"/>
+        <segue reference="TJl-o6-oeJ"/>
+        <segue reference="tDY-ck-rPf"/>
+        <segue reference="t8H-QI-cpw"/>
+        <segue reference="IUs-pd-bNN"/>
+        <segue reference="Tie-et-97h"/>
+        <segue reference="MqJ-7k-0QP"/>
     </inferredMetricsTieBreakers>
 </document>

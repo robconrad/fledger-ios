@@ -67,7 +67,7 @@ class Item: Model, Printable {
             id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Item) }?.modelId,
             accountId: Services.get(ParseService.self).withParseId(pf["accountId"] as! String, ModelType.Account)!.modelId,
             typeId: Services.get(ParseService.self).withParseId(pf["typeId"] as! String, ModelType.Typ)!.modelId,
-            locationId: Services.get(ParseService.self).withParseId(pf["locationId"] as! String, ModelType.Location)!.modelId,
+            locationId: (pf["locationId"] as? String).map { Services.get(ParseService.self).withParseId($0, ModelType.Location)!.modelId },
             amount: pf["amount"] as! Double,
             date: pf["date"] as! NSDate,
             comments: pf["comments"] as! String,

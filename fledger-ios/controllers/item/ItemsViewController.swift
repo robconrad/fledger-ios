@@ -8,18 +8,14 @@
 
 import UIKit
 
-class ItemsViewController: AppUITableViewController {
+class ItemsViewController: AppUIViewController {
     
-    @IBOutlet var table: UITableView!
+    @IBOutlet var table: ItemsTableView!
     
-    var items: [Item]?
-    var itemSums = Dictionary<Int64, Double>()
-    
-    var itemFilters = ItemFiltersFromDefaults()
-    
+    var itemFilters: ItemFilters?
     var isSearchable = true
     
-    let dateFormat = NSDateFormatter()
+    private var syncListener: ItemSyncListener?
     
     private let dataQueue: NSOperationQueue = {
         var q = NSOperationQueue()
@@ -35,24 +31,47 @@ class ItemsViewController: AppUITableViewController {
         return q
     }()
     
+    deinit {
+        if let listener = syncListener {
+            Services.get(ParseService.self).ungregisterSyncListener(listener)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        table.delegate = self
-        dateFormat.dateFormat = "YYYY-MM-dd"
+        table.itemSumOperationFactory = { item, indexPath, itemFilters in
+            self.dataQueue.addOperation(ItemSumOperation(item: item, controller: self, indexPath: indexPath, filters: itemFilters))
+        }
         
-        itemFilters.count = 30
-        itemFilters.offset = 0
+        table.selectRowHandler = { item in
+            if let i = item {
+                if i.isTransfer() {
+                    self.performSegueWithIdentifier("editTransfer", sender: self)
+                }
+                else {
+                    self.performSegueWithIdentifier("editItem", sender: self)
+                }
+            }
+            else if self.isSearchable {
+                self.performSegueWithIdentifier("searchItems", sender: self)
+            }
+        }
+        
+        if let filters = itemFilters {
+            table.itemFilters = filters
+        }
+        table.itemFilters.count = 30
+        table.itemFilters.offset = 0
+        
+        let listener = ItemSyncListener(controller: self)
+        Services.get(ParseService.self).registerSyncListener(listener)
+        syncListener = listener
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        // when the view is appearing we reload data because it could habe been changed
-        // we have to pull the entire amount of data that has been pulled through infinite scrolling so that the table can
-        //  be scrolled to the same point the user left (e.g. when leaving to edit item #100 and returning)
-        itemFilters.count = itemFilters.offset! + itemFilters.count!
-        itemFilters.offset = 0
-        items = Services.get(ItemService.self).select(itemFilters)
+        // when the view is appearing we reload data because it could have been changed
         table.reloadData()
     }
     
@@ -60,74 +79,16 @@ class ItemsViewController: AppUITableViewController {
         super.viewWillDisappear(animated)
         uiQueue.cancelAllOperations()
         dataQueue.cancelAllOperations()
-        itemSums = [:]
-    }
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemFilters.count() + (items.map { items in items.count } ?? 0)
-    }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let itemIndex = indexPath.row - itemFilters.count() 
-        
-        if itemIndex >= 0 {
-            let cell = tableView.dequeueReusableCellWithIdentifier("default") as! ValueDetail2UITableViewCell
-            
-            if let i = items {
-                let item = i[itemIndex]
-                let date = dateFormat.stringFromDate(i[itemIndex].date)
-                let type = item.type().name
-                let group = item.group().name
-                let comments = item.comments.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-                
-                cell.title.text = "\(comments)"
-                cell.detailLeft.text = "\(date) - \(group) - \(type)"
-                ValueUITableViewCell.setFieldCurrency(cell.value, double: item.amount)
-                
-                if let sum = itemSums[item.id!] {
-                    ValueUITableViewCell.setFieldCurrency(cell.detailRight, double: sum)
-                }
-                else {
-                    cell.detailRight.text = "-"
-                    cell.detailRight.textColor = AppColors.text()
-                    
-                    dataQueue.addOperation(ItemSumOperation(item: item, controller: self, indexPath: indexPath, filters: itemFilters))
-                }
-            }
-            
-            return cell
-        }
-        else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("filter") as! UITableViewCell
-            
-            cell.textLabel?.text = itemFilters.strings()[indexPath.row]
-            
-            return cell
-        }
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let itemIndex = indexPath.row - itemFilters.count()
-        if itemIndex >= 0 {
-            if items![itemIndex].isTransfer() {
-                self.performSegueWithIdentifier("editTransfer", sender: self)
-            }
-            else {
-                self.performSegueWithIdentifier("editItem", sender: self)
-            }
-        }
-        else if isSearchable {
-            self.performSegueWithIdentifier("searchItems", sender: self)
-        }
+        table.itemSums = [:]
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editItem" {
             if let dest = segue.destinationViewController as? ItemEditViewController {
                 if let row = table.indexPathForSelectedRow()?.row {
-                    let itemIndex = row - itemFilters.count()
+                    let itemIndex = row - table.itemFilters.count()
                     if itemIndex >= 0 {
-                        dest.item = items?[itemIndex]
+                        dest.item = table.items?[itemIndex]
                     }
                 }
             }
@@ -135,9 +96,9 @@ class ItemsViewController: AppUITableViewController {
         else if segue.identifier == "editTransfer" {
             if let dest = segue.destinationViewController as? TransferEditViewController {
                 if let row = table.indexPathForSelectedRow()?.row {
-                    let itemIndex = row - itemFilters.count()
+                    let itemIndex = row - table.itemFilters.count()
                     if itemIndex >= 0 {
-                        let firstItem = items?[itemIndex]
+                        let firstItem = table.items?[itemIndex]
                         let secondItem = Services.get(ItemService.self).getTransferPair(firstItem!)
                         if firstItem?.amount < 0 {
                             dest.fromItem = firstItem
@@ -153,46 +114,35 @@ class ItemsViewController: AppUITableViewController {
         }
         else if segue.identifier == "searchItems" {
             if let dest = segue.destinationViewController as? ItemSearchViewController {
-                dest.itemFilters = itemFilters
+                dest.itemFilters = table.itemFilters
             }
         }
         else if segue.identifier == "editAccount" {
             if let dest = segue.destinationViewController as? AccountEditViewController {
-                dest.account = itemFilters.accountId.map { Services.get(AccountService.self).withId($0)! }
+                dest.account = table.itemFilters.accountId.map { Services.get(AccountService.self).withId($0)! }
             }
         }
         else if segue.identifier == "editGroup" {
             if let dest = segue.destinationViewController as? GroupEditViewController {
-                dest.group = itemFilters.groupId.map { Services.get(GroupService.self).withId($0)! }
+                dest.group = table.itemFilters.groupId.map { Services.get(GroupService.self).withId($0)! }
             }
         }
         else if segue.identifier == "editType" {
             if let dest = segue.destinationViewController as? TypeEditViewController {
-                dest.type = itemFilters.typeId.map { Services.get(TypeService.self).withId($0)! }
+                dest.type = table.itemFilters.typeId.map { Services.get(TypeService.self).withId($0)! }
             }
-        }
-    }
-    
-    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        // TODO do the reload in a background thread so scrolling is still smooth
-        // TODO do the reload when we are halfway to needing it
-        // TODO do we need to reload all the data? can't we incrementally add data? should infinite scrolling be a sliding window that reloads in either direction??
-        if indexPath.row == itemFilters.count! + itemFilters.offset! - 1 {
-            itemFilters.offset! += itemFilters.count!
-            items? += Services.get(ItemService.self).select(itemFilters)
-            table.reloadData()
         }
     }
     
     // from overview navigation
     @IBAction func editAction(sender: AnyObject) {
-        if itemFilters.accountId != nil {
+        if table.itemFilters.accountId != nil {
             performSegueWithIdentifier("editAccount", sender: sender)
         }
-        else if itemFilters.groupId != nil {
+        else if table.itemFilters.groupId != nil {
             performSegueWithIdentifier("editGroup", sender: sender)
         }
-        else if itemFilters.typeId != nil {
+        else if table.itemFilters.typeId != nil {
             performSegueWithIdentifier("editType", sender: sender)
         }
     }
@@ -218,8 +168,8 @@ class ItemSumOperation: NSOperation {
             return
         }
         
-        if controller.itemSums[item.id!] == nil {
-            controller.itemSums[item.id!] = Services.get(ItemService.self).getSum(item, filters: filters)
+        if controller.table.itemSums[item.id!] == nil {
+            controller.table.itemSums[item.id!] = Services.get(ItemService.self).getSum(item, filters: filters)
         }
         else {
             return
@@ -251,6 +201,24 @@ class ReloadTableOperation: NSOperation {
         
         dispatch_sync(dispatch_get_main_queue()) {
             self.controller.table.reloadData()
+        }
+    }
+    
+}
+
+class ItemSyncListener: ParseSyncListener {
+    
+    let controller: ItemsViewController
+    
+    init(controller: ItemsViewController) {
+        self.controller = controller
+    }
+    
+    override func notify(syncType: ParseSyncType) {
+        if syncType == .From {
+            dispatch_sync(dispatch_get_main_queue()) {
+                self.controller.table.reloadData()
+            }
         }
     }
     

@@ -191,6 +191,8 @@
 		3EAED14E1B0501A700F0E3C6 /* PFObjectConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED14C1B0501A700F0E3C6 /* PFObjectConvertible.swift */; };
 		3EAED1501B05079A00F0E3C6 /* ParseFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED14F1B05079A00F0E3C6 /* ParseFilters.swift */; };
 		3EAED1511B05079A00F0E3C6 /* ParseFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED14F1B05079A00F0E3C6 /* ParseFilters.swift */; };
+		3EAED1531B058AF300F0E3C6 /* ItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */; };
+		3EAED1541B058AF300F0E3C6 /* ItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */; };
 		3EB323A01AE301620023825D /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3239F1AE301620023825D /* GroupEditViewController.swift */; };
 		3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A11AE303B10023825D /* OverviewCategory.swift */; };
 		3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */; };
@@ -385,6 +387,7 @@
 		3EAED1491B00120C00F0E3C6 /* ParseServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseServiceImpl.swift; sourceTree = "<group>"; };
 		3EAED14C1B0501A700F0E3C6 /* PFObjectConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFObjectConvertible.swift; sourceTree = "<group>"; };
 		3EAED14F1B05079A00F0E3C6 /* ParseFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFilters.swift; sourceTree = "<group>"; };
+		3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableView.swift; sourceTree = "<group>"; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
 		3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEditViewController.swift; sourceTree = "<group>"; };
@@ -675,6 +678,7 @@
 				3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */,
 				3E21B2B71AD7624200E00AE1 /* ItemEditViewController.swift */,
 				3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */,
+				3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */,
 			);
 			path = item;
 			sourceTree = "<group>";
@@ -1148,6 +1152,7 @@
 				3EF0F0111AEF231900D14B31 /* AppUITableView.swift in Sources */,
 				3E21B2701AD7229000E00AE1 /* AppDelegate.swift in Sources */,
 				3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */,
+				3EAED1531B058AF300F0E3C6 /* ItemsTableView.swift in Sources */,
 				3E5399791AF6CF94006BA612 /* Service.swift in Sources */,
 				3E7FDCAD1AF5B0C9008DA09E /* SelectHandlers.swift in Sources */,
 				3E21B2D91AD9E0AF00E00AE1 /* AccountSelectionViewController.swift in Sources */,
@@ -1249,6 +1254,7 @@
 				3E62D8B81AF2F5DE00E07582 /* Group.swift in Sources */,
 				3E7FDCA41AF44FBE008DA09E /* DatabaseService.swift in Sources */,
 				3E7FDC911AF44EB8008DA09E /* Location.swift in Sources */,
+				3EAED1541B058AF300F0E3C6 /* ItemsTableView.swift in Sources */,
 				3E7FDCA31AF44FA4008DA09E /* AccountServiceImpl.swift in Sources */,
 				3E7FDC9E1AF44FA4008DA09E /* LocationAnnotation.swift in Sources */,
 				3E53998D1AF71A36006BA612 /* TypeService.swift in Sources */,

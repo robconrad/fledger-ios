@@ -18,9 +18,18 @@ class ParseServiceImpl: ParseService {
     internal let db: Database
     internal let parse: Query
     
-    private let syncQueue: NSOperationQueue = {
+    private var syncListeners = Set<ParseSyncListener>()
+    
+    private let syncToRemoteQueue: NSOperationQueue = {
         var q = NSOperationQueue()
-        q.name = "ParseService Sync Background Queue"
+        q.name = "ParseService SyncTo Background Queue"
+        q.maxConcurrentOperationCount = 1
+        return q
+        }()
+    
+    private let syncFromRemoteQueue: NSOperationQueue = {
+        var q = NSOperationQueue()
+        q.name = "ParseService SyncFrom Background Queue"
         q.maxConcurrentOperationCount = 1
         return q
     }()
@@ -98,7 +107,8 @@ class ParseServiceImpl: ParseService {
     }
     
     func syncAllToRemoteInBackground() {
-        syncQueue.addOperation(SyncAllToRemoteOperation())
+        syncToRemoteQueue.cancelAllOperations()
+        syncToRemoteQueue.addOperation(SyncAllToRemoteOperation())
     }
     
     func syncAllFromRemote() {
@@ -111,7 +121,22 @@ class ParseServiceImpl: ParseService {
     }
     
     func syncAllFromRemoteInBackground() {
-        syncQueue.addOperation(SyncAllFromRemoteOperation())
+        syncFromRemoteQueue.cancelAllOperations()
+        syncFromRemoteQueue.addOperation(SyncAllFromRemoteOperation())
+    }
+    
+    func notifySyncListeners(syncType: ParseSyncType) {
+        for listener in syncListeners {
+            listener.notify(syncType)
+        }
+    }
+    
+    func registerSyncListener(listener: ParseSyncListener) {
+        syncListeners.insert(listener)
+    }
+    
+    func ungregisterSyncListener(listener: ParseSyncListener) {
+        syncListeners.remove(listener)
     }
     
 }
@@ -122,6 +147,7 @@ class SyncAllToRemoteOperation: NSOperation {
             return
         }
         Services.get(ParseService.self).syncAllToRemote()
+        Services.get(ParseService.self).notifySyncListeners(.To)
     }
 }
 
@@ -131,5 +157,6 @@ class SyncAllFromRemoteOperation: NSOperation {
             return
         }
         Services.get(ParseService.self).syncAllFromRemote()
+        Services.get(ParseService.self).notifySyncListeners(.From)
     }
 }

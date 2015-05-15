@@ -248,6 +248,8 @@ class StandardModelServiceImpl<M: Model>: ModelService {
                 }
             }
         }
+        
+        invalidate()
     }
     
 }

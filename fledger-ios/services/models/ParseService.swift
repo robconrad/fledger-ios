@@ -31,4 +31,24 @@ protocol ParseService: Service {
     func syncAllFromRemote()
     func syncAllFromRemoteInBackground()
     
+    func notifySyncListeners(syncType: ParseSyncType)
+    func registerSyncListener(listener: ParseSyncListener)
+    func ungregisterSyncListener(listener: ParseSyncListener)
+    
+}
+
+func ==(lhs: ParseSyncListener, rhs: ParseSyncListener) -> Bool {
+    return lhs.hashValue == rhs.hashValue
+}
+
+class ParseSyncListener: Hashable {
+    let hashValue = Int(arc4random()) // Fuck it. I don't care.
+    func notify(syncType: ParseSyncType) {
+        fatalError("FUCK SWIFT FOR NOT LETTING ME HAVE A HASHABLE PROTOCOL")
+    }
+}
+
+enum ParseSyncType {
+    case To
+    case From
 }
