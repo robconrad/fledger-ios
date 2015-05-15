@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 
 protocol LocationService: Service {
@@ -15,6 +16,8 @@ protocol LocationService: Service {
      BEGIN COPY PASTA FROM BASE ModelService
      ***************************************/
     func modelType() -> ModelType
+    
+    func fromPFObject(pf: PFObject) -> Location
     
     func withId(id: Int64) -> Location?
     
@@ -31,6 +34,9 @@ protocol LocationService: Service {
     func delete(id: Int64) -> Bool
     
     func invalidate()
+    
+    func syncToRemote()
+    func syncFromRemote()
     /*************************************
      END COPY PASTA FROM BASE ModelService
     **************************************/

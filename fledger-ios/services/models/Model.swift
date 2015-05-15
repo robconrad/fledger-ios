@@ -7,12 +7,17 @@
 //
 
 import SQLite
+import Parse
 
 
-protocol Model: Equatable {
+protocol Model: Equatable, PFObjectConvertible {
     
     var id: Int64? { get }
+    var modelType: ModelType { get }
+    var pf: PFObject? { get }
     
     func toSetters() -> [Setter]
+    
+    func parse() -> ParseModel?
     
 }

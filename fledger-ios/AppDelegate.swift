@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Parse
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,26 +15,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-
+        
+        // Initialize Parse.
+        Parse.setApplicationId("fjcMqJqBTJsHRsrDkuKk7wGuAMMTu1d4820IdBQg", clientKey: "hyiXQhwKd2aQvusxJuRliyxrKEhRx6Xx9gTndNaV")
+        
+        if PFUser.currentUser() == nil {
+            var user = PFUser()
+            user.username = "foo" // + String(arc4random())
+            user.password = "bar"
+            user.email = user.username! + "@bar.baz"
+            
+            if PFUser.logInWithUsername(user.username!, password: user.password!) == nil {
+                if !user.signUp() {
+                    fatalError("parse signup failed")
+                }
+            }
+        }
+        
         println("register services \(ServiceBootstrap.registered())")
 
         let dbService = Services.get(DatabaseService.self)
         if true || !NSUserDefaults.standardUserDefaults().boolForKey("created") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
             dbService.createDatabaseDestructive()
-            dbService.loadDefaultData()
+            //dbService.loadDefaultData()
         }
         
-        AppStyling.apply()
+        Services.get(ParseService.self).syncAllFromRemoteInBackground()
         
-        // Initialize Parse.
-//        Parse.setApplicationId("fjcMqJqBTJsHRsrDkuKk7wGuAMMTu1d4820IdBQg", clientKey: "hyiXQhwKd2aQvusxJuRliyxrKEhRx6Xx9gTndNaV")
-//        
-//        let testObject = PFObject(className: "TestObject")
-//        testObject["foo"] = "bar"
-//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
-//            println("Object has been saved.")
-//        }
+        AppStyling.apply()
         
         return true
     }

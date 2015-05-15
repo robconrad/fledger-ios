@@ -20,5 +20,11 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>NSAutoreleaseFreedObjectCheckEnabled</key>
+	<string>YES</string>
+	<key>NSDebugEnabled</key>
+	<string>YES</string>
+	<key>NSZombieEnabled</key>
+	<string>YES</string>
 </dict>
 </plist>

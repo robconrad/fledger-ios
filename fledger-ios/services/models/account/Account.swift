@@ -8,6 +8,7 @@
 
 import Foundation
 import SQLite
+import Parse
 
 
 func ==(a: Account, b: Account) -> Bool {
@@ -17,7 +18,9 @@ func ==(a: Account, b: Account) -> Bool {
         && a.inactive == b.inactive
 }
 
-class Account: Model {
+class Account: Model, Printable {
+    
+    let modelType = ModelType.Account
     
     let id: Int64?
     
@@ -25,11 +28,18 @@ class Account: Model {
     let priority: Int
     let inactive: Bool
     
-    required init(id: Int64?, name: String, priority: Int, inactive: Bool) {
+    let pf: PFObject?
+    
+    var description: String {
+        return "Account(id: \(id), name: \(name), priority: \(priority), inactive: \(inactive), pf: \(pf))"
+    }
+    
+    required init(id: Int64?, name: String, priority: Int, inactive: Bool, pf: PFObject? = nil) {
         self.id = id
         self.name = name
         self.priority = priority
         self.inactive = inactive
+        self.pf = pf
     }
     
     convenience init(row: Row) {
@@ -40,12 +50,36 @@ class Account: Model {
             inactive: row.get(Fields.inactive))
     }
     
+    convenience init(pf: PFObject) {
+        self.init(
+            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Account) }?.modelId,
+            name: pf["name"] as! String,
+            priority: pf["priority"] as! Int,
+            inactive: pf["inactive"] as! Bool,
+            pf: pf)
+    }
+    
     func toSetters() -> [Setter] {
         return [
             Fields.name <- name,
             Fields.priority <- priority,
             Fields.inactive <- inactive
         ]
+    }
+    
+    func toPFObject() -> PFObject? {
+        if id != nil {
+            let npf = PFObject(withoutDataWithClassName: modelType.rawValue, objectId: pf?.objectId ?? parse()?.parseId)
+            npf["name"] = name
+            npf["priority"] = priority
+            npf["inactive"] = inactive
+            return npf
+        }
+        return nil
+    }
+    
+    func parse() -> ParseModel? {
+        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
     }
     
     func copy(name: String? = nil, priority: Int? = nil, inactive: Bool? = nil) -> Account {

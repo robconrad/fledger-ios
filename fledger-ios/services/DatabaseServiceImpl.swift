@@ -74,6 +74,14 @@ private let SQLDateFormatter: NSDateFormatter = {
     return formatter
     }()
 
+private let SQLDateTimeFormatter: NSDateFormatter = {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+    formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+    formatter.timeZone = NSTimeZone(forSecondsFromGMT: 0)
+    return formatter
+    }()
+
 private let UIDateFormatter: NSDateFormatter = {
     let formatter = NSDateFormatter()
     formatter.dateFormat = "yyyy-MM-dd"
@@ -94,5 +102,26 @@ extension NSDate: Value {
     }
     public var uiValue: String {
         return UIDateFormatter.stringFromDate(self)
+    }
+}
+
+public class NSDateTime: Value {
+    let date: NSDate
+    
+    required public init(_ date: NSDate) {
+        self.date = date
+    }
+    
+    public class var declaredDatatype: String {
+        return String.declaredDatatype
+    }
+    public class func fromDatatypeValue(stringValue: String) -> NSDateTime {
+        return NSDateTime(SQLDateTimeFormatter.dateFromString(stringValue)!)
+    }
+    public var datatypeValue: String {
+        return SQLDateTimeFormatter.stringFromDate(date)
+    }
+    public var uiValue: String {
+        return UIDateFormatter.stringFromDate(date)
     }
 }

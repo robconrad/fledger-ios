@@ -8,6 +8,7 @@
 
 import Foundation
 import SQLite
+import Parse
 
 
 func ==(a: Item, b: Item) -> Bool {
@@ -21,7 +22,9 @@ func ==(a: Item, b: Item) -> Bool {
         && a.comments == b.comments
 }
 
-class Item: Model {
+class Item: Model, Printable {
+    
+    let modelType = ModelType.Item
     
     let id: Int64?
     let accountId: Int64
@@ -31,7 +34,13 @@ class Item: Model {
     let date: NSDate
     let comments: String
     
-    required init(id: Int64?, accountId: Int64, typeId: Int64, locationId: Int64?, amount: Double, date: NSDate, comments: String) {
+    let pf: PFObject?
+    
+    var description: String {
+        return "Item(id: \(id), accountId: \(accountId), typeId: \(typeId), locationId: \(locationId), amount: \(amount), date: \(date), comments: \(comments), pf: \(pf))"
+    }
+    
+    required init(id: Int64?, accountId: Int64, typeId: Int64, locationId: Int64?, amount: Double, date: NSDate, comments: String, pf: PFObject? = nil) {
         self.id = id
         self.accountId = accountId
         self.typeId = typeId
@@ -39,6 +48,7 @@ class Item: Model {
         self.amount = amount
         self.date = date
         self.comments = comments
+        self.pf = pf
     }
     
     convenience init(row: Row) {
@@ -52,6 +62,18 @@ class Item: Model {
             comments: row.get(Fields.comments))
     }
     
+    convenience init(pf: PFObject) {
+        self.init(
+            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Item) }?.modelId,
+            accountId: Services.get(ParseService.self).withParseId(pf["accountId"] as! String, ModelType.Account)!.modelId,
+            typeId: Services.get(ParseService.self).withParseId(pf["typeId"] as! String, ModelType.Typ)!.modelId,
+            locationId: Services.get(ParseService.self).withParseId(pf["locationId"] as! String, ModelType.Location)!.modelId,
+            amount: pf["amount"] as! Double,
+            date: pf["date"] as! NSDate,
+            comments: pf["comments"] as! String,
+            pf: pf)
+    }
+    
     func toSetters() -> [Setter] {
         return [
             Fields.accountId <- accountId,
@@ -61,6 +83,24 @@ class Item: Model {
             Fields.date <- date,
             Fields.comments <- comments
         ]
+    }
+    
+    func toPFObject() -> PFObject? {
+        if id != nil {
+            let npf = PFObject(withoutDataWithClassName: modelType.rawValue, objectId: pf?.objectId ?? parse()?.parseId)
+            npf["accountId"] = account().parse()!.parseId!
+            npf["typeId"] = type().parse()!.parseId!
+            npf["locationId"] = location().map { $0.parse()!.parseId! } ?? NSNull()
+            npf["amount"] = amount
+            npf["date"] = date
+            npf["comments"] = comments
+            return npf
+        }
+        return nil
+    }
+    
+    func parse() -> ParseModel? {
+        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
     }
     
     func copy(accountId: Int64? = nil, typeId: Int64? = nil, locationId: Int64? = nil, amount: Double? = nil, date: NSDate? = nil, comments: String? = nil) -> Item {

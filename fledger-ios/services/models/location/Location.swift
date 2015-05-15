@@ -9,6 +9,7 @@
 import CoreLocation
 import Foundation
 import SQLite
+import Parse
 
 
 func ==(a: Location, b: Location) -> Bool {
@@ -20,7 +21,9 @@ func ==(a: Location, b: Location) -> Bool {
         && a.distance == b.distance
 }
 
-class Location: Model {
+class Location: Model, Printable {
+    
+    let modelType = ModelType.Location
     
     let id: Int64?
     
@@ -29,21 +32,29 @@ class Location: Model {
     let address: String
     let distance: Double?
     
-    required init(id: Int64?, name: String?, coordinate: CLLocationCoordinate2D, address: String, distance: Double? = nil) {
+    let pf: PFObject?
+    
+    var description: String {
+        return "Location(id: \(id), name: \(name), coordinate: \(coordinate), address: \(address), distance: \(distance), pf: \(pf))"
+    }
+    
+    required init(id: Int64?, name: String?, coordinate: CLLocationCoordinate2D, address: String, distance: Double? = nil, pf: PFObject? = nil) {
         self.id = id
         self.name = name
         self.coordinate = coordinate
         self.address = address
         self.distance = distance
+        self.pf = pf
     }
     
-    convenience init(id: Int64?, name: String?, latitude: Double, longitude: Double, address: String, distance: Double? = nil) {
+    convenience init(id: Int64?, name: String?, latitude: Double, longitude: Double, address: String, distance: Double? = nil, pf: PFObject? = nil) {
         self.init(
             id: id,
             name: name,
             coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
             address: address,
-            distance: distance)
+            distance: distance,
+            pf: pf)
     }
     
     convenience init(row: Row) {
@@ -55,6 +66,16 @@ class Location: Model {
             address: row.get(Fields.address))
     }
     
+    convenience init(pf: PFObject) {
+        self.init(
+            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Location) }?.modelId,
+            name: pf["name"] as? String,
+            latitude: pf["latitude"] as! Double,
+            longitude: pf["longitude"] as! Double,
+            address: pf["address"] as! String,
+            pf: pf)
+    }
+    
     func toSetters() -> [Setter] {
         return [
             Fields.nameOpt <- name,
@@ -62,6 +83,22 @@ class Location: Model {
             Fields.longitude <- coordinate.longitude,
             Fields.address <- address
         ]
+    }
+    
+    func toPFObject() -> PFObject? {
+        if id != nil {
+            let npf = PFObject(withoutDataWithClassName: modelType.rawValue, objectId: pf?.objectId ?? parse()?.parseId)
+            npf["name"] = name ?? NSNull()
+            npf["latitude"] = coordinate.latitude.datatypeValue
+            npf["longitude"] = coordinate.longitude.datatypeValue
+            npf["address"] = address
+            return npf
+        }
+        return nil
+    }
+    
+    func parse() -> ParseModel? {
+        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
     }
     
     func copy(name: String? = nil, coordinate: CLLocationCoordinate2D? = nil, address: String? = nil) -> Location {

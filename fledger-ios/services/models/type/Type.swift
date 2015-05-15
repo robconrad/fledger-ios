@@ -8,6 +8,7 @@
 
 import Foundation
 import SQLite
+import Parse
 
 
 func ==(a: Type, b: Type) -> Bool {
@@ -16,17 +17,26 @@ func ==(a: Type, b: Type) -> Bool {
         && a.name == b.name
 }
 
-class Type: Model {
+class Type: Model, Printable {
+    
+    let modelType = ModelType.Typ
     
     let id: Int64?
     let groupId: Int64
     
     let name: String
     
-    required init(id: Int64?, groupId: Int64, name: String) {
+    let pf: PFObject?
+    
+    var description: String {
+        return "Type(id: \(id), groupId: \(groupId), name: \(name), pf: \(pf))"
+    }
+    
+    required init(id: Int64?, groupId: Int64, name: String, pf: PFObject? = nil) {
         self.id = id
         self.groupId = groupId
         self.name = name
+        self.pf = pf
     }
     
     convenience init(row: Row) {
@@ -36,11 +46,33 @@ class Type: Model {
             name: row.get(Fields.name))
     }
     
+    convenience init(pf: PFObject) {
+        self.init(
+            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Typ) }?.modelId,
+            groupId: Services.get(ParseService.self).withParseId(pf["groupId"] as! String, ModelType.Group)!.modelId,
+            name: pf["name"] as! String,
+            pf: pf)
+    }
+    
     func toSetters() -> [Setter] {
         return [
             Fields.name <- name,
             Fields.groupId <- groupId
         ]
+    }
+    
+    func toPFObject() -> PFObject? {
+        if id != nil {
+            let npf = PFObject(withoutDataWithClassName: modelType.rawValue, objectId: pf?.objectId ?? parse()?.parseId)
+            npf["name"] = name
+            npf["groupId"] = Services.get(GroupService.self).withId(groupId)?.parse()!.parseId!
+            return npf
+        }
+        return nil
+    }
+    
+    func parse() -> ParseModel? {
+        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
     }
     
     func copy(groupId: Int64? = nil, name: String? = nil) -> Type {

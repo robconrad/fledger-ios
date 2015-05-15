@@ -9,6 +9,7 @@
 import Foundation
 import SQLite
 import MapKit
+import Parse
 
 
 class LocationServiceImpl<T: Location>: MemoryModelServiceImpl<Location>, LocationService {

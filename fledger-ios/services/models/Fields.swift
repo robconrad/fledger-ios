@@ -42,10 +42,10 @@ class Fields {
     // parse
     static let model = Expression<String>("model")
     static let modelId = Expression<Int64>("model_id")
-    static let parseId = Expression<String>("parseId")
+    static let parseId = Expression<String?>("parse_id")
     static let synced = Expression<Bool>("synced")
     static let deleted = Expression<Bool>("deleted")
-    static let updatedAt = Expression<NSDate>("updated_at")
+    static let updatedAt = Expression<NSDateTime?>("updated_at")
     
 }
 

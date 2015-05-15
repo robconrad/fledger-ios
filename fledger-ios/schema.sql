@@ -61,8 +61,8 @@ CREATE TABLE "parse" (
     "model" VARCHAR(25) NOT NULL,
     "model_id" INTEGER,
     "parse_id" CHAR(10),
-    "synced" BOOLEAN NOT NULL DEFAULT FALSE,
-    "deleted" BOOLEAN NOT NULL DEFAULT FALSE,
+    "synced" BOOLEAN NOT NULL,
+    "deleted" BOOLEAN NOT NULL,
     "updated_at" DATETIME,
     UNIQUE (model, model_id),
     UNIQUE (parse_id)

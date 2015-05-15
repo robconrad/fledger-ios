@@ -19,6 +19,8 @@ class ServiceBootstrap {
     static func register() {
 
         Services.register(DatabaseService.self, DatabaseServiceImpl())
+        
+        Services.register(ParseService.self, ParseServiceImpl())
 
         Services.register(ItemService.self, ItemServiceImpl())
         Services.register(AccountService.self, AccountServiceImpl())

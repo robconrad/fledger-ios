@@ -6,6 +6,9 @@
 //  Copyright (c) 2015 TwoSpec Inc. All rights reserved.
 //
 
+import Parse
+
+
 protocol ModelService: Service {
     
     typealias T: Model
@@ -17,6 +20,8 @@ protocol ModelService: Service {
     **************************************/
     
     func modelType() -> ModelType
+    
+    func fromPFObject(pf: PFObject) -> T
     
     func withId(id: Int64) -> T?
     
@@ -33,5 +38,8 @@ protocol ModelService: Service {
     func delete(id: Int64) -> Bool
     
     func invalidate()
+
+    func syncToRemote()
+    func syncFromRemote()
     
 }

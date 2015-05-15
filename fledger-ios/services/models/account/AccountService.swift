@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 
 protocol AccountService: Service {
@@ -15,6 +16,8 @@ protocol AccountService: Service {
      BEGIN COPY PASTA FROM BASE ModelService
      ***************************************/
     func modelType() -> ModelType
+    
+    func fromPFObject(pf: PFObject) -> Account
     
     func withId(id: Int64) -> Account?
     
@@ -31,6 +34,9 @@ protocol AccountService: Service {
     func delete(id: Int64) -> Bool
     
     func invalidate()
+    
+    func syncToRemote()
+    func syncFromRemote()
     /*************************************
      END COPY PASTA FROM BASE ModelService
     **************************************/

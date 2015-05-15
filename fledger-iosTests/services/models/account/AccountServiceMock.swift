@@ -7,12 +7,17 @@
 //
 
 import fledger_ios
+import Parse
 
 
 class AccountServiceMock: AccountService {
     
     func modelType() -> ModelType {
         return .Account
+    }
+    
+    func fromPFObject(pf: PFObject) -> Account {
+        fatalError(__FUNCTION__ + " must be implemented")
     }
     
     func withId(id: Int64) -> Account? {
@@ -48,6 +53,14 @@ class AccountServiceMock: AccountService {
     }
     
     func invalidate() {
+        
+    }
+    
+    func syncToRemote() {
+        
+    }
+    
+    func syncFromRemote() {
         
     }
     

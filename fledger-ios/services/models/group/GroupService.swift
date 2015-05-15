@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Parse
 
 
 protocol GroupService: Service {
@@ -15,6 +16,8 @@ protocol GroupService: Service {
      BEGIN COPY PASTA FROM BASE ModelService
      ***************************************/
     func modelType() -> ModelType
+    
+    func fromPFObject(pf: PFObject) -> Group
     
     func withId(id: Int64) -> Group?
     
@@ -31,6 +34,9 @@ protocol GroupService: Service {
     func delete(id: Int64) -> Bool
     
     func invalidate()
+    
+    func syncToRemote()
+    func syncFromRemote()
     /*************************************
      END COPY PASTA FROM BASE ModelService
     **************************************/
