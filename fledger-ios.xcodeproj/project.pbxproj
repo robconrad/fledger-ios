@@ -197,6 +197,7 @@
 		3EAED1571B05B41A00F0E3C6 /* DeletedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1551B05B41A00F0E3C6 /* DeletedModel.swift */; };
 		3EAED15A1B0F967800F0E3C6 /* AggregateServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1591B0F967800F0E3C6 /* AggregateServiceImpl.swift */; };
 		3EAED15B1B0F967800F0E3C6 /* AggregateServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1591B0F967800F0E3C6 /* AggregateServiceImpl.swift */; };
+		3EAED1601B0F9B7F00F0E3C6 /* ParseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED15F1B0F9B7F00F0E3C6 /* ParseServiceMock.swift */; };
 		3EB323A01AE301620023825D /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3239F1AE301620023825D /* GroupEditViewController.swift */; };
 		3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A11AE303B10023825D /* OverviewCategory.swift */; };
 		3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */; };
@@ -394,6 +395,7 @@
 		3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableView.swift; sourceTree = "<group>"; };
 		3EAED1551B05B41A00F0E3C6 /* DeletedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletedModel.swift; sourceTree = "<group>"; };
 		3EAED1591B0F967800F0E3C6 /* AggregateServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AggregateServiceImpl.swift; sourceTree = "<group>"; };
+		3EAED15F1B0F9B7F00F0E3C6 /* ParseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseServiceMock.swift; sourceTree = "<group>"; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
 		3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEditViewController.swift; sourceTree = "<group>"; };
@@ -724,6 +726,7 @@
 		3E7FDC8C1AF44E1C008DA09E /* models */ = {
 			isa = PBXGroup;
 			children = (
+				3EAED15E1B0F9B7100F0E3C6 /* parse */,
 				3E95C5CC1AF6BC5A003D88C6 /* account */,
 				3E7FDC8D1AF44E21008DA09E /* location */,
 			);
@@ -790,6 +793,14 @@
 				3EAED1591B0F967800F0E3C6 /* AggregateServiceImpl.swift */,
 			);
 			name = aggregate;
+			sourceTree = "<group>";
+		};
+		3EAED15E1B0F9B7100F0E3C6 /* parse */ = {
+			isa = PBXGroup;
+			children = (
+				3EAED15F1B0F9B7F00F0E3C6 /* ParseServiceMock.swift */,
+			);
+			name = parse;
 			sourceTree = "<group>";
 		};
 		3EB323B31AE31F170023825D /* images */ = {
@@ -1236,6 +1247,7 @@
 				3E95C5AF1AF5F1C6003D88C6 /* MainTabBarController.swift in Sources */,
 				3E95C5B01AF5F1C6003D88C6 /* AppDelegate.swift in Sources */,
 				3E95C5B11AF5F1C6003D88C6 /* ArrayExtension.swift in Sources */,
+				3EAED1601B0F9B7F00F0E3C6 /* ParseServiceMock.swift in Sources */,
 				3EAED15B1B0F967800F0E3C6 /* AggregateServiceImpl.swift in Sources */,
 				3E95C5851AF5F06B003D88C6 /* SelectHandlers.swift in Sources */,
 				3E95C5891AF5F0B5003D88C6 /* AppStyling.swift in Sources */,
