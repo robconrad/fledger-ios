@@ -193,6 +193,8 @@
 		3EAED1511B05079A00F0E3C6 /* ParseFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED14F1B05079A00F0E3C6 /* ParseFilters.swift */; };
 		3EAED1531B058AF300F0E3C6 /* ItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */; };
 		3EAED1541B058AF300F0E3C6 /* ItemsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */; };
+		3EAED1561B05B41A00F0E3C6 /* DeletedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1551B05B41A00F0E3C6 /* DeletedModel.swift */; };
+		3EAED1571B05B41A00F0E3C6 /* DeletedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAED1551B05B41A00F0E3C6 /* DeletedModel.swift */; };
 		3EB323A01AE301620023825D /* GroupEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB3239F1AE301620023825D /* GroupEditViewController.swift */; };
 		3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A11AE303B10023825D /* OverviewCategory.swift */; };
 		3EB323A41AE30C5E0023825D /* TypeEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */; };
@@ -388,6 +390,7 @@
 		3EAED14C1B0501A700F0E3C6 /* PFObjectConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFObjectConvertible.swift; sourceTree = "<group>"; };
 		3EAED14F1B05079A00F0E3C6 /* ParseFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFilters.swift; sourceTree = "<group>"; };
 		3EAED1521B058AF300F0E3C6 /* ItemsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemsTableView.swift; sourceTree = "<group>"; };
+		3EAED1551B05B41A00F0E3C6 /* DeletedModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeletedModel.swift; sourceTree = "<group>"; };
 		3EB3239F1AE301620023825D /* GroupEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupEditViewController.swift; sourceTree = "<group>"; };
 		3EB323A11AE303B10023825D /* OverviewCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewCategory.swift; sourceTree = "<group>"; };
 		3EB323A31AE30C5E0023825D /* TypeEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypeEditViewController.swift; sourceTree = "<group>"; };
@@ -550,6 +553,7 @@
 				3E2B869A1ADB1F4E0080B206 /* Filters.swift */,
 				3E21B2B51AD757D200E00AE1 /* Fields.swift */,
 				3E2B86BF1ADCDD050080B206 /* ModelType.swift */,
+				3EAED1551B05B41A00F0E3C6 /* DeletedModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -1094,6 +1098,7 @@
 				3EB323A21AE303B10023825D /* OverviewCategory.swift in Sources */,
 				3E2B86A61ADB285F0080B206 /* MemoryModelServiceImpl.swift in Sources */,
 				3E21B2B61AD757D200E00AE1 /* Fields.swift in Sources */,
+				3EAED1561B05B41A00F0E3C6 /* DeletedModel.swift in Sources */,
 				3EAED14A1B00120C00F0E3C6 /* ParseServiceImpl.swift in Sources */,
 				3E05164A1AEC36E600D6637F /* MainTabBarController.swift in Sources */,
 				3E2B86C61ADD76E40080B206 /* AppUITableViewCell.swift in Sources */,
@@ -1200,6 +1205,7 @@
 				3E95C5A11AF5F1C6003D88C6 /* TypeSelectionViewController.swift in Sources */,
 				3E95C5A21AF5F1C6003D88C6 /* TypesTableView.swift in Sources */,
 				3E5399901AF71A6C006BA612 /* Service.swift in Sources */,
+				3EAED1571B05B41A00F0E3C6 /* DeletedModel.swift in Sources */,
 				3E95C5A31AF5F1C6003D88C6 /* LocationEditViewController.swift in Sources */,
 				3E95C5A41AF5F1C6003D88C6 /* LocationSelectionViewController.swift in Sources */,
 				3E53998B1AF71A31006BA612 /* LocationService.swift in Sources */,

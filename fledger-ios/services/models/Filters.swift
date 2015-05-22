@@ -11,7 +11,7 @@ import SQLite
 
 class Filters {
     
-    var ids: [Int64]?
+    var ids: Set<Int64>?
     
     var offset: Int?
     var count: Int?

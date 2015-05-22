@@ -123,6 +123,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         }
         
         if result.failed {
+            println("insert failed with \(result.reason)")
             return nil
         }
         
@@ -168,11 +169,16 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         }
         
         if result.failed {
+            println("update failed with \(result.reason)")
             return false
         }
         
         if !fromRemote {
             parseService.syncAllToRemoteInBackground()
+        }
+        
+        if !success {
+            println("hi")
         }
         
         return success
@@ -186,7 +192,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         return delete(id, fromRemote: false)
     }
     
-    internal func delete(id: Int64, fromRemote: Bool) -> Bool {
+    internal func delete(id: Int64, fromRemote: Bool, updatedAt: NSDate? = nil) -> Bool {
         var success = false
         
         let result = db.transaction { _ in
@@ -194,7 +200,14 @@ class StandardModelServiceImpl<M: Model>: ModelService {
             
             if modelRows == 1 {
                 let query: Query = parse.filter(Fields.model == modelType().rawValue && Fields.modelId == id)
-                let (parseRows, parseStmt) = query.update(Fields.synced <- false, Fields.deleted <- true)
+                var setters = [
+                    Fields.synced <- fromRemote,
+                    Fields.deleted <- true
+                ]
+                if let date = updatedAt {
+                    setters.append(Fields.updatedAt <- NSDateTime(date))
+                }
+                let (parseRows, parseStmt) = query.update(setters)
                 
                 if parseRows == 1 {
                     success = true
@@ -212,6 +225,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         }
         
         if result.failed {
+            println("delete failed with \(result.reason)")
             return false
         }
         
@@ -230,13 +244,20 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         let parseFilters = ParseFilters()
         parseFilters.synced = false
         parseFilters.modelType = modelType()
-        let ids = parseService.select(parseFilters).map { $0.modelId }
+        let parseModels = parseService.select(parseFilters)
         
         let modelFilters = Filters()
-        modelFilters.ids = ids
+        modelFilters.ids = Set(parseModels.filter { !$0.deleted }.map { $0.modelId })
         for model in select(modelFilters) {
             if let pf = parseService.save(model) {
                 parseService.markSynced(model.id!, modelType(), pf)
+            }
+        }
+        
+        let deletedModels = parseModels.filter { $0.deleted }.map { DeletedModel(id: $0.modelId, parseId: $0.parseId!, modelType: self.modelType()) }
+        for model in deletedModels {
+            if let pf = parseService.save(model) {
+                parseService.markSynced(model.id, modelType(), pf)
             }
         }
     }
@@ -246,15 +267,30 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         // sort by date ascending so that we don't miss any if this gets interrupted and we try syncIncoming again
         pfObjects.sort { ($0.updatedAt ?? NSDate()).compare($1.updatedAt!) == .OrderedAscending }
         let models = pfObjects.map { self.fromPFObject($0) }
-        for model in models {
+        for i in 0..<pfObjects.count {
+            let model = models[i]
             if model.id == nil {
-                if insert(model, fromRemote: true) == nil {
+                if let id = insert(model, fromRemote: true) {
+                    if (pfObjects[i]["deleted"] as? Bool) == true {
+                        if !delete(id, fromRemote: true) {
+                            fatalError(__FUNCTION__ + " failed to delete \(model)")
+                        }
+                    }
+                }
+                else {
                     fatalError(__FUNCTION__ + " failed to insert \(model)")
                 }
             }
             else {
-                if !update(model, fromRemote: true) {
-                    fatalError(__FUNCTION__ + " failed to update \(model)")
+                if (pfObjects[i]["deleted"] as? Bool) == true {
+                    if !delete(model.id!, fromRemote: true, updatedAt: pfObjects[i].updatedAt) {
+                        fatalError(__FUNCTION__ + " failed to delete \(model)")
+                    }
+                }
+                else {
+                    if update(model, fromRemote: true) {
+                        fatalError(__FUNCTION__ + " failed to update \(model)")
+                    }
                 }
             }
         }

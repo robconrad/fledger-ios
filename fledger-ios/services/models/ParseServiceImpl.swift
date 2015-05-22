@@ -88,15 +88,32 @@ class ParseServiceImpl: ParseService {
         return nil
     }
     
+    // TODO: ***REMOVED***
     func remote(modelType: ModelType, updatedOnly: Bool) -> [PFObject]? {
-        let updatedAtLeast = NSDate.dateByAddingTimeInterval(parse.filter(Fields.model == modelType.rawValue).max(Fields.updatedAt)?.date ?? NSDate(timeIntervalSince1970: 0))
+        let lastSyncedRow = parse.filter(Fields.model == modelType.rawValue).order(Fields.updatedAt.desc).first
+        var bufferRows = [String]()
         var query = PFQuery(className: modelType.rawValue)
-        // because this is greaterThan not greaterThanOrEqualTo it's theoretically possible to lose data, but unlikely 
-        //  so we take the optimization of not having to bring back at least one row on every sync check
-        //  (because equalTo would match for the max updatedAt queried above)
-        query.whereKey("updatedAt", greaterThan: updatedAtLeast(1))
-        let result = query.findObjects() as? [PFObject]
-        println("Remote query for PFObjects of \(modelType) updatedAtLeast \(updatedAtLeast) returned \(result?.count ?? 0) rows")
+        if let lastRow = lastSyncedRow {
+            let lastDateFactory = NSDate.dateByAddingTimeInterval(lastRow.get(Fields.updatedAt)?.date ?? NSDate(timeIntervalSince1970: 0))
+            let updatedAtLeast = lastDateFactory(-60)
+            
+            for row in parse.filter(Fields.model == modelType.rawValue && Fields.updatedAt >= NSDateTime(updatedAtLeast)) {
+                if let id = row.get(Fields.parseId) {
+                    bufferRows.append(id)
+                }
+            }
+            
+            // query for records within one minute of the last updated record that are not themselves the last updated record
+            query.whereKey("updatedAt", greaterThanOrEqualTo: updatedAtLeast)
+            query.whereKey("objectId", notContainedIn: [lastRow.get(Fields.parseId) ?? ""])
+        }
+        var result = query.findObjects() as? [PFObject]
+        println("Remote query for PFObjects of \(modelType) lastSyncedRow (\(lastSyncedRow.flatMap { $0.get(Fields.updatedAt)?.date }), \(lastSyncedRow?.get(Fields.parseId))) returned \(result?.count ?? 0) rows")
+        
+        for parseId in bufferRows {
+            //result!.find { $0.parseId == parseId }
+        }
+        
         return result
     }
     

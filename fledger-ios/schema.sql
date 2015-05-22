@@ -65,6 +65,6 @@ CREATE TABLE "parse" (
     "deleted" BOOLEAN NOT NULL,
     "updated_at" DATETIME,
     UNIQUE (model, model_id),
-    UNIQUE (parse_id)
+    UNIQUE (model, parse_id)
 );
 
