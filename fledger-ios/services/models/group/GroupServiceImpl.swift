@@ -21,7 +21,7 @@ class GroupServiceImpl<T: Group>: MemoryModelServiceImpl<Group>, GroupService {
     }
     
     override internal func table() -> Query {
-        return dbService.groups
+        return DatabaseSvc().groups
     }
     
     override func defaultOrder(query: Query) -> Query {
@@ -39,7 +39,7 @@ class GroupServiceImpl<T: Group>: MemoryModelServiceImpl<Group>, GroupService {
     }
     
     func withTypeId(id: Int64) -> Group? {
-        if let type = Services.get(TypeService.self).withId(id) {
+        if let type = TypeSvc().withId(id) {
             return withId(type.groupId)
         }
         return nil

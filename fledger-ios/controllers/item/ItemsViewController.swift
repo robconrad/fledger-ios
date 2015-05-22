@@ -33,7 +33,7 @@ class ItemsViewController: AppUIViewController {
     
     deinit {
         if let listener = syncListener {
-            Services.get(ParseService.self).ungregisterSyncListener(listener)
+            ParseSvc().ungregisterSyncListener(listener)
         }
     }
     
@@ -65,7 +65,7 @@ class ItemsViewController: AppUIViewController {
         table.itemFilters.offset = 0
         
         let listener = ItemSyncListener(controller: self)
-        Services.get(ParseService.self).registerSyncListener(listener)
+        ParseSvc().registerSyncListener(listener)
         syncListener = listener
     }
     
@@ -99,7 +99,7 @@ class ItemsViewController: AppUIViewController {
                     let itemIndex = row - table.itemFilters.count()
                     if itemIndex >= 0 {
                         let firstItem = table.items?[itemIndex]
-                        let secondItem = Services.get(ItemService.self).getTransferPair(firstItem!)
+                        let secondItem = ItemSvc().getTransferPair(firstItem!)
                         if firstItem?.amount < 0 {
                             dest.fromItem = firstItem
                             dest.intoItem = secondItem
@@ -119,17 +119,17 @@ class ItemsViewController: AppUIViewController {
         }
         else if segue.identifier == "editAccount" {
             if let dest = segue.destinationViewController as? AccountEditViewController {
-                dest.account = table.itemFilters.accountId.map { Services.get(AccountService.self).withId($0)! }
+                dest.account = table.itemFilters.accountId.map { AccountSvc().withId($0)! }
             }
         }
         else if segue.identifier == "editGroup" {
             if let dest = segue.destinationViewController as? GroupEditViewController {
-                dest.group = table.itemFilters.groupId.map { Services.get(GroupService.self).withId($0)! }
+                dest.group = table.itemFilters.groupId.map { GroupSvc().withId($0)! }
             }
         }
         else if segue.identifier == "editType" {
             if let dest = segue.destinationViewController as? TypeEditViewController {
-                dest.type = table.itemFilters.typeId.map { Services.get(TypeService.self).withId($0)! }
+                dest.type = table.itemFilters.typeId.map { TypeSvc().withId($0)! }
             }
         }
     }
@@ -169,7 +169,7 @@ class ItemSumOperation: NSOperation {
         }
         
         if controller.table.itemSums[item.id!] == nil {
-            controller.table.itemSums[item.id!] = Services.get(ItemService.self).getSum(item, filters: filters)
+            controller.table.itemSums[item.id!] = ItemSvc().getSum(item, filters: filters)
         }
         else {
             return

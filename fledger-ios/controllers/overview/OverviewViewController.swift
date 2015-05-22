@@ -35,7 +35,7 @@ class OverviewViewController: AppUITableViewController {
         sections = []
         sectionIndices = []
         sectionRows = [:]
-        rows = getAggregator()()
+        rows = getRows()
         for row in rows {
             if let section = row.section {
                 if sectionRows[section] == nil {
@@ -130,16 +130,16 @@ class OverviewViewController: AppUITableViewController {
         }
     }
     
-    func getAggregator() -> (() -> [Aggregate]) {
+    private func getRows() -> [Aggregate] {
         if let c = category {
             switch c {
-            case .All: return Aggregates.main.getAll
-            case .Account: return Aggregates.main.getAccounts
-            case .Group: return Aggregates.main.getGroups
-            case .Typ: return Aggregates.main.getTypes
+            case .All: return AggregateSvc().getAll()
+            case .Account: return AggregateSvc().getAccounts()
+            case .Group: return AggregateSvc().getGroups()
+            case .Typ: return AggregateSvc().getTypes()
             }
         }
-        return { _ in [] }
+        return []
     }
     
 }

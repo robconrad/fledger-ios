@@ -21,7 +21,7 @@ class AccountServiceImpl<T: Account>: MemoryModelServiceImpl<Account>, AccountSe
     }
     
     override internal func table() -> Query {
-        return dbService.accounts
+        return DatabaseSvc().accounts
     }
     
     override func defaultOrder(query: Query) -> Query {

@@ -36,7 +36,7 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
         //  be scrolled to the same point the user left (e.g. when leaving to edit item #100 and returning)
         itemFilters.count = itemFilters.offset! + itemFilters.count!
         itemFilters.offset = 0
-        items = Services.get(ItemService.self).select(itemFilters)
+        items = ItemSvc().select(itemFilters)
         super.reloadData()
     }
     
@@ -94,7 +94,7 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
         // TODO do we need to reload all the data? can't we incrementally add data? should infinite scrolling be a sliding window that reloads in either direction??
         if indexPath.row == itemFilters.count! + itemFilters.offset! - 1 {
             itemFilters.offset! += itemFilters.count!
-            items? += Services.get(ItemService.self).select(itemFilters)
+            items? += ItemSvc().select(itemFilters)
             reloadData()
         }
     }

@@ -10,9 +10,7 @@ import Foundation
 import SQLite
 
 
-class Aggregates {
-    
-    private let dbService: DatabaseService
+class AggregateServiceImpl: AggregateService {
     
     private let items: Query
     private let groups: Query
@@ -37,15 +35,11 @@ class Aggregates {
     private let groupsQuery: Query
     private let typesQuery: Query
     
-    static let main = Aggregates(DatabaseServiceImpl.main)
-    
-    required init(_ dbService: DatabaseService) {
-        self.dbService = dbService
-        
-        items = dbService.items
-        groups = dbService.groups
-        types = dbService.types
-        accounts = dbService.accounts
+    required init() {
+        items = DatabaseSvc().items
+        groups = DatabaseSvc().groups
+        types = DatabaseSvc().types
+        accounts = DatabaseSvc().accounts
         
         accountId = accounts[Fields.id]
         groupId = groups[Fields.id]

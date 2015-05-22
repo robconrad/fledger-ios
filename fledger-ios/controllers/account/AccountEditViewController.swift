@@ -17,8 +17,6 @@ class AccountEditViewController: EditViewController {
     
     var account: Account?
     
-    private let accountService = Services.get(AccountService.self)
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -40,12 +38,12 @@ class AccountEditViewController: EditViewController {
             var id = account?.id
             
             if let a = account {
-                errors = !accountService.update(a.copy(
+                errors = !AccountSvc().update(a.copy(
                     name: name.text,
                     inactive: !active.on))
             }
             else {
-                id = accountService.insert(Account(
+                id = AccountSvc().insert(Account(
                     id: nil,
                     name: name.text,
                     priority: 0,

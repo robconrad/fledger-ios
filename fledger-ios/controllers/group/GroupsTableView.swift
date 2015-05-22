@@ -16,8 +16,6 @@ class GroupsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegat
     
     var selectHandler: SelectIdHandler?
     
-    private let groupService = Services.get(GroupService.self)
-    
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         delegate = self
@@ -40,7 +38,7 @@ class GroupsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegat
     }
     
     override func reloadData() {
-        groups = groupService.all()
+        groups = GroupSvc().all()
         super.reloadData()
     }
     

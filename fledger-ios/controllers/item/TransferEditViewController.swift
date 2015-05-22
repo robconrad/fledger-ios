@@ -39,7 +39,7 @@ class TransferEditViewController: EditViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        type.setTitle(Services.get(TypeService.self).transferType().name, forState: .Normal)
+        type.setTitle(TypeSvc().transferType().name, forState: .Normal)
         
         fromItem = fromItem?.copy(
             accountId: selectedFromAccountId,
@@ -61,10 +61,10 @@ class TransferEditViewController: EditViewController {
         else {
             self.title = "Add Transfer"
             if let accountId = selectedFromAccountId {
-                fromAccount.setTitle(Services.get(AccountService.self).withId(accountId)!.name, forState: .Normal)
+                fromAccount.setTitle(AccountSvc().withId(accountId)!.name, forState: .Normal)
             }
             if let accountId = selectedIntoAccountId {
-                intoAccount.setTitle(Services.get(AccountService.self).withId(accountId)!.name, forState: .Normal)
+                intoAccount.setTitle(AccountSvc().withId(accountId)!.name, forState: .Normal)
             }
             if let myDate = selectedDate {
                 date.setTitle(myDate.uiValue, forState: .Normal)
@@ -102,27 +102,27 @@ class TransferEditViewController: EditViewController {
         if !errors {
             if fromItem != nil && intoItem != nil {
                 // TODO - do this in a transaction
-                errors = errors || !Services.get(ItemService.self).update(fromItem!.copy(
+                errors = errors || !ItemSvc().update(fromItem!.copy(
                     amount: -amountValue(),
                     comments: comments.text))
-                errors = errors || !Services.get(ItemService.self).update(intoItem!.copy(
+                errors = errors || !ItemSvc().update(intoItem!.copy(
                     amount: amountValue(),
                     comments: comments.text))
             }
             else {
                 // TODO - do this in a transaction
-                errors = errors || Services.get(ItemService.self).insert(Item(
+                errors = errors || ItemSvc().insert(Item(
                     id: nil,
                     accountId: selectedFromAccountId!,
-                    typeId: Services.get(TypeService.self).transferId,
+                    typeId: TypeSvc().transferId,
                     locationId: nil,
                     amount: -amountValue(),
                     date: selectedDate!,
                     comments: comments.text)) == nil
-                errors = errors || Services.get(ItemService.self).insert(Item(
+                errors = errors || ItemSvc().insert(Item(
                     id: nil,
                     accountId: selectedIntoAccountId!,
-                    typeId: Services.get(TypeService.self).transferId,
+                    typeId: TypeSvc().transferId,
                     locationId: nil,
                     amount: amountValue(),
                     date: selectedDate!,
@@ -140,10 +140,10 @@ class TransferEditViewController: EditViewController {
         
         // TODO - do this in a transaction
         if let i = fromItem {
-            errors = errors || !Services.get(ItemService.self).delete(i)
+            errors = errors || !ItemSvc().delete(i)
         }
         if let i = intoItem {
-            errors = errors || !Services.get(ItemService.self).delete(i)
+            errors = errors || !ItemSvc().delete(i)
         }
         
         if !errors {

@@ -44,7 +44,7 @@ class Group: Model, Printable {
     
     convenience init(pf: PFObject) {
         self.init(
-            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Group) }?.modelId,
+            id: pf.objectId.flatMap { ParseSvc().withParseId($0, ModelType.Group) }?.modelId,
             name: pf["name"] as! String,
             pf: pf)
     }
@@ -65,7 +65,7 @@ class Group: Model, Printable {
     }
     
     func parse() -> ParseModel? {
-        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
+        return id.flatMap { ParseSvc().withModelId($0, modelType) }
     }
     
     func copy(name: String? = nil) -> Group {

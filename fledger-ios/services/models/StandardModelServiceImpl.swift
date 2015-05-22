@@ -13,19 +13,6 @@ import Parse
 
 class StandardModelServiceImpl<M: Model>: ModelService {
     
-    internal let dbService: DatabaseService
-    internal let parseService: ParseService
-
-    internal let db: Database
-    internal let parse: Query
-    
-    required init() {
-        self.dbService = Services.get(DatabaseService.self)
-        self.parseService = Services.get(ParseService.self)
-        self.db = dbService.db
-        self.parse = dbService.parse
-    }
-    
     func modelType() -> ModelType {
         fatalError(__FUNCTION__ + " must be implemented")
     }
@@ -91,13 +78,13 @@ class StandardModelServiceImpl<M: Model>: ModelService {
             assert(e.pf != nil, "pf may not be empty if insert is fromRemote")
         }
         
-        let result = db.transaction { _ in
+        let result = DatabaseSvc().db.transaction { _ in
             
             let (modelId, modelStmt) = table().insert(e.toSetters())
             id = modelId
             
             if let unwrappedId = modelId {
-                let (parseId, parseStmt) = parse.insert([
+                let (parseId, parseStmt) = DatabaseSvc().parse.insert([
                     Fields.model <- modelType().rawValue,
                     Fields.modelId <- unwrappedId,
                     Fields.parseId <- e.pf?.objectId,
@@ -128,7 +115,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         }
         
         if !fromRemote {
-            parseService.syncAllToRemoteInBackground()
+            ParseSvc().syncAllToRemoteInBackground()
         }
         
         return id
@@ -141,11 +128,11 @@ class StandardModelServiceImpl<M: Model>: ModelService {
     internal func update(e: M, fromRemote: Bool) -> Bool {
         var success = false
         
-        let result = db.transaction { _ in
+        let result = DatabaseSvc().db.transaction { _ in
             let (modelRows, modelStmt) = table().filter(Fields.id == e.id!).update(e.toSetters())
             
             if modelRows == 1 {
-                let query: Query = parse.filter(Fields.model == modelType().rawValue && Fields.modelId == e.id!)
+                let query: Query = DatabaseSvc().parse.filter(Fields.model == modelType().rawValue && Fields.modelId == e.id!)
                 var setters = [Fields.synced <- fromRemote]
                 if let parseId = e.pf?.objectId, updatedAt = e.pf?.updatedAt {
                     setters.append(Fields.parseId <- parseId)
@@ -174,11 +161,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         }
         
         if !fromRemote {
-            parseService.syncAllToRemoteInBackground()
-        }
-        
-        if !success {
-            println("hi")
+            ParseSvc().syncAllToRemoteInBackground()
         }
         
         return success
@@ -195,11 +178,11 @@ class StandardModelServiceImpl<M: Model>: ModelService {
     internal func delete(id: Int64, fromRemote: Bool, updatedAt: NSDate? = nil) -> Bool {
         var success = false
         
-        let result = db.transaction { _ in
+        let result = DatabaseSvc().db.transaction { _ in
             let (modelRows, modelStmt) = table().filter(Fields.id == id).delete()
             
             if modelRows == 1 {
-                let query: Query = parse.filter(Fields.model == modelType().rawValue && Fields.modelId == id)
+                let query: Query = DatabaseSvc().parse.filter(Fields.model == modelType().rawValue && Fields.modelId == id)
                 var setters = [
                     Fields.synced <- fromRemote,
                     Fields.deleted <- true
@@ -230,7 +213,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         }
         
         if !fromRemote {
-            parseService.syncAllToRemoteInBackground()
+            ParseSvc().syncAllToRemoteInBackground()
         }
         
         return success
@@ -244,26 +227,26 @@ class StandardModelServiceImpl<M: Model>: ModelService {
         let parseFilters = ParseFilters()
         parseFilters.synced = false
         parseFilters.modelType = modelType()
-        let parseModels = parseService.select(parseFilters)
+        let parseModels = ParseSvc().select(parseFilters)
         
         let modelFilters = Filters()
         modelFilters.ids = Set(parseModels.filter { !$0.deleted }.map { $0.modelId })
         for model in select(modelFilters) {
-            if let pf = parseService.save(model) {
-                parseService.markSynced(model.id!, modelType(), pf)
+            if let pf = ParseSvc().save(model) {
+                ParseSvc().markSynced(model.id!, modelType(), pf)
             }
         }
         
         let deletedModels = parseModels.filter { $0.deleted }.map { DeletedModel(id: $0.modelId, parseId: $0.parseId!, modelType: self.modelType()) }
         for model in deletedModels {
-            if let pf = parseService.save(model) {
-                parseService.markSynced(model.id, modelType(), pf)
+            if let pf = ParseSvc().save(model) {
+                ParseSvc().markSynced(model.id, modelType(), pf)
             }
         }
     }
     
     func syncFromRemote() {
-        var pfObjects: [PFObject] = parseService.remote(modelType(), updatedOnly: true) ?? []
+        var pfObjects: [PFObject] = ParseSvc().remote(modelType(), updatedOnly: true) ?? []
         // sort by date ascending so that we don't miss any if this gets interrupted and we try syncIncoming again
         pfObjects.sort { ($0.updatedAt ?? NSDate()).compare($1.updatedAt!) == .OrderedAscending }
         let models = pfObjects.map { self.fromPFObject($0) }

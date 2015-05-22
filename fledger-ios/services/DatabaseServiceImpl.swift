@@ -11,8 +11,6 @@ import SQLite
 
 class DatabaseServiceImpl: DatabaseService {
     
-    static let main: DatabaseService = DatabaseServiceImpl()
-    
     let db: Database
     
     let locations: Query

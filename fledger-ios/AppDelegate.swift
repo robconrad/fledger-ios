@@ -34,11 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         println("register services \(ServiceBootstrap.registered())")
 
-        let dbService = Services.get(DatabaseService.self)
         if true || !NSUserDefaults.standardUserDefaults().boolForKey("created") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
-            dbService.createDatabaseDestructive()
-            //dbService.loadDefaultData()
+            DatabaseSvc().createDatabaseDestructive()
+            //DatabaseSvc().loadDefaultData()
         }
         
         AppStyling.apply()
@@ -63,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        Services.get(ParseService.self).syncAllFromRemoteInBackground()
+        ParseSvc().syncAllFromRemoteInBackground()
     }
 
     func applicationWillTerminate(application: UIApplication) {

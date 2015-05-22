@@ -95,32 +95,32 @@ class LocationServiceImplSuite: AppTestSuite {
     func testSync() {
         let coordinate = CLLocationCoordinate2D(latitude: 10, longitude: 10)
         let location = Location(id: nil, name: "a location", coordinate: coordinate, address: "an address")
-        let locationId = Services.get(LocationService.self).insert(location)
+        let locationId = LocationSvc().insert(location)
         
         let group = Group(id: nil, name: "a group")
-        let groupId = Services.get(GroupService.self).insert(group)!
+        let groupId = GroupSvc().insert(group)!
         
         let type = Type(id: nil, groupId: groupId, name: "a type")
-        let typeId = Services.get(TypeService.self).insert(type)!
+        let typeId = TypeSvc().insert(type)!
         
         let account = Account(id: nil, name: "an account", priority: 0, inactive: false)
-        let accountId = Services.get(AccountService.self).insert(account)!
+        let accountId = AccountSvc().insert(account)!
         
         let item = Item(id: nil, accountId: accountId, typeId: typeId, locationId: locationId, amount: 1, date: NSDate(), comments: "a comment")
-        let itemId = Services.get(ItemService.self).insert(item)!
+        let itemId = ItemSvc().insert(item)!
         
-        Services.get(ParseService.self).syncAllToRemote()
-        Services.get(ParseService.self).syncAllFromRemote()
+        ParseSvc().syncAllToRemote()
+        ParseSvc().syncAllFromRemote()
         
-        let (rows1, stmt1) = Services.get(DatabaseService.self).parse.delete()
-        let (rows2, stmt2) = Services.get(DatabaseService.self).locations.delete()
-        let (rows3, stmt3) = Services.get(DatabaseService.self).groups.delete()
-        let (rows4, stmt4) = Services.get(DatabaseService.self).types.delete()
-        let (rows5, stmt5) = Services.get(DatabaseService.self).accounts.delete()
-        let (rows6, stmt6) = Services.get(DatabaseService.self).items.delete()
+        let (rows1, stmt1) = DatabaseSvc().parse.delete()
+        let (rows2, stmt2) = DatabaseSvc().locations.delete()
+        let (rows3, stmt3) = DatabaseSvc().groups.delete()
+        let (rows4, stmt4) = DatabaseSvc().types.delete()
+        let (rows5, stmt5) = DatabaseSvc().accounts.delete()
+        let (rows6, stmt6) = DatabaseSvc().items.delete()
         
-        Services.get(ParseService.self).syncAllFromRemote()
-        Services.get(ParseService.self).syncAllFromRemote()
+        ParseSvc().syncAllFromRemote()
+        ParseSvc().syncAllFromRemote()
     }
 
 }

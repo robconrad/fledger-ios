@@ -15,7 +15,6 @@ class LocationsTableView: AppUITableView, UITableViewDataSource, UITableViewDele
     private var locationId: Int64?
     private var locations: [Location]?
     private var userLocation: CLLocation?
-    private let locationService = Services.get(LocationService.self)
     
     var sortBy = LocationSortBy.Distance
     var selectHandler: SelectIdHandler?
@@ -46,7 +45,7 @@ class LocationsTableView: AppUITableView, UITableViewDataSource, UITableViewDele
     
     override func reloadData() {
         if let location = userLocation {
-            locations = locationService.nearest(location.coordinate, sortBy: sortBy)
+            locations = LocationSvc().nearest(location.coordinate, sortBy: sortBy)
             super.reloadData()
             selectLocation()
         }

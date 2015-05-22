@@ -12,7 +12,7 @@ class MemoryModelServiceImpl<M: Model>: StandardModelServiceImpl<M> {
     internal var _allArray: [M]?
     internal var _allDict: [Int64: M]?
     
-    required init() {
+    required override init() {
         super.init()
     }
     

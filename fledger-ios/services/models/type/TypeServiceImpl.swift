@@ -23,7 +23,7 @@ class TypeServiceImpl<T: Type>: MemoryModelServiceImpl<Type>, TypeService {
     }
     
     override internal func table() -> Query {
-        return dbService.types
+        return DatabaseSvc().types
     }
     
     override func defaultOrder(query: Query) -> Query {

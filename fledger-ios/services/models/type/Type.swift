@@ -48,8 +48,8 @@ class Type: Model, Printable {
     
     convenience init(pf: PFObject) {
         self.init(
-            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Typ) }?.modelId,
-            groupId: Services.get(ParseService.self).withParseId(pf["groupId"] as! String, ModelType.Group)!.modelId,
+            id: pf.objectId.flatMap { ParseSvc().withParseId($0, ModelType.Typ) }?.modelId,
+            groupId: ParseSvc().withParseId(pf["groupId"] as! String, ModelType.Group)!.modelId,
             name: pf["name"] as! String,
             pf: pf)
     }
@@ -65,14 +65,14 @@ class Type: Model, Printable {
         if id != nil {
             let npf = PFObject(withoutDataWithClassName: modelType.rawValue, objectId: pf?.objectId ?? parse()?.parseId)
             npf["name"] = name
-            npf["groupId"] = Services.get(GroupService.self).withId(groupId)?.parse()!.parseId!
+            npf["groupId"] = GroupSvc().withId(groupId)?.parse()!.parseId!
             return npf
         }
         return nil
     }
     
     func parse() -> ParseModel? {
-        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
+        return id.flatMap { ParseSvc().withModelId($0, modelType) }
     }
     
     func copy(groupId: Int64? = nil, name: String? = nil) -> Type {
@@ -83,7 +83,7 @@ class Type: Model, Printable {
     }
     
     func group() -> Group {
-        return Services.get(GroupService.self).withTypeId(id!)!
+        return GroupSvc().withTypeId(id!)!
     }
     
 }

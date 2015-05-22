@@ -23,7 +23,7 @@ class LocationServiceImpl<T: Location>: MemoryModelServiceImpl<Location>, Locati
     }
     
     override internal func table() -> Query {
-        return dbService.locations
+        return DatabaseSvc().locations
     }
     
     override func defaultOrder(query: Query) -> Query {
@@ -41,7 +41,7 @@ class LocationServiceImpl<T: Location>: MemoryModelServiceImpl<Location>, Locati
     }
     
     func itemCount(id: Int64) -> Int {
-        return dbService.items.filter(Fields.locationId == id).count
+        return DatabaseSvc().items.filter(Fields.locationId == id).count
     }
     
     func nearest(coordinate: CLLocationCoordinate2D, sortBy: LocationSortBy) -> [Location] {
@@ -53,7 +53,7 @@ class LocationServiceImpl<T: Location>: MemoryModelServiceImpl<Location>, Locati
         }
         
         var elements: [Location] = []
-        let stmt = dbService.db.prepare("SELECT id, name, latitude, longitude, address, distance(latitude, longitude, ?, ?) AS computedDistance FROM locations ORDER BY \(orderBy)")
+        let stmt = DatabaseSvc().db.prepare("SELECT id, name, latitude, longitude, address, distance(latitude, longitude, ?, ?) AS computedDistance FROM locations ORDER BY \(orderBy)")
         
         for row in stmt.run(coordinate.latitude, coordinate.longitude) {
             elements.append(Location(

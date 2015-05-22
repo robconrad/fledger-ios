@@ -15,18 +15,6 @@ class SettingsEditViewController: AppUIViewController {
     @IBOutlet weak var loadActivity: UIActivityIndicatorView!
     @IBOutlet weak var syncActivity: UIActivityIndicatorView!
     
-    private var dbService: DatabaseService!
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.dbService = DatabaseServiceImpl.main
-    }
-    
-    convenience init(_ dbService: DatabaseService) {
-        self.init(coder: NSCoder())
-        self.dbService = dbService
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,9 +39,9 @@ class SettingsEditViewController: AppUIViewController {
     
     @IBAction func loadFullDataset(sender: AnyObject) {
         loadActivity.hidden = false
-        dbService.createDatabaseDestructive()
+        DatabaseSvc().createDatabaseDestructive()
         dispatch_async(dispatch_get_global_queue(0, 0)) {
-            self.dbService.loadDefaultData("data")
+            DatabaseSvc().loadDefaultData("data")
             dispatch_async(dispatch_get_main_queue()) {
                 self.loadActivity.hidden = true
             }
@@ -63,7 +51,7 @@ class SettingsEditViewController: AppUIViewController {
     @IBAction func syncFromParse(sender: AnyObject) {
         syncActivity.hidden = false
         dispatch_async(dispatch_get_global_queue(0, 0)) {
-            Services.get(ParseService.self).syncAllFromRemote()
+            ParseSvc().syncAllFromRemote()
             dispatch_async(dispatch_get_main_queue()) {
                 self.syncActivity.hidden = true
             }

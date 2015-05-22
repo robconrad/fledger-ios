@@ -52,7 +52,7 @@ class Account: Model, Printable {
     
     convenience init(pf: PFObject) {
         self.init(
-            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Account) }?.modelId,
+            id: pf.objectId.flatMap { ParseSvc().withParseId($0, ModelType.Account) }?.modelId,
             name: pf["name"] as! String,
             priority: pf["priority"] as! Int,
             inactive: pf["inactive"] as! Bool,
@@ -79,7 +79,7 @@ class Account: Model, Printable {
     }
     
     func parse() -> ParseModel? {
-        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
+        return id.flatMap { ParseSvc().withModelId($0, modelType) }
     }
     
     func copy(name: String? = nil, priority: Int? = nil, inactive: Bool? = nil) -> Account {

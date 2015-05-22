@@ -44,13 +44,13 @@ class ItemFilters: Filters {
         var s: [String] = []
         
         if let id = accountId {
-            s.append("Filtered by Account: " + (Services.get(AccountService.self).withId(id)?.name ?? "?"))
+            s.append("Filtered by Account: " + (AccountSvc().withId(id)?.name ?? "?"))
         }
         if let id = typeId {
-            s.append("Filtered by Type: " + (Services.get(TypeService.self).withId(id)?.name ?? "?"))
+            s.append("Filtered by Type: " + (TypeSvc().withId(id)?.name ?? "?"))
         }
         if let id = groupId {
-            s.append("Filtered by Group: " + (Services.get(GroupService.self).withId(id)?.name ?? "?"))
+            s.append("Filtered by Group: " + (GroupSvc().withId(id)?.name ?? "?"))
         }
         if let date = startDate {
             s.append("Filtered by Start Date: " + date.uiValue)

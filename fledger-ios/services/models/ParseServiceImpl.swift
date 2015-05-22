@@ -13,11 +13,6 @@ import Parse
 
 class ParseServiceImpl: ParseService {
     
-    internal let dbService: DatabaseService
-    
-    internal let db: Database
-    internal let parse: Query
-    
     private var syncListeners = Set<ParseSyncListener>()
     
     private let syncToRemoteQueue: NSOperationQueue = {
@@ -34,14 +29,8 @@ class ParseServiceImpl: ParseService {
         return q
     }()
     
-    required init() {
-        self.dbService = Services.get(DatabaseService.self)
-        self.db = dbService.db
-        self.parse = dbService.parse
-    }
-    
     func select(filters: ParseFilters?) -> [ParseModel] {
-        var query = parse
+        var query = DatabaseSvc().parse
         if let f = filters {
             query = f.toQuery(query, limit: true)
         }
@@ -56,15 +45,15 @@ class ParseServiceImpl: ParseService {
     }
     
     func withModelId(id: Int64, _ modelType: ModelType) -> ParseModel? {
-        return parse.filter(Fields.model == modelType.rawValue && Fields.modelId == id).first.map { ParseModel(row: $0) }
+        return DatabaseSvc().parse.filter(Fields.model == modelType.rawValue && Fields.modelId == id).first.map { ParseModel(row: $0) }
     }
     
     func withParseId(id: String, _ modelType: ModelType) -> ParseModel? {
-        return parse.filter(Fields.model == modelType.rawValue && Fields.parseId == id).first.map { ParseModel(row: $0) }
+        return DatabaseSvc().parse.filter(Fields.model == modelType.rawValue && Fields.parseId == id).first.map { ParseModel(row: $0) }
     }
     
     func markSynced(id: Int64, _ modelType: ModelType, _ pf: PFObject) -> Bool {
-        let query = parse.filter(Fields.model == modelType.rawValue && Fields.modelId == id)
+        let query = DatabaseSvc().parse.filter(Fields.model == modelType.rawValue && Fields.modelId == id)
         let (rows, stmt) = query.update([
             Fields.synced <- true,
             Fields.parseId <- pf.objectId!,
@@ -90,14 +79,14 @@ class ParseServiceImpl: ParseService {
     
     // TODO: ***REMOVED***
     func remote(modelType: ModelType, updatedOnly: Bool) -> [PFObject]? {
-        let lastSyncedRow = parse.filter(Fields.model == modelType.rawValue).order(Fields.updatedAt.desc).first
+        let lastSyncedRow = DatabaseSvc().parse.filter(Fields.model == modelType.rawValue).order(Fields.updatedAt.desc).first
         var bufferRows = [String]()
         var query = PFQuery(className: modelType.rawValue)
         if let lastRow = lastSyncedRow {
             let lastDateFactory = NSDate.dateByAddingTimeInterval(lastRow.get(Fields.updatedAt)?.date ?? NSDate(timeIntervalSince1970: 0))
             let updatedAtLeast = lastDateFactory(-60)
             
-            for row in parse.filter(Fields.model == modelType.rawValue && Fields.updatedAt >= NSDateTime(updatedAtLeast)) {
+            for row in DatabaseSvc().parse.filter(Fields.model == modelType.rawValue && Fields.updatedAt >= NSDateTime(updatedAtLeast)) {
                 if let id = row.get(Fields.parseId) {
                     bufferRows.append(id)
                 }
@@ -119,11 +108,11 @@ class ParseServiceImpl: ParseService {
     
     func syncAllToRemote() {
         // order matters because of FK resolution
-        Services.get(LocationService.self).syncToRemote()
-        Services.get(GroupService.self).syncToRemote()
-        Services.get(TypeService.self).syncToRemote()
-        Services.get(AccountService.self).syncToRemote()
-        Services.get(ItemService.self).syncToRemote()
+        LocationSvc().syncToRemote()
+        GroupSvc().syncToRemote()
+        TypeSvc().syncToRemote()
+        AccountSvc().syncToRemote()
+        ItemSvc().syncToRemote()
     }
     
     func syncAllToRemoteInBackground() {
@@ -133,11 +122,11 @@ class ParseServiceImpl: ParseService {
     
     func syncAllFromRemote() {
         // order matters because of FK resolution
-        Services.get(LocationService.self).syncFromRemote()
-        Services.get(GroupService.self).syncFromRemote()
-        Services.get(TypeService.self).syncFromRemote()
-        Services.get(AccountService.self).syncFromRemote()
-        Services.get(ItemService.self).syncFromRemote()
+        LocationSvc().syncFromRemote()
+        GroupSvc().syncFromRemote()
+        TypeSvc().syncFromRemote()
+        AccountSvc().syncFromRemote()
+        ItemSvc().syncFromRemote()
     }
     
     func syncAllFromRemoteInBackground() {
@@ -166,8 +155,8 @@ class SyncAllToRemoteOperation: NSOperation {
         if self.cancelled {
             return
         }
-        Services.get(ParseService.self).syncAllToRemote()
-        Services.get(ParseService.self).notifySyncListeners(.To)
+        ParseSvc().syncAllToRemote()
+        ParseSvc().notifySyncListeners(.To)
     }
 }
 
@@ -176,7 +165,7 @@ class SyncAllFromRemoteOperation: NSOperation {
         if self.cancelled {
             return
         }
-        Services.get(ParseService.self).syncAllFromRemote()
-        Services.get(ParseService.self).notifySyncListeners(.From)
+        ParseSvc().syncAllFromRemote()
+        ParseSvc().notifySyncListeners(.From)
     }
 }

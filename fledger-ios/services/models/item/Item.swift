@@ -53,7 +53,7 @@ class Item: Model, Printable {
     
     convenience init(row: Row) {
         self.init(
-            id: row.get(DatabaseServiceImpl.main.items[Fields.id]),
+            id: row.get(DatabaseSvc().items[Fields.id]),
             accountId: row.get(Fields.accountId),
             typeId: row.get(Fields.typeId),
             locationId: row.get(Fields.locationId),
@@ -64,10 +64,10 @@ class Item: Model, Printable {
     
     convenience init(pf: PFObject) {
         self.init(
-            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Item) }?.modelId,
-            accountId: Services.get(ParseService.self).withParseId(pf["accountId"] as! String, ModelType.Account)!.modelId,
-            typeId: Services.get(ParseService.self).withParseId(pf["typeId"] as! String, ModelType.Typ)!.modelId,
-            locationId: (pf["locationId"] as? String).map { Services.get(ParseService.self).withParseId($0, ModelType.Location)!.modelId },
+            id: pf.objectId.flatMap { ParseSvc().withParseId($0, ModelType.Item) }?.modelId,
+            accountId: ParseSvc().withParseId(pf["accountId"] as! String, ModelType.Account)!.modelId,
+            typeId: ParseSvc().withParseId(pf["typeId"] as! String, ModelType.Typ)!.modelId,
+            locationId: (pf["locationId"] as? String).map { ParseSvc().withParseId($0, ModelType.Location)!.modelId },
             amount: pf["amount"] as! Double,
             date: pf["date"] as! NSDate,
             comments: pf["comments"] as! String,
@@ -100,7 +100,7 @@ class Item: Model, Printable {
     }
     
     func parse() -> ParseModel? {
-        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
+        return id.flatMap { ParseSvc().withModelId($0, modelType) }
     }
     
     func copy(accountId: Int64? = nil, typeId: Int64? = nil, locationId: Int64? = nil, amount: Double? = nil, date: NSDate? = nil, comments: String? = nil) -> Item {
@@ -126,23 +126,23 @@ class Item: Model, Printable {
     }
     
     func account() -> Account {
-        return Services.get(AccountService.self).withId(accountId)!
+        return AccountSvc().withId(accountId)!
     }
     
     func type() -> Type {
-        return Services.get(TypeService.self).withId(typeId)!
+        return TypeSvc().withId(typeId)!
     }
     
     func group() -> Group {
-        return Services.get(GroupService.self).withTypeId(typeId)!
+        return GroupSvc().withTypeId(typeId)!
     }
     
     func location() -> Location? {
-        return locationId.flatMap { Services.get(LocationService.self).withId($0) }
+        return locationId.flatMap { LocationSvc().withId($0) }
     }
     
     func isTransfer() -> Bool {
-        return typeId == Services.get(TypeService.self).transferId
+        return typeId == TypeSvc().transferId
     }
     
 }

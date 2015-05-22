@@ -68,7 +68,7 @@ class Location: Model, Printable {
     
     convenience init(pf: PFObject) {
         self.init(
-            id: pf.objectId.flatMap { Services.get(ParseService.self).withParseId($0, ModelType.Location) }?.modelId,
+            id: pf.objectId.flatMap { ParseSvc().withParseId($0, ModelType.Location) }?.modelId,
             name: pf["name"] as? String,
             latitude: pf["latitude"] as! Double,
             longitude: pf["longitude"] as! Double,
@@ -98,7 +98,7 @@ class Location: Model, Printable {
     }
     
     func parse() -> ParseModel? {
-        return id.flatMap { Services.get(ParseService.self).withModelId($0, modelType) }
+        return id.flatMap { ParseSvc().withModelId($0, modelType) }
     }
     
     func copy(name: String? = nil, coordinate: CLLocationCoordinate2D? = nil, address: String? = nil) -> Location {

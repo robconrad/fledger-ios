@@ -19,6 +19,7 @@ class Services {
         if let service = registry["\(proto)"] as? P {
             return service
         }
+        
         fatalError("\(proto) is not a registered service")
     }
     

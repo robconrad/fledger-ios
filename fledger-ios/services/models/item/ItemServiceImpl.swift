@@ -14,8 +14,8 @@ class ItemServiceImpl<M: Group>: StandardModelServiceImpl<Item>, ItemService {
     
     private let id: Expression<Int64>
     
-    required init() {
-        id = Services.get(DatabaseService.self).items[Fields.id]
+    required override init() {
+        id = DatabaseSvc().items[Fields.id]
         super.init()
     }
     
@@ -24,7 +24,7 @@ class ItemServiceImpl<M: Group>: StandardModelServiceImpl<Item>, ItemService {
     }
     
     override internal func table() -> Query {
-        return dbService.items.join(dbService.types, on: Fields.typeId == dbService.types[Fields.id])
+        return DatabaseSvc().items.join(DatabaseSvc().types, on: Fields.typeId == DatabaseSvc().types[Fields.id])
     }
     
     override func defaultOrder(query: Query) -> Query {
@@ -50,7 +50,7 @@ class ItemServiceImpl<M: Group>: StandardModelServiceImpl<Item>, ItemService {
             Fields.date == first.date &&
             Fields.comments == first.comments &&
             Fields.accountId != first.accountId &&
-            Fields.typeId == Services.get(TypeService.self).transferId
+            Fields.typeId == TypeSvc().transferId
         ).first.map { Item(row: $0) }
     }
     
