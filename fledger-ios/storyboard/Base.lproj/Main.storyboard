@@ -161,7 +161,7 @@
         <!--Items-->
         <scene sceneID="jI1-pB-ig8">
             <objects>
-                <tableViewController title="Items" id="Rtb-Bn-PjM" customClass="ItemsViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ItemsViewController" title="Items" id="Rtb-Bn-PjM" customClass="ItemsViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Alf-2r-cMg" customClass="ItemsTableView" customModule="fledger_ios" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1414,14 +1414,14 @@
         <image name="settings.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uih-rT-xX5"/>
+        <segue reference="MqJ-7k-0QP"/>
         <segue reference="2Dv-Xm-PSk"/>
+        <segue reference="vOd-DH-h6d"/>
+        <segue reference="t8H-QI-cpw"/>
+        <segue reference="tDY-ck-rPf"/>
         <segue reference="luh-re-vkP"/>
         <segue reference="TJl-o6-oeJ"/>
-        <segue reference="tDY-ck-rPf"/>
-        <segue reference="t8H-QI-cpw"/>
-        <segue reference="IUs-pd-bNN"/>
         <segue reference="Tie-et-97h"/>
-        <segue reference="MqJ-7k-0QP"/>
+        <segue reference="IUs-pd-bNN"/>
     </inferredMetricsTieBreakers>
 </document>

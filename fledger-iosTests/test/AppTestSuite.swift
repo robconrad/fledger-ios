@@ -12,7 +12,7 @@ class AppTestSuite: XCTestCase {
         super.setUp()
 
         // reinitialize all services on test suite initialization
-        //ServiceBootstrap.register()
+        ServiceBootstrap.register()
     }
 
 }
