@@ -12,7 +12,7 @@ import fledger_ios
 
 class LocationServiceImplSuite: AppTestSuite {
 
-    let service: LocationServiceImpl<Location> = {
+    lazy var service: LocationServiceImpl<Location> = {
         Services.register(DatabaseService.self, DatabaseServiceMock())
         DatabaseSvc().createDatabaseDestructive()
         
