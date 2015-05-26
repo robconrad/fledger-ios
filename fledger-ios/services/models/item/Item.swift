@@ -86,11 +86,18 @@ class Item: Model, Printable {
     }
     
     func toPFObject() -> PFObject? {
-        if id != nil {
+        if let myId = id,
+            parseAccountId = account().parse()!.parseId,
+            parseTypeId = type().parse()!.parseId {
+            let myLocation = location()
+            let parseLocationId = myLocation.flatMap { $0.parse()!.parseId }
+            if myLocation != nil && parseLocationId == nil {
+                return nil
+            }
             let npf = PFObject(withoutDataWithClassName: modelType.rawValue, objectId: pf?.objectId ?? parse()?.parseId)
-            npf["accountId"] = account().parse()!.parseId!
-            npf["typeId"] = type().parse()!.parseId!
-            npf["locationId"] = location().map { $0.parse()!.parseId! } ?? NSNull()
+            npf["accountId"] = parseAccountId
+            npf["typeId"] = parseTypeId
+            npf["locationId"] = parseLocationId ?? NSNull()
             npf["amount"] = amount
             npf["date"] = date
             npf["comments"] = comments

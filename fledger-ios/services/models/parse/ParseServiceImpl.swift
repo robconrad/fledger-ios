@@ -53,18 +53,21 @@ class ParseServiceImpl: ParseService {
     }
     
     func markSynced(id: Int64, _ modelType: ModelType, _ pf: PFObject) -> Bool {
-        let query = DatabaseSvc().parse.filter(Fields.model == modelType.rawValue && Fields.modelId == id)
-        let (rows, stmt) = query.update([
-            Fields.synced <- true,
-            Fields.parseId <- pf.objectId!,
-            Fields.updatedAt <- NSDateTime(pf.updatedAt!)
-        ])
-        if rows == 1 {
-            return true
+        if let parseId = pf.objectId {
+            let query = DatabaseSvc().parse.filter(Fields.model == modelType.rawValue && Fields.modelId == id)
+            let (rows, stmt) = query.update([
+                Fields.synced <- true,
+                Fields.parseId <- parseId,
+                Fields.updatedAt <- NSDateTime(pf.updatedAt!)
+            ])
+            if rows == 1 {
+                return true
+            }
+            else {
+                fatalError("markSynced failed with rows \(rows) and \(stmt)")
+            }
         }
-        else {
-            fatalError("markSynced failed with rows \(rows) and \(stmt)")
-        }
+        return false
     }
     
     func save(convertible: PFObjectConvertible) -> PFObject? {

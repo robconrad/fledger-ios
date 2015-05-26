@@ -62,10 +62,10 @@ class Type: Model, Printable {
     }
     
     func toPFObject() -> PFObject? {
-        if id != nil {
+        if let myId = id, myGroupId = GroupSvc().withId(groupId)?.parse()!.parseId {
             let npf = PFObject(withoutDataWithClassName: modelType.rawValue, objectId: pf?.objectId ?? parse()?.parseId)
             npf["name"] = name
-            npf["groupId"] = GroupSvc().withId(groupId)?.parse()!.parseId!
+            npf["groupId"] = myGroupId
             return npf
         }
         return nil
