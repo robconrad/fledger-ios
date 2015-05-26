@@ -23,6 +23,8 @@ class ItemServiceMock: ItemService {
     }
     var getTransferPairResult: Item? = nil
     var getSumResult = 0.0
+    var getFiltersFromDefaultsResult: ItemFilters!
+    var defaultCountResult = 10
     
     func modelType() -> ModelType {
         return .Item
@@ -82,6 +84,14 @@ class ItemServiceMock: ItemService {
     
     func getSum(item: Item, filters: Filters) -> Double {
         return getSumResult
+    }
+    
+    func getFiltersFromDefaults() -> ItemFilters {
+        return getFiltersFromDefaultsResult
+    }
+    
+    func defaultCount() -> Int {
+        return defaultCountResult
     }
     
 }

@@ -24,7 +24,7 @@ class AppUILabel: UILabel {
         setup()
     }
     
-    private func setup() {
+    internal func setup() {
         textColor? = AppColors.text()
     }
     

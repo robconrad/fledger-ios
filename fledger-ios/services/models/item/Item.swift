@@ -114,6 +114,17 @@ class Item: Model, Printable {
             comments: comments ?? self.comments)
     }
     
+    func withId(id: Int64?) -> Item {
+        return Item(
+            id: id,
+            accountId: accountId,
+            typeId: typeId,
+            locationId: locationId,
+            amount: amount,
+            date: date,
+            comments: comments)
+    }
+    
     func clear(locationId: Bool = false) -> Item {
         return Item(
             id: id,

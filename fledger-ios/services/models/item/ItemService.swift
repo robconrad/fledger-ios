@@ -45,4 +45,8 @@ protocol ItemService: Service {
     
     func getSum(item: Item, filters: Filters) -> Double
     
+    func getFiltersFromDefaults() -> ItemFilters
+    
+    func defaultCount() -> Int
+    
 }

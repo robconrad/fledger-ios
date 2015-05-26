@@ -14,7 +14,7 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
     var items: [Item]?
     var itemSums = Dictionary<Int64, Double>()
     
-    var itemFilters = ItemFiltersFromDefaults()
+    lazy var itemFilters = ItemSvc().getFiltersFromDefaults()
     
     var itemSumOperationFactory: ((Item, NSIndexPath, ItemFilters) -> Void)?
     var selectRowHandler: ((Item?) -> Void)?
@@ -25,8 +25,8 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
         return df
         }()
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override internal func setup() {
+        super.setup()
         delegate = self
         dataSource = self
     }
@@ -41,11 +41,11 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemFilters.count() + (items.map { items in items.count } ?? 0)
+        return itemFilters.countFilters() + (items.map { items in items.count } ?? 0)
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let itemIndex = indexPath.row - itemFilters.count()
+        let itemIndex = indexPath.row - itemFilters.countFilters()
         
         if itemIndex >= 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("default") as! ValueDetail2UITableViewCell
@@ -84,7 +84,7 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let itemIndex = indexPath.row - itemFilters.count()
+        let itemIndex = indexPath.row - itemFilters.countFilters()
         selectRowHandler?(itemIndex >= 0 ? items![itemIndex] : nil)
     }
     

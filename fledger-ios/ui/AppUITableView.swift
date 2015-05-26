@@ -12,7 +12,15 @@ class AppUITableView: UITableView {
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
+        setup()
+    }
+    
+    required override init(frame: CGRect, style: UITableViewStyle) {
+        super.init(frame: frame, style: style)
+        setup()
+    }
+    
+    internal func setup() {
         backgroundColor = AppColors.bgMain()
     }
     

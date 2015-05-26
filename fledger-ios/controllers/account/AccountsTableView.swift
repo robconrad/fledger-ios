@@ -16,8 +16,8 @@ class AccountsTableView: AppUITableView, UITableViewDataSource, UITableViewDeleg
     
     var selectHandler: SelectIdHandler?
     
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    override internal func setup() {
+        super.setup()
         delegate = self
         dataSource = self
     }

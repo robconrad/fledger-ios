@@ -86,7 +86,7 @@ class ItemsViewController: AppUIViewController {
         if segue.identifier == "editItem" {
             if let dest = segue.destinationViewController as? ItemEditViewController {
                 if let row = table.indexPathForSelectedRow()?.row {
-                    let itemIndex = row - table.itemFilters.count()
+                    let itemIndex = row - table.itemFilters.countFilters()
                     if itemIndex >= 0 {
                         dest.item = table.items?[itemIndex]
                     }
@@ -96,7 +96,7 @@ class ItemsViewController: AppUIViewController {
         else if segue.identifier == "editTransfer" {
             if let dest = segue.destinationViewController as? TransferEditViewController {
                 if let row = table.indexPathForSelectedRow()?.row {
-                    let itemIndex = row - table.itemFilters.count()
+                    let itemIndex = row - table.itemFilters.countFilters()
                     if itemIndex >= 0 {
                         let firstItem = table.items?[itemIndex]
                         let secondItem = ItemSvc().getTransferPair(firstItem!)

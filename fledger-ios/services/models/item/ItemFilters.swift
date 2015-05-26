@@ -9,6 +9,17 @@
 import Foundation
 import SQLite
 
+
+func ==(a: ItemFilters, b: ItemFilters) -> Bool {
+    return a.accountId == b.accountId
+        && a.startDate == b.startDate
+        && a.endDate == b.endDate
+        && a.typeId == b.typeId
+        && a.groupId == b.groupId
+        && a.count == b.count
+        && a.offset == b.offset
+}
+
 class ItemFilters: Filters {
     
     var accountId: Int64?
@@ -62,7 +73,7 @@ class ItemFilters: Filters {
         return s
     }
     
-    func count() -> Int {
+    func countFilters() -> Int {
         return strings().count
     }
     
@@ -119,16 +130,4 @@ class ItemFilters: Filters {
         groupId = nil
     }
     
-}
-
-func ItemFiltersFromDefaults() -> ItemFilters {
-    let filters = ItemFilters()
-    
-    filters.accountId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.accountId") as? NSNumber)?.longLongValue
-    filters.startDate = NSUserDefaults.standardUserDefaults().valueForKey("filters.startDate") as? NSDate
-    filters.endDate = NSUserDefaults.standardUserDefaults().valueForKey("filters.endDate") as? NSDate
-    filters.typeId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.typeId") as? NSNumber)?.longLongValue
-    filters.groupId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.groupId") as? NSNumber)?.longLongValue
-    
-    return filters
 }

@@ -62,4 +62,23 @@ class ItemServiceImpl<M: Group>: StandardModelServiceImpl<Item>, ItemService {
             .sum(Fields.amount) ?? 0
     }
     
+    func getFiltersFromDefaults() -> ItemFilters {
+        let filters = ItemFilters()
+        
+        filters.accountId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.accountId") as? NSNumber)?.longLongValue
+        filters.startDate = NSUserDefaults.standardUserDefaults().valueForKey("filters.startDate") as? NSDate
+        filters.endDate = NSUserDefaults.standardUserDefaults().valueForKey("filters.endDate") as? NSDate
+        filters.typeId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.typeId") as? NSNumber)?.longLongValue
+        filters.groupId = (NSUserDefaults.standardUserDefaults().valueForKey("filters.groupId") as? NSNumber)?.longLongValue
+        
+        filters.count = ItemSvc().defaultCount()
+        filters.offset = 0
+        
+        return filters
+    }
+    
+    func defaultCount() -> Int {
+        return 30
+    }
+    
 }
