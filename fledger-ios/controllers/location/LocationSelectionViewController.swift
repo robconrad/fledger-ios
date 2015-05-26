@@ -35,6 +35,9 @@ class LocationSelectionViewController: AppUIViewController, CLLocationManagerDel
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
         }
+        else {
+            navigationItem.titleView = nil
+        }
         
         table.selectHandler = { id in
             self.selectHandler?(id)
