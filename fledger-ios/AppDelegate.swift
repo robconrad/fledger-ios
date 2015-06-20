@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         println("register services \(ServiceBootstrap.registered())")
 
-        if true || !NSUserDefaults.standardUserDefaults().boolForKey("created") {
+        if !NSUserDefaults.standardUserDefaults().boolForKey("created") {
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
             DatabaseSvc().createDatabaseDestructive()
             //DatabaseSvc().loadDefaultData()
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
-        ParseSvc().syncAllFromRemoteInBackground()
+        //ParseSvc().syncAllFromRemoteInBackground()
     }
 
     func applicationWillTerminate(application: UIApplication) {

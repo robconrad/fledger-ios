@@ -271,7 +271,7 @@ class StandardModelServiceImpl<M: Model>: ModelService {
                     }
                 }
                 else {
-                    if update(model, fromRemote: true) {
+                    if !update(model, fromRemote: true) {
                         fatalError(__FUNCTION__ + " failed to update \(model)")
                     }
                 }

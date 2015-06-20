@@ -12,8 +12,12 @@ import UIKit
 class SettingsEditViewController: AppUIViewController {
     
     @IBOutlet weak var themeSwitch: UISwitch!
-    @IBOutlet weak var loadActivity: UIActivityIndicatorView!
-    @IBOutlet weak var syncActivity: UIActivityIndicatorView!
+    @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet weak var loadActivity: AppUIActivityIndicatorView!
+    @IBOutlet weak var syncToParseButton: UIButton!
+    @IBOutlet weak var syncToParseActivity: AppUIActivityIndicatorView!
+    @IBOutlet weak var syncFromParseButton: UIButton!
+    @IBOutlet weak var syncFromParseActivity: AppUIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +25,11 @@ class SettingsEditViewController: AppUIViewController {
         loadActivity.hidden = true
         loadActivity.startAnimating()
         
-        syncActivity.hidden = true
-        syncActivity.startAnimating()
+        syncToParseActivity.hidden = true
+        syncToParseActivity.startAnimating()
+        
+        syncFromParseActivity.hidden = true
+        syncFromParseActivity.startAnimating()
         
         themeSwitch.setOn(AppStyling.get() == AppStyling.Mode.Light, animated: false)
     }
@@ -40,20 +47,31 @@ class SettingsEditViewController: AppUIViewController {
     @IBAction func loadFullDataset(sender: AnyObject) {
         loadActivity.hidden = false
         DatabaseSvc().createDatabaseDestructive()
-        dispatch_async(dispatch_get_global_queue(0, 0)) {
-            DatabaseSvc().loadDefaultData("data")
-            dispatch_async(dispatch_get_main_queue()) {
-                self.loadActivity.hidden = true
-            }
-        }
+        execActivityAsync(loadActivity, loadButton, {
+            return DatabaseSvc().loadDefaultData("data")
+        })
+    }
+    
+    @IBAction func syncToParse(sender: AnyObject) {
+        execActivityAsync(syncToParseActivity, syncToParseButton, {
+            return ParseSvc().syncAllToRemote()
+        })
     }
     
     @IBAction func syncFromParse(sender: AnyObject) {
-        syncActivity.hidden = false
+        execActivityAsync(syncFromParseActivity, syncFromParseButton, {
+            return ParseSvc().syncAllFromRemote()
+        })
+    }
+    
+    private func execActivityAsync(indicator: AppUIActivityIndicatorView, _ button: UIButton, _ activity: () -> ()) {
+        button.enabled = false
+        indicator.hidden = false
         dispatch_async(dispatch_get_global_queue(0, 0)) {
-            ParseSvc().syncAllFromRemote()
+            activity()
             dispatch_async(dispatch_get_main_queue()) {
-                self.syncActivity.hidden = true
+                button.enabled = true
+                indicator.hidden = true
             }
         }
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1038,8 +1038,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQW-AI-ier">
-                                <rect key="frame" x="102" y="192" width="110" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQW-AI-ier">
+                                <rect key="frame" x="105" y="192" width="110" height="30"/>
                                 <state key="normal" title="load full dataset">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1047,45 +1047,64 @@
                                     <action selector="loadFullDataset:" destination="iGV-g5-6gj" eventType="touchUpInside" id="YIt-d5-5hv"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="L7N-mh-B78" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="L7N-mh-B78" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="220" y="197" width="20" height="20"/>
                             </activityIndicatorView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOy-JY-3Mf">
-                                <rect key="frame" x="102" y="269" width="111" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOy-JY-3Mf">
+                                <rect key="frame" x="114" y="269" width="93" height="30"/>
+                                <state key="normal" title="sync to parse">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="syncToParse:" destination="iGV-g5-6gj" eventType="touchUpInside" id="bdi-rC-8Jh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4U-vf-U9i">
+                                <rect key="frame" x="105" y="307" width="111" height="30"/>
                                 <state key="normal" title="sync from parse">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="syncFromParse:" destination="iGV-g5-6gj" eventType="touchUpInside" id="6Bd-nw-BQ7"/>
+                                    <action selector="syncFromParse:" destination="iGV-g5-6gj" eventType="touchUpInside" id="y73-Zk-xSP"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="thV-UQ-SjK" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GMr-Ua-AvH" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="220" y="312" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="thV-UQ-SjK" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="220" y="274" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="OQW-AI-ier" secondAttribute="centerX" id="5Kh-SC-AkT"/>
-                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="6yh-C0-BnV"/>
-                            <constraint firstItem="thV-UQ-SjK" firstAttribute="leading" secondItem="oOy-JY-3Mf" secondAttribute="trailing" constant="7" id="AlV-8A-Wvc"/>
-                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="leading" secondItem="utb-0k-0oz" secondAttribute="trailing" constant="8" id="GrZ-Xe-bGi"/>
-                            <constraint firstItem="thV-UQ-SjK" firstAttribute="leading" secondItem="oOy-JY-3Mf" secondAttribute="trailing" constant="8" id="Iqh-pV-jog"/>
-                            <constraint firstItem="4YG-Uv-YEq" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="X7v-oh-xIF"/>
-                            <constraint firstItem="L7N-mh-B78" firstAttribute="leading" secondItem="OQW-AI-ier" secondAttribute="trailing" constant="8" id="aPU-Au-SBQ"/>
-                            <constraint firstItem="OQW-AI-ier" firstAttribute="top" secondItem="utb-0k-0oz" secondAttribute="bottom" constant="60" id="cxR-wY-rHh"/>
-                            <constraint firstAttribute="centerX" secondItem="oOy-JY-3Mf" secondAttribute="centerX" id="eK4-hG-70q"/>
-                            <constraint firstItem="utb-0k-0oz" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="81" id="hb7-VF-aS4"/>
-                            <constraint firstAttribute="centerX" secondItem="utb-0k-0oz" secondAttribute="centerX" id="j4R-ge-fAR"/>
-                            <constraint firstItem="L7N-mh-B78" firstAttribute="top" secondItem="Zuh-bS-9HR" secondAttribute="bottom" constant="70" id="k21-ml-tJe"/>
-                            <constraint firstItem="utb-0k-0oz" firstAttribute="leading" secondItem="4YG-Uv-YEq" secondAttribute="trailing" constant="8" id="qwe-4r-W3b"/>
-                            <constraint firstItem="oOy-JY-3Mf" firstAttribute="top" secondItem="OQW-AI-ier" secondAttribute="bottom" constant="47" id="tCs-x6-TXs"/>
-                            <constraint firstItem="thV-UQ-SjK" firstAttribute="top" secondItem="L7N-mh-B78" secondAttribute="bottom" constant="57" id="tzF-t7-caq"/>
+                            <constraint firstItem="utb-0k-0oz" firstAttribute="leading" secondItem="4YG-Uv-YEq" secondAttribute="trailing" constant="8" id="00d-f4-DRF"/>
+                            <constraint firstAttribute="centerX" secondItem="oOy-JY-3Mf" secondAttribute="centerX" id="0gd-bS-MRR"/>
+                            <constraint firstAttribute="centerX" secondItem="d4U-vf-U9i" secondAttribute="centerX" id="2eC-z6-uJO"/>
+                            <constraint firstAttribute="centerX" secondItem="utb-0k-0oz" secondAttribute="centerX" id="A3b-3y-hFD"/>
+                            <constraint firstItem="oOy-JY-3Mf" firstAttribute="top" secondItem="OQW-AI-ier" secondAttribute="bottom" constant="47" id="C3N-fj-jza"/>
+                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="leading" secondItem="utb-0k-0oz" secondAttribute="trailing" constant="8" id="HrB-Qd-w0R"/>
+                            <constraint firstItem="L7N-mh-B78" firstAttribute="top" secondItem="Zuh-bS-9HR" secondAttribute="bottom" constant="70" id="Hvv-Ns-cbD"/>
+                            <constraint firstItem="GMr-Ua-AvH" firstAttribute="leading" secondItem="d4U-vf-U9i" secondAttribute="trailing" constant="4" id="MqM-bb-jmz"/>
+                            <constraint firstItem="L7N-mh-B78" firstAttribute="leading" secondItem="OQW-AI-ier" secondAttribute="trailing" constant="5" id="O2H-Dg-XvT"/>
+                            <constraint firstItem="Zuh-bS-9HR" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="RkC-HE-ENs"/>
+                            <constraint firstItem="d4U-vf-U9i" firstAttribute="top" secondItem="oOy-JY-3Mf" secondAttribute="bottom" constant="8" id="XeI-4V-yFM"/>
+                            <constraint firstItem="4YG-Uv-YEq" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="YGQ-45-52W"/>
+                            <constraint firstItem="thV-UQ-SjK" firstAttribute="top" secondItem="L7N-mh-B78" secondAttribute="bottom" constant="57" id="ZTA-GC-T0X"/>
+                            <constraint firstItem="thV-UQ-SjK" firstAttribute="leading" secondItem="oOy-JY-3Mf" secondAttribute="trailing" constant="13" id="d0w-ap-0hP"/>
+                            <constraint firstItem="OQW-AI-ier" firstAttribute="top" secondItem="utb-0k-0oz" secondAttribute="bottom" constant="60" id="eES-Xr-47g"/>
+                            <constraint firstItem="GMr-Ua-AvH" firstAttribute="top" secondItem="thV-UQ-SjK" secondAttribute="bottom" constant="18" id="emw-bx-7hp"/>
+                            <constraint firstAttribute="centerX" secondItem="OQW-AI-ier" secondAttribute="centerX" id="oJa-HN-3hV"/>
+                            <constraint firstItem="utb-0k-0oz" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="81" id="sYj-pg-hVr"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings.png" id="UY4-0W-4Cn"/>
                     <connections>
                         <outlet property="loadActivity" destination="L7N-mh-B78" id="Kt2-WB-fpV"/>
-                        <outlet property="syncActivity" destination="thV-UQ-SjK" id="7fx-MR-bhH"/>
+                        <outlet property="loadButton" destination="OQW-AI-ier" id="Utt-24-4yD"/>
+                        <outlet property="syncFromParseActivity" destination="GMr-Ua-AvH" id="yFg-hS-I73"/>
+                        <outlet property="syncFromParseButton" destination="d4U-vf-U9i" id="1Uk-Hi-Ing"/>
+                        <outlet property="syncToParseActivity" destination="thV-UQ-SjK" id="hWu-B9-ROE"/>
+                        <outlet property="syncToParseButton" destination="oOy-JY-3Mf" id="Dh2-t3-6CB"/>
                         <outlet property="themeSwitch" destination="utb-0k-0oz" id="sVh-UG-zoe"/>
                     </connections>
                 </viewController>
