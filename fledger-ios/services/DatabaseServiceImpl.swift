@@ -20,10 +20,13 @@ class DatabaseServiceImpl: DatabaseService {
     let items: Query
     let parse: Query
     
-    required init() {
+    required init(_ username: String) {
         
         let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
-        db = Database("\(path)/db.sqlite3")
+        let dbPath = "\(path)/db-\(username).sqlite3"
+        let createdKey = "created-\(username)"
+        
+        db = Database(dbPath)
         
         db.trace(println)
         
@@ -45,6 +48,13 @@ class DatabaseServiceImpl: DatabaseService {
             }
             return nil
         }
+        
+        if !NSUserDefaults.standardUserDefaults().boolForKey(createdKey) {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: createdKey)
+            createDatabaseDestructive()
+            //loadDefaultData()
+        }
+        
     }
     
     func createDatabaseDestructive() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="A2J-Ip-qyj">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -1112,6 +1112,100 @@
             </objects>
             <point key="canvasLocation" x="700" y="1002"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="LkV-4N-Gv9">
+            <objects>
+                <viewController id="A2J-Ip-qyj" customClass="LoginViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jll-RH-1yn"/>
+                        <viewControllerLayoutGuide type="bottom" id="bwP-gE-CU6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L9H-Dv-BTJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fledger" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqe-Sb-vgb" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="28" width="288" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnK-Qd-5xL" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="115" y="179" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLC-UL-CQT" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="115" y="225" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZS-na-2xl" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="182" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTg-nI-Xeu" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="228" width="91" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-VI-UPf">
+                                <rect key="frame" x="141" y="290" width="38" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="A2J-Ip-qyj" eventType="touchUpInside" id="Qif-Ll-Zhs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSW-tR-LE9">
+                                <rect key="frame" x="133" y="518" width="55" height="30"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signup:" destination="A2J-Ip-qyj" eventType="touchUpInside" id="xV6-Oq-Wpt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Cqe-Sb-vgb" firstAttribute="leading" secondItem="L9H-Dv-BTJ" secondAttribute="leadingMargin" id="1jP-UM-KOr"/>
+                            <constraint firstItem="kLC-UL-CQT" firstAttribute="top" secondItem="wnK-Qd-5xL" secondAttribute="bottom" constant="16" id="4Zr-qX-Pel"/>
+                            <constraint firstItem="nGc-VI-UPf" firstAttribute="top" secondItem="kLC-UL-CQT" secondAttribute="bottom" constant="35" id="4nK-A9-QN3"/>
+                            <constraint firstItem="zTg-nI-Xeu" firstAttribute="leading" secondItem="L9H-Dv-BTJ" secondAttribute="leadingMargin" id="8Lc-Xi-NHU"/>
+                            <constraint firstAttribute="centerX" secondItem="gSW-tR-LE9" secondAttribute="centerX" id="8sj-to-ZRh"/>
+                            <constraint firstItem="aZS-na-2xl" firstAttribute="leading" secondItem="L9H-Dv-BTJ" secondAttribute="leadingMargin" id="CTn-cr-crS"/>
+                            <constraint firstItem="wnK-Qd-5xL" firstAttribute="leading" secondItem="aZS-na-2xl" secondAttribute="trailing" constant="8" id="RLJ-uh-qRc"/>
+                            <constraint firstItem="kLC-UL-CQT" firstAttribute="leading" secondItem="zTg-nI-Xeu" secondAttribute="trailing" constant="8" id="ViN-qa-hfc"/>
+                            <constraint firstItem="Cqe-Sb-vgb" firstAttribute="trailing" secondItem="L9H-Dv-BTJ" secondAttribute="trailingMargin" id="XEV-Ti-ju1"/>
+                            <constraint firstItem="aZS-na-2xl" firstAttribute="top" secondItem="Cqe-Sb-vgb" secondAttribute="bottom" constant="109" id="ama-un-TLo"/>
+                            <constraint firstItem="kLC-UL-CQT" firstAttribute="trailing" secondItem="L9H-Dv-BTJ" secondAttribute="trailingMargin" id="gQs-bB-SQB"/>
+                            <constraint firstAttribute="centerX" secondItem="nGc-VI-UPf" secondAttribute="centerX" id="kM1-Mk-q6Y"/>
+                            <constraint firstItem="wnK-Qd-5xL" firstAttribute="trailing" secondItem="L9H-Dv-BTJ" secondAttribute="trailingMargin" id="nZA-Gj-dwq"/>
+                            <constraint firstItem="wnK-Qd-5xL" firstAttribute="top" secondItem="Cqe-Sb-vgb" secondAttribute="bottom" constant="106" id="t9I-JP-j0z"/>
+                            <constraint firstItem="Cqe-Sb-vgb" firstAttribute="top" secondItem="jll-RH-1yn" secondAttribute="bottom" constant="8" id="tjy-ue-hoI"/>
+                            <constraint firstItem="bwP-gE-CU6" firstAttribute="top" secondItem="gSW-tR-LE9" secondAttribute="bottom" constant="20" id="xBa-Hm-tG7"/>
+                            <constraint firstItem="zTg-nI-Xeu" firstAttribute="top" secondItem="aZS-na-2xl" secondAttribute="bottom" constant="25" id="yPA-dZ-uhg"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="email" destination="wnK-Qd-5xL" id="iLt-bi-03L"/>
+                        <outlet property="emailLabel" destination="aZS-na-2xl" id="Oe5-VG-0ts"/>
+                        <outlet property="loginButton" destination="nGc-VI-UPf" id="csA-jR-ick"/>
+                        <outlet property="password" destination="kLC-UL-CQT" id="RGV-B1-tjt"/>
+                        <outlet property="passwordLabel" destination="zTg-nI-Xeu" id="jhk-fc-ReY"/>
+                        <outlet property="signupButton" destination="gSW-tR-LE9" id="vGU-ol-Dov"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qj1-1S-PLl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-220" y="-48"/>
+        </scene>
         <!--Overviews-->
         <scene sceneID="Qq1-ge-hAA">
             <objects>
@@ -1133,7 +1227,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="MainTabBarController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="mainTabBarController" id="49e-Tb-3d3" customClass="MainTabBarController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">

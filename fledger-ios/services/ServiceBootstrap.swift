@@ -3,7 +3,7 @@
 // Copyright (c) 2015 Robert Conrad. All rights reserved.
 //
 
-import Foundation
+import Parse
 
 class ServiceBootstrap {
 
@@ -21,7 +21,7 @@ class ServiceBootstrap {
     static func register() {
 
         // prerequisites to most services
-        Services.register(DatabaseService.self, DatabaseServiceImpl())
+        Services.register(DatabaseService.self, DatabaseServiceImpl(PFUser.currentUser()!.username!))
         Services.register(ParseService.self, ParseServiceImpl())
 
         // model services

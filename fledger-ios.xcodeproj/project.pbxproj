@@ -208,6 +208,8 @@
 		3EB323B01AE31B190023825D /* AppUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323AF1AE31B190023825D /* AppUIView.swift */; };
 		3EB323BA1AE31F2C0023825D /* listing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B81AE31F2C0023825D /* listing@2x.png */; };
 		3EB323BB1AE31F2C0023825D /* notepad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B91AE31F2C0023825D /* notepad@2x.png */; };
+		3EEC8C8E1B3614AF008996EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC8C8D1B3614AF008996EF /* LoginViewController.swift */; };
+		3EEC8C8F1B3614AF008996EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC8C8D1B3614AF008996EF /* LoginViewController.swift */; };
 		3EF0EFFE1AED7D9200D14B31 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFD1AED7D9200D14B31 /* Location.swift */; };
 		3EF0F0001AED7D9B00D14B31 /* LocationServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0EFFF1AED7D9B00D14B31 /* LocationServiceImpl.swift */; };
 		3EF0F0021AED8A0300D14B31 /* AppUIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */; };
@@ -408,6 +410,7 @@
 		3EB323AF1AE31B190023825D /* AppUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIView.swift; sourceTree = "<group>"; };
 		3EB323B81AE31F2C0023825D /* listing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listing@2x.png"; sourceTree = "<group>"; };
 		3EB323B91AE31F2C0023825D /* notepad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notepad@2x.png"; sourceTree = "<group>"; };
+		3EEC8C8D1B3614AF008996EF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EF0EFFD1AED7D9200D14B31 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3EF0EFFF1AED7D9B00D14B31 /* LocationServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationServiceImpl.swift; sourceTree = "<group>"; };
 		3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIActivityIndicatorView.swift; sourceTree = "<group>"; };
@@ -642,6 +645,7 @@
 				3E2B87111AE2F6E90080B206 /* overview */,
 				3E2B870B1AE2F4510080B206 /* EditViewController.swift */,
 				3E4AF7521AE437500092F66A /* SettingsEditViewController.swift */,
+				3EEC8C8D1B3614AF008996EF /* LoginViewController.swift */,
 				3E0516491AEC36E600D6637F /* MainTabBarController.swift */,
 				3E7FDCAC1AF5B0C9008DA09E /* SelectHandlers.swift */,
 			);
@@ -1224,6 +1228,7 @@
 				3E2B86AC1ADB6D720080B206 /* Aggregate.swift in Sources */,
 				3E21B2E61AD9E8FC00E00AE1 /* Model.swift in Sources */,
 				3E21B2E41AD9E7B800E00AE1 /* ModelService.swift in Sources */,
+				3EEC8C8E1B3614AF008996EF /* LoginViewController.swift in Sources */,
 				3E2B86D81ADF6FF50080B206 /* AppUINavigationBar.swift in Sources */,
 				3E2B86AA1ADB628F0080B206 /* OverviewViewController.swift in Sources */,
 				3E3B9EF91ADA4702006E9016 /* ItemFilters.swift in Sources */,
@@ -1277,6 +1282,7 @@
 				3E95C59C1AF5F1C6003D88C6 /* AccountsTableView.swift in Sources */,
 				3E95C59D1AF5F1C6003D88C6 /* GroupEditViewController.swift in Sources */,
 				3E95C59E1AF5F1C6003D88C6 /* GroupSelectionViewController.swift in Sources */,
+				3EEC8C8F1B3614AF008996EF /* LoginViewController.swift in Sources */,
 				3EAED14B1B00120C00F0E3C6 /* ParseServiceImpl.swift in Sources */,
 				3E95C59F1AF5F1C6003D88C6 /* GroupsTableView.swift in Sources */,
 				3E95C5A01AF5F1C6003D88C6 /* TypeEditViewController.swift in Sources */,

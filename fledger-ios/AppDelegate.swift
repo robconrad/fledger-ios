@@ -19,27 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         Parse.setApplicationId("fjcMqJqBTJsHRsrDkuKk7wGuAMMTu1d4820IdBQg", clientKey: "hyiXQhwKd2aQvusxJuRliyxrKEhRx6Xx9gTndNaV")
         
-        if PFUser.currentUser() == nil {
-            var user = PFUser()
-            user.username = "foo" // + String(arc4random())
-            user.password = "bar"
-            user.email = user.username! + "@bar.baz"
-            
-            if PFUser.logInWithUsername(user.username!, password: user.password!) == nil {
-                if !user.signUp() {
-                    fatalError("parse signup failed")
-                }
-            }
-        }
-        
-        println("register services \(ServiceBootstrap.registered())")
-
-        if !NSUserDefaults.standardUserDefaults().boolForKey("created") {
-            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "created")
-            DatabaseSvc().createDatabaseDestructive()
-            //DatabaseSvc().loadDefaultData()
-        }
-        
         AppStyling.apply()
         
         return true

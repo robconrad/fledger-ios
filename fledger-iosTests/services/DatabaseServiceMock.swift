@@ -20,10 +20,10 @@ class DatabaseServiceMock: DatabaseService {
     let items: Query
     let parse: Query
     
-    required init() {
+    required init(_ username: String) {
         
         let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
-        db = Database("\(path)/db-test.sqlite3")
+        db = Database("\(path)/db-\(username).sqlite3")
         
         db.trace(println)
         
