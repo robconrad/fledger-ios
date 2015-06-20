@@ -22,9 +22,15 @@ class DatabaseServiceImpl: DatabaseService {
     
     required init(_ username: String) {
         
+        if count(username) < 3 {
+            fatalError("must supply valid username")
+        }
+        
+        let usernameHash = username.md5()
+        
         let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).first as! String
-        let dbPath = "\(path)/db-\(username).sqlite3"
-        let createdKey = "created-\(username)"
+        let dbPath = "\(path)/db-\(usernameHash).sqlite3"
+        let createdKey = "created-\(usernameHash)"
         
         db = Database(dbPath)
         

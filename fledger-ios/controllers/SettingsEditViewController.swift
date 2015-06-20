@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 
 class SettingsEditViewController: AppUIViewController {
@@ -62,6 +63,12 @@ class SettingsEditViewController: AppUIViewController {
         execActivityAsync(syncFromParseActivity, syncFromParseButton, {
             return ParseSvc().syncAllFromRemote()
         })
+    }
+    
+    @IBAction func logout(sender: AnyObject) {
+        PFUser.logOut()
+        let controller = storyboard?.instantiateViewControllerWithIdentifier("loginViewController") as! LoginViewController
+        UIApplication.sharedApplication().delegate!.window!!.rootViewController = controller
     }
     
     private func execActivityAsync(indicator: AppUIActivityIndicatorView, _ button: UIButton, _ activity: () -> ()) {

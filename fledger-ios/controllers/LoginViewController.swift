@@ -19,6 +19,15 @@ class LoginViewController: AppUIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signupButton: UIButton!
     
+    override func viewDidLoad() {
+        if PFUser.currentUser() != nil {
+            handleSuccess()
+            return
+        }
+        
+        super.viewDidLoad()
+    }
+    
     @IBAction func login(sender: AnyObject) {
         if !validateFields() {
             return
@@ -28,7 +37,7 @@ class LoginViewController: AppUIViewController {
             handleSuccess()
         }
         else {
-            password.textColor = AppColors.textError()
+            passwordLabel.textColor = AppColors.textError()
         }
     }
     
@@ -46,13 +55,13 @@ class LoginViewController: AppUIViewController {
             handleSuccess()
         }
         else {
-            email.textColor = AppColors.textError()
+            emailLabel.textColor = AppColors.textError()
         }
     }
     
     private func handleSuccess() {
         // services can't be registered until a PFUser is logged in
-        println("register services \(ServiceBootstrap.registered())")
+        ServiceBootstrap.register()
         
         let controller = storyboard?.instantiateViewControllerWithIdentifier("mainTabBarController") as! MainTabBarController
         UIApplication.sharedApplication().delegate!.window!!.rootViewController = controller
@@ -74,6 +83,10 @@ class LoginViewController: AppUIViewController {
         }
         
         return valid
+    }
+    
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
     }
     
 }

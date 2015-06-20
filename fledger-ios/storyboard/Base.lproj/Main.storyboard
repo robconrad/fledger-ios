@@ -1059,6 +1059,9 @@
                                     <action selector="syncToParse:" destination="iGV-g5-6gj" eventType="touchUpInside" id="bdi-rC-8Jh"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="thV-UQ-SjK" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="220" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d4U-vf-U9i">
                                 <rect key="frame" x="105" y="307" width="111" height="30"/>
                                 <state key="normal" title="sync from parse">
@@ -1071,19 +1074,27 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="GMr-Ua-AvH" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="220" y="312" width="20" height="20"/>
                             </activityIndicatorView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="thV-UQ-SjK" customClass="AppUIActivityIndicatorView" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="220" y="274" width="20" height="20"/>
-                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I5P-lG-P1X">
+                                <rect key="frame" x="135" y="385" width="44" height="30"/>
+                                <state key="normal" title="logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="iGV-g5-6gj" eventType="touchUpInside" id="jcH-bO-eUR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="utb-0k-0oz" firstAttribute="leading" secondItem="4YG-Uv-YEq" secondAttribute="trailing" constant="8" id="00d-f4-DRF"/>
                             <constraint firstAttribute="centerX" secondItem="oOy-JY-3Mf" secondAttribute="centerX" id="0gd-bS-MRR"/>
                             <constraint firstAttribute="centerX" secondItem="d4U-vf-U9i" secondAttribute="centerX" id="2eC-z6-uJO"/>
+                            <constraint firstItem="I5P-lG-P1X" firstAttribute="top" secondItem="d4U-vf-U9i" secondAttribute="bottom" constant="48" id="3QL-MN-cR5"/>
                             <constraint firstAttribute="centerX" secondItem="utb-0k-0oz" secondAttribute="centerX" id="A3b-3y-hFD"/>
                             <constraint firstItem="oOy-JY-3Mf" firstAttribute="top" secondItem="OQW-AI-ier" secondAttribute="bottom" constant="47" id="C3N-fj-jza"/>
                             <constraint firstItem="Zuh-bS-9HR" firstAttribute="leading" secondItem="utb-0k-0oz" secondAttribute="trailing" constant="8" id="HrB-Qd-w0R"/>
                             <constraint firstItem="L7N-mh-B78" firstAttribute="top" secondItem="Zuh-bS-9HR" secondAttribute="bottom" constant="70" id="Hvv-Ns-cbD"/>
+                            <constraint firstAttribute="centerX" secondItem="I5P-lG-P1X" secondAttribute="centerX" id="LgZ-f8-1PL"/>
                             <constraint firstItem="GMr-Ua-AvH" firstAttribute="leading" secondItem="d4U-vf-U9i" secondAttribute="trailing" constant="4" id="MqM-bb-jmz"/>
                             <constraint firstItem="L7N-mh-B78" firstAttribute="leading" secondItem="OQW-AI-ier" secondAttribute="trailing" constant="5" id="O2H-Dg-XvT"/>
                             <constraint firstItem="Zuh-bS-9HR" firstAttribute="top" secondItem="B6y-3L-0s3" secondAttribute="bottom" constant="86" id="RkC-HE-ENs"/>
@@ -1115,7 +1126,7 @@
         <!--Login View Controller-->
         <scene sceneID="LkV-4N-Gv9">
             <objects>
-                <viewController id="A2J-Ip-qyj" customClass="LoginViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="A2J-Ip-qyj" customClass="LoginViewController" customModule="fledger_ios" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jll-RH-1yn"/>
                         <viewControllerLayoutGuide type="bottom" id="bwP-gE-CU6"/>
@@ -1124,36 +1135,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fledger" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqe-Sb-vgb" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
-                                <rect key="frame" x="16" y="28" width="288" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnK-Qd-5xL" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wnK-Qd-5xL" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="115" y="179" width="189" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kLC-UL-CQT" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kLC-UL-CQT" customClass="AppUITextField" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="115" y="225" width="189" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZS-na-2xl" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="16" y="182" width="91" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="vWE-YQ-sA2"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Password" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTg-nI-Xeu" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
                                 <rect key="frame" x="16" y="228" width="91" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="91" id="kFd-PI-u9U"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nGc-VI-UPf">
-                                <rect key="frame" x="141" y="290" width="38" height="30"/>
+                                <rect key="frame" x="16" y="290" width="288" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1170,10 +1181,17 @@
                                     <action selector="signup:" destination="A2J-Ip-qyj" eventType="touchUpInside" id="xV6-Oq-Wpt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Fledger" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cqe-Sb-vgb" customClass="AppUILabel" customModule="fledger_ios" customModuleProvider="target">
+                                <rect key="frame" x="16" y="63" width="288" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Cqe-Sb-vgb" firstAttribute="leading" secondItem="L9H-Dv-BTJ" secondAttribute="leadingMargin" id="1jP-UM-KOr"/>
+                            <constraint firstItem="nGc-VI-UPf" firstAttribute="trailing" secondItem="L9H-Dv-BTJ" secondAttribute="trailingMargin" id="4N1-eq-m6q"/>
                             <constraint firstItem="kLC-UL-CQT" firstAttribute="top" secondItem="wnK-Qd-5xL" secondAttribute="bottom" constant="16" id="4Zr-qX-Pel"/>
                             <constraint firstItem="nGc-VI-UPf" firstAttribute="top" secondItem="kLC-UL-CQT" secondAttribute="bottom" constant="35" id="4nK-A9-QN3"/>
                             <constraint firstItem="zTg-nI-Xeu" firstAttribute="leading" secondItem="L9H-Dv-BTJ" secondAttribute="leadingMargin" id="8Lc-Xi-NHU"/>
@@ -1182,12 +1200,13 @@
                             <constraint firstItem="wnK-Qd-5xL" firstAttribute="leading" secondItem="aZS-na-2xl" secondAttribute="trailing" constant="8" id="RLJ-uh-qRc"/>
                             <constraint firstItem="kLC-UL-CQT" firstAttribute="leading" secondItem="zTg-nI-Xeu" secondAttribute="trailing" constant="8" id="ViN-qa-hfc"/>
                             <constraint firstItem="Cqe-Sb-vgb" firstAttribute="trailing" secondItem="L9H-Dv-BTJ" secondAttribute="trailingMargin" id="XEV-Ti-ju1"/>
+                            <constraint firstItem="nGc-VI-UPf" firstAttribute="leading" secondItem="L9H-Dv-BTJ" secondAttribute="leadingMargin" id="Zx6-7t-XUe"/>
                             <constraint firstItem="aZS-na-2xl" firstAttribute="top" secondItem="Cqe-Sb-vgb" secondAttribute="bottom" constant="109" id="ama-un-TLo"/>
                             <constraint firstItem="kLC-UL-CQT" firstAttribute="trailing" secondItem="L9H-Dv-BTJ" secondAttribute="trailingMargin" id="gQs-bB-SQB"/>
                             <constraint firstAttribute="centerX" secondItem="nGc-VI-UPf" secondAttribute="centerX" id="kM1-Mk-q6Y"/>
                             <constraint firstItem="wnK-Qd-5xL" firstAttribute="trailing" secondItem="L9H-Dv-BTJ" secondAttribute="trailingMargin" id="nZA-Gj-dwq"/>
                             <constraint firstItem="wnK-Qd-5xL" firstAttribute="top" secondItem="Cqe-Sb-vgb" secondAttribute="bottom" constant="106" id="t9I-JP-j0z"/>
-                            <constraint firstItem="Cqe-Sb-vgb" firstAttribute="top" secondItem="jll-RH-1yn" secondAttribute="bottom" constant="8" id="tjy-ue-hoI"/>
+                            <constraint firstItem="Cqe-Sb-vgb" firstAttribute="top" secondItem="jll-RH-1yn" secondAttribute="bottom" constant="24" id="tjy-ue-hoI"/>
                             <constraint firstItem="bwP-gE-CU6" firstAttribute="top" secondItem="gSW-tR-LE9" secondAttribute="bottom" constant="20" id="xBa-Hm-tG7"/>
                             <constraint firstItem="zTg-nI-Xeu" firstAttribute="top" secondItem="aZS-na-2xl" secondAttribute="bottom" constant="25" id="yPA-dZ-uhg"/>
                         </constraints>
