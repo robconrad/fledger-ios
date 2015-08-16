@@ -58,6 +58,11 @@
 		3E39186C1B781CE600F72EC5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E39186B1B781CE600F72EC5 /* ArrayExtension.swift */; };
 		3E3918861B78343800F72EC5 /* FledgerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3918851B78343800F72EC5 /* FledgerCommon.framework */; };
 		3E3918871B78343800F72EC5 /* FledgerCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E3918851B78343800F72EC5 /* FledgerCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3E3918D11B80506100F72EC5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E39186B1B781CE600F72EC5 /* ArrayExtension.swift */; };
+		3E3918D41B80517B00F72EC5 /* DatabaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3918D31B80517B00F72EC5 /* DatabaseServiceMock.swift */; };
+		3E3918D91B80519300F72EC5 /* AccountServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3918D61B80519300F72EC5 /* AccountServiceMock.swift */; };
+		3E3918DA1B80519300F72EC5 /* ItemServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3918D71B80519300F72EC5 /* ItemServiceMock.swift */; };
+		3E3918DB1B80519300F72EC5 /* ParseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3918D81B80519300F72EC5 /* ParseServiceMock.swift */; };
 		3E3B9EF11ADA3E9E006E9016 /* ItemSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */; };
 		3E4AF7491AE36A4A0092F66A /* TransferEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */; };
 		3E4AF7511AE436DB0092F66A /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E4AF7501AE436DB0092F66A /* settings@2x.png */; };
@@ -213,6 +218,10 @@
 		3E2B870B1AE2F4510080B206 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		3E39186B1B781CE600F72EC5 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtension.swift; path = extensions/ArrayExtension.swift; sourceTree = "<group>"; };
 		3E3918851B78343800F72EC5 /* FledgerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FledgerCommon.framework; path = "../FledgerCommon/Build/Products/Debug-iphonesimulator/FledgerCommon.framework"; sourceTree = "<group>"; };
+		3E3918D31B80517B00F72EC5 /* DatabaseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceMock.swift; sourceTree = "<group>"; };
+		3E3918D61B80519300F72EC5 /* AccountServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountServiceMock.swift; sourceTree = "<group>"; };
+		3E3918D71B80519300F72EC5 /* ItemServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemServiceMock.swift; sourceTree = "<group>"; };
+		3E3918D81B80519300F72EC5 /* ParseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseServiceMock.swift; sourceTree = "<group>"; };
 		3E3B9EF01ADA3E9E006E9016 /* ItemSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemSearchViewController.swift; sourceTree = "<group>"; };
 		3E4AF7481AE36A4A0092F66A /* TransferEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferEditViewController.swift; sourceTree = "<group>"; };
 		3E4AF7501AE436DB0092F66A /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
@@ -328,6 +337,7 @@
 		3E21B2841AD7229000E00AE1 /* fledger-iosTests */ = {
 			isa = PBXGroup;
 			children = (
+				3E3918D21B80516900F72EC5 /* services */,
 				3E95C57F1AF5EE8F003D88C6 /* controllers */,
 				3E21B2851AD7229000E00AE1 /* Supporting Files */,
 				3DC615A477F97DDC8F2D3975 /* test */,
@@ -449,6 +459,49 @@
 				3E39186B1B781CE600F72EC5 /* ArrayExtension.swift */,
 			);
 			name = extensions;
+			sourceTree = "<group>";
+		};
+		3E3918D21B80516900F72EC5 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				3E3918D51B80518400F72EC5 /* models */,
+			);
+			name = services;
+			sourceTree = "<group>";
+		};
+		3E3918D51B80518400F72EC5 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				3E3918D31B80517B00F72EC5 /* DatabaseServiceMock.swift */,
+				3E3918DD1B8051A400F72EC5 /* account */,
+				3E3918DE1B8051A900F72EC5 /* item */,
+				3E3918DC1B80519F00F72EC5 /* parse */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		3E3918DC1B80519F00F72EC5 /* parse */ = {
+			isa = PBXGroup;
+			children = (
+				3E3918D81B80519300F72EC5 /* ParseServiceMock.swift */,
+			);
+			name = parse;
+			sourceTree = "<group>";
+		};
+		3E3918DD1B8051A400F72EC5 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				3E3918D61B80519300F72EC5 /* AccountServiceMock.swift */,
+			);
+			name = account;
+			sourceTree = "<group>";
+		};
+		3E3918DE1B8051A900F72EC5 /* item */ = {
+			isa = PBXGroup;
+			children = (
+				3E3918D71B80519300F72EC5 /* ItemServiceMock.swift */,
+			);
+			name = item;
 			sourceTree = "<group>";
 		};
 		3E95C57E1AF5D59D003D88C6 /* date */ = {
@@ -770,6 +823,7 @@
 			files = (
 				3E95C5B31AF5F309003D88C6 /* CenterPinMapViewController.m in Sources */,
 				3E95C58A1AF5F1C6003D88C6 /* AppUIView.swift in Sources */,
+				3E3918D41B80517B00F72EC5 /* DatabaseServiceMock.swift in Sources */,
 				3E95C58B1AF5F1C6003D88C6 /* AppUILabel.swift in Sources */,
 				3E95C58C1AF5F1C6003D88C6 /* AppUITableView.swift in Sources */,
 				3E95C58D1AF5F1C6003D88C6 /* AppUITableViewCell.swift in Sources */,
@@ -782,6 +836,7 @@
 				3E95C5941AF5F1C6003D88C6 /* AppUINavigationController.swift in Sources */,
 				3E95C5951AF5F1C6003D88C6 /* AppUITabBarController.swift in Sources */,
 				3E95C5961AF5F1C6003D88C6 /* AppUITextField.swift in Sources */,
+				3E3918D91B80519300F72EC5 /* AccountServiceMock.swift in Sources */,
 				3E95C5971AF5F1C6003D88C6 /* AppUITextView.swift in Sources */,
 				3E95C5981AF5F1C6003D88C6 /* AppUINavigationBar.swift in Sources */,
 				3E95C5991AF5F1C6003D88C6 /* AppUIToolbar.swift in Sources */,
@@ -808,6 +863,7 @@
 				3E95C5AE1AF5F1C6003D88C6 /* SettingsEditViewController.swift in Sources */,
 				3E95C5AF1AF5F1C6003D88C6 /* MainTabBarController.swift in Sources */,
 				3E95C5B01AF5F1C6003D88C6 /* AppDelegate.swift in Sources */,
+				3E3918DA1B80519300F72EC5 /* ItemServiceMock.swift in Sources */,
 				3E95C5851AF5F06B003D88C6 /* SelectHandlers.swift in Sources */,
 				3E95C5891AF5F0B5003D88C6 /* AppStyling.swift in Sources */,
 				3E95C5831AF5EF25003D88C6 /* AccountEditViewController.swift in Sources */,
@@ -819,6 +875,8 @@
 				3EAED1731B0FA36600F0E3C6 /* ItemsTableViewSuite.swift in Sources */,
 				3EAED1541B058AF300F0E3C6 /* ItemsTableView.swift in Sources */,
 				3DC61D00F43D641BF65D6449 /* AppTestSuite.swift in Sources */,
+				3E3918D11B80506100F72EC5 /* ArrayExtension.swift in Sources */,
+				3E3918DB1B80519300F72EC5 /* ParseServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,12 +1059,16 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/rconrad/Dropbox/macbook-air/Projects/FledgerCommon/Build/Products/Debug-iphonesimulator",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "fledger-iosTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1014,6 +1076,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "fledger-iosTests";
+				SDKROOT = iphoneos;
 				STRIP_STYLE = all;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/objc/Bridging-Header.h";
@@ -1027,8 +1090,12 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/rconrad/Dropbox/macbook-air/Projects/FledgerCommon/Build/Products/Debug-iphonesimulator",
+				);
 				INFOPLIST_FILE = "fledger-iosTests/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1036,6 +1103,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "fledger-iosTests";
+				SDKROOT = iphoneos;
 				STRIP_STYLE = all;
 				SWIFT_INSTALL_OBJC_HEADER = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/objc/Bridging-Header.h";

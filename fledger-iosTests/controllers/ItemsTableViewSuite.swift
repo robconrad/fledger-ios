@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import FledgerCommon
 import fledger_ios
 
 

@@ -4,14 +4,17 @@
 //
 
 import XCTest
-import fledger_ios
+import FledgerCommon
+import Parse
 
 class AppTestSuite: XCTestCase {
 
     override class func setUp() {
         super.setUp()
-
+        
         // reinitialize all services on test suite initialization
+        ServiceBootstrap.preRegister()
+        PFUser.logInWithUsername("test", password: "test")
         ServiceBootstrap.register()
     }
 
