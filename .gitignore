@@ -4,3 +4,4 @@ Build
 fledger-ios.xcworkspace/xcuserdata
 fledger-ios.xcodeproj/xcuserdata
 .idea
+.DS_Store
