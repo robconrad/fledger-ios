@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import FledgerCommon
 
 
 class LocationSelectionViewController: AppUIViewController, CLLocationManagerDelegate {

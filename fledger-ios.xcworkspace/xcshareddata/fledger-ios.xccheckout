@@ -10,6 +10,8 @@
 	<string>fledger-ios</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>0BD8ED0135253063A13863DC8B4E73B42C40F70E</key>
+		<string>https://github.com/robconrad/fledger-common.git</string>
 		<key>99F94EE49297D944487E4F77A2FBA308396A28CC</key>
 		<string>https://github.com/robconrad/fledger-ios.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>fledger-ios.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>0BD8ED0135253063A13863DC8B4E73B42C40F70E</key>
+		<string>../../FledgerCommon</string>
 		<key>99F94EE49297D944487E4F77A2FBA308396A28CC</key>
 		<string>..</string>
 	</dict>
@@ -35,6 +39,14 @@
 			<string>99F94EE49297D944487E4F77A2FBA308396A28CC</string>
 			<key>IDESourceControlWCCName</key>
 			<string>fledger-ios-appcode</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0BD8ED0135253063A13863DC8B4E73B42C40F70E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FledgerCommon</string>
 		</dict>
 	</array>
 </dict>

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import Parse
+import FledgerCommon
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,9 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        // Initialize Parse.
-        Parse.setApplicationId("fjcMqJqBTJsHRsrDkuKk7wGuAMMTu1d4820IdBQg", clientKey: "hyiXQhwKd2aQvusxJuRliyxrKEhRx6Xx9gTndNaV")
+
+        ServiceBootstrap.preRegister()
         
         AppStyling.apply()
         

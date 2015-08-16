@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FledgerCommon
 
 
 class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate {

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+import FledgerCommon
 
 
 class SettingsEditViewController: AppUIViewController {
@@ -66,7 +66,7 @@ class SettingsEditViewController: AppUIViewController {
     }
     
     @IBAction func logout(sender: AnyObject) {
-        PFUser.logOut()
+        ParseSvc().logout()
         let controller = storyboard?.instantiateViewControllerWithIdentifier("loginViewController") as! LoginViewController
         UIApplication.sharedApplication().delegate!.window!!.rootViewController = controller
     }

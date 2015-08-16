@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Parse
+import FledgerCommon
 
 
 class LoginViewController: AppUIViewController {
@@ -20,7 +20,7 @@ class LoginViewController: AppUIViewController {
     @IBOutlet weak var signupButton: UIButton!
     
     override func viewDidLoad() {
-        if PFUser.currentUser() != nil {
+        if ParseSvc().isLoggedIn() {
             handleSuccess()
             return
         }
@@ -33,7 +33,7 @@ class LoginViewController: AppUIViewController {
             return
         }
         
-        if PFUser.logInWithUsername(email.text, password: password.text) != nil {
+        if ParseSvc().login(email.text, password.text) {
             handleSuccess()
         }
         else {
@@ -46,12 +46,7 @@ class LoginViewController: AppUIViewController {
             return
         }
         
-        let user = PFUser()
-        user.username = email.text
-        user.password = password.text
-        user.email = email.text
-        
-        if user.signUp() {
+        if ParseSvc().signup(email.text, password.text) {
             handleSuccess()
         }
         else {

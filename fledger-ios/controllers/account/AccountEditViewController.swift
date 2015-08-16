@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FledgerCommon
+
 
 class AccountEditViewController: EditViewController {
     

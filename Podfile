@@ -1,6 +1,3 @@
-pod 'Parse'
+use_frameworks!
 
-target 'fledger-iosTests' do
-  use_frameworks!
-  pod 'Parse'
-end
+pod 'SQLite.swift', git: 'https://github.com/stephencelis/SQLite.swift.git'

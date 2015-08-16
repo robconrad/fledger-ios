@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FledgerCommon
 
 
 class AccountsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate {

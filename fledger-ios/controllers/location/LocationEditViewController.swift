@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import AddressBookUI
+import FledgerCommon
 
 
 class LocationEditViewController: CenterPinMapViewController, CenterPinMapViewControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate {

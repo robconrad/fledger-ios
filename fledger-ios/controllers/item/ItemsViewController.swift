@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FledgerCommon
+
 
 class ItemsViewController: AppUIViewController {
     
@@ -15,7 +17,7 @@ class ItemsViewController: AppUIViewController {
     var itemFilters: ItemFilters?
     var isSearchable = true
     
-    private var syncListener: ItemSyncListener?
+    private var syncListener: ParseSyncListener?
     
     private let dataQueue: NSOperationQueue = {
         var q = NSOperationQueue()
@@ -64,7 +66,13 @@ class ItemsViewController: AppUIViewController {
         table.itemFilters.count = 30
         table.itemFilters.offset = 0
         
-        let listener = ItemSyncListener(controller: self)
+        let listener = ParseSyncListener { syncType in
+            if syncType == .From {
+                dispatch_sync(dispatch_get_main_queue()) {
+                    self.table.reloadData()
+                }
+            }
+        }
         ParseSvc().registerSyncListener(listener)
         syncListener = listener
     }
@@ -201,24 +209,6 @@ class ReloadTableOperation: NSOperation {
         
         dispatch_sync(dispatch_get_main_queue()) {
             self.controller.table.reloadData()
-        }
-    }
-    
-}
-
-class ItemSyncListener: ParseSyncListener {
-    
-    let controller: ItemsViewController
-    
-    init(controller: ItemsViewController) {
-        self.controller = controller
-    }
-    
-    override func notify(syncType: ParseSyncType) {
-        if syncType == .From {
-            dispatch_sync(dispatch_get_main_queue()) {
-                self.controller.table.reloadData()
-            }
         }
     }
     
