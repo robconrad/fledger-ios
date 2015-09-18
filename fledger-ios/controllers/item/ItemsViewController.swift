@@ -17,7 +17,7 @@ class ItemsViewController: AppUIViewController {
     var itemFilters: ItemFilters?
     var isSearchable = true
     
-    private var syncListener: ParseSyncListener?
+    private var syncListener: UserDataSyncListener?
     
     private let dataQueue: NSOperationQueue = {
         var q = NSOperationQueue()
@@ -35,7 +35,7 @@ class ItemsViewController: AppUIViewController {
     
     deinit {
         if let listener = syncListener {
-            ParseSvc().ungregisterSyncListener(listener)
+            UserSvc().ungregisterSyncListener(listener)
         }
     }
     
@@ -66,14 +66,14 @@ class ItemsViewController: AppUIViewController {
         table.itemFilters.count = 30
         table.itemFilters.offset = 0
         
-        let listener = ParseSyncListener { syncType in
+        let listener = UserDataSyncListener { syncType in
             if syncType == .From {
                 dispatch_sync(dispatch_get_main_queue()) {
                     self.table.reloadData()
                 }
             }
         }
-        ParseSvc().registerSyncListener(listener)
+        UserSvc().registerSyncListener(listener)
         syncListener = listener
     }
     

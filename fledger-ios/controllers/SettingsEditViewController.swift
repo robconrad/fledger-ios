@@ -47,26 +47,27 @@ class SettingsEditViewController: AppUIViewController {
     
     @IBAction func loadFullDataset(sender: AnyObject) {
         loadActivity.hidden = false
-        DatabaseSvc().createDatabaseDestructive()
-        execActivityAsync(loadActivity, loadButton, {
-            return DatabaseSvc().loadDefaultData("data")
-        })
+        fatalError("destructive create not available from client")
+//        DatabaseSvc().createDatabaseDestructive()
+//        execActivityAsync(loadActivity, loadButton, {
+//            return DatabaseSvc().loadDefaultData("data")
+//        })
     }
     
     @IBAction func syncToParse(sender: AnyObject) {
         execActivityAsync(syncToParseActivity, syncToParseButton, {
-            return ParseSvc().syncAllToRemote()
+            return UserSvc().syncAllToRemote()
         })
     }
     
     @IBAction func syncFromParse(sender: AnyObject) {
         execActivityAsync(syncFromParseActivity, syncFromParseButton, {
-            return ParseSvc().syncAllFromRemote()
+            return UserSvc().syncAllFromRemote()
         })
     }
     
     @IBAction func logout(sender: AnyObject) {
-        ParseSvc().logout()
+        UserSvc().logout()
         let controller = storyboard?.instantiateViewControllerWithIdentifier("loginViewController") as! LoginViewController
         UIApplication.sharedApplication().delegate!.window!!.rootViewController = controller
     }
