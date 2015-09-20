@@ -39,7 +39,7 @@ class AccountsTableView: AppUITableView, UITableViewDataSource, UITableViewDeleg
     }
     
     override func reloadData() {
-        accounts = AccountSvc().all().filter({ !$0.inactive })
+        accounts = AccountSvc().all().filter { !$0.inactive }
         super.reloadData()
     }
     
