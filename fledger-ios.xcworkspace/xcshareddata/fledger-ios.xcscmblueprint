@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "99F94EE49297D944487E4F77A2FBA308396A28CC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0BD8ED0135253063A13863DC8B4E73B42C40F70E" : 0,
+    "99F94EE49297D944487E4F77A2FBA308396A28CC" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "047AD440-4058-4F1B-8526-15AF5221FB20",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0BD8ED0135253063A13863DC8B4E73B42C40F70E" : "FledgerCommon",
+    "99F94EE49297D944487E4F77A2FBA308396A28CC" : "fledger-ios-appcode"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "fledger-ios",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "fledger-ios.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/robconrad\/fledger-common.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0BD8ED0135253063A13863DC8B4E73B42C40F70E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/robconrad\/fledger-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "99F94EE49297D944487E4F77A2FBA308396A28CC"
+    }
+  ]
+}

@@ -34,7 +34,7 @@ class LoginViewController: AppUIViewController {
         helper.signup()
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     
@@ -43,11 +43,11 @@ class LoginViewController: AppUIViewController {
 extension LoginViewController: LoginViewHelperDataSource {
     
     func getEmail() -> String {
-        return email.text
+        return email.text!
     }
     
     func getPassword() -> String {
-        return password.text
+        return password.text!
     }
     
 }

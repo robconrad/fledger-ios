@@ -43,11 +43,11 @@ class TransferEditViewController: EditViewController {
         type.setTitle(TypeSvc().transferType().name, forState: .Normal)
         
         fromItem = fromItem?.copy(
-            accountId: selectedFromAccountId,
+            selectedFromAccountId,
             date: selectedDate)
         
         intoItem = intoItem?.copy(
-            accountId: selectedIntoAccountId,
+            selectedIntoAccountId,
             date: selectedDate)
         
         if fromItem != nil && intoItem != nil {
@@ -119,7 +119,7 @@ class TransferEditViewController: EditViewController {
                     locationId: nil,
                     amount: -amountValue(),
                     date: selectedDate!,
-                    comments: comments.text)) == nil
+                    comments: comments.text!)) == nil
                 errors = errors || ItemSvc().insert(Item(
                     id: nil,
                     accountId: selectedIntoAccountId!,
@@ -127,7 +127,7 @@ class TransferEditViewController: EditViewController {
                     locationId: nil,
                     amount: amountValue(),
                     date: selectedDate!,
-                    comments: comments.text)) == nil
+                    comments: comments.text!)) == nil
             }
             
             if !errors {
@@ -182,7 +182,7 @@ class TransferEditViewController: EditViewController {
     }
     
     func amountValue() -> Double {
-        return (amount.text as NSString).doubleValue
+        return (amount.text! as NSString).doubleValue
     }
     
     func checkErrors() {
@@ -219,7 +219,7 @@ class TransferEditViewController: EditViewController {
     }
     
     func checkCommentsError() {
-        checkErrors(count(comments.text) == 0, item: commentsLabel)
+        checkErrors(comments.text!.characters.count == 0, item: commentsLabel)
     }
     
 }

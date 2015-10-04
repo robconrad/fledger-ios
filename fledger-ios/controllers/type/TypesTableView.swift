@@ -62,11 +62,11 @@ class TypesTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
         for section in sectionRows.keys {
             sections.append(section)
         }
-        sections = sorted(sections, { left, right in
+        sections.sortInPlace({ left, right in
             return left.lowercaseString < right.lowercaseString
         })
         for section in sections {
-            sectionIndices.append(section.substringToIndex(advance(section.startIndex, min(3, count(section)))))
+            sectionIndices.append(section.substringToIndex(section.startIndex.advancedBy(min(3, section.characters.count))))
         }
         
         super.reloadData()
@@ -86,11 +86,11 @@ class TypesTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel.textColor = AppColors.text()
+        header.textLabel!.textColor = AppColors.text()
         header.contentView.backgroundColor = AppColors.bgHighlight()
     }
     
-    func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+    func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]! {
         return sectionIndices
     }
     
@@ -105,7 +105,7 @@ class TypesTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
             label = type.name
         }
         
-        let cell = dequeueReusableCellWithIdentifier(reuseIdentifier) as! UITableViewCell
+        let cell = dequeueReusableCellWithIdentifier(reuseIdentifier)!
         cell.textLabel?.text = label
         
         return cell

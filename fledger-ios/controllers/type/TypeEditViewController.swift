@@ -70,7 +70,7 @@ class TypeEditViewController: EditViewController {
                 id = TypeSvc().insert(Type(
                     id: nil,
                     groupId: selectedGroupId!,
-                    name: name.text))
+                    name: name.text!))
                 errors = id == nil
             }
             

@@ -42,7 +42,7 @@ class ValueUITableViewCell: AppUITableViewCell {
     var title: UILabel = UILabel()
     var value: UILabel = UILabel()
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         applySettings()
@@ -58,14 +58,14 @@ class ValueUITableViewCell: AppUITableViewCell {
         value.font = value.font.fontWithSize(15)
         value.textColor = AppColors.text()
         
-        title.setTranslatesAutoresizingMaskIntoConstraints(false)
-        value.setTranslatesAutoresizingMaskIntoConstraints(false)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        value.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(title)
         contentView.addSubview(value)
     }
     
-    internal func getConstraintViews() -> [NSObject : AnyObject] {
+    internal func getConstraintViews() -> [String : AnyObject] {
         return [
             "title": title,
             "value": value
@@ -85,7 +85,7 @@ class ValueUITableViewCell: AppUITableViewCell {
         let formats = getConstraintFormats()
         
         for format in formats {
-            let constraint = NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(0), metrics: nil, views: views)
+            let constraint = NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
             contentView.addConstraints(constraint)
         }
     }

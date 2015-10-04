@@ -15,7 +15,7 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
     var items: [Item]?
     var itemSums = Dictionary<Int64, Double>()
     
-    lazy var itemFilters = ItemSvc().getFiltersFromDefaults()
+    lazy var itemFilters: ItemFilters = ItemSvc().getFiltersFromDefaults()
     
     var itemSumOperationFactory: ((Item, NSIndexPath, ItemFilters) -> Void)?
     var selectRowHandler: ((Item?) -> Void)?
@@ -76,7 +76,7 @@ class ItemsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegate
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("filter") as! UITableViewCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("filter")!
             
             cell.textLabel?.text = itemFilters.strings()[indexPath.row]
             

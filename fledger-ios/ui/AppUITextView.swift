@@ -10,7 +10,7 @@ import UIKit
 
 class AppUIViewField: UITextView {
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         backgroundColor = AppColors.bgHighlight()

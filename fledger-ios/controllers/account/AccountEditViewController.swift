@@ -41,13 +41,13 @@ class AccountEditViewController: EditViewController {
             
             if let a = account {
                 errors = !AccountSvc().update(a.copy(
-                    name: name.text,
+                    name.text,
                     inactive: !active.on))
             }
             else {
                 id = AccountSvc().insert(Account(
                     id: nil,
-                    name: name.text,
+                    name: name.text!,
                     priority: 0,
                     inactive: !active.on))
                 errors = id == nil

@@ -20,12 +20,12 @@ class ValueDetail2UITableViewCell: ValueDetailUITableViewCell {
         detailRight.textAlignment = .Right
         detailRight.textColor = AppColors.text()
         
-        detailRight.setTranslatesAutoresizingMaskIntoConstraints(false)
+        detailRight.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(detailRight)
     }
     
-    override internal func getConstraintViews() -> [NSObject : AnyObject] {
+    override internal func getConstraintViews() -> [String : AnyObject] {
         var views = super.getConstraintViews()
         views["detailRight"] = detailRight
         return views

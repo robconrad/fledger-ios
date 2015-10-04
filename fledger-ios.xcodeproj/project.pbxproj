@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4C7EC72CC8579BE2CA91A3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F24D0230928DA32EB15B61A /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		3DC61D00F43D641BF65D6449 /* AppTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC618A2600A85B2AE218B99 /* AppTestSuite.swift */; };
 		3E0516421AEC304000D6637F /* AppStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516411AEC304000D6637F /* AppStyling.swift */; };
 		3E0516481AEC357600D6637F /* CanStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0516471AEC357600D6637F /* CanStyle.swift */; };
@@ -42,8 +43,6 @@
 		3E2B87041AE2E83D0080B206 /* AccountEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B87031AE2E83D0080B206 /* AccountEditViewController.swift */; };
 		3E2B870C1AE2F4510080B206 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2B870B1AE2F4510080B206 /* EditViewController.swift */; };
 		3E39186C1B781CE600F72EC5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E39186B1B781CE600F72EC5 /* ArrayExtension.swift */; };
-		3E3918861B78343800F72EC5 /* FledgerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3918851B78343800F72EC5 /* FledgerCommon.framework */; };
-		3E3918871B78343800F72EC5 /* FledgerCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3E3918851B78343800F72EC5 /* FledgerCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3E3918D11B80506100F72EC5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E39186B1B781CE600F72EC5 /* ArrayExtension.swift */; };
 		3E3918D41B80517B00F72EC5 /* DatabaseServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3918D31B80517B00F72EC5 /* DatabaseServiceMock.swift */; };
 		3E3918D91B80519300F72EC5 /* AccountServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3918D61B80519300F72EC5 /* AccountServiceMock.swift */; };
@@ -116,6 +115,8 @@
 		3EB323B01AE31B190023825D /* AppUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB323AF1AE31B190023825D /* AppUIView.swift */; };
 		3EB323BA1AE31F2C0023825D /* listing@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B81AE31F2C0023825D /* listing@2x.png */; };
 		3EB323BB1AE31F2C0023825D /* notepad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EB323B91AE31F2C0023825D /* notepad@2x.png */; };
+		3EC32E571BC08FF800A8F6AA /* FledgerCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC32E551BC08FF400A8F6AA /* FledgerCommon.framework */; };
+		3EC32E581BC08FF800A8F6AA /* FledgerCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC32E551BC08FF400A8F6AA /* FledgerCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3EEC8C8E1B3614AF008996EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC8C8D1B3614AF008996EF /* LoginViewController.swift */; };
 		3EEC8C8F1B3614AF008996EF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEC8C8D1B3614AF008996EF /* LoginViewController.swift */; };
 		3EF0F0021AED8A0300D14B31 /* AppUIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */; };
@@ -134,14 +135,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		3E21B2A71AD7260400E00AE1 /* CopyFiles */ = {
+		3EC32E591BC08FF900A8F6AA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				3E3918871B78343800F72EC5 /* FledgerCommon.framework in CopyFiles */,
+				3EC32E581BC08FF800A8F6AA /* FledgerCommon.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -203,7 +205,6 @@
 		3E2B87031AE2E83D0080B206 /* AccountEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountEditViewController.swift; sourceTree = "<group>"; };
 		3E2B870B1AE2F4510080B206 /* EditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		3E39186B1B781CE600F72EC5 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtension.swift; path = extensions/ArrayExtension.swift; sourceTree = "<group>"; };
-		3E3918851B78343800F72EC5 /* FledgerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FledgerCommon.framework; path = "../FledgerCommon/Build/Products/Debug-iphonesimulator/FledgerCommon.framework"; sourceTree = "<group>"; };
 		3E3918D31B80517B00F72EC5 /* DatabaseServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseServiceMock.swift; sourceTree = "<group>"; };
 		3E3918D61B80519300F72EC5 /* AccountServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountServiceMock.swift; sourceTree = "<group>"; };
 		3E3918D71B80519300F72EC5 /* ItemServiceMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemServiceMock.swift; sourceTree = "<group>"; };
@@ -227,11 +228,15 @@
 		3EB323AF1AE31B190023825D /* AppUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIView.swift; sourceTree = "<group>"; };
 		3EB323B81AE31F2C0023825D /* listing@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listing@2x.png"; sourceTree = "<group>"; };
 		3EB323B91AE31F2C0023825D /* notepad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notepad@2x.png"; sourceTree = "<group>"; };
+		3EC32E451BC0894700A8F6AA /* FledgerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FledgerCommon.framework; path = ../FledgerCommon/Build/Products/Debug/FledgerCommon.framework; sourceTree = "<group>"; };
+		3EC32E551BC08FF400A8F6AA /* FledgerCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FledgerCommon.framework; path = "../FledgerCommon/Build/Products/Debug-iphonesimulator/FledgerCommon.framework"; sourceTree = "<group>"; };
 		3EEC8C8D1B3614AF008996EF /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EF0F0011AED8A0300D14B31 /* AppUIActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		3EF0F00E1AEF1C3D00D14B31 /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSelectionViewController.swift; sourceTree = "<group>"; };
 		3EF0F0101AEF231900D14B31 /* AppUITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUITableView.swift; sourceTree = "<group>"; };
 		7F24D0230928DA32EB15B61A /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9BA40A8F36548F53A2E64BF3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C52A15CCDEF0519A6D65A6C3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,7 +244,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E3918861B78343800F72EC5 /* FledgerCommon.framework in Frameworks */,
+				3EC32E571BC08FF800A8F6AA /* FledgerCommon.framework in Frameworks */,
+				3B4C7EC72CC8579BE2CA91A3 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,11 +270,12 @@
 		3E21B2611AD7229000E00AE1 = {
 			isa = PBXGroup;
 			children = (
-				3E3918851B78343800F72EC5 /* FledgerCommon.framework */,
+				3EC32E551BC08FF400A8F6AA /* FledgerCommon.framework */,
 				3E21B26C1AD7229000E00AE1 /* fledger-ios */,
 				3E21B2841AD7229000E00AE1 /* fledger-iosTests */,
 				3E21B26B1AD7229000E00AE1 /* Products */,
 				87E925EC407BA5ACAC3AED6A /* Frameworks */,
+				71515DE30395B118FDD2EF59 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -545,9 +552,19 @@
 			path = location;
 			sourceTree = "<group>";
 		};
+		71515DE30395B118FDD2EF59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C52A15CCDEF0519A6D65A6C3 /* Pods.debug.xcconfig */,
+				9BA40A8F36548F53A2E64BF3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		87E925EC407BA5ACAC3AED6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3EC32E451BC0894700A8F6AA /* FledgerCommon.framework */,
 				3E2B86FB1AE01B5A0080B206 /* Accounts.framework */,
 				3E2B86F91AE01B4A0080B206 /* Social.framework */,
 				3E2B86F61AE01AD00080B206 /* Twitter.framework */,
@@ -575,10 +592,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E21B28B1AD7229000E00AE1 /* Build configuration list for PBXNativeTarget "fledger-ios" */;
 			buildPhases = (
+				6B1CAF27F07C04B772550F1E /* Check Pods Manifest.lock */,
 				3E21B2661AD7229000E00AE1 /* Sources */,
 				3E21B2671AD7229000E00AE1 /* Frameworks */,
 				3E21B2681AD7229000E00AE1 /* Resources */,
-				3E21B2A71AD7260400E00AE1 /* CopyFiles */,
+				3EC32E591BC08FF900A8F6AA /* Embed Frameworks */,
+				D020C8E543137361E54A2D0D /* Embed Pods Frameworks */,
+				DB9D37C4A5C37AC2FC870A4E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -613,7 +633,9 @@
 		3E21B2621AD7229000E00AE1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Robert Conrad";
 				TargetAttributes = {
 					3E21B2691AD7229000E00AE1 = {
@@ -668,6 +690,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B1CAF27F07C04B772550F1E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D020C8E543137361E54A2D0D /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB9D37C4A5C37AC2FC870A4E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3E21B2661AD7229000E00AE1 /* Sources */ = {
@@ -843,6 +913,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -910,6 +981,7 @@
 		};
 		3E21B28C1AD7229000E00AE1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C52A15CCDEF0519A6D65A6C3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -928,6 +1000,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-conrad.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "fledger-ios";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/objc/Bridging-Header.h";
@@ -937,6 +1010,7 @@
 		};
 		3E21B28D1AD7229000E00AE1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BA40A8F36548F53A2E64BF3 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -955,6 +1029,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rob-conrad.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "fledger-ios";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "fledger-ios/objc/Bridging-Header.h";
@@ -969,6 +1044,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/rconrad/Dropbox/macbook-air/Projects/FledgerCommon/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -982,6 +1058,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twospec.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "fledger-iosTests";
 				SDKROOT = iphoneos;
 				STRIP_STYLE = all;
@@ -1000,6 +1077,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/rconrad/Dropbox/macbook-air/Projects/FledgerCommon/Build/Products/Debug-iphonesimulator",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = "fledger-iosTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
@@ -1009,6 +1087,7 @@
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.twospec.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "fledger-iosTests";
 				SDKROOT = iphoneos;
 				STRIP_STYLE = all;

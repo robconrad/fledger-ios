@@ -93,7 +93,7 @@ class ItemsViewController: AppUIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "editItem" {
             if let dest = segue.destinationViewController as? ItemEditViewController {
-                if let row = table.indexPathForSelectedRow()?.row {
+                if let row = table.indexPathForSelectedRow?.row {
                     let itemIndex = row - table.itemFilters.countFilters()
                     if itemIndex >= 0 {
                         dest.item = table.items?[itemIndex]
@@ -103,7 +103,7 @@ class ItemsViewController: AppUIViewController {
         }
         else if segue.identifier == "editTransfer" {
             if let dest = segue.destinationViewController as? TransferEditViewController {
-                if let row = table.indexPathForSelectedRow()?.row {
+                if let row = table.indexPathForSelectedRow?.row {
                     let itemIndex = row - table.itemFilters.countFilters()
                     if itemIndex >= 0 {
                         let firstItem = table.items?[itemIndex]

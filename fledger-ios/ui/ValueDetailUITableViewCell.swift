@@ -18,12 +18,12 @@ class ValueDetailUITableViewCell: ValueUITableViewCell {
         detailLeft.font = value.font.fontWithSize(11)
         detailLeft.textColor = AppColors.text()
         
-        detailLeft.setTranslatesAutoresizingMaskIntoConstraints(false)
+        detailLeft.translatesAutoresizingMaskIntoConstraints = false
         
         contentView.addSubview(detailLeft)
     }
     
-    override internal func getConstraintViews() -> [NSObject : AnyObject] {
+    override internal func getConstraintViews() -> [String : AnyObject] {
         var views = super.getConstraintViews()
         views["detailLeft"] = detailLeft
         return views

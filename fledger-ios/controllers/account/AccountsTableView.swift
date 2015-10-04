@@ -58,7 +58,7 @@ class AccountsTableView: AppUITableView, UITableViewDataSource, UITableViewDeleg
             label = account.name
         }
         
-        let cell = dequeueReusableCellWithIdentifier(reuseIdentifier) as! UITableViewCell
+        let cell = dequeueReusableCellWithIdentifier(reuseIdentifier)!
         cell.textLabel?.text = label
         
         return cell

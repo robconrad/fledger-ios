@@ -58,7 +58,7 @@ class GroupsTableView: AppUITableView, UITableViewDataSource, UITableViewDelegat
             label = group.name
         }
         
-        let cell = dequeueReusableCellWithIdentifier(reuseIdentifier) as! UITableViewCell
+        let cell = dequeueReusableCellWithIdentifier(reuseIdentifier)!
         cell.textLabel?.text = label
         
         return cell

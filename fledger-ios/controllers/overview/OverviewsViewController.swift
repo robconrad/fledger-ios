@@ -22,7 +22,7 @@ class OverviewsViewController: AppUITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
         cell.textLabel?.text = OverviewCategory.values[indexPath.row].rawValue
         return cell
     }

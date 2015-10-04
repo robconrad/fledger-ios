@@ -16,7 +16,7 @@ class EditViewController: AppUIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     

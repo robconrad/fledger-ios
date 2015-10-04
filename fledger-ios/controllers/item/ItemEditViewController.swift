@@ -45,13 +45,13 @@ class ItemEditViewController: EditViewController {
         super.viewWillAppear(animated)
         
         item = item?.copy(
-            accountId: selectedAccountId,
+            selectedAccountId,
             date: selectedDate,
             typeId: selectedTypeId,
             locationId: selectedLocationId)
         
         item = item?.clear(
-            locationId: deletedLocation)
+            deletedLocation)
         deletedLocation = false
         
         if let i = item {
@@ -114,7 +114,7 @@ class ItemEditViewController: EditViewController {
             
             if let i = item {
                 errors = !ItemSvc().update(i.copy(
-                    amount: amountValue(includeFlow: true),
+                    amount: amountValue(true),
                     comments: comments.text))
             }
             else {
@@ -123,9 +123,9 @@ class ItemEditViewController: EditViewController {
                     accountId: selectedAccountId!,
                     typeId: selectedTypeId!,
                     locationId: selectedLocationId,
-                    amount: amountValue(includeFlow: true),
+                    amount: amountValue(true),
                     date: selectedDate!,
-                    comments: comments.text))
+                    comments: comments.text!))
                 errors = id == nil
             }
             
@@ -200,7 +200,7 @@ class ItemEditViewController: EditViewController {
     }
     
     func amountValue(includeFlow: Bool = false) -> Double {
-        var a = (amount.text as NSString).doubleValue
+        var a = (amount.text as! NSString).doubleValue
         if includeFlow && !flow.on {
             a = -a
         }
@@ -240,7 +240,7 @@ class ItemEditViewController: EditViewController {
     }
     
     func checkCommentsError() {
-        checkErrors(count(comments.text) == 0, item: commentsLabel)
+        checkErrors(comments.text!.characters.count == 0, item: commentsLabel)
     }
     
     func checkLocationError() {

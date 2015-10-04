@@ -48,11 +48,11 @@ class OverviewViewController: AppUITableViewController {
         for section in sectionRows.keys {
             sections.append(section)
         }
-        sections = sorted(sections, { left, right in
+        sections.sortInPlace({ left, right in
             return left.lowercaseString < right.lowercaseString
         })
         for section in sections {
-            sectionIndices.append(section.substringToIndex(advance(section.startIndex, min(3, count(section)))))
+            sectionIndices.append(section.substringToIndex(section.startIndex.advancedBy(min(3, section.characters.count))))
         }
         
         table.reloadData()
@@ -76,11 +76,11 @@ class OverviewViewController: AppUITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel.textColor = AppColors.text()
+        header.textLabel!.textColor = AppColors.text()
         header.contentView.backgroundColor = AppColors.bgHighlight()
     }
     
-    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [AnyObject]! {
+    override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]! {
         return sectionIndices
     }
     

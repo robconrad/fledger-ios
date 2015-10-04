@@ -38,12 +38,12 @@ class GroupEditViewController: EditViewController {
             
             if let g = group {
                 errors = !GroupSvc().update(g.copy(
-                    name: name.text))
+                    name.text))
             }
             else {
                 id = GroupSvc().insert(Group(
                     id: nil,
-                    name: name.text))
+                    name: name.text!))
                 errors = id == nil
             }
             

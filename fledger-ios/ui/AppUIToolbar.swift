@@ -14,7 +14,7 @@ class AppUIToolbar: UIToolbar, CanStyle {
         barTintColor = AppColors.bgHeaderHighlight()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         applyStyle()

@@ -63,7 +63,7 @@ class LocationSelectionViewController: AppUIViewController, CLLocationManagerDel
         }
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations userLocations: [AnyObject]!) {
+    func locationManager(manager: CLLocationManager, didUpdateLocations userLocations: [CLLocation]) {
         (userLocations[0] as? CLLocation).map { self.table.setUserLocation($0) }
         navigationItem.titleView = nil
         locationManager.stopUpdatingLocation()

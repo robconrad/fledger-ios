@@ -28,9 +28,9 @@ class MainTabBarController: AppUITabBarController {
     }
     
     private func instantiateView(view: ViewController) {
-        let index = find(viewControllerIndices, view)!
-        let c = storyboard?.instantiateViewControllerWithIdentifier(view.rawValue) as! UIViewController
-        self.viewControllers![index] = c
+        let index = viewControllerIndices.indexOf(view)!
+        let c = storyboard?.instantiateViewControllerWithIdentifier(view.rawValue)
+        self.viewControllers![index] = c!
     }
     
 }

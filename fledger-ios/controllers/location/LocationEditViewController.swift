@@ -30,7 +30,7 @@ class LocationEditViewController: CenterPinMapViewController, CenterPinMapViewCo
         model.initializeController(self)
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         super.touchesBegan(touches, withEvent: event)
         model.beginInteraction()
     }
@@ -53,17 +53,17 @@ class LocationEditViewController: CenterPinMapViewController, CenterPinMapViewCo
         model.finishGeocoding(placemark)
     }
     
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        model.updateCoordinateFromLocationManager((locations[0] as! CLLocation).coordinate)
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        model.updateCoordinateFromLocationManager((locations[0] ).coordinate)
     }
     
-    func mapView(mapView: MKMapView!, didSelectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         if let annotation = view.annotation as? LocationAnnotation {
             model.selectAnnotation(annotation)
         }
     }
     
-    func mapView(mapView: MKMapView!, didDeselectAnnotationView view: MKAnnotationView!) {
+    func mapView(mapView: MKMapView, didDeselectAnnotationView view: MKAnnotationView) {
         model.deselectAnnotation()
     }
     
@@ -195,7 +195,7 @@ class LocationEditViewModel {
         lastPlacemark = placemark
         if selectedAnnotation == nil {
             finishGeocoding()
-            address = ABCreateStringWithAddressDictionary(placemark.addressDictionary, true)
+            address = ABCreateStringWithAddressDictionary(placemark.addressDictionary!, true)
             c!.locationLabel.text = address
         }
     }
@@ -219,7 +219,7 @@ class LocationEditViewModel {
     
     func getUpdatedLocation() -> Location? {
         if let annotation = selectedAnnotation {
-            return annotation.location.copy(name: getName())
+            return annotation.location.copy(getName())
         }
         else if coordinate != nil && address != nil {
             return Location(id: locationId, name: getName(), coordinate: coordinate!, address: address!)
